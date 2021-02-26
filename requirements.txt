@@ -1,0 +1,4 @@
+beautifulsoup4==4.9.3
+future==0.18.2
+lxml==4.6.2
+soupsieve==2.2
