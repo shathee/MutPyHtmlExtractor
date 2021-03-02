@@ -1,0 +1,233 @@
+coverage:
+  all_nodes: 6759
+  covered_nodes: 5205
+mutation_score: 100.0
+mutations:
+- exception_traceback: "mocker = <pytest_mock.plugin.MockFixture object at 0x7f56dda140d0>\n\
+    cli_runner = <function cli_runner.<locals>.cli_main at 0x7f56ddc44d30>\n\n   \
+    \ @pytest.mark.usefixtures('remove_fake_project_dir')\n    def test_cli_replay(mocker,\
+    \ cli_runner):\n        \"\"\"Test cli invocation display log with `verbose` and\
+    \ `replay` flags.\"\"\"\n        mock_cookiecutter = mocker.patch('cookiecutter.cli.cookiecutter')\n\
+    \    \n        template_path = 'tests/fake-repo-pre/'\n        result = cli_runner(template_path,\
+    \ '--replay', '-v')\n    \n        assert result.exit_code == 0\n>       mock_cookiecutter.assert_called_once_with(\n\
+    \            template_path,\n            None,\n            False,\n         \
+    \   replay=True,\n            overwrite_if_exists=False,\n            skip_if_file_exists=False,\n\
+    \            output_dir='.',\n            config_file=None,\n            default_config=False,\n\
+    \            extra_context=None,\n            password=None,\n            directory=None,\n\
+    \            accept_hooks=True,\n        )\nE       AssertionError: Expected 'cookiecutter'\
+    \ to be called once. Called 0 times.\n\ntests/test_cli.py:95: AssertionError"
+  killer: tests/test_cli.py::test_cli_replay
+  module: !!python/module:cookiecutter.environment ''
+  mutations:
+  - lineno: 59
+    operator: IOD
+  number: 1
+  status: killed
+  tests_run: 57
+  time: 2.7828428745269775
+- exception_traceback: "invalid_dirname = ''\n\n    @pytest.mark.parametrize('invalid_dirname',\
+    \ ['', '{foo}', '{{foo', 'bar}}'])\n    def test_ensure_dir_is_templated_raises(invalid_dirname):\n\
+    \        \"\"\"Verify `ensure_dir_is_templated` raises on wrong directories names\
+    \ input.\"\"\"\n        with pytest.raises(exceptions.NonTemplatedInputDirException):\n\
+    >           generate.ensure_dir_is_templated(invalid_dirname)\n\ntests/test_generate_files.py:19:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ndirname = ''\n\n    def ensure_dir_is_templated(dirname):\n\
+    \        \"\"\"Ensure that dirname is a templated directory name.\"\"\"\n    \
+    \    if '{{' in dirname and '}}' in dirname:\n            return True\n      \
+    \  else:\n>           raise NonTemplatedInputDirException\nE           cookiecutter.exceptions.NonTemplatedInputDirException\n\
+    \ncookiecutter/generate.py:226: NonTemplatedInputDirException"
+  killer: tests/test_generate_files.py::test_ensure_dir_is_templated_raises[]
+  module: &id001 !!python/module:cookiecutter.exceptions ''
+  mutations:
+  - lineno: 118
+    operator: IOD
+  number: 2
+  status: killed
+  tests_run: 12
+  time: 0.6520137786865234
+- exception_traceback: "invalid_dirname = ''\n\n    @pytest.mark.parametrize('invalid_dirname',\
+    \ ['', '{foo}', '{{foo', 'bar}}'])\n    def test_ensure_dir_is_templated_raises(invalid_dirname):\n\
+    \        \"\"\"Verify `ensure_dir_is_templated` raises on wrong directories names\
+    \ input.\"\"\"\n        with pytest.raises(exceptions.NonTemplatedInputDirException):\n\
+    >           generate.ensure_dir_is_templated(invalid_dirname)\n\ntests/test_generate_files.py:19:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ndirname = ''\n\n    def ensure_dir_is_templated(dirname):\n\
+    \        \"\"\"Ensure that dirname is a templated directory name.\"\"\"\n    \
+    \    if '{{' in dirname and '}}' in dirname:\n            return True\n      \
+    \  else:\n>           raise NonTemplatedInputDirException\nE           cookiecutter.exceptions.NonTemplatedInputDirException\n\
+    \ncookiecutter/generate.py:226: NonTemplatedInputDirException"
+  killer: tests/test_generate_files.py::test_ensure_dir_is_templated_raises[]
+  module: *id001
+  mutations:
+  - lineno: 124
+    operator: IOD
+  number: 3
+  status: killed
+  tests_run: 12
+  time: 0.6533493995666504
+- exception_traceback: "invalid_dirname = ''\n\n    @pytest.mark.parametrize('invalid_dirname',\
+    \ ['', '{foo}', '{{foo', 'bar}}'])\n    def test_ensure_dir_is_templated_raises(invalid_dirname):\n\
+    \        \"\"\"Verify `ensure_dir_is_templated` raises on wrong directories names\
+    \ input.\"\"\"\n        with pytest.raises(exceptions.NonTemplatedInputDirException):\n\
+    >           generate.ensure_dir_is_templated(invalid_dirname)\n\ntests/test_generate_files.py:19:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ndirname = ''\n\n    def ensure_dir_is_templated(dirname):\n\
+    \        \"\"\"Ensure that dirname is a templated directory name.\"\"\"\n    \
+    \    if '{{' in dirname and '}}' in dirname:\n            return True\n      \
+    \  else:\n>           raise NonTemplatedInputDirException\nE           cookiecutter.exceptions.NonTemplatedInputDirException\n\
+    \ncookiecutter/generate.py:226: NonTemplatedInputDirException"
+  killer: tests/test_generate_files.py::test_ensure_dir_is_templated_raises[]
+  module: &id002 !!python/module:cookiecutter.extensions ''
+  mutations:
+  - lineno: 13
+    operator: IOD
+  number: 4
+  status: killed
+  tests_run: 12
+  time: 0.8208119869232178
+- exception_traceback: "invalid_dirname = ''\n\n    @pytest.mark.parametrize('invalid_dirname',\
+    \ ['', '{foo}', '{{foo', 'bar}}'])\n    def test_ensure_dir_is_templated_raises(invalid_dirname):\n\
+    \        \"\"\"Verify `ensure_dir_is_templated` raises on wrong directories names\
+    \ input.\"\"\"\n        with pytest.raises(exceptions.NonTemplatedInputDirException):\n\
+    >           generate.ensure_dir_is_templated(invalid_dirname)\n\ntests/test_generate_files.py:19:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ndirname = ''\n\n    def ensure_dir_is_templated(dirname):\n\
+    \        \"\"\"Ensure that dirname is a templated directory name.\"\"\"\n    \
+    \    if '{{' in dirname and '}}' in dirname:\n            return True\n      \
+    \  else:\n>           raise NonTemplatedInputDirException\nE           cookiecutter.exceptions.NonTemplatedInputDirException\n\
+    \ncookiecutter/generate.py:226: NonTemplatedInputDirException"
+  killer: tests/test_generate_files.py::test_ensure_dir_is_templated_raises[]
+  module: *id002
+  mutations:
+  - lineno: 26
+    operator: IOD
+  number: 5
+  status: killed
+  tests_run: 12
+  time: 0.6585817337036133
+- exception_traceback: "invalid_dirname = ''\n\n    @pytest.mark.parametrize('invalid_dirname',\
+    \ ['', '{foo}', '{{foo', 'bar}}'])\n    def test_ensure_dir_is_templated_raises(invalid_dirname):\n\
+    \        \"\"\"Verify `ensure_dir_is_templated` raises on wrong directories names\
+    \ input.\"\"\"\n        with pytest.raises(exceptions.NonTemplatedInputDirException):\n\
+    >           generate.ensure_dir_is_templated(invalid_dirname)\n\ntests/test_generate_files.py:19:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ndirname = ''\n\n    def ensure_dir_is_templated(dirname):\n\
+    \        \"\"\"Ensure that dirname is a templated directory name.\"\"\"\n    \
+    \    if '{{' in dirname and '}}' in dirname:\n            return True\n      \
+    \  else:\n>           raise NonTemplatedInputDirException\nE           cookiecutter.exceptions.NonTemplatedInputDirException\n\
+    \ncookiecutter/generate.py:226: NonTemplatedInputDirException"
+  killer: tests/test_generate_files.py::test_ensure_dir_is_templated_raises[]
+  module: *id002
+  mutations:
+  - lineno: 43
+    operator: IOD
+  number: 6
+  status: killed
+  tests_run: 12
+  time: 0.6607506275177002
+number_of_tests: 204
+targets:
+- cookiecutter/
+tests:
+- name: tests.conftest
+  target: null
+  time: 1.182474136352539
+- name: tests.test_abort_generate_on_hook_error
+  target: null
+  time: 0.826444149017334
+- name: tests.test_cli
+  target: null
+  time: 0.7976062297821045
+- name: tests.test_cookiecutter_invocation
+  target: null
+  time: 0.9058592319488525
+- name: tests.test_cookiecutter_local_no_input
+  target: null
+  time: 0.5423908233642578
+- name: tests.test_cookiecutter_local_with_input
+  target: null
+  time: 0.38321709632873535
+- name: tests.test_custom_extensions_in_hooks
+  target: null
+  time: 0.9627730846405029
+- name: tests.test_default_extensions
+  target: null
+  time: 0.5753295421600342
+- name: tests.test_environment
+  target: null
+  time: 0.3496851921081543
+- name: tests.test_exceptions
+  target: null
+  time: 0.35497212409973145
+- name: tests.test_find
+  target: null
+  time: 0.35791563987731934
+- name: tests.test_generate_context
+  target: null
+  time: 0.3855745792388916
+- name: tests.test_generate_copy_without_render
+  target: null
+  time: 0.37174320220947266
+- name: tests.test_generate_file
+  target: null
+  time: 0.4123804569244385
+- name: tests.test_generate_files
+  target: null
+  time: 0.8654670715332031
+- name: tests.test_generate_hooks
+  target: null
+  time: 1.5125236511230469
+- name: tests.test_get_config
+  target: null
+  time: 0.3653585910797119
+- name: tests.test_get_user_config
+  target: null
+  time: 0.3846395015716553
+- name: tests.test_hooks
+  target: null
+  time: 0.7087130546569824
+- name: tests.test_log
+  target: null
+  time: 0.3582451343536377
+- name: tests.test_main
+  target: null
+  time: 0.460024356842041
+- name: tests.test_output_folder
+  target: null
+  time: 0.37696337699890137
+- name: tests.test_preferred_encoding
+  target: null
+  time: 0.34328651428222656
+- name: tests.test_prompt
+  target: null
+  time: 0.5536844730377197
+- name: tests.test_read_repo_password
+  target: null
+  time: 0.34655046463012695
+- name: tests.test_read_user_choice
+  target: null
+  time: 0.38843488693237305
+- name: tests.test_read_user_dict
+  target: null
+  time: 0.3861072063446045
+- name: tests.test_read_user_variable
+  target: null
+  time: 0.41971683502197266
+- name: tests.test_read_user_yes_no
+  target: null
+  time: 0.3548417091369629
+- name: tests.test_repo_not_found
+  target: null
+  time: 0.3462843894958496
+- name: tests.test_specify_output_dir
+  target: null
+  time: 0.39706969261169434
+- name: tests.test_utils
+  target: null
+  time: 0.4267609119415283
+time_stats:
+  create_mutant_module: 0.003204345703125
+  create_target_ast: 0.061621665954589844
+  mutate_module: 140.93282079696655
+  run_tests_with_mutant: 9.530452013015747
+total_time: 158.5345401763916

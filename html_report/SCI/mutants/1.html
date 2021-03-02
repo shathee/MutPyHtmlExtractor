@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MutPy mutation report - mutation #1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    
+<link href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPython.js" type="text/javascript"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+    window.setTimeout(function () {
+        
+        $('.line.number118').attr('title', 'SCI');
+        
+    }, 0);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        
+<div class="page-header">
+    <h1>Mutation #1</h1>
+</div>
+<h3>Details</h3>
+<ul>
+    <li>module - <code><module 'cookiecutter.exceptions' from '/usr/baki/python_projects/cookiecutter/cookiecutter/exceptions.py'></code></li>
+    <li><span class="label label-success">killed</span> by <code>tests/test_get_user_config.py::test_get_user_config_invalid</code></li>
+    
+    <li>duration - 0.638 s</li>
+    
+    
+    <li>tests run - 2</li>
+    
+</ul>
+
+<h3>Exception traceback</h3>
+<pre>config_file = None, default_config = False
+
+>   ???
+
+cookiecutter.config:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = environ({'SHELL': '/bin/bash', 'PWD': '/usr/baki/python_projects/cookiecutter', 'LOGNAME': 'ubuntu', 'XDG_SESSION_TYPE.../cookiecutter/.coverage', 'PYTEST_CURRENT_TEST': 'tests/test_get_user_config.py::test_get_user_config_invalid (call)'})
+key = 'COOKIECUTTER_CONFIG'
+
+    def __getitem__(self, key):
+        try:
+            value = self._data[self.encodekey(key)]
+        except KeyError:
+            # raise KeyError with the original key value
+>           raise KeyError(key) from None
+E           KeyError: 'COOKIECUTTER_CONFIG'
+
+/usr/lib/python3.8/os.py:675: KeyError
+
+During handling of the above exception, another exception occurred:
+
+config_path = '/home/ubuntu/.cookiecutterrc'
+
+>   ???
+
+cookiecutter.config:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string = 'default_context\n    full_name:\n    email: "firstname.lastname@gmail.com"\n    github_username: "example"\ncookiecutters_dir: "/home/example/some-path-to-templates"\n'
+
+    def parse_string(string):
+        parser = _Parser(string)
+>       return parser()
+
+/usr/local/lib/python3.8/dist-packages/poyo-0.5.0-py3.8.egg/poyo/parser.py:280: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <poyo.parser._Parser object at 0x7f27c3ea4730>
+
+    def __call__(self):
+        """Parse the given string data and sequentually update the current
+        cursor position until the end is reached.
+    
+        Return the Root object if successful.
+        """
+        while self.pos < self.max_pos:
+>           match = self.find_match()
+
+/usr/local/lib/python3.8/dist-packages/poyo-0.5.0-py3.8.egg/poyo/parser.py:273: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <poyo.parser._Parser object at 0x7f27c3ea4730>
+
+    def find_match(self):
+        """Try to find a pattern that matches the source and calll a parser
+        method to create Python objects.
+    
+        A callback that raises an IgnoredMatchException indicates that the
+        given string data is ignored by the parser and no objects are created.
+    
+        If none of the pattern match a NoMatchException is raised.
+        """
+        for pattern, callback in self.rules:
+            match = pattern.match(self.source, pos=self.pos)
+    
+            if not match:
+                continue
+    
+            try:
+                node = callback(match)
+            except IgnoredMatchException:
+                pass
+            else:
+                self.seen.append(node)
+    
+            return match
+    
+>       raise NoMatchException(
+            "None of the known patterns match for {}" "".format(self.source[self.pos :])
+        )
+E       poyo.exceptions.NoMatchException: None of the known patterns match for default_context
+E           full_name:
+E           email: "firstname.lastname@gmail.com"
+E           github_username: "example"
+E       cookiecutters_dir: "/home/example/some-path-to-templates"
+
+/usr/local/lib/python3.8/dist-packages/poyo-0.5.0-py3.8.egg/poyo/parser.py:262: NoMatchException
+
+During handling of the above exception, another exception occurred:
+
+user_config_path = '/home/ubuntu/.cookiecutterrc'
+
+    @pytest.mark.usefixtures('back_up_rc')
+    def test_get_user_config_invalid(user_config_path):
+        """Validate `InvalidConfiguration` raised when provided user config malformed."""
+        shutil.copy('tests/test-config/invalid-config.yaml', user_config_path)
+        with pytest.raises(InvalidConfiguration):
+>           config.get_user_config()
+
+tests/test_get_user_config.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cookiecutter.config:116: in get_user_config
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+config_path = '/home/ubuntu/.cookiecutterrc'
+
+>   ???
+E   cookiecutter.exceptions.InvalidConfiguration: Unable to parse YAML file /home/ubuntu/.cookiecutterrc. Error: None of the known patterns match for default_context
+E       full_name:
+E       email: "firstname.lastname@gmail.com"
+E       github_username: "example"
+E   cookiecutters_dir: "/home/example/some-path-to-templates"
+
+cookiecutter.config:67: InvalidConfiguration</pre>
+
+<h3>Mutations</h3>
+<ul>
+    
+    <li>SCI - line 118</li>
+    
+</ul>
+<h3>Mutant</h3>
+<pre class="brush: python; first-line: 1; highlight: [118]; toolbar: false;">'''All exceptions used in the Cookiecutter code base are defined here.'''
+
+
+class CookiecutterException(Exception):
+    '''
+    Base exception class.
+
+    All Cookiecutter-specific exceptions should subclass this class.
+    '''
+
+
+class NonTemplatedInputDirException(CookiecutterException):
+    """
+    Exception for when a project's input dir is not templated.
+
+    The name of the input directory should always contain a string that is
+    rendered to something else, so that input_dir != output_dir.
+    """
+
+
+class UnknownTemplateDirException(CookiecutterException):
+    '''
+    Exception for ambiguous project template directory.
+
+    Raised when Cookiecutter cannot determine which directory is the project
+    template, e.g. more than one dir appears to be a template dir.
+    '''
+
+
+
+
+class MissingProjectDir(CookiecutterException):
+    """
+    Exception for missing generated project directory.
+
+    Raised during cleanup when remove_repo() can't find a generated project
+    directory inside of a repo.
+    """
+
+
+
+
+class ConfigDoesNotExistException(CookiecutterException):
+    '''
+    Exception for missing config file.
+
+    Raised when get_config() is passed a path to a config file, but no file
+    is found at that path.
+    '''
+
+
+class InvalidConfiguration(CookiecutterException):
+    '''
+    Exception for invalid configuration file.
+
+    Raised if the global configuration file is not valid YAML or is
+    badly constructed.
+    '''
+
+
+class UnknownRepoType(CookiecutterException):
+    """
+    Exception for unknown repo types.
+
+    Raised if a repo's type cannot be determined.
+    """
+
+
+class VCSNotInstalled(CookiecutterException):
+    '''
+    Exception when version control is unavailable.
+
+    Raised if the version control system (git or hg) is not installed.
+    '''
+
+
+class ContextDecodingException(CookiecutterException):
+    """
+    Exception for failed JSON decoding.
+
+    Raised when a project's JSON context file can not be decoded.
+    """
+
+
+class OutputDirExistsException(CookiecutterException):
+    '''
+    Exception for existing output directory.
+
+    Raised when the output directory of the project exists already.
+    '''
+
+
+class InvalidModeException(CookiecutterException):
+    '''
+    Exception for incompatible modes.
+
+    Raised when cookiecutter is called with both `no_input==True` and
+    `replay==True` at the same time.
+    '''
+
+
+class FailedHookException(CookiecutterException):
+    '''
+    Exception for hook failures.
+
+    Raised when a hook script fails.
+    '''
+
+
+class UndefinedVariableInTemplate(CookiecutterException):
+    '''
+    Exception for out-of-scope variables.
+
+    Raised when a template uses a variable which is not defined in the
+    context.
+    '''
+    
+    def __init__(self, message, error, context):
+        super().__init__(message, error, context)
+        '''Exception for out-of-scope variables.'''
+        self.message = message
+        self.error = error
+        self.context = context
+    def __str__(self):
+        '''Text representation of UndefinedVariableInTemplate.'''
+        return \
+            '{self.message}. Error message: {self.error.message}. Context: {self.context}'.format(**\
+            \
+            \
+            locals())
+
+
+class UnknownExtension(CookiecutterException):
+    '''
+    Exception for un-importable extention.
+
+    Raised when an environment is unable to import a required extension.
+    '''
+
+
+class RepositoryNotFound(CookiecutterException):
+    """
+    Exception for missing repo.
+
+    Raised when the specified cookiecutter repository doesn't exist.
+    """
+
+
+class RepositoryCloneFailed(CookiecutterException):
+    """
+    Exception for un-cloneable repo.
+
+    Raised when a cookiecutter template can't be cloned.
+    """
+
+
+class InvalidZipRepository(CookiecutterException):
+    """
+    Exception for bad zip repo.
+
+    Raised when the specified cookiecutter repository isn't a valid
+    Zip archive.
+    """</pre>
+
+    </div>
+</body>
+</html>

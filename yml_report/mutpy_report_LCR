@@ -1,0 +1,506 @@
+coverage:
+  all_nodes: 6759
+  covered_nodes: 5205
+mutation_score: 90.9090909090909
+mutations:
+- exception_traceback: "mocker = <pytest_mock.plugin.MockFixture object at 0x7fe39c3936a0>\n\
+    cli_runner = <function cli_runner.<locals>.cli_main at 0x7fe39c50b9d0>\n\n   \
+    \ @pytest.mark.usefixtures('remove_fake_project_dir')\n    def test_cli_replay(mocker,\
+    \ cli_runner):\n        \"\"\"Test cli invocation display log with `verbose` and\
+    \ `replay` flags.\"\"\"\n        mock_cookiecutter = mocker.patch('cookiecutter.cli.cookiecutter')\n\
+    \    \n        template_path = 'tests/fake-repo-pre/'\n        result = cli_runner(template_path,\
+    \ '--replay', '-v')\n    \n>       assert result.exit_code == 0\nE       AssertionError\n\
+    \ntests/test_cli.py:94: AssertionError"
+  killer: tests/test_cli.py::test_cli_replay
+  module: &id001 !!python/module:cookiecutter.cli ''
+  mutations:
+  - lineno: 44
+    operator: LCR
+  number: 1
+  status: killed
+  tests_run: -32
+  time: 0.6673212051391602
+- exception_traceback: "mocker = <pytest_mock.plugin.MockFixture object at 0x7fe39c568df0>\n\
+    cli_runner = <function cli_runner.<locals>.cli_main at 0x7fe39c5e7b80>\n\n   \
+    \ @pytest.mark.usefixtures('remove_fake_project_dir')\n    def test_cli_replay(mocker,\
+    \ cli_runner):\n        \"\"\"Test cli invocation display log with `verbose` and\
+    \ `replay` flags.\"\"\"\n        mock_cookiecutter = mocker.patch('cookiecutter.cli.cookiecutter')\n\
+    \    \n        template_path = 'tests/fake-repo-pre/'\n        result = cli_runner(template_path,\
+    \ '--replay', '-v')\n    \n        assert result.exit_code == 0\n>       mock_cookiecutter.assert_called_once_with(\n\
+    \            template_path,\n            None,\n            False,\n         \
+    \   replay=True,\n            overwrite_if_exists=False,\n            skip_if_file_exists=False,\n\
+    \            output_dir='.',\n            config_file=None,\n            default_config=False,\n\
+    \            extra_context=None,\n            password=None,\n            directory=None,\n\
+    \            accept_hooks=True,\n        )\nE       AssertionError: Expected 'cookiecutter'\
+    \ to be called once. Called 0 times.\n\ntests/test_cli.py:95: AssertionError"
+  killer: tests/test_cli.py::test_cli_replay
+  module: *id001
+  mutations:
+  - lineno: 174
+    operator: LCR
+  number: 2
+  status: killed
+  tests_run: -32
+  time: 0.8456370830535889
+- exception_traceback: null
+  killer: null
+  module: !!python/module:cookiecutter.config ''
+  mutations:
+  - lineno: 104
+    operator: LCR
+  number: 3
+  status: incompetent
+  tests_run: -115
+  time: 0.7080786228179932
+- exception_traceback: null
+  killer: null
+  module: !!python/module:cookiecutter.find ''
+  mutations:
+  - lineno: 22
+    operator: LCR
+  number: 4
+  status: survived
+  tests_run: -195
+  time: 0.7895033359527588
+- exception_traceback: "tmp_path = PosixPath('/tmp/pytest-of-ubuntu/pytest-643/test_generate_files_with_overw0')\n\
+    \n    def test_generate_files_with_overwrite_if_exists_with_skip_if_file_exists(tmp_path):\n\
+    \        \"\"\"Verify `skip_if_file_exist` has priority over `overwrite_if_exists`.\"\
+    \"\"\n        simple_file = Path(tmp_path, 'inputpizz\xE4/simple.txt')\n     \
+    \   simple_with_new_line_file = Path(tmp_path, 'inputpizz\xE4/simple-with-newline.txt')\n\
+    \    \n        Path(tmp_path, 'inputpizz\xE4').mkdir(parents=True)\n        with\
+    \ open(simple_file, 'w') as f:\n            f.write('temp')\n    \n        generate.generate_files(\n\
+    \            context={'cookiecutter': {'food': 'pizz\xE4'}},\n            repo_dir='tests/test-generate-files',\n\
+    \            overwrite_if_exists=True,\n            skip_if_file_exists=True,\n\
+    \            output_dir=tmp_path,\n        )\n    \n        assert Path(simple_file).is_file()\n\
+    \        assert Path(simple_file).exists()\n>       assert Path(simple_with_new_line_file).is_file()\n\
+    E       AssertionError\n\ntests/test_generate_files.py:258: AssertionError"
+  killer: tests/test_generate_files.py::test_generate_files_with_overwrite_if_exists_with_skip_if_file_exists
+  module: &id002 !!python/module:cookiecutter.generate ''
+  mutations:
+  - lineno: 146
+    operator: LCR
+  number: 5
+  status: killed
+  tests_run: 6
+  time: 0.9471814632415771
+- exception_traceback: "invalid_dirname = ''\n\n    @pytest.mark.parametrize('invalid_dirname',\
+    \ ['', '{foo}', '{{foo', 'bar}}'])\n    def test_ensure_dir_is_templated_raises(invalid_dirname):\n\
+    \        \"\"\"Verify `ensure_dir_is_templated` raises on wrong directories names\
+    \ input.\"\"\"\n        with pytest.raises(exceptions.NonTemplatedInputDirException):\n\
+    >           generate.ensure_dir_is_templated(invalid_dirname)\n\ntests/test_generate_files.py:19:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ndirname = ''\n\n>   ???\nE \
+    \  cookiecutter.exceptions.NonTemplatedInputDirException\n\ncookiecutter.generate:226:\
+    \ NonTemplatedInputDirException"
+  killer: tests/test_generate_files.py::test_ensure_dir_is_templated_raises[]
+  module: *id002
+  mutations:
+  - lineno: 223
+    operator: LCR
+  number: 6
+  status: killed
+  tests_run: 1
+  time: 0.8241550922393799
+- exception_traceback: "repo_dir = 'tests/test-generate-files', context = OrderedDict()\n\
+    output_dir = PosixPath('/tmp/pytest-of-ubuntu/pytest-644/test_generate_files0'),\
+    \ overwrite_if_exists = False\nskip_if_file_exists = False, accept_hooks = True\n\
+    \n>   ???\n\ncookiecutter.generate:282: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ \n\ndirname = 'input{{cookiecutter.food}}', context = OrderedDict()\n\
+    output_dir = PosixPath('/tmp/pytest-of-ubuntu/pytest-644/test_generate_files0')\n\
+    environment = <cookiecutter.environment.StrictEnvironment object at 0x7fe39c17ab50>,\
+    \ overwrite_if_exists = False\n\n>   ???\n\ncookiecutter.generate:197: \n_ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <Template memory:7fe39c17afd0>,\
+    \ args = (), kwargs = {}, vars = {}\n\n    def render(self, *args, **kwargs):\n\
+    \        \"\"\"This method accepts the same arguments as the `dict` constructor:\n\
+    \        A dict, a dict subclass or some keyword arguments.  If no arguments\n\
+    \        are given the context will be empty.  These two calls do the same::\n\
+    \    \n            template.render(knights='that say nih')\n            template.render({'knights':\
+    \ 'that say nih'})\n    \n        This will return the rendered template as unicode\
+    \ string.\n        \"\"\"\n        vars = dict(*args, **kwargs)\n        try:\n\
+    \            return concat(self.root_render_func(self.new_context(vars)))\n  \
+    \      except Exception:\n>           self.environment.handle_exception()\n\n\
+    /home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py:1090: \n\
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <cookiecutter.environment.StrictEnvironment\
+    \ object at 0x7fe39c17ab50>, source = None\n\n    def handle_exception(self, source=None):\n\
+    \        \"\"\"Exception handling helper.  This is used internally to either raise\n\
+    \        rewritten exceptions or return a rendered traceback for the template.\n\
+    \        \"\"\"\n        from .debug import rewrite_traceback_stack\n    \n> \
+    \      reraise(*rewrite_traceback_stack(source=source))\n\n/home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py:832:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ntp = <class 'jinja2.exceptions.UndefinedError'>,\
+    \ value = UndefinedError(\"'cookiecutter' is undefined\")\ntb = <traceback object\
+    \ at 0x7fe39bb5df80>\n\n    def reraise(tp, value, tb=None):\n        if value.__traceback__\
+    \ is not tb:\n>           raise value.with_traceback(tb)\n\n/home/ubuntu/.local/lib/python3.8/site-packages/jinja2/_compat.py:28:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n>   ???\n\n<template>:1: \n\
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <cookiecutter.environment.StrictEnvironment\
+    \ object at 0x7fe39c17ab50>, obj = Undefined, attribute = 'food'\n\n    def getattr(self,\
+    \ obj, attribute):\n        \"\"\"Get an item or attribute of an object but prefer\
+    \ the attribute.\n        Unlike :meth:`getitem` the attribute *must* be a bytestring.\n\
+    \        \"\"\"\n        try:\n>           return getattr(obj, attribute)\nE \
+    \          jinja2.exceptions.UndefinedError: 'cookiecutter' is undefined\n\n/home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py:471:\
+    \ UndefinedError\n\nDuring handling of the above exception, another exception\
+    \ occurred:\n\ntmp_path = PosixPath('/tmp/pytest-of-ubuntu/pytest-644/test_generate_files0')\n\
+    \n    def test_generate_files(tmp_path):\n        \"\"\"Verify directory name\
+    \ correctly rendered with unicode containing context.\"\"\"\n>       generate.generate_files(\n\
+    \            context={'cookiecutter': {'food': 'pizz\xE4'}},\n            repo_dir='tests/test-generate-files',\n\
+    \            output_dir=tmp_path,\n        )\n\ntests/test_generate_files.py:38:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nrepo_dir = 'tests/test-generate-files',\
+    \ context = OrderedDict()\noutput_dir = PosixPath('/tmp/pytest-of-ubuntu/pytest-644/test_generate_files0'),\
+    \ overwrite_if_exists = False\nskip_if_file_exists = False, accept_hooks = True\n\
+    \n>   ???\nE   cookiecutter.exceptions.UndefinedVariableInTemplate: Unable to\
+    \ create project directory 'input{{cookiecutter.food}}'. Error message: 'cookiecutter'\
+    \ is undefined. Context: OrderedDict()\n\ncookiecutter.generate:287: UndefinedVariableInTemplate"
+  killer: tests/test_generate_files.py::test_generate_files
+  module: *id002
+  mutations:
+  - lineno: 274
+    operator: LCR
+  number: 7
+  status: killed
+  tests_run: -4
+  time: 0.7660939693450928
+- exception_traceback: "self = <tests.test_hooks.TestFindHooks object at 0x7fe39c2ad9d0>\n\
+    \n    def test_find_hook(self):\n        \"\"\"Finds the specified hook.\"\"\"\
+    \n        with utils.work_in(self.repo_path):\n            expected_pre = os.path.abspath('hooks/pre_gen_project.py')\n\
+    \            actual_hook_path = hooks.find_hook('pre_gen_project')\n>        \
+    \   assert expected_pre == actual_hook_path[0]\nE           AssertionError\n\n\
+    tests/test_hooks.py:91: AssertionError"
+  killer: tests/test_hooks.py::TestFindHooks::test_find_hook
+  module: !!python/module:cookiecutter.hooks ''
+  mutations:
+  - lineno: 36
+    operator: LCR
+  number: 8
+  status: killed
+  tests_run: -79
+  time: 0.6572108268737793
+- exception_traceback: "monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fe39bf8feb0>\n\
+    \n    @pytest.mark.usefixtures('clean_system', 'remove_additional_dirs')\n   \
+    \ def test_cookiecutter_input_extra_context(monkeypatch):\n        \"\"\"Verify\
+    \ simple cookiecutter run results, with extra_context provided.\"\"\"\n      \
+    \  monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_variable',\
+    \ lambda var, default: default\n        )\n>       main.cookiecutter(\n      \
+    \      'tests/fake-repo-pre',\n            no_input=False,\n            extra_context={'repo_name':\
+    \ 'fake-project-input-extra'},\n        )\n\ntests/test_cookiecutter_local_with_input.py:39:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ntemplate = 'tests/fake-repo-pre',\
+    \ checkout = None, no_input = False\nextra_context = {'repo_name': 'fake-project-input-extra'},\
+    \ replay = None, overwrite_if_exists = False\noutput_dir = '.', config_file =\
+    \ None, default_config = False, password = None, directory = None\nskip_if_file_exists\
+    \ = False, accept_hooks = True\n\n>   ???\nE   cookiecutter.exceptions.InvalidModeException:\
+    \ You can not use both replay and no_input or extra_context at the same time.\n\
+    \ncookiecutter.main:60: InvalidModeException"
+  killer: tests/test_cookiecutter_local_with_input.py::test_cookiecutter_input_extra_context
+  module: &id003 !!python/module:cookiecutter.main ''
+  mutations:
+  - lineno: 55
+    operator: LCR
+  number: 9
+  status: killed
+  tests_run: -24
+  time: 0.7660813331604004
+- exception_traceback: "context_file = '/tmp/pytest-of-ubuntu/pytest-648/test_api_invocation0/template/cookiecutter.json'\n\
+    default_context = OrderedDict(), extra_context = None\n\n    def generate_context(\n\
+    \        context_file='cookiecutter.json', default_context=None, extra_context=None\n\
+    \    ):\n        \"\"\"Generate the context for a Cookiecutter project template.\n\
+    \    \n        Loads the JSON file as a Python object, with key being the JSON\
+    \ filename.\n    \n        :param context_file: JSON file containing key/value\
+    \ pairs for populating\n            the cookiecutter's variables.\n        :param\
+    \ default_context: Dictionary containing config to take into account.\n      \
+    \  :param extra_context: Dictionary containing configuration overrides\n     \
+    \   \"\"\"\n        context = OrderedDict([])\n    \n        try:\n          \
+    \  with open(context_file, encoding='utf-8') as file_handle:\n>              \
+    \ obj = json.load(file_handle, object_pairs_hook=OrderedDict)\n\ncookiecutter/generate.py:86:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfp = <_io.TextIOWrapper name='/tmp/pytest-of-ubuntu/pytest-648/test_api_invocation0/template/cookiecutter.json'\
+    \ mode='r' encoding='utf-8'>\ncls = None, object_hook = None, parse_float = None,\
+    \ parse_int = None, parse_constant = None\nobject_pairs_hook = <class 'collections.OrderedDict'>,\
+    \ kw = {}\n\n    def load(fp, *, cls=None, object_hook=None, parse_float=None,\n\
+    \            parse_int=None, parse_constant=None, object_pairs_hook=None, **kw):\n\
+    \        \"\"\"Deserialize ``fp`` (a ``.read()``-supporting file-like object containing\n\
+    \        a JSON document) to a Python object.\n    \n        ``object_hook`` is\
+    \ an optional function that will be called with the\n        result of any object\
+    \ literal decode (a ``dict``). The return value of\n        ``object_hook`` will\
+    \ be used instead of the ``dict``. This feature\n        can be used to implement\
+    \ custom decoders (e.g. JSON-RPC class hinting).\n    \n        ``object_pairs_hook``\
+    \ is an optional function that will be called with the\n        result of any\
+    \ object literal decoded with an ordered list of pairs.  The\n        return value\
+    \ of ``object_pairs_hook`` will be used instead of the ``dict``.\n        This\
+    \ feature can be used to implement custom decoders.  If ``object_hook``\n    \
+    \    is also defined, the ``object_pairs_hook`` takes priority.\n    \n      \
+    \  To use a custom ``JSONDecoder`` subclass, specify it with the ``cls``\n   \
+    \     kwarg; otherwise ``JSONDecoder`` is used.\n        \"\"\"\n>       return\
+    \ loads(fp.read(),\n            cls=cls, object_hook=object_hook,\n          \
+    \  parse_float=parse_float, parse_int=parse_int,\n            parse_constant=parse_constant,\
+    \ object_pairs_hook=object_pairs_hook, **kw)\n\n/usr/lib/python3.8/json/__init__.py:293:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ns = '', cls = <class 'json.decoder.JSONDecoder'>,\
+    \ object_hook = None, parse_float = None, parse_int = None\nparse_constant = None,\
+    \ object_pairs_hook = <class 'collections.OrderedDict'>\nkw = {'object_pairs_hook':\
+    \ <class 'collections.OrderedDict'>}\n\n    def loads(s, *, cls=None, object_hook=None,\
+    \ parse_float=None,\n            parse_int=None, parse_constant=None, object_pairs_hook=None,\
+    \ **kw):\n        \"\"\"Deserialize ``s`` (a ``str``, ``bytes`` or ``bytearray``\
+    \ instance\n        containing a JSON document) to a Python object.\n    \n  \
+    \      ``object_hook`` is an optional function that will be called with the\n\
+    \        result of any object literal decode (a ``dict``). The return value of\n\
+    \        ``object_hook`` will be used instead of the ``dict``. This feature\n\
+    \        can be used to implement custom decoders (e.g. JSON-RPC class hinting).\n\
+    \    \n        ``object_pairs_hook`` is an optional function that will be called\
+    \ with the\n        result of any object literal decoded with an ordered list\
+    \ of pairs.  The\n        return value of ``object_pairs_hook`` will be used instead\
+    \ of the ``dict``.\n        This feature can be used to implement custom decoders.\
+    \  If ``object_hook``\n        is also defined, the ``object_pairs_hook`` takes\
+    \ priority.\n    \n        ``parse_float``, if specified, will be called with\
+    \ the string\n        of every JSON float to be decoded. By default this is equivalent\
+    \ to\n        float(num_str). This can be used to use another datatype or parser\n\
+    \        for JSON floats (e.g. decimal.Decimal).\n    \n        ``parse_int``,\
+    \ if specified, will be called with the string\n        of every JSON int to be\
+    \ decoded. By default this is equivalent to\n        int(num_str). This can be\
+    \ used to use another datatype or parser\n        for JSON integers (e.g. float).\n\
+    \    \n        ``parse_constant``, if specified, will be called with one of the\n\
+    \        following strings: -Infinity, Infinity, NaN.\n        This can be used\
+    \ to raise an exception if invalid JSON numbers\n        are encountered.\n  \
+    \  \n        To use a custom ``JSONDecoder`` subclass, specify it with the ``cls``\n\
+    \        kwarg; otherwise ``JSONDecoder`` is used.\n    \n        The ``encoding``\
+    \ argument is ignored and deprecated since Python 3.1.\n        \"\"\"\n     \
+    \   if isinstance(s, str):\n            if s.startswith('\\ufeff'):\n        \
+    \        raise JSONDecodeError(\"Unexpected UTF-8 BOM (decode using utf-8-sig)\"\
+    ,\n                                      s, 0)\n        else:\n            if\
+    \ not isinstance(s, (bytes, bytearray)):\n                raise TypeError(f'the\
+    \ JSON object must be str, bytes or bytearray, '\n                           \
+    \     f'not {s.__class__.__name__}')\n            s = s.decode(detect_encoding(s),\
+    \ 'surrogatepass')\n    \n        if \"encoding\" in kw:\n            import warnings\n\
+    \            warnings.warn(\n                \"'encoding' is ignored and deprecated.\
+    \ It will be removed in Python 3.9\",\n                DeprecationWarning,\n \
+    \               stacklevel=2\n            )\n            del kw['encoding']\n\
+    \    \n        if (cls is None and object_hook is None and\n                parse_int\
+    \ is None and parse_float is None and\n                parse_constant is None\
+    \ and object_pairs_hook is None and not kw):\n            return _default_decoder.decode(s)\n\
+    \        if cls is None:\n            cls = JSONDecoder\n        if object_hook\
+    \ is not None:\n            kw['object_hook'] = object_hook\n        if object_pairs_hook\
+    \ is not None:\n            kw['object_pairs_hook'] = object_pairs_hook\n    \
+    \    if parse_float is not None:\n            kw['parse_float'] = parse_float\n\
+    \        if parse_int is not None:\n            kw['parse_int'] = parse_int\n\
+    \        if parse_constant is not None:\n            kw['parse_constant'] = parse_constant\n\
+    >       return cls(**kw).decode(s)\n\n/usr/lib/python3.8/json/__init__.py:370:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <json.decoder.JSONDecoder\
+    \ object at 0x7fe39d1fd100>, s = ''\n_w = <built-in method match of re.Pattern\
+    \ object at 0x7fe3a0863db0>\n\n    def decode(self, s, _w=WHITESPACE.match):\n\
+    \        \"\"\"Return the Python representation of ``s`` (a ``str`` instance\n\
+    \        containing a JSON document).\n    \n        \"\"\"\n>       obj, end\
+    \ = self.raw_decode(s, idx=_w(s, 0).end())\n\n/usr/lib/python3.8/json/decoder.py:337:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <json.decoder.JSONDecoder\
+    \ object at 0x7fe39d1fd100>, s = '', idx = 0\n\n    def raw_decode(self, s, idx=0):\n\
+    \        \"\"\"Decode a JSON document from ``s`` (a ``str`` beginning with\n \
+    \       a JSON document) and return a 2-tuple of the Python\n        representation\
+    \ and the index in ``s`` where the document ended.\n    \n        This can be\
+    \ used to decode a JSON document from a string that may\n        have extraneous\
+    \ data at the end.\n    \n        \"\"\"\n        try:\n            obj, end =\
+    \ self.scan_once(s, idx)\n        except StopIteration as err:\n>           raise\
+    \ JSONDecodeError(\"Expecting value\", s, err.value) from None\nE           json.decoder.JSONDecodeError:\
+    \ Expecting value: line 1 column 1 (char 0)\n\n/usr/lib/python3.8/json/decoder.py:355:\
+    \ JSONDecodeError\n\nDuring handling of the above exception, another exception\
+    \ occurred:\n\nmocker = <pytest_mock.plugin.MockFixture object at 0x7fe39bad5df0>\n\
+    template = '/tmp/pytest-of-ubuntu/pytest-648/test_api_invocation0/template'\n\
+    output_dir = '/tmp/pytest-of-ubuntu/pytest-648/test_api_invocation0/output'\n\
+    context = {'cookiecutter': {'email': 'raphael@hackebrot.de', 'full_name': 'Raphael\
+    \ Pierzina', 'github_username': 'hackebrot', 'version': '0.1.0'}}\n\n    def test_api_invocation(mocker,\
+    \ template, output_dir, context):\n        \"\"\"Verify output dir location is\
+    \ correctly passed.\"\"\"\n        mock_gen_files = mocker.patch('cookiecutter.main.generate_files')\n\
+    \    \n>       main.cookiecutter(template, output_dir=output_dir)\n\ntests/test_specify_output_dir.py:56:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.main:88: in cookiecutter\n\
+    \    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncontext_file = '/tmp/pytest-of-ubuntu/pytest-648/test_api_invocation0/template/cookiecutter.json'\n\
+    default_context = OrderedDict(), extra_context = None\n\n    def generate_context(\n\
+    \        context_file='cookiecutter.json', default_context=None, extra_context=None\n\
+    \    ):\n        \"\"\"Generate the context for a Cookiecutter project template.\n\
+    \    \n        Loads the JSON file as a Python object, with key being the JSON\
+    \ filename.\n    \n        :param context_file: JSON file containing key/value\
+    \ pairs for populating\n            the cookiecutter's variables.\n        :param\
+    \ default_context: Dictionary containing config to take into account.\n      \
+    \  :param extra_context: Dictionary containing configuration overrides\n     \
+    \   \"\"\"\n        context = OrderedDict([])\n    \n        try:\n          \
+    \  with open(context_file, encoding='utf-8') as file_handle:\n               \
+    \ obj = json.load(file_handle, object_pairs_hook=OrderedDict)\n        except\
+    \ ValueError as e:\n            # JSON decoding error.  Let's throw a new exception\
+    \ that is more\n            # friendly for the developer or user.\n          \
+    \  full_fpath = os.path.abspath(context_file)\n            json_exc_message =\
+    \ str(e)\n            our_exc_message = (\n                'JSON decoding error\
+    \ while loading \"{0}\".  Decoding'\n                ' error details: \"{1}\"\
+    '.format(full_fpath, json_exc_message)\n            )\n>           raise ContextDecodingException(our_exc_message)\n\
+    E           cookiecutter.exceptions.ContextDecodingException: JSON decoding error\
+    \ while loading \"/tmp/pytest-of-ubuntu/pytest-648/test_api_invocation0/template/cookiecutter.json\"\
+    .  Decoding error details: \"Expecting value: line 1 column 1 (char 0)\"\n\ncookiecutter/generate.py:96:\
+    \ ContextDecodingException"
+  killer: tests/test_specify_output_dir.py::test_api_invocation
+  module: *id003
+  mutations:
+  - lineno: 55
+    operator: LCR
+  number: 10
+  status: killed
+  tests_run: -89
+  time: 0.7831418514251709
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7fe39c518730>\n\
+    monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fe39c325460>\n\n \
+    \   def test_prompt_for_config_dict(self, monkeypatch):\n        \"\"\"Verify\
+    \ `prompt_for_config` call `read_user_variable` on dict request.\"\"\"\n     \
+    \   monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_dict',\n\
+    \            lambda var, default: {\"key\": \"value\", \"integer\": 37},\n   \
+    \     )\n        context = {'cookiecutter': {'details': {}}}\n    \n>       cookiecutter_dict\
+    \ = prompt.prompt_for_config(context)\n\ntests/test_prompt.py:97: \n_ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.prompt:222: in prompt_for_config\n\
+    \    ???\ncookiecutter.prompt:112: in read_user_dict\n    ???\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:147:\
+    \ in prompt\n    value = prompt_func(prompt)\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:129:\
+    \ in prompt_func\n    return f(\"\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \n\nself = <_pytest.capture.DontReadFromInput object at 0x7fe39c306d00>, args\
+    \ = ()\n\n    def read(self, *args):\n>       raise OSError(\n            \"pytest:\
+    \ reading from stdin while output is captured!  Consider using `-s`.\"\n     \
+    \   )\nE       OSError: pytest: reading from stdin while output is captured! \
+    \ Consider using `-s`.\n\n/usr/local/lib/python3.8/dist-packages/_pytest/capture.py:217:\
+    \ OSError"
+  killer: tests/test_prompt.py::TestPrompt::test_prompt_for_config_dict
+  module: &id004 !!python/module:cookiecutter.prompt ''
+  mutations:
+  - lineno: 184
+    operator: LCR
+  number: 11
+  status: killed
+  tests_run: -136
+  time: 2.021094799041748
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7fe39d2e8490>\n\
+    monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fe39ba2f040>\n\n \
+    \   def test_prompt_for_config_dict(self, monkeypatch):\n        \"\"\"Verify\
+    \ `prompt_for_config` call `read_user_variable` on dict request.\"\"\"\n     \
+    \   monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_dict',\n\
+    \            lambda var, default: {\"key\": \"value\", \"integer\": 37},\n   \
+    \     )\n        context = {'cookiecutter': {'details': {}}}\n    \n        cookiecutter_dict\
+    \ = prompt.prompt_for_config(context)\n>       assert cookiecutter_dict == {'details':\
+    \ {'key': 'value', 'integer': 37}}\nE       AssertionError\n\ntests/test_prompt.py:98:\
+    \ AssertionError"
+  killer: tests/test_prompt.py::TestPrompt::test_prompt_for_config_dict
+  module: *id004
+  mutations:
+  - lineno: 213
+    operator: LCR
+  number: 12
+  status: killed
+  tests_run: -140
+  time: 0.8278112411499023
+number_of_tests: 204
+targets:
+- cookiecutter/
+tests:
+- name: tests.conftest
+  target: null
+  time: 1.1597447395324707
+- name: tests.test_abort_generate_on_hook_error
+  target: null
+  time: 0.8193559646606445
+- name: tests.test_cli
+  target: null
+  time: 0.7889468669891357
+- name: tests.test_cookiecutter_invocation
+  target: null
+  time: 0.9027121067047119
+- name: tests.test_cookiecutter_local_no_input
+  target: null
+  time: 0.5420901775360107
+- name: tests.test_cookiecutter_local_with_input
+  target: null
+  time: 0.39057183265686035
+- name: tests.test_custom_extensions_in_hooks
+  target: null
+  time: 1.0397403240203857
+- name: tests.test_default_extensions
+  target: null
+  time: 0.5877180099487305
+- name: tests.test_environment
+  target: null
+  time: 0.3493671417236328
+- name: tests.test_exceptions
+  target: null
+  time: 0.34703922271728516
+- name: tests.test_find
+  target: null
+  time: 0.34865856170654297
+- name: tests.test_generate_context
+  target: null
+  time: 0.3857297897338867
+- name: tests.test_generate_copy_without_render
+  target: null
+  time: 0.37674450874328613
+- name: tests.test_generate_file
+  target: null
+  time: 0.41391921043395996
+- name: tests.test_generate_files
+  target: null
+  time: 0.8623075485229492
+- name: tests.test_generate_hooks
+  target: null
+  time: 1.5148060321807861
+- name: tests.test_get_config
+  target: null
+  time: 0.3581664562225342
+- name: tests.test_get_user_config
+  target: null
+  time: 0.38805532455444336
+- name: tests.test_hooks
+  target: null
+  time: 0.7237355709075928
+- name: tests.test_log
+  target: null
+  time: 0.3655390739440918
+- name: tests.test_main
+  target: null
+  time: 0.4591028690338135
+- name: tests.test_output_folder
+  target: null
+  time: 0.3753025531768799
+- name: tests.test_preferred_encoding
+  target: null
+  time: 0.34784722328186035
+- name: tests.test_prompt
+  target: null
+  time: 0.5494422912597656
+- name: tests.test_read_repo_password
+  target: null
+  time: 0.353527307510376
+- name: tests.test_read_user_choice
+  target: null
+  time: 0.389786958694458
+- name: tests.test_read_user_dict
+  target: null
+  time: 0.37398624420166016
+- name: tests.test_read_user_variable
+  target: null
+  time: 0.4236583709716797
+- name: tests.test_read_user_yes_no
+  target: null
+  time: 0.3504321575164795
+- name: tests.test_repo_not_found
+  target: null
+  time: 0.34876298904418945
+- name: tests.test_specify_output_dir
+  target: null
+  time: 0.396132230758667
+- name: tests.test_utils
+  target: null
+  time: 0.41509485244750977
+time_stats:
+  create_mutant_module: 0.01310873031616211
+  create_target_ast: 0.06090497970581055
+  mutate_module: 157.1973786354065
+  run_tests_with_mutant: 17.549490451812744
+total_time: 174.83389496803284

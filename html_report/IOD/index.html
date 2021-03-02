@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MutPy mutation report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    
+    
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    
+    
+</head>
+<body>
+    <div class="container">
+        
+<div class="page-header">
+    <h1>MutPy mutation report</h1>
+    <p><span class="glyphicon glyphicon-time"></span> 22.02.2021 23:37</p>
+</div>
+<h4>Target</h4>
+<ul>
+    
+    <li><code>cookiecutter/</code></li>
+    
+</ul>
+<h4>Tests [204]</h4>
+<ul>
+    
+    <li><code>tests.conftest</code> [1.182 s]</li>
+    
+    <li><code>tests.test_abort_generate_on_hook_error</code> [0.826 s]</li>
+    
+    <li><code>tests.test_cli</code> [0.798 s]</li>
+    
+    <li><code>tests.test_cookiecutter_invocation</code> [0.906 s]</li>
+    
+    <li><code>tests.test_cookiecutter_local_no_input</code> [0.542 s]</li>
+    
+    <li><code>tests.test_cookiecutter_local_with_input</code> [0.383 s]</li>
+    
+    <li><code>tests.test_custom_extensions_in_hooks</code> [0.963 s]</li>
+    
+    <li><code>tests.test_default_extensions</code> [0.575 s]</li>
+    
+    <li><code>tests.test_environment</code> [0.35 s]</li>
+    
+    <li><code>tests.test_exceptions</code> [0.355 s]</li>
+    
+    <li><code>tests.test_find</code> [0.358 s]</li>
+    
+    <li><code>tests.test_generate_context</code> [0.386 s]</li>
+    
+    <li><code>tests.test_generate_copy_without_render</code> [0.372 s]</li>
+    
+    <li><code>tests.test_generate_file</code> [0.412 s]</li>
+    
+    <li><code>tests.test_generate_files</code> [0.865 s]</li>
+    
+    <li><code>tests.test_generate_hooks</code> [1.513 s]</li>
+    
+    <li><code>tests.test_get_config</code> [0.365 s]</li>
+    
+    <li><code>tests.test_get_user_config</code> [0.385 s]</li>
+    
+    <li><code>tests.test_hooks</code> [0.709 s]</li>
+    
+    <li><code>tests.test_log</code> [0.358 s]</li>
+    
+    <li><code>tests.test_main</code> [0.46 s]</li>
+    
+    <li><code>tests.test_output_folder</code> [0.377 s]</li>
+    
+    <li><code>tests.test_preferred_encoding</code> [0.343 s]</li>
+    
+    <li><code>tests.test_prompt</code> [0.554 s]</li>
+    
+    <li><code>tests.test_read_repo_password</code> [0.347 s]</li>
+    
+    <li><code>tests.test_read_user_choice</code> [0.388 s]</li>
+    
+    <li><code>tests.test_read_user_dict</code> [0.386 s]</li>
+    
+    <li><code>tests.test_read_user_variable</code> [0.42 s]</li>
+    
+    <li><code>tests.test_read_user_yes_no</code> [0.355 s]</li>
+    
+    <li><code>tests.test_repo_not_found</code> [0.346 s]</li>
+    
+    <li><code>tests.test_specify_output_dir</code> [0.397 s]</li>
+    
+    <li><code>tests.test_utils</code> [0.427 s]</li>
+    
+</ul>
+<h4>Result summary</h4>
+<ul>
+    <li><strong><span class="glyphicon glyphicon-signal"></span> Score</strong> - 100.0%</li>
+    <li><strong><span class="glyphicon glyphicon-time"></span> Time</strong> - 158.5 s</li>
+    
+    <li><strong><span class="glyphicon glyphicon-adjust"></span> Coverage</strong> - 5205 of 6759 nodes [77.0%]</li>
+    
+</ul>
+<h4>Mutants [6]</h4>
+<ul>
+    <li><span class="label label-success">killed</span> - 6</li>
+    <li><span class="label label-danger">survived</span> - 0</li>
+    <li><span class="label label-warning">incompetent</span> - 0</li>
+    <li><span class="label label-info">timeout</span> - 0</li>
+</ul>
+<div class="progress">
+    <div title="killed - 6" class="progress-bar progress-bar-success" style="width: 100.0%">
+        100.0%
+    </div>
+    <div title="survived - 0" class="progress-bar progress-bar-danger" style="width: 0.0%">
+        0.0%
+    </div>
+    <div title="incompetent - 0" class="progress-bar progress-bar-warning" style="width: 0.0%">
+        0.0%
+    </div>
+    <div title="timeout - 0" class="progress-bar progress-bar-info" style="width: 0.0%">
+        0.0%
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Module</th>
+            <th>Operator</th>
+            <th>Tests run</th>
+            <th>Duration</th>
+            <th>Result</th>
+            <th></th>
+        </tr>
+    </thead>
+    
+    <tr>
+        <td><a href="1.html">1</a></td>
+        <td><code><module 'cookiecutter.environment' from '/usr/baki/python_projects/cookiecutter/cookiecutter/environment.py'></code></td>
+        <td>IOD [59]</td>
+        <td>57</td>
+        <td>2.783 s</td>
+        <td><span class="label label-success">killed</span></td>
+        <td><a href="mutants/1.html"><span class="glyphicon glyphicon-arrow-right"></span></a></td>
+    </tr>
+    
+    <tr>
+        <td><a href="2.html">2</a></td>
+        <td><code><module 'cookiecutter.exceptions' from '/usr/baki/python_projects/cookiecutter/cookiecutter/exceptions.py'></code></td>
+        <td>IOD [118]</td>
+        <td>12</td>
+        <td>0.652 s</td>
+        <td><span class="label label-success">killed</span></td>
+        <td><a href="mutants/2.html"><span class="glyphicon glyphicon-arrow-right"></span></a></td>
+    </tr>
+    
+    <tr>
+        <td><a href="3.html">3</a></td>
+        <td><code><module 'cookiecutter.exceptions' from '/usr/baki/python_projects/cookiecutter/cookiecutter/exceptions.py'></code></td>
+        <td>IOD [124]</td>
+        <td>12</td>
+        <td>0.653 s</td>
+        <td><span class="label label-success">killed</span></td>
+        <td><a href="mutants/3.html"><span class="glyphicon glyphicon-arrow-right"></span></a></td>
+    </tr>
+    
+    <tr>
+        <td><a href="4.html">4</a></td>
+        <td><code><module 'cookiecutter.extensions' from '/usr/baki/python_projects/cookiecutter/cookiecutter/extensions.py'></code></td>
+        <td>IOD [13]</td>
+        <td>12</td>
+        <td>0.821 s</td>
+        <td><span class="label label-success">killed</span></td>
+        <td><a href="mutants/4.html"><span class="glyphicon glyphicon-arrow-right"></span></a></td>
+    </tr>
+    
+    <tr>
+        <td><a href="5.html">5</a></td>
+        <td><code><module 'cookiecutter.extensions' from '/usr/baki/python_projects/cookiecutter/cookiecutter/extensions.py'></code></td>
+        <td>IOD [26]</td>
+        <td>12</td>
+        <td>0.659 s</td>
+        <td><span class="label label-success">killed</span></td>
+        <td><a href="mutants/5.html"><span class="glyphicon glyphicon-arrow-right"></span></a></td>
+    </tr>
+    
+    <tr>
+        <td><a href="6.html">6</a></td>
+        <td><code><module 'cookiecutter.extensions' from '/usr/baki/python_projects/cookiecutter/cookiecutter/extensions.py'></code></td>
+        <td>IOD [43]</td>
+        <td>12</td>
+        <td>0.661 s</td>
+        <td><span class="label label-success">killed</span></td>
+        <td><a href="mutants/6.html"><span class="glyphicon glyphicon-arrow-right"></span></a></td>
+    </tr>
+    
+</table>
+
+    </div>
+</body>
+</html>

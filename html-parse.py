@@ -2,13 +2,15 @@ import os, glob, sys, re, fileinput, argparse
 
 from bs4 import BeautifulSoup
 import csv
+import yaml
 
 
 '''
 finds all html files in the folder and subfolders 
 '''
 def collect_files_from_directory(pathToDirectory):
-    return glob.glob(pathToDirectory +r"/**/*.html", recursive=True)
+    # return glob.glob(pathToDirectory +r"/**/*.html", recursive=True)
+    return glob.glob(pathToDirectory +r"/**/*", recursive=True)
 
 '''
 parse the file given as parameter and saves the information in csv format
@@ -16,7 +18,7 @@ parse the file given as parameter and saves the information in csv format
 def parse_index_html(pathToDirectory):
 	soup = BeautifulSoup (open(pathToDirectory), features="lxml")
 
-	f = csv.writer(open("index.csv", "w"))
+	f = csv.writer(open("index.csv", "w",  encoding="Latin-1"))
 	f.writerow(["No of Tests", "Mutation Score", "successful", "survived", "incompetent", "timeout"])    # Write column headers as the first line
 	no_of_tests_text = soup.find('h4', string=re.compile(r'^(Tests)[\s\Sa-zA-Z0-9\[\]]*$')).getText()
 	no_of_tests = re.findall(r"([0-9]*)", no_of_tests_text)
@@ -47,36 +49,39 @@ def parse_index_html(pathToDirectory):
 	f.writerow([no_of_tests[0],mutation_score[0],successful_mutants[0],survived_mutants[0],incompetent_mutants[0],timeout_mutants[0]])
 
 
-file_list = collect_files_from_directory('html_report')
+def parse_operator_html(pathToDirectory):
+	
+	data_all = []
+	with open(pathToDirectory) as file:
+		data_list = yaml.load(file, Loader=yaml.BaseLoader)
+		
+		for key, value in data_list.items():
+			if(type(data_list['mutations']) != "null"):
+				new_data = data_list['mutations']
+		for d in new_data:
+			data = {}
+			data['killer'] = d['killer']
+			data['lineno'] = d['mutations'][0]['lineno']
+			data['operator'] = d['mutations'][0]['operator']
+			data['status'] = d['status']
+			data_all.append(data)
+			
+	f = csv.writer(open("data.csv", "a", newline='',  encoding="Latin-1"))
+	# f.writerow(['operator','status','killer','line'])
+	for d in data_all:
+		f.writerow([d['operator'],d['status'],d['killer'],d['lineno']])
 
+
+
+file_list = collect_files_from_directory('yml_report')
+
+# print(file_list)
 for f in file_list:
-	if(re.search(r"(index)(\.html)$",f)):
-		parse_index_html(f)
-	elif(re.search(r"([0-9])(\.html)$",f)):
-		print('2nd typ', f)
-	else:
-		print("no Html file found")
+	parse_operator_html(f)
+	# if(re.search(r"(index)(\.html)$",f)):
+	# 	parse_index_html(f)
+	# elif(re.search(r"([0-9])(\.html)$",f)):
+	# 	parse_operator_html(f)
+	# else:
+	# 	print("no Html file found")
 
-
-# soup = BeautifulSoup(html_text, 'html.parser')
-# 	with open(f, 'r', encoding='utf-8') as infile:
-# 		for line in infile:
-# 			print(line)
-
-
-
-
-
-# mutatant_total = mutation_time_tag.parent.parent
-# print(mutatant_total)
-# \<\/(strong)\>(.)
-# print(mutation_score.find_previous_siblings("strong"))
-
-# for link in links:
-	# print(link)
-    # names = link.contents[0]
-    # fullLink = link.get('class')
-
-    # f.writerow([no_of_tests,mutation_score,successful_mutants,survived_mutants,incompetent_mutants,timeout_mutants])
-# for span in soup.find_all('span'):
-#     print(span.get('class'))

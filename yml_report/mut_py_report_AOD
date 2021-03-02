@@ -1,0 +1,149 @@
+coverage:
+  all_nodes: 6759
+  covered_nodes: 5205
+mutation_score: 100.0
+mutations:
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7fd7f408ca60>\n\
+    debug_file = local('/tmp/pytest-of-ubuntu/pytest-228/test_debug_list_installed_temp0/fake-repo.log')\n\
+    user_config_path = '/tmp/pytest-of-ubuntu/pytest-228/test_debug_list_installed_temp0/tests/config.yaml'\n\
+    \n    def test_debug_list_installed_templates_failure(\n        cli_runner, debug_file,\
+    \ user_config_path\n    ):\n        \"\"\"Verify --list-installed command error\
+    \ on invocation.\"\"\"\n        os.makedirs(os.path.dirname(user_config_path))\n\
+    \        with open(user_config_path, 'w') as config_file:\n            config_file.write('cookiecutters_dir:\
+    \ \"/notarealplace/\"')\n    \n        result = cli_runner(\n            '--list-installed',\
+    \ '--config-file', user_config_path, str(debug_file)\n        )\n    \n      \
+    \  assert \"Error: Cannot list installed templates.\" in result.output\n>    \
+    \   assert result.exit_code == -1\nE       AssertionError\n\ntests/test_cli.py:526:\
+    \ AssertionError"
+  killer: tests/test_cli.py::test_debug_list_installed_templates_failure
+  module: &id001 !!python/module:cookiecutter.cli ''
+  mutations:
+  - lineno: 56
+    operator: AOD
+  number: 1
+  status: killed
+  tests_run: -153
+  time: 0.7655329704284668
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7fd7f3a085e0>\n\
+    \n    @pytest.mark.usefixtures('make_fake_project_dir', 'remove_fake_project_dir')\n\
+    \    def test_cli_error_on_existing_output_directory(cli_runner):\n        \"\"\
+    \"Test cli invocation without `overwrite-if-exists` fail if dir exist.\"\"\"\n\
+    \        result = cli_runner('tests/fake-repo-pre/', '--no-input')\n        assert\
+    \ result.exit_code != 0\n        expected_error_msg = 'Error: \"fake-project\"\
+    \ directory already exists\\n'\n>       assert result.output == expected_error_msg\n\
+    E       AssertionError\n\ntests/test_cli.py:63: AssertionError"
+  killer: tests/test_cli.py::test_cli_error_on_existing_output_directory
+  module: *id001
+  mutations:
+  - lineno: 73
+    operator: AOD
+  number: 2
+  status: killed
+  tests_run: 122
+  time: 3.864598035812378
+number_of_tests: 204
+targets:
+- cookiecutter/
+tests:
+- name: tests.conftest
+  target: null
+  time: 1.1584060192108154
+- name: tests.test_abort_generate_on_hook_error
+  target: null
+  time: 0.913933277130127
+- name: tests.test_cli
+  target: null
+  time: 0.8091251850128174
+- name: tests.test_cookiecutter_invocation
+  target: null
+  time: 0.9859573841094971
+- name: tests.test_cookiecutter_local_no_input
+  target: null
+  time: 0.5405957698822021
+- name: tests.test_cookiecutter_local_with_input
+  target: null
+  time: 0.38579654693603516
+- name: tests.test_custom_extensions_in_hooks
+  target: null
+  time: 1.0293357372283936
+- name: tests.test_default_extensions
+  target: null
+  time: 0.5737993717193604
+- name: tests.test_environment
+  target: null
+  time: 0.35434913635253906
+- name: tests.test_exceptions
+  target: null
+  time: 0.3467116355895996
+- name: tests.test_find
+  target: null
+  time: 0.35190892219543457
+- name: tests.test_generate_context
+  target: null
+  time: 0.3891940116882324
+- name: tests.test_generate_copy_without_render
+  target: null
+  time: 0.37612223625183105
+- name: tests.test_generate_file
+  target: null
+  time: 0.4205336570739746
+- name: tests.test_generate_files
+  target: null
+  time: 0.8664062023162842
+- name: tests.test_generate_hooks
+  target: null
+  time: 1.52398681640625
+- name: tests.test_get_config
+  target: null
+  time: 0.35836315155029297
+- name: tests.test_get_user_config
+  target: null
+  time: 0.3859992027282715
+- name: tests.test_hooks
+  target: null
+  time: 0.6970508098602295
+- name: tests.test_log
+  target: null
+  time: 0.36106038093566895
+- name: tests.test_main
+  target: null
+  time: 0.45851588249206543
+- name: tests.test_output_folder
+  target: null
+  time: 0.3794271945953369
+- name: tests.test_preferred_encoding
+  target: null
+  time: 0.3530547618865967
+- name: tests.test_prompt
+  target: null
+  time: 0.5515973567962646
+- name: tests.test_read_repo_password
+  target: null
+  time: 0.3520371913909912
+- name: tests.test_read_user_choice
+  target: null
+  time: 0.38472437858581543
+- name: tests.test_read_user_dict
+  target: null
+  time: 0.37541961669921875
+- name: tests.test_read_user_variable
+  target: null
+  time: 0.4226055145263672
+- name: tests.test_read_user_yes_no
+  target: null
+  time: 0.3545534610748291
+- name: tests.test_repo_not_found
+  target: null
+  time: 0.34618186950683594
+- name: tests.test_specify_output_dir
+  target: null
+  time: 0.39383888244628906
+- name: tests.test_utils
+  target: null
+  time: 0.42453479766845703
+time_stats:
+  create_mutant_module: 0.0029032230377197266
+  create_target_ast: 0.06322288513183594
+  mutate_module: 135.99267888069153
+  run_tests_with_mutant: 5.658564805984497
+total_time: 153.84274578094482

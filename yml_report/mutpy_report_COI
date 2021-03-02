@@ -1,0 +1,1348 @@
+coverage:
+  all_nodes: 6759
+  covered_nodes: 4406
+mutation_score: 98.11320754716981
+mutations:
+- exception_traceback: null
+  killer: null
+  module: !!python/module:cookiecutter.__main__ ''
+  mutations:
+  - lineno: 5
+    operator: COI
+  number: 1
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7fc91f160280>\n\
+    \n    @pytest.mark.usefixtures('remove_fake_project_dir')\n    def test_cli_extra_context(cli_runner):\n\
+    \        \"\"\"Cli invocation replace content if called with replacement pairs.\"\
+    \"\"\n        result = cli_runner(\n            'tests/fake-repo-pre/', '--no-input',\
+    \ '-v', 'project_name=Awesomez',\n        )\n>       assert result.exit_code ==\
+    \ 0\nE       AssertionError\n\ntests/test_cli.py:423: AssertionError"
+  killer: tests/test_cli.py::test_cli_extra_context
+  module: &id001 !!python/module:cookiecutter.cli ''
+  mutations:
+  - lineno: 36
+    operator: COI
+  number: 2
+  status: killed
+  tests_run: -52
+  time: 0.6344263553619385
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7fc91ef23430>\n\
+    debug_file = local('/tmp/pytest-of-ubuntu/pytest-379/test_debug_list_installed_temp0/fake-repo.log')\n\
+    user_config_path = '/tmp/pytest-of-ubuntu/pytest-379/test_debug_list_installed_temp0/tests/config.yaml'\n\
+    \n    @pytest.mark.usefixtures('make_fake_project_dir', 'remove_fake_project_dir')\n\
+    \    def test_debug_list_installed_templates(cli_runner, debug_file, user_config_path):\n\
+    \        \"\"\"Verify --list-installed command correct invocation.\"\"\"\n   \
+    \     fake_template_dir = os.path.dirname(os.path.abspath('fake-project'))\n \
+    \       os.makedirs(os.path.dirname(user_config_path))\n        with open(user_config_path,\
+    \ 'w') as config_file:\n            config_file.write('cookiecutters_dir: \"%s\"\
+    ' % fake_template_dir)\n        open(os.path.join('fake-project', 'cookiecutter.json'),\
+    \ 'w').write('{}')\n    \n        result = cli_runner(\n            '--list-installed',\
+    \ '--config-file', user_config_path, str(debug_file),\n        )\n    \n>    \
+    \   assert \"1 installed templates:\" in result.output\nE       AssertionError\n\
+    \ntests/test_cli.py:509: AssertionError"
+  killer: tests/test_cli.py::test_debug_list_installed_templates
+  module: *id001
+  mutations:
+  - lineno: 51
+    operator: COI
+  number: 3
+  status: killed
+  tests_run: -56
+  time: 0.880502462387085
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7fc91eaf2c10>\n\
+    \n    @pytest.mark.usefixtures('make_fake_project_dir', 'remove_fake_project_dir')\n\
+    \    def test_cli_error_on_existing_output_directory(cli_runner):\n        \"\"\
+    \"Test cli invocation without `overwrite-if-exists` fail if dir exist.\"\"\"\n\
+    \        result = cli_runner('tests/fake-repo-pre/', '--no-input')\n        assert\
+    \ result.exit_code != 0\n        expected_error_msg = 'Error: \"fake-project\"\
+    \ directory already exists\\n'\n>       assert result.output == expected_error_msg\n\
+    E       AssertionError\n\ntests/test_cli.py:63: AssertionError"
+  killer: tests/test_cli.py::test_cli_error_on_existing_output_directory
+  module: *id001
+  mutations:
+  - lineno: 169
+    operator: COI
+  number: 4
+  status: killed
+  tests_run: -30
+  time: 0.6018798351287842
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7fc91ec16b80>\n\
+    \n    @pytest.mark.usefixtures('make_fake_project_dir', 'remove_fake_project_dir')\n\
+    \    def test_cli_error_on_existing_output_directory(cli_runner):\n        \"\"\
+    \"Test cli invocation without `overwrite-if-exists` fail if dir exist.\"\"\"\n\
+    \        result = cli_runner('tests/fake-repo-pre/', '--no-input')\n>       assert\
+    \ result.exit_code != 0\nE       AssertionError\n\ntests/test_cli.py:61: AssertionError"
+  killer: tests/test_cli.py::test_cli_error_on_existing_output_directory
+  module: *id001
+  mutations:
+  - lineno: 174
+    operator: COI
+  number: 5
+  status: killed
+  tests_run: -30
+  time: 0.6940288543701172
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7fc91ebe5430>\n\
+    \n    @pytest.mark.usefixtures('make_fake_project_dir', 'remove_fake_project_dir')\n\
+    \    def test_cli_error_on_existing_output_directory(cli_runner):\n        \"\"\
+    \"Test cli invocation without `overwrite-if-exists` fail if dir exist.\"\"\"\n\
+    \        result = cli_runner('tests/fake-repo-pre/', '--no-input')\n        assert\
+    \ result.exit_code != 0\n        expected_error_msg = 'Error: \"fake-project\"\
+    \ directory already exists\\n'\n>       assert result.output == expected_error_msg\n\
+    E       AssertionError\n\ntests/test_cli.py:63: AssertionError"
+  killer: tests/test_cli.py::test_cli_error_on_existing_output_directory
+  module: *id001
+  mutations:
+  - lineno: 182
+    operator: COI
+  number: 6
+  status: killed
+  tests_run: -30
+  time: 0.618668794631958
+- exception_traceback: "mocker = <pytest_mock.plugin.MockFixture object at 0x7fc91f07aaf0>\n\
+    cli_runner = <function cli_runner.<locals>.cli_main at 0x7fc91ec10550>\n\n   \
+    \ @pytest.mark.usefixtures('remove_fake_project_dir')\n    def test_cli_replay(mocker,\
+    \ cli_runner):\n        \"\"\"Test cli invocation display log with `verbose` and\
+    \ `replay` flags.\"\"\"\n        mock_cookiecutter = mocker.patch('cookiecutter.cli.cookiecutter')\n\
+    \    \n        template_path = 'tests/fake-repo-pre/'\n        result = cli_runner(template_path,\
+    \ '--replay', '-v')\n    \n        assert result.exit_code == 0\n>       mock_cookiecutter.assert_called_once_with(\n\
+    \            template_path,\n            None,\n            False,\n         \
+    \   replay=True,\n            overwrite_if_exists=False,\n            skip_if_file_exists=False,\n\
+    \            output_dir='.',\n            config_file=None,\n            default_config=False,\n\
+    \            extra_context=None,\n            password=None,\n            directory=None,\n\
+    \            accept_hooks=True,\n        )\nE       AssertionError: Expected 'cookiecutter'\
+    \ to be called once. Called 0 times.\n\ntests/test_cli.py:95: AssertionError"
+  killer: tests/test_cli.py::test_cli_replay
+  module: *id001
+  mutations:
+  - lineno: 187
+    operator: COI
+  number: 7
+  status: killed
+  tests_run: -27
+  time: 0.7643446922302246
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 226
+    operator: COI
+  number: 8
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: "def test_merge_configs():\n        \"\"\"Verify default and\
+    \ user config merged in expected way.\"\"\"\n        default = {\n           \
+    \ 'cookiecutters_dir': '/home/example/some-path-to-templates',\n            'replay_dir':\
+    \ '/home/example/some-path-to-replay-files',\n            'default_context': {},\n\
+    \            'abbreviations': {\n                'gh': 'https://github.com/{0}.git',\n\
+    \                'gl': 'https://gitlab.com/{0}.git',\n                'bb': 'https://bitbucket.org/{0}',\n\
+    \            },\n        }\n    \n        user_config = {\n            'default_context':\
+    \ {\n                'full_name': 'Raphael Pierzina',\n                'github_username':\
+    \ 'hackebrot',\n            },\n            'abbreviations': {\n             \
+    \   'gl': 'https://gitlab.com/hackebrot/{0}.git',\n                'pytest-plugin':\
+    \ 'https://github.com/pytest-dev/pytest-plugin.git',\n            },\n       \
+    \ }\n    \n        expected_config = {\n            'cookiecutters_dir': '/home/example/some-path-to-templates',\n\
+    \            'replay_dir': '/home/example/some-path-to-replay-files',\n      \
+    \      'default_context': {\n                'full_name': 'Raphael Pierzina',\n\
+    \                'github_username': 'hackebrot',\n            },\n           \
+    \ 'abbreviations': {\n                'gh': 'https://github.com/{0}.git',\n  \
+    \              'gl': 'https://gitlab.com/hackebrot/{0}.git',\n               \
+    \ 'bb': 'https://bitbucket.org/{0}',\n                'pytest-plugin': 'https://github.com/pytest-dev/pytest-plugin.git',\n\
+    \            },\n        }\n    \n>       assert config.merge_configs(default,\
+    \ user_config) == expected_config\nE       AssertionError\n\ntests/test_get_config.py:49:\
+    \ AssertionError"
+  killer: tests/test_get_config.py::test_merge_configs
+  module: &id002 !!python/module:cookiecutter.config ''
+  mutations:
+  - lineno: 47
+    operator: COI
+  number: 9
+  status: killed
+  tests_run: -132
+  time: 0.7126755714416504
+- exception_traceback: "def test_get_config():\n        \"\"\"Verify valid config\
+    \ opened and rendered correctly.\"\"\"\n>       conf = config.get_config('tests/test-config/valid-config.yaml')\n\
+    \ntests/test_get_config.py:54: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n\
+    config_path = 'tests/test-config/valid-config.yaml'\n\n>   ???\nE   cookiecutter.exceptions.ConfigDoesNotExistException:\
+    \ Config file tests/test-config/valid-config.yaml does not exist.\n\ncookiecutter.config:58:\
+    \ ConfigDoesNotExistException"
+  killer: tests/test_get_config.py::test_get_config
+  module: *id002
+  mutations:
+  - lineno: 57
+    operator: COI
+  number: 10
+  status: killed
+  tests_run: -133
+  time: 0.8122200965881348
+- exception_traceback: "user_config_path = '/home/ubuntu/.cookiecutterrc'\ncustom_config\
+    \ = {'abbreviations': {'bb': 'https://bitbucket.org/{0}', 'gh': 'https://github.com/{0}.git',\
+    \ 'gl': 'https://gitlab.com/{0...ll_name': 'Firstname Lastname', 'github_username':\
+    \ 'example'}, 'replay_dir': '/home/example/some-path-to-replay-files'}\n\n   \
+    \ @pytest.mark.usefixtures('back_up_rc')\n    def test_get_user_config_valid(user_config_path,\
+    \ custom_config):\n        \"\"\"Validate user config correctly parsed if exist\
+    \ and correctly formatted.\"\"\"\n        shutil.copy('tests/test-config/valid-config.yaml',\
+    \ user_config_path)\n        conf = config.get_user_config()\n    \n>       assert\
+    \ conf == custom_config\nE       AssertionError\n\ntests/test_get_user_config.py:67:\
+    \ AssertionError"
+  killer: tests/test_get_user_config.py::test_get_user_config_valid
+  module: *id002
+  mutations:
+  - lineno: 99
+    operator: COI
+  number: 11
+  status: killed
+  tests_run: -189
+  time: 0.7807722091674805
+- exception_traceback: null
+  killer: null
+  module: *id002
+  mutations:
+  - lineno: 104
+    operator: COI
+  number: 12
+  status: incompetent
+  tests_run: -189
+  time: 0.8929939270019531
+- exception_traceback: "user_config_path = '/home/ubuntu/.cookiecutterrc'\ncustom_config\
+    \ = {'abbreviations': {'bb': 'https://bitbucket.org/{0}', 'gh': 'https://github.com/{0}.git',\
+    \ 'gl': 'https://gitlab.com/{0...ll_name': 'Firstname Lastname', 'github_username':\
+    \ 'example'}, 'replay_dir': '/home/example/some-path-to-replay-files'}\n\n   \
+    \ @pytest.mark.usefixtures('back_up_rc')\n    def test_get_user_config_valid(user_config_path,\
+    \ custom_config):\n        \"\"\"Validate user config correctly parsed if exist\
+    \ and correctly formatted.\"\"\"\n        shutil.copy('tests/test-config/valid-config.yaml',\
+    \ user_config_path)\n        conf = config.get_user_config()\n    \n>       assert\
+    \ conf == custom_config\nE       AssertionError\n\ntests/test_get_user_config.py:67:\
+    \ AssertionError"
+  killer: tests/test_get_user_config.py::test_get_user_config_valid
+  module: *id002
+  mutations:
+  - lineno: 114
+    operator: COI
+  number: 13
+  status: killed
+  tests_run: -189
+  time: 0.7932679653167725
+- exception_traceback: null
+  killer: null
+  module: !!python/module:cookiecutter.extensions ''
+  mutations:
+  - lineno: 31
+    operator: COI
+  number: 14
+  status: survived
+  tests_run: -191
+  time: 0.8192627429962158
+- exception_traceback: "repo_dir = 'tests/fake-repo-pre'\n\n    def test_find_template(repo_dir):\n\
+    \        \"\"\"Verify correctness of `find.find_template` path detection.\"\"\"\
+    \n        template = find.find_template(repo_dir=repo_dir)\n    \n        test_dir\
+    \ = os.path.join(repo_dir, '{{cookiecutter.repo_name}}')\n>       assert template\
+    \ == test_dir\nE       AssertionError\n\ntests/test_find.py:20: AssertionError"
+  killer: tests/test_find.py::test_find_template[fake-repo-pre]
+  module: &id003 !!python/module:cookiecutter.find ''
+  mutations:
+  - lineno: 22
+    operator: COI
+  number: 15
+  status: killed
+  tests_run: -139
+  time: 0.7270748615264893
+- exception_traceback: "repo_dir = 'tests/fake-repo-pre'\n\n    def test_find_template(repo_dir):\n\
+    \        \"\"\"Verify correctness of `find.find_template` path detection.\"\"\"\
+    \n>       template = find.find_template(repo_dir=repo_dir)\n\ntests/test_find.py:17:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nrepo_dir = 'tests/fake-repo-pre'\n\
+    \n>   ???\nE   cookiecutter.exceptions.NonTemplatedInputDirException\n\ncookiecutter.find:31:\
+    \ NonTemplatedInputDirException"
+  killer: tests/test_find.py::test_find_template[fake-repo-pre]
+  module: *id003
+  mutations:
+  - lineno: 22
+    operator: COI
+  number: 16
+  status: killed
+  tests_run: -139
+  time: 0.7312271595001221
+- exception_traceback: "repo_dir = 'tests/fake-repo-pre'\n\n    def test_find_template(repo_dir):\n\
+    \        \"\"\"Verify correctness of `find.find_template` path detection.\"\"\"\
+    \n>       template = find.find_template(repo_dir=repo_dir)\n\ntests/test_find.py:17:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nrepo_dir = 'tests/fake-repo-pre'\n\
+    \n>   ???\nE   cookiecutter.exceptions.NonTemplatedInputDirException\n\ncookiecutter.find:31:\
+    \ NonTemplatedInputDirException"
+  killer: tests/test_find.py::test_find_template[fake-repo-pre]
+  module: *id003
+  mutations:
+  - lineno: 22
+    operator: COI
+  number: 17
+  status: killed
+  tests_run: -139
+  time: 0.9382174015045166
+- exception_traceback: "repo_dir = 'tests/fake-repo-pre'\n\n    def test_find_template(repo_dir):\n\
+    \        \"\"\"Verify correctness of `find.find_template` path detection.\"\"\"\
+    \n>       template = find.find_template(repo_dir=repo_dir)\n\ntests/test_find.py:17:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nrepo_dir = 'tests/fake-repo-pre'\n\
+    \n>   ???\nE   cookiecutter.exceptions.NonTemplatedInputDirException\n\ncookiecutter.find:31:\
+    \ NonTemplatedInputDirException"
+  killer: tests/test_find.py::test_find_template[fake-repo-pre]
+  module: *id003
+  mutations:
+  - lineno: 22
+    operator: COI
+  number: 18
+  status: killed
+  tests_run: -139
+  time: 0.7321200370788574
+- exception_traceback: "repo_dir = 'tests/fake-repo-pre'\n\n    def test_find_template(repo_dir):\n\
+    \        \"\"\"Verify correctness of `find.find_template` path detection.\"\"\"\
+    \n>       template = find.find_template(repo_dir=repo_dir)\n\ntests/test_find.py:17:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nrepo_dir = 'tests/fake-repo-pre'\n\
+    \n>   ???\nE   cookiecutter.exceptions.NonTemplatedInputDirException\n\ncookiecutter.find:31:\
+    \ NonTemplatedInputDirException"
+  killer: tests/test_find.py::test_find_template[fake-repo-pre]
+  module: *id003
+  mutations:
+  - lineno: 26
+    operator: COI
+  number: 19
+  status: killed
+  tests_run: -139
+  time: 0.8129072189331055
+- exception_traceback: "def test_default_context_replacement_in_generate_context():\n\
+    \        \"\"\"Verify default content settings are correctly replaced by template\
+    \ settings.\n    \n        Make sure that the default for list variables of `orientation`\
+    \ is based on\n        the user config (`choices_template.json`) and not changed\
+    \ to a single value\n        from `default_context`.\n        \"\"\"\n       \
+    \ expected_context = {\n            'choices_template': OrderedDict(\n       \
+    \         [\n                    ('full_name', 'Raphael Pierzina'),\n        \
+    \            ('github_username', 'hackebrot'),\n                    ('project_name',\
+    \ 'Kivy Project'),\n                    ('repo_name', '{{cookiecutter.project_name|lower}}'),\n\
+    \                    ('orientation', ['landscape', 'all', 'portrait']),\n    \
+    \            ]\n            )\n        }\n    \n>       generated_context = generate.generate_context(\n\
+    \            context_file='tests/test-generate-context/choices_template.json',\n\
+    \            default_context={\n                'not_in_template': 'foobar',\n\
+    \                'project_name': 'Kivy Project',\n                'orientation':\
+    \ 'landscape',\n            },\n            extra_context={\n                'also_not_in_template':\
+    \ 'foobar2',\n                'github_username': 'hackebrot',\n            },\n\
+    \        )\n\ntests/test_generate_context.py:95: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ \ncookiecutter.generate:106: in generate_context\n    ???\n_ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncontext = OrderedDict([('full_name',\
+    \ 'Raphael Pierzina'), ('github_username', 'hackebrot'), ('project_name', 'Kivy\
+    \ Project'), ('repo_name', '{{cookiecutter.project_name|lower}}'), ('orientation',\
+    \ ['all', 'landscape', 'portrait'])])\noverwrite_context = {'not_in_template':\
+    \ 'foobar', 'orientation': 'landscape', 'project_name': 'Kivy Project'}\n\n> \
+    \  ???\nE   KeyError: 'not_in_template'\n\ncookiecutter.generate:55: KeyError"
+  killer: tests/test_generate_context.py::test_default_context_replacement_in_generate_context
+  module: &id004 !!python/module:cookiecutter.generate ''
+  mutations:
+  - lineno: 51
+    operator: COI
+  number: 20
+  status: killed
+  tests_run: -77
+  time: 0.7486832141876221
+- exception_traceback: "def test_default_context_replacement_in_generate_context():\n\
+    \        \"\"\"Verify default content settings are correctly replaced by template\
+    \ settings.\n    \n        Make sure that the default for list variables of `orientation`\
+    \ is based on\n        the user config (`choices_template.json`) and not changed\
+    \ to a single value\n        from `default_context`.\n        \"\"\"\n       \
+    \ expected_context = {\n            'choices_template': OrderedDict(\n       \
+    \         [\n                    ('full_name', 'Raphael Pierzina'),\n        \
+    \            ('github_username', 'hackebrot'),\n                    ('project_name',\
+    \ 'Kivy Project'),\n                    ('repo_name', '{{cookiecutter.project_name|lower}}'),\n\
+    \                    ('orientation', ['landscape', 'all', 'portrait']),\n    \
+    \            ]\n            )\n        }\n    \n>       generated_context = generate.generate_context(\n\
+    \            context_file='tests/test-generate-context/choices_template.json',\n\
+    \            default_context={\n                'not_in_template': 'foobar',\n\
+    \                'project_name': 'Kivy Project',\n                'orientation':\
+    \ 'landscape',\n            },\n            extra_context={\n                'also_not_in_template':\
+    \ 'foobar2',\n                'github_username': 'hackebrot',\n            },\n\
+    \        )\n\ntests/test_generate_context.py:95: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ \ncookiecutter.generate:106: in generate_context\n    ???\n_ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncontext = OrderedDict([('full_name',\
+    \ 'Raphael Pierzina'), ('github_username', 'hackebrot'), ('project_name', 'Kivy\
+    \ Project'), ('repo_name', '{{cookiecutter.project_name|lower}}'), ('orientation',\
+    \ ['all', 'landscape', 'portrait'])])\noverwrite_context = {'not_in_template':\
+    \ 'foobar', 'orientation': 'landscape', 'project_name': 'Kivy Project'}\n\n> \
+    \  ???\nE   AttributeError: 'str' object has no attribute 'remove'\n\ncookiecutter.generate:63:\
+    \ AttributeError"
+  killer: tests/test_generate_context.py::test_default_context_replacement_in_generate_context
+  module: *id004
+  mutations:
+  - lineno: 57
+    operator: COI
+  number: 21
+  status: killed
+  tests_run: -77
+  time: 0.6523241996765137
+- exception_traceback: "def test_default_context_replacement_in_generate_context():\n\
+    \        \"\"\"Verify default content settings are correctly replaced by template\
+    \ settings.\n    \n        Make sure that the default for list variables of `orientation`\
+    \ is based on\n        the user config (`choices_template.json`) and not changed\
+    \ to a single value\n        from `default_context`.\n        \"\"\"\n       \
+    \ expected_context = {\n            'choices_template': OrderedDict(\n       \
+    \         [\n                    ('full_name', 'Raphael Pierzina'),\n        \
+    \            ('github_username', 'hackebrot'),\n                    ('project_name',\
+    \ 'Kivy Project'),\n                    ('repo_name', '{{cookiecutter.project_name|lower}}'),\n\
+    \                    ('orientation', ['landscape', 'all', 'portrait']),\n    \
+    \            ]\n            )\n        }\n    \n        generated_context = generate.generate_context(\n\
+    \            context_file='tests/test-generate-context/choices_template.json',\n\
+    \            default_context={\n                'not_in_template': 'foobar',\n\
+    \                'project_name': 'Kivy Project',\n                'orientation':\
+    \ 'landscape',\n            },\n            extra_context={\n                'also_not_in_template':\
+    \ 'foobar2',\n                'github_username': 'hackebrot',\n            },\n\
+    \        )\n    \n>       assert generated_context == expected_context\nE    \
+    \   AssertionError\n\ntests/test_generate_context.py:108: AssertionError"
+  killer: tests/test_generate_context.py::test_default_context_replacement_in_generate_context
+  module: *id004
+  mutations:
+  - lineno: 59
+    operator: COI
+  number: 22
+  status: killed
+  tests_run: -77
+  time: 0.6465435028076172
+- exception_traceback: "def test_default_context_replacement_in_generate_context():\n\
+    \        \"\"\"Verify default content settings are correctly replaced by template\
+    \ settings.\n    \n        Make sure that the default for list variables of `orientation`\
+    \ is based on\n        the user config (`choices_template.json`) and not changed\
+    \ to a single value\n        from `default_context`.\n        \"\"\"\n       \
+    \ expected_context = {\n            'choices_template': OrderedDict(\n       \
+    \         [\n                    ('full_name', 'Raphael Pierzina'),\n        \
+    \            ('github_username', 'hackebrot'),\n                    ('project_name',\
+    \ 'Kivy Project'),\n                    ('repo_name', '{{cookiecutter.project_name|lower}}'),\n\
+    \                    ('orientation', ['landscape', 'all', 'portrait']),\n    \
+    \            ]\n            )\n        }\n    \n        generated_context = generate.generate_context(\n\
+    \            context_file='tests/test-generate-context/choices_template.json',\n\
+    \            default_context={\n                'not_in_template': 'foobar',\n\
+    \                'project_name': 'Kivy Project',\n                'orientation':\
+    \ 'landscape',\n            },\n            extra_context={\n                'also_not_in_template':\
+    \ 'foobar2',\n                'github_username': 'hackebrot',\n            },\n\
+    \        )\n    \n>       assert generated_context == expected_context\nE    \
+    \   AssertionError\n\ntests/test_generate_context.py:108: AssertionError"
+  killer: tests/test_generate_context.py::test_default_context_replacement_in_generate_context
+  module: *id004
+  mutations:
+  - lineno: 59
+    operator: COI
+  number: 23
+  status: killed
+  tests_run: -77
+  time: 0.6507391929626465
+- exception_traceback: "def test_default_context_replacement_in_generate_context():\n\
+    \        \"\"\"Verify default content settings are correctly replaced by template\
+    \ settings.\n    \n        Make sure that the default for list variables of `orientation`\
+    \ is based on\n        the user config (`choices_template.json`) and not changed\
+    \ to a single value\n        from `default_context`.\n        \"\"\"\n       \
+    \ expected_context = {\n            'choices_template': OrderedDict(\n       \
+    \         [\n                    ('full_name', 'Raphael Pierzina'),\n        \
+    \            ('github_username', 'hackebrot'),\n                    ('project_name',\
+    \ 'Kivy Project'),\n                    ('repo_name', '{{cookiecutter.project_name|lower}}'),\n\
+    \                    ('orientation', ['landscape', 'all', 'portrait']),\n    \
+    \            ]\n            )\n        }\n    \n        generated_context = generate.generate_context(\n\
+    \            context_file='tests/test-generate-context/choices_template.json',\n\
+    \            default_context={\n                'not_in_template': 'foobar',\n\
+    \                'project_name': 'Kivy Project',\n                'orientation':\
+    \ 'landscape',\n            },\n            extra_context={\n                'also_not_in_template':\
+    \ 'foobar2',\n                'github_username': 'hackebrot',\n            },\n\
+    \        )\n    \n>       assert generated_context == expected_context\nE    \
+    \   AssertionError\n\ntests/test_generate_context.py:108: AssertionError"
+  killer: tests/test_generate_context.py::test_default_context_replacement_in_generate_context
+  module: *id004
+  mutations:
+  - lineno: 105
+    operator: COI
+  number: 24
+  status: killed
+  tests_run: -77
+  time: 0.6469845771789551
+- exception_traceback: "def test_generate_context_decodes_non_ascii_chars():\n   \
+    \     \"\"\"Verify `generate_context` correctly decodes non-ascii chars.\"\"\"\
+    \n        expected_context = {'non_ascii': OrderedDict([('full_name', '\xE9\xE8\
+    \xE0'),])}\n    \n>       generated_context = generate.generate_context(\n   \
+    \         context_file='tests/test-generate-context/non_ascii.json'\n        )\n\
+    \ntests/test_generate_context.py:115: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ \ncookiecutter.generate:108: in generate_context\n    ???\n_ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncontext = OrderedDict([('full_name', '\xE9\xE8\
+    \xE0')]), overwrite_context = None\n\n>   ???\nE   AttributeError: 'NoneType'\
+    \ object has no attribute 'items'\n\ncookiecutter.generate:50: AttributeError"
+  killer: tests/test_generate_context.py::test_generate_context_decodes_non_ascii_chars
+  module: *id004
+  mutations:
+  - lineno: 107
+    operator: COI
+  number: 25
+  status: killed
+  tests_run: -76
+  time: 0.6567015647888184
+- exception_traceback: "env = <cookiecutter.environment.StrictEnvironment object at\
+    \ 0x7fc91e667d60>\n\n    def test_generate_file(env):\n        \"\"\"Verify simple\
+    \ file is generated with rendered context data.\"\"\"\n        infile = 'tests/files/{{cookiecutter.generate_file}}.txt'\n\
+    \        generate.generate_file(\n            project_dir=\".\",\n           \
+    \ infile=infile,\n            context={'cookiecutter': {'generate_file': 'cheese'}},\n\
+    \            env=env,\n        )\n>       assert os.path.isfile('tests/files/cheese.txt')\n\
+    E       AssertionError\n\ntests/test_generate_file.py:46: AssertionError"
+  killer: tests/test_generate_file.py::test_generate_file
+  module: *id004
+  mutations:
+  - lineno: 142
+    operator: COI
+  number: 26
+  status: killed
+  tests_run: -17
+  time: 0.672426700592041
+- exception_traceback: "env = <cookiecutter.environment.StrictEnvironment object at\
+    \ 0x7fc91edc8160>\n\n    def test_generate_file(env):\n        \"\"\"Verify simple\
+    \ file is generated with rendered context data.\"\"\"\n        infile = 'tests/files/{{cookiecutter.generate_file}}.txt'\n\
+    \        generate.generate_file(\n            project_dir=\".\",\n           \
+    \ infile=infile,\n            context={'cookiecutter': {'generate_file': 'cheese'}},\n\
+    \            env=env,\n        )\n>       assert os.path.isfile('tests/files/cheese.txt')\n\
+    E       AssertionError\n\ntests/test_generate_file.py:46: AssertionError"
+  killer: tests/test_generate_file.py::test_generate_file
+  module: *id004
+  mutations:
+  - lineno: 146
+    operator: COI
+  number: 27
+  status: killed
+  tests_run: -17
+  time: 0.6757247447967529
+- exception_traceback: "env = <cookiecutter.environment.StrictEnvironment object at\
+    \ 0x7fc91e9885b0>\n\n    def test_generate_file(env):\n        \"\"\"Verify simple\
+    \ file is generated with rendered context data.\"\"\"\n        infile = 'tests/files/{{cookiecutter.generate_file}}.txt'\n\
+    \        generate.generate_file(\n            project_dir=\".\",\n           \
+    \ infile=infile,\n            context={'cookiecutter': {'generate_file': 'cheese'}},\n\
+    \            env=env,\n        )\n        assert os.path.isfile('tests/files/cheese.txt')\n\
+    \        with open('tests/files/cheese.txt', 'rt') as f:\n            generated_text\
+    \ = f.read()\n>           assert generated_text == 'Testing cheese'\nE       \
+    \    AssertionError\n\ntests/test_generate_file.py:49: AssertionError"
+  killer: tests/test_generate_file.py::test_generate_file
+  module: *id004
+  mutations:
+  - lineno: 154
+    operator: COI
+  number: 28
+  status: killed
+  tests_run: -17
+  time: 0.5803983211517334
+- exception_traceback: "invalid_dirname = ''\n\n    @pytest.mark.parametrize('invalid_dirname',\
+    \ ['', '{foo}', '{{foo', 'bar}}'])\n    def test_ensure_dir_is_templated_raises(invalid_dirname):\n\
+    \        \"\"\"Verify `ensure_dir_is_templated` raises on wrong directories names\
+    \ input.\"\"\"\n        with pytest.raises(exceptions.NonTemplatedInputDirException):\n\
+    >           generate.ensure_dir_is_templated(invalid_dirname)\nE           Failed:\
+    \ DID NOT RAISE <class 'cookiecutter.exceptions.NonTemplatedInputDirException'>\n\
+    \ntests/test_generate_files.py:19: Failed"
+  killer: tests/test_generate_files.py::test_ensure_dir_is_templated_raises[]
+  module: *id004
+  mutations:
+  - lineno: 223
+    operator: COI
+  number: 29
+  status: killed
+  tests_run: -85
+  time: 0.6669344902038574
+- exception_traceback: "invalid_dirname = ''\n\n    @pytest.mark.parametrize('invalid_dirname',\
+    \ ['', '{foo}', '{{foo', 'bar}}'])\n    def test_ensure_dir_is_templated_raises(invalid_dirname):\n\
+    \        \"\"\"Verify `ensure_dir_is_templated` raises on wrong directories names\
+    \ input.\"\"\"\n        with pytest.raises(exceptions.NonTemplatedInputDirException):\n\
+    >           generate.ensure_dir_is_templated(invalid_dirname)\n\ntests/test_generate_files.py:19:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ndirname = ''\n\n>   ???\nE \
+    \  cookiecutter.exceptions.NonTemplatedInputDirException\n\ncookiecutter.generate:226:\
+    \ NonTemplatedInputDirException"
+  killer: tests/test_generate_files.py::test_ensure_dir_is_templated_raises[]
+  module: *id004
+  mutations:
+  - lineno: 223
+    operator: COI
+  number: 30
+  status: killed
+  tests_run: -85
+  time: 0.7731420993804932
+- exception_traceback: "invalid_dirname = ''\n\n    @pytest.mark.parametrize('invalid_dirname',\
+    \ ['', '{foo}', '{{foo', 'bar}}'])\n    def test_ensure_dir_is_templated_raises(invalid_dirname):\n\
+    \        \"\"\"Verify `ensure_dir_is_templated` raises on wrong directories names\
+    \ input.\"\"\"\n        with pytest.raises(exceptions.NonTemplatedInputDirException):\n\
+    >           generate.ensure_dir_is_templated(invalid_dirname)\n\ntests/test_generate_files.py:19:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ndirname = ''\n\n>   ???\nE \
+    \  cookiecutter.exceptions.NonTemplatedInputDirException\n\ncookiecutter.generate:226:\
+    \ NonTemplatedInputDirException"
+  killer: tests/test_generate_files.py::test_ensure_dir_is_templated_raises[]
+  module: *id004
+  mutations:
+  - lineno: 223
+    operator: COI
+  number: 31
+  status: killed
+  tests_run: -85
+  time: 0.6713454723358154
+- exception_traceback: null
+  killer: null
+  module: &id005 !!python/module:cookiecutter.hooks ''
+  mutations:
+  - lineno: 33
+    operator: COI
+  number: 32
+  status: incompetent
+  tests_run: -109
+  time: 0.689373254776001
+- exception_traceback: null
+  killer: null
+  module: *id005
+  mutations:
+  - lineno: 53
+    operator: COI
+  number: 33
+  status: incompetent
+  tests_run: -109
+  time: 0.7175447940826416
+- exception_traceback: "self = <tests.test_hooks.TestFindHooks object at 0x7fc91f0f5d90>\n\
+    \n    def test_find_hook(self):\n        \"\"\"Finds the specified hook.\"\"\"\
+    \n        with utils.work_in(self.repo_path):\n            expected_pre = os.path.abspath('hooks/pre_gen_project.py')\n\
+    \            actual_hook_path = hooks.find_hook('pre_gen_project')\n>        \
+    \   assert expected_pre == actual_hook_path[0]\nE           AssertionError\n\n\
+    tests/test_hooks.py:91: AssertionError"
+  killer: tests/test_hooks.py::TestFindHooks::test_find_hook
+  module: *id005
+  mutations:
+  - lineno: 59
+    operator: COI
+  number: 34
+  status: killed
+  tests_run: -109
+  time: 0.6904926300048828
+- exception_traceback: null
+  killer: null
+  module: *id005
+  mutations:
+  - lineno: 62
+    operator: COI
+  number: 35
+  status: incompetent
+  tests_run: -109
+  time: 0.690711498260498
+- exception_traceback: "self = <tests.test_hooks.TestExternalHooks object at 0x7fc91fec4ee0>\n\
+    \n    def test_run_script(self):\n        \"\"\"Execute a hook script, independently\
+    \ of project generation.\"\"\"\n>       hooks.run_script(os.path.join(self.hooks_path,\
+    \ self.post_hook))\n\ntests/test_hooks.py:144: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ \n\nscript_path = '/usr/baki/python_projects/cookiecutter/tests/test-hooks/hooks/post_gen_project.sh',\
+    \ cwd = '.'\n\n>   ???\nE   cookiecutter.exceptions.FailedHookException: Hook\
+    \ script failed (exit status: 1)\n\ncookiecutter.hooks:85: FailedHookException"
+  killer: tests/test_hooks.py::TestExternalHooks::test_run_script
+  module: *id005
+  mutations:
+  - lineno: 74
+    operator: COI
+  number: 36
+  status: killed
+  tests_run: -113
+  time: 1.2205731868743896
+- exception_traceback: "self = <tests.test_hooks.TestExternalHooks object at 0x7fc91f164100>\n\
+    \n    def test_run_script(self):\n        \"\"\"Execute a hook script, independently\
+    \ of project generation.\"\"\"\n>       hooks.run_script(os.path.join(self.hooks_path,\
+    \ self.post_hook))\n\ntests/test_hooks.py:144: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ \n\nscript_path = '/usr/baki/python_projects/cookiecutter/tests/test-hooks/hooks/post_gen_project.sh',\
+    \ cwd = '.'\n\n>   ???\nE   cookiecutter.exceptions.FailedHookException: Hook\
+    \ script failed (exit status: 0)\n\ncookiecutter.hooks:85: FailedHookException"
+  killer: tests/test_hooks.py::TestExternalHooks::test_run_script
+  module: *id005
+  mutations:
+  - lineno: 84
+    operator: COI
+  number: 37
+  status: killed
+  tests_run: -113
+  time: 0.8144452571868896
+- exception_traceback: "self = <tests.test_hooks.TestExternalHooks object at 0x7fc91e850ca0>\n\
+    \n    def test_run_hook(self):\n        \"\"\"Execute hook from specified template\
+    \ in specified output \\\n        directory.\"\"\"\n        tests_dir = os.path.join(self.repo_path,\
+    \ 'input{{hooks}}')\n        with utils.work_in(self.repo_path):\n           \
+    \ hooks.run_hook('pre_gen_project', tests_dir, {})\n>           assert os.path.isfile(os.path.join(tests_dir,\
+    \ 'python_pre.txt'))\nE           AssertionError\n\ntests/test_hooks.py:187: AssertionError"
+  killer: tests/test_hooks.py::TestExternalHooks::test_run_hook
+  module: *id005
+  mutations:
+  - lineno: 126
+    operator: COI
+  number: 38
+  status: killed
+  tests_run: -116
+  time: 0.701728105545044
+- exception_traceback: null
+  killer: null
+  module: !!python/module:cookiecutter.log ''
+  mutations:
+  - lineno: 34
+    operator: COI
+  number: 39
+  status: incompetent
+  tests_run: -174
+  time: 0.8240406513214111
+- exception_traceback: "def test_should_raise_error_if_repo_does_not_exist():\n  \
+    \      \"\"\"Cookiecutter invocation with non-exist repository should raise error.\"\
+    \"\"\n        with pytest.raises(exceptions.RepositoryNotFound):\n>          \
+    \ main.cookiecutter('definitely-not-a-valid-repo-dir')\n\ntests/test_repo_not_found.py:10:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ntemplate = 'definitely-not-a-valid-repo-dir',\
+    \ checkout = None, no_input = False, extra_context = None, replay = None\noverwrite_if_exists\
+    \ = False, output_dir = '.', config_file = None, default_config = False, password\
+    \ = None\ndirectory = None, skip_if_file_exists = False, accept_hooks = True\n\
+    \n>   ???\nE   cookiecutter.exceptions.InvalidModeException: You can not use both\
+    \ replay and no_input or extra_context at the same time.\n\ncookiecutter.main:60:\
+    \ InvalidModeException"
+  killer: tests/test_repo_not_found.py::test_should_raise_error_if_repo_does_not_exist
+  module: &id006 !!python/module:cookiecutter.main ''
+  mutations:
+  - lineno: 55
+    operator: COI
+  number: 40
+  status: killed
+  tests_run: 1
+  time: 0.5999844074249268
+- exception_traceback: "monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fc91f38b0d0>\n\
+    mocker = <pytest_mock.plugin.MockFixture object at 0x7fc91f38b130>\nuser_config_data\
+    \ = {'cookiecutters_dir': '/tmp/pytest-of-ubuntu/pytest-389/user_dir0/cookiecutters',\
+    \ 'replay_dir': '/tmp/pytest-of-ubuntu/pytest-389/user_dir0/cookiecutter_replay'}\n\
+    user_config_file = '/tmp/pytest-of-ubuntu/pytest-389/user_dir0/config'\n\n   \
+    \ def test_replay_dump_template_name(\n        monkeypatch, mocker, user_config_data,\
+    \ user_config_file\n    ):\n        \"\"\"Check that replay_dump is called with\
+    \ a valid template_name.\n    \n        Template name must not be a relative path.\n\
+    \    \n        Otherwise files such as ``..json`` are created, which are not just\
+    \ cryptic\n        but also later mistaken for replay files of other templates\
+    \ if invoked with\n        '.' and '--replay'.\n    \n        Change the current\
+    \ working directory temporarily to 'tests/fake-repo-tmpl'\n        for this test\
+    \ and call cookiecutter with '.' for the target template.\n        \"\"\"\n  \
+    \      monkeypatch.chdir('tests/fake-repo-tmpl')\n    \n        mock_replay_dump\
+    \ = mocker.patch('cookiecutter.main.dump')\n        mocker.patch('cookiecutter.main.generate_files')\n\
+    \    \n>       cookiecutter(\n            '.', no_input=True, replay=False, config_file=user_config_file,\n\
+    \        )\n\n/usr/baki/python_projects/cookiecutter/tests/test_main.py:24: \n\
+    _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.main:80: in cookiecutter\n\
+    \    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nreplay_dir = '/tmp/pytest-of-ubuntu/pytest-389/user_dir0/cookiecutter_replay',\
+    \ template_name = 'fake-repo-tmpl'\n\n    def load(replay_dir, template_name):\n\
+    \        \"\"\"Read json data from file.\"\"\"\n        if not isinstance(template_name,\
+    \ str):\n            raise TypeError('Template name is required to be of type\
+    \ str')\n    \n        replay_file = get_file_name(replay_dir, template_name)\n\
+    \    \n>       with open(replay_file, 'r') as infile:\nE       FileNotFoundError:\
+    \ [Errno 2] No such file or directory: '/tmp/pytest-of-ubuntu/pytest-389/user_dir0/cookiecutter_replay/fake-repo-tmpl.json'\n\
+    \n/usr/baki/python_projects/cookiecutter/cookiecutter/replay.py:46: FileNotFoundError"
+  killer: tests/test_main.py::test_replay_dump_template_name
+  module: *id006
+  mutations:
+  - lineno: 78
+    operator: COI
+  number: 41
+  status: killed
+  tests_run: 0
+  time: 0.7358865737915039
+- exception_traceback: null
+  killer: null
+  module: *id006
+  mutations:
+  - lineno: 79
+    operator: COI
+  number: 42
+  status: incompetent
+  tests_run: -1
+  time: 0.592221736907959
+- exception_traceback: "def test_raise_if_options_is_not_a_non_empty_list():\n   \
+    \     \"\"\"Test function called by cookiecutter raise expected errors.\n    \n\
+    \        Test for choice type invocation.\n        \"\"\"\n        with pytest.raises(TypeError):\n\
+    >           read_user_choice('foo', 'NOT A LIST')\n\ntests/test_read_user_choice.py:42:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.prompt:75: in read_user_choice\n\
+    \    ???\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:147:\
+    \ in prompt\n    value = prompt_func(prompt)\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:129:\
+    \ in prompt_func\n    return f(\"\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \n\nself = <_pytest.capture.DontReadFromInput object at 0x7fc91e62db50>, args\
+    \ = ()\n\n    def read(self, *args):\n>       raise OSError(\n            \"pytest:\
+    \ reading from stdin while output is captured!  Consider using `-s`.\"\n     \
+    \   )\nE       OSError: pytest: reading from stdin while output is captured! \
+    \ Consider using `-s`.\n\n/usr/local/lib/python3.8/dist-packages/_pytest/capture.py:217:\
+    \ OSError"
+  killer: tests/test_read_user_choice.py::test_raise_if_options_is_not_a_non_empty_list
+  module: &id007 !!python/module:cookiecutter.prompt ''
+  mutations:
+  - lineno: 54
+    operator: COI
+  number: 43
+  status: killed
+  tests_run: -71
+  time: 0.9594688415527344
+- exception_traceback: "def test_raise_if_options_is_not_a_non_empty_list():\n   \
+    \     \"\"\"Test function called by cookiecutter raise expected errors.\n    \n\
+    \        Test for choice type invocation.\n        \"\"\"\n        with pytest.raises(TypeError):\n\
+    \            read_user_choice('foo', 'NOT A LIST')\n    \n        with pytest.raises(ValueError):\n\
+    >           read_user_choice('foo', [])\n\ntests/test_read_user_choice.py:45:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.prompt:75: in read_user_choice\n\
+    \    ???\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:147:\
+    \ in prompt\n    value = prompt_func(prompt)\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:129:\
+    \ in prompt_func\n    return f(\"\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \n\nself = <_pytest.capture.DontReadFromInput object at 0x7fc91e7022e0>, args\
+    \ = ()\n\n    def read(self, *args):\n>       raise OSError(\n            \"pytest:\
+    \ reading from stdin while output is captured!  Consider using `-s`.\"\n     \
+    \   )\nE       OSError: pytest: reading from stdin while output is captured! \
+    \ Consider using `-s`.\n\n/usr/local/lib/python3.8/dist-packages/_pytest/capture.py:217:\
+    \ OSError"
+  killer: tests/test_read_user_choice.py::test_raise_if_options_is_not_a_non_empty_list
+  module: *id007
+  mutations:
+  - lineno: 57
+    operator: COI
+  number: 44
+  status: killed
+  tests_run: -71
+  time: 0.7039756774902344
+- exception_traceback: "def test_process_json_non_dict():\n        \"\"\"Test `process_json`\
+    \ for correct error on non-JSON input.\"\"\"\n        with pytest.raises(click.UsageError)\
+    \ as exc_info:\n>           process_json('[1, 2]')\nE           Failed: DID NOT\
+    \ RAISE <class 'click.exceptions.UsageError'>\n\ntests/test_read_user_dict.py:22:\
+    \ Failed"
+  killer: tests/test_read_user_dict.py::test_process_json_non_dict
+  module: *id007
+  mutations:
+  - lineno: 92
+    operator: COI
+  number: 45
+  status: killed
+  tests_run: -4
+  time: 0.6572844982147217
+- exception_traceback: null
+  killer: null
+  module: *id007
+  mutations:
+  - lineno: 107
+    operator: COI
+  number: 46
+  status: incompetent
+  tests_run: -7
+  time: 0.5673360824584961
+- exception_traceback: "mocker = <pytest_mock.plugin.MockFixture object at 0x7fc91ee002b0>\n\
+    \n    def test_read_user_dict_default_value(mocker):\n        \"\"\"Make sure\
+    \ that `read_user_dict` returns the default value.\n    \n        Verify return\
+    \ of a dict variable rather than the display value.\n        \"\"\"\n        mock_prompt\
+    \ = mocker.patch(\n            'cookiecutter.prompt.click.prompt', autospec=True,\
+    \ return_value='default',\n        )\n    \n        val = read_user_dict('name',\
+    \ {'project_slug': 'pytest-plugin'})\n    \n        assert mock_prompt.call_args\
+    \ == mocker.call(\n            'name', type=click.STRING, default='default', value_proc=process_json,\n\
+    \        )\n    \n>       assert val == {'project_slug': 'pytest-plugin'}\nE \
+    \      AssertionError\n\ntests/test_read_user_dict.py:115: AssertionError"
+  killer: tests/test_read_user_dict.py::test_read_user_dict_default_value
+  module: *id007
+  mutations:
+  - lineno: 116
+    operator: COI
+  number: 47
+  status: killed
+  tests_run: -7
+  time: 0.5770399570465088
+- exception_traceback: "self = <tests.test_prompt.TestRenderVariable object at 0x7fc91e8fcaf0>\n\
+    mocker = <pytest_mock.plugin.MockFixture object at 0x7fc91eee79d0>, raw_var =\
+    \ 1, rendered_var = '1'\n\n    @pytest.mark.parametrize(\n        'raw_var, rendered_var',\n\
+    \        [\n            (1, '1'),\n            (True, 'True'),\n            ('foo',\
+    \ 'foo'),\n            ('{{cookiecutter.project}}', 'foobar'),\n            (None,\
+    \ None),\n        ],\n    )\n    def test_convert_to_str(self, mocker, raw_var,\
+    \ rendered_var):\n        \"\"\"Verify simple items correctly rendered to strings.\"\
+    \"\"\n        env = environment.StrictEnvironment()\n        from_string = mocker.patch(\n\
+    \            'cookiecutter.prompt.StrictEnvironment.from_string', wraps=env.from_string\n\
+    \        )\n        context = {'project': 'foobar'}\n    \n        result = prompt.render_variable(env,\
+    \ raw_var, context)\n>       assert result == rendered_var\nE       AssertionError\n\
+    \ntests/test_prompt.py:39: AssertionError"
+  killer: tests/test_prompt.py::TestRenderVariable::test_convert_to_str[1-1]
+  module: *id007
+  mutations:
+  - lineno: 139
+    operator: COI
+  number: 48
+  status: killed
+  tests_run: -141
+  time: 0.8493742942810059
+- exception_traceback: "self = <tests.test_prompt.TestRenderVariable object at 0x7fc91f9a2520>\n\
+    mocker = <pytest_mock.plugin.MockFixture object at 0x7fc91eb7fd30>, raw_var =\
+    \ 1, rendered_var = '1'\n\n    @pytest.mark.parametrize(\n        'raw_var, rendered_var',\n\
+    \        [\n            (1, '1'),\n            (True, 'True'),\n            ('foo',\
+    \ 'foo'),\n            ('{{cookiecutter.project}}', 'foobar'),\n            (None,\
+    \ None),\n        ],\n    )\n    def test_convert_to_str(self, mocker, raw_var,\
+    \ rendered_var):\n        \"\"\"Verify simple items correctly rendered to strings.\"\
+    \"\"\n        env = environment.StrictEnvironment()\n        from_string = mocker.patch(\n\
+    \            'cookiecutter.prompt.StrictEnvironment.from_string', wraps=env.from_string\n\
+    \        )\n        context = {'project': 'foobar'}\n    \n>       result = prompt.render_variable(env,\
+    \ raw_var, context)\n\ntests/test_prompt.py:38: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ \n\nenv = <cookiecutter.environment.StrictEnvironment object at\
+    \ 0x7fc91e77bc70>, raw = 1\ncookiecutter_dict = {'project': 'foobar'}\n\n>   ???\n\
+    E   AttributeError: 'int' object has no attribute 'items'\n\ncookiecutter.prompt:146:\
+    \ AttributeError"
+  killer: tests/test_prompt.py::TestRenderVariable::test_convert_to_str[1-1]
+  module: *id007
+  mutations:
+  - lineno: 141
+    operator: COI
+  number: 49
+  status: killed
+  tests_run: -141
+  time: 0.8839173316955566
+- exception_traceback: null
+  killer: null
+  module: *id007
+  mutations:
+  - lineno: 148
+    operator: COI
+  number: 50
+  status: incompetent
+  tests_run: -141
+  time: 0.8419783115386963
+- exception_traceback: null
+  killer: null
+  module: *id007
+  mutations:
+  - lineno: 150
+    operator: COI
+  number: 51
+  status: incompetent
+  tests_run: -141
+  time: 0.9962911605834961
+- exception_traceback: "self = <tests.test_prompt.TestReadUserChoice object at 0x7fc91e744370>\n\
+    mocker = <pytest_mock.plugin.MockFixture object at 0x7fc91ec8cb80>\n\n    def\
+    \ test_should_invoke_read_user_choice(self, mocker):\n        \"\"\"Verify correct\
+    \ function called for select(list) variables.\"\"\"\n        prompt_choice = mocker.patch(\n\
+    \            'cookiecutter.prompt.prompt_choice_for_config',\n            wraps=prompt.prompt_choice_for_config,\n\
+    \        )\n    \n        read_user_choice = mocker.patch('cookiecutter.prompt.read_user_choice')\n\
+    \        read_user_choice.return_value = 'all'\n    \n        read_user_variable\
+    \ = mocker.patch('cookiecutter.prompt.read_user_variable')\n    \n        choices\
+    \ = ['landscape', 'portrait', 'all']\n        context = {'cookiecutter': {'orientation':\
+    \ choices}}\n    \n        cookiecutter_dict = prompt.prompt_for_config(context)\n\
+    \    \n        assert not read_user_variable.called\n>       assert prompt_choice.called\n\
+    E       AssertionError\n\ntests/test_prompt.py:275: AssertionError"
+  killer: tests/test_prompt.py::TestReadUserChoice::test_should_invoke_read_user_choice
+  module: *id007
+  mutations:
+  - lineno: 166
+    operator: COI
+  number: 52
+  status: killed
+  tests_run: -158
+  time: 0.8759810924530029
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7fc91ee91e50>\n\
+    monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fc91e62ddc0>\n\n \
+    \   def test_prompt_for_config_dict(self, monkeypatch):\n        \"\"\"Verify\
+    \ `prompt_for_config` call `read_user_variable` on dict request.\"\"\"\n     \
+    \   monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_dict',\n\
+    \            lambda var, default: {\"key\": \"value\", \"integer\": 37},\n   \
+    \     )\n        context = {'cookiecutter': {'details': {}}}\n    \n>       cookiecutter_dict\
+    \ = prompt.prompt_for_config(context)\n\ntests/test_prompt.py:97: \n_ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.prompt:222: in prompt_for_config\n\
+    \    ???\ncookiecutter.prompt:112: in read_user_dict\n    ???\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:147:\
+    \ in prompt\n    value = prompt_func(prompt)\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:129:\
+    \ in prompt_func\n    return f(\"\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \n\nself = <_pytest.capture.DontReadFromInput object at 0x7fc91f70d250>, args\
+    \ = ()\n\n    def read(self, *args):\n>       raise OSError(\n            \"pytest:\
+    \ reading from stdin while output is captured!  Consider using `-s`.\"\n     \
+    \   )\nE       OSError: pytest: reading from stdin while output is captured! \
+    \ Consider using `-s`.\n\n/usr/local/lib/python3.8/dist-packages/_pytest/capture.py:217:\
+    \ OSError"
+  killer: tests/test_prompt.py::TestPrompt::test_prompt_for_config_dict
+  module: *id007
+  mutations:
+  - lineno: 184
+    operator: COI
+  number: 53
+  status: killed
+  tests_run: -147
+  time: 0.9182693958282471
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7fc91f69e5e0>\n\
+    monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fc91ee8b7f0>\n\n \
+    \   def test_prompt_for_config_dict(self, monkeypatch):\n        \"\"\"Verify\
+    \ `prompt_for_config` call `read_user_variable` on dict request.\"\"\"\n     \
+    \   monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_dict',\n\
+    \            lambda var, default: {\"key\": \"value\", \"integer\": 37},\n   \
+    \     )\n        context = {'cookiecutter': {'details': {}}}\n    \n>       cookiecutter_dict\
+    \ = prompt.prompt_for_config(context)\n\ntests/test_prompt.py:97: \n_ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.prompt:222: in prompt_for_config\n\
+    \    ???\ncookiecutter.prompt:112: in read_user_dict\n    ???\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:147:\
+    \ in prompt\n    value = prompt_func(prompt)\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:129:\
+    \ in prompt_func\n    return f(\"\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \n\nself = <_pytest.capture.DontReadFromInput object at 0x7fc91f200d60>, args\
+    \ = ()\n\n    def read(self, *args):\n>       raise OSError(\n            \"pytest:\
+    \ reading from stdin while output is captured!  Consider using `-s`.\"\n     \
+    \   )\nE       OSError: pytest: reading from stdin while output is captured! \
+    \ Consider using `-s`.\n\n/usr/local/lib/python3.8/dist-packages/_pytest/capture.py:217:\
+    \ OSError"
+  killer: tests/test_prompt.py::TestPrompt::test_prompt_for_config_dict
+  module: *id007
+  mutations:
+  - lineno: 187
+    operator: COI
+  number: 54
+  status: killed
+  tests_run: -147
+  time: 0.8215489387512207
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7fc91ef62d30>\n\
+    monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fc91e64fc40>\ncontext\
+    \ = {'cookiecutter': {'full_name': 'Your Name'}}\n\n    @pytest.mark.parametrize(\n\
+    \        'context',\n        [\n            {'cookiecutter': {'full_name': 'Your\
+    \ Name'}},\n            {'cookiecutter': {'full_name': '\u0158ekni \u010Di napi\u0161\
+    \ sv\xE9 jm\xE9no'}},\n        ],\n        ids=['ASCII default prompt/input',\
+    \ 'Unicode default prompt/input'],\n    )\n    def test_prompt_for_config(self,\
+    \ monkeypatch, context):\n        \"\"\"Verify `prompt_for_config` call `read_user_variable`\
+    \ on text request.\"\"\"\n        monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_variable',\
+    \ lambda var, default: default,\n        )\n    \n>       cookiecutter_dict =\
+    \ prompt.prompt_for_config(context)\n\ntests/test_prompt.py:86: \n_ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.prompt:194: in prompt_for_config\n\
+    \    ???\ncookiecutter.prompt:168: in prompt_choice_for_config\n    ???\ncookiecutter.prompt:75:\
+    \ in read_user_choice\n    ???\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:147:\
+    \ in prompt\n    value = prompt_func(prompt)\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:129:\
+    \ in prompt_func\n    return f(\"\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \n\nself = <_pytest.capture.DontReadFromInput object at 0x7fc91f68dfd0>, args\
+    \ = ()\n\n    def read(self, *args):\n>       raise OSError(\n            \"pytest:\
+    \ reading from stdin while output is captured!  Consider using `-s`.\"\n     \
+    \   )\nE       OSError: pytest: reading from stdin while output is captured! \
+    \ Consider using `-s`.\n\n/usr/local/lib/python3.8/dist-packages/_pytest/capture.py:217:\
+    \ OSError"
+  killer: tests/test_prompt.py::TestPrompt::test_prompt_for_config[ASCII default prompt/input]
+  module: *id007
+  mutations:
+  - lineno: 192
+    operator: COI
+  number: 55
+  status: killed
+  tests_run: -149
+  time: 0.909975528717041
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7fc91e64d400>\n\
+    monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fc91e64dc40>\ncontext\
+    \ = {'cookiecutter': {'full_name': 'Your Name'}}\n\n    @pytest.mark.parametrize(\n\
+    \        'context',\n        [\n            {'cookiecutter': {'full_name': 'Your\
+    \ Name'}},\n            {'cookiecutter': {'full_name': '\u0158ekni \u010Di napi\u0161\
+    \ sv\xE9 jm\xE9no'}},\n        ],\n        ids=['ASCII default prompt/input',\
+    \ 'Unicode default prompt/input'],\n    )\n    def test_prompt_for_config(self,\
+    \ monkeypatch, context):\n        \"\"\"Verify `prompt_for_config` call `read_user_variable`\
+    \ on text request.\"\"\"\n        monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_variable',\
+    \ lambda var, default: default,\n        )\n    \n        cookiecutter_dict =\
+    \ prompt.prompt_for_config(context)\n>       assert cookiecutter_dict == context['cookiecutter']\n\
+    E       AssertionError\n\ntests/test_prompt.py:87: AssertionError"
+  killer: tests/test_prompt.py::TestPrompt::test_prompt_for_config[ASCII default prompt/input]
+  module: *id007
+  mutations:
+  - lineno: 198
+    operator: COI
+  number: 56
+  status: killed
+  tests_run: -149
+  time: 0.7506482601165771
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7fc91ede4c40>\n\
+    \n    def test_should_render_dict(self):\n        \"\"\"Verify template inside\
+    \ dictionary variable rendered.\"\"\"\n        context = {\n            'cookiecutter':\
+    \ {\n                'project_name': 'Slartibartfast',\n                'details':\
+    \ {\n                    '{{cookiecutter.project_name}}': '{{cookiecutter.project_name}}'\n\
+    \                },\n            }\n        }\n    \n>       cookiecutter_dict\
+    \ = prompt.prompt_for_config(context, no_input=True)\n\ntests/test_prompt.py:111:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.prompt:203: in prompt_for_config\n\
+    \    ???\ncookiecutter.prompt:19: in read_user_variable\n    ???\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:147:\
+    \ in prompt\n    value = prompt_func(prompt)\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:129:\
+    \ in prompt_func\n    return f(\"\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \n\nself = <_pytest.capture.DontReadFromInput object at 0x7fc91f582c40>, args\
+    \ = ()\n\n    def read(self, *args):\n>       raise OSError(\n            \"pytest:\
+    \ reading from stdin while output is captured!  Consider using `-s`.\"\n     \
+    \   )\nE       OSError: pytest: reading from stdin while output is captured! \
+    \ Consider using `-s`.\n\n/usr/local/lib/python3.8/dist-packages/_pytest/capture.py:217:\
+    \ OSError"
+  killer: tests/test_prompt.py::TestPrompt::test_should_render_dict
+  module: *id007
+  mutations:
+  - lineno: 202
+    operator: COI
+  number: 57
+  status: killed
+  tests_run: -148
+  time: 1.2356476783752441
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7fc91ea572e0>\n\
+    monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fc91eb6dd90>\n\n \
+    \   def test_prompt_for_config_dict(self, monkeypatch):\n        \"\"\"Verify\
+    \ `prompt_for_config` call `read_user_variable` on dict request.\"\"\"\n     \
+    \   monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_dict',\n\
+    \            lambda var, default: {\"key\": \"value\", \"integer\": 37},\n   \
+    \     )\n        context = {'cookiecutter': {'details': {}}}\n    \n        cookiecutter_dict\
+    \ = prompt.prompt_for_config(context)\n>       assert cookiecutter_dict == {'details':\
+    \ {'key': 'value', 'integer': 37}}\nE       AssertionError\n\ntests/test_prompt.py:98:\
+    \ AssertionError"
+  killer: tests/test_prompt.py::TestPrompt::test_prompt_for_config_dict
+  module: *id007
+  mutations:
+  - lineno: 213
+    operator: COI
+  number: 58
+  status: killed
+  tests_run: -151
+  time: 0.7928318977355957
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7fc91e8e9f10>\n\
+    monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fc91e664580>\n\n \
+    \   def test_prompt_for_config_dict(self, monkeypatch):\n        \"\"\"Verify\
+    \ `prompt_for_config` call `read_user_variable` on dict request.\"\"\"\n     \
+    \   monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_dict',\n\
+    \            lambda var, default: {\"key\": \"value\", \"integer\": 37},\n   \
+    \     )\n        context = {'cookiecutter': {'details': {}}}\n    \n        cookiecutter_dict\
+    \ = prompt.prompt_for_config(context)\n>       assert cookiecutter_dict == {'details':\
+    \ {'key': 'value', 'integer': 37}}\nE       AssertionError\n\ntests/test_prompt.py:98:\
+    \ AssertionError"
+  killer: tests/test_prompt.py::TestPrompt::test_prompt_for_config_dict
+  module: *id007
+  mutations:
+  - lineno: 217
+    operator: COI
+  number: 59
+  status: killed
+  tests_run: -151
+  time: 0.8474836349487305
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7fc91f055fa0>\n\
+    monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fc91f055190>\n\n \
+    \   def test_prompt_for_config_dict(self, monkeypatch):\n        \"\"\"Verify\
+    \ `prompt_for_config` call `read_user_variable` on dict request.\"\"\"\n     \
+    \   monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_dict',\n\
+    \            lambda var, default: {\"key\": \"value\", \"integer\": 37},\n   \
+    \     )\n        context = {'cookiecutter': {'details': {}}}\n    \n        cookiecutter_dict\
+    \ = prompt.prompt_for_config(context)\n>       assert cookiecutter_dict == {'details':\
+    \ {'key': 'value', 'integer': 37}}\nE       AssertionError\n\ntests/test_prompt.py:98:\
+    \ AssertionError"
+  killer: tests/test_prompt.py::TestPrompt::test_prompt_for_config_dict
+  module: *id007
+  mutations:
+  - lineno: 221
+    operator: COI
+  number: 60
+  status: killed
+  tests_run: -151
+  time: 0.9470653533935547
+- exception_traceback: "tmp_path = PosixPath('/tmp/pytest-of-ubuntu/pytest-395/test_make_sure_path_exists0')\n\
+    \n    @pytest.mark.skipif(\n        sys.version_info[0] == 3 and sys.version_info[1]\
+    \ == 6 and sys.version_info[2] == 1,\n        reason=\"Outdated pypy3 version\
+    \ on Travis CI/CD\",\n    )\n    def test_make_sure_path_exists(tmp_path):\n \
+    \       \"\"\"Verify correct True/False response from `utils.make_sure_path_exists`.\n\
+    \    \n        Should return True if directory exist or created.\n        Should\
+    \ return False if impossible to create directory (for example protected)\n   \
+    \     \"\"\"\n        existing_directory = tmp_path\n        directory_to_create\
+    \ = Path(tmp_path, \"not_yet_created\")\n    \n>       assert utils.make_sure_path_exists(existing_directory)\n\
+    E       AssertionError\n\ntests/test_utils.py:45: AssertionError"
+  killer: tests/test_utils.py::test_make_sure_path_exists
+  module: &id008 !!python/module:cookiecutter.utils ''
+  mutations:
+  - lineno: 43
+    operator: COI
+  number: 61
+  status: killed
+  tests_run: -122
+  time: 1.1391479969024658
+- exception_traceback: null
+  killer: null
+  module: *id008
+  mutations:
+  - lineno: 56
+    operator: COI
+  number: 62
+  status: incompetent
+  tests_run: -109
+  time: 0.699782133102417
+- exception_traceback: "mocker = <pytest_mock.plugin.MockFixture object at 0x7fc91e77b880>\n\
+    tmp_path = PosixPath('/tmp/pytest-of-ubuntu/pytest-396/test_prompt_should_ask_and_rm_0')\n\
+    \n    def test_prompt_should_ask_and_rm_repo_dir(mocker, tmp_path):\n        \"\
+    \"\"In `prompt_and_delete()`, if the user agrees to delete/reclone the \\\n  \
+    \      repo, the repo should be deleted.\"\"\"\n        mock_read_user = mocker.patch(\n\
+    \            'cookiecutter.utils.read_user_yes_no', return_value=True\n      \
+    \  )\n        repo_dir = Path(tmp_path, 'repo')\n        repo_dir.mkdir()\n  \
+    \  \n        deleted = utils.prompt_and_delete(str(repo_dir))\n    \n>       assert\
+    \ mock_read_user.called\nE       AssertionError\n\ntests/test_utils.py:101: AssertionError"
+  killer: tests/test_utils.py::test_prompt_should_ask_and_rm_repo_dir
+  module: *id008
+  mutations:
+  - lineno: 84
+    operator: COI
+  number: 63
+  status: killed
+  tests_run: -125
+  time: 0.7335138320922852
+- exception_traceback: "mocker = <pytest_mock.plugin.MockFixture object at 0x7fc91f6078e0>\n\
+    tmp_path = PosixPath('/tmp/pytest-of-ubuntu/pytest-397/test_prompt_should_not_ask_if_0')\n\
+    \n    def test_prompt_should_not_ask_if_no_input_and_rm_repo_dir(mocker, tmp_path):\n\
+    \        \"\"\"Prompt should not ask if no input and rm dir.\n    \n        In\
+    \ `prompt_and_delete()`, if `no_input` is True, the call to\n        `prompt.read_user_yes_no()`\
+    \ should be suppressed.\n        \"\"\"\n        mock_read_user = mocker.patch(\n\
+    \            'cookiecutter.prompt.read_user_yes_no', return_value=True, autospec=True\n\
+    \        )\n        repo_dir = Path(tmp_path, 'repo')\n        repo_dir.mkdir()\n\
+    \    \n>       deleted = utils.prompt_and_delete(str(repo_dir), no_input=True)\n\
+    \ntests/test_utils.py:192: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.utils:100:\
+    \ in prompt_and_delete\n    ???\ncookiecutter/prompt.py:32: in read_user_yes_no\n\
+    \    return click.prompt(question, default=default_value, type=click.BOOL)\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:147:\
+    \ in prompt\n    value = prompt_func(prompt)\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:129:\
+    \ in prompt_func\n    return f(\"\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \n\nself = <_pytest.capture.DontReadFromInput object at 0x7fc91e8fcf70>, args\
+    \ = ()\n\n    def read(self, *args):\n>       raise OSError(\n            \"pytest:\
+    \ reading from stdin while output is captured!  Consider using `-s`.\"\n     \
+    \   )\nE       OSError: pytest: reading from stdin while output is captured! \
+    \ Consider using `-s`.\n\n/usr/local/lib/python3.8/dist-packages/_pytest/capture.py:217:\
+    \ OSError"
+  killer: tests/test_utils.py::test_prompt_should_not_ask_if_no_input_and_rm_repo_dir
+  module: *id008
+  mutations:
+  - lineno: 93
+    operator: COI
+  number: 64
+  status: killed
+  tests_run: -130
+  time: 1.0241858959197998
+- exception_traceback: "mocker = <pytest_mock.plugin.MockFixture object at 0x7fc91edfb430>\n\
+    tmp_path = PosixPath('/tmp/pytest-of-ubuntu/pytest-398/test_prompt_should_not_ask_if_0')\n\
+    \n    def test_prompt_should_not_ask_if_no_input_and_rm_repo_dir(mocker, tmp_path):\n\
+    \        \"\"\"Prompt should not ask if no input and rm dir.\n    \n        In\
+    \ `prompt_and_delete()`, if `no_input` is True, the call to\n        `prompt.read_user_yes_no()`\
+    \ should be suppressed.\n        \"\"\"\n        mock_read_user = mocker.patch(\n\
+    \            'cookiecutter.prompt.read_user_yes_no', return_value=True, autospec=True\n\
+    \        )\n        repo_dir = Path(tmp_path, 'repo')\n        repo_dir.mkdir()\n\
+    \    \n>       deleted = utils.prompt_and_delete(str(repo_dir), no_input=True)\n\
+    \ntests/test_utils.py:192: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath\
+    \ = '/tmp/pytest-of-ubuntu/pytest-398/test_prompt_should_not_ask_if_0/repo', no_input\
+    \ = True\n\n>   ???\nE   IsADirectoryError: [Errno 21] Is a directory: '/tmp/pytest-of-ubuntu/pytest-398/test_prompt_should_not_ask_if_0/repo'\n\
+    \ncookiecutter.utils:97: IsADirectoryError"
+  killer: tests/test_utils.py::test_prompt_should_not_ask_if_no_input_and_rm_repo_dir
+  module: *id008
+  mutations:
+  - lineno: 94
+    operator: COI
+  number: 65
+  status: killed
+  tests_run: -130
+  time: 0.7457373142242432
+number_of_tests: 204
+targets:
+- cookiecutter/
+tests:
+- name: tests.conftest
+  target: null
+  time: 1.1324596405029297
+- name: tests.test_abort_generate_on_hook_error
+  target: null
+  time: 0.8249449729919434
+- name: tests.test_cli
+  target: null
+  time: 0.7944509983062744
+- name: tests.test_cookiecutter_invocation
+  target: null
+  time: 0.9187779426574707
+- name: tests.test_cookiecutter_local_no_input
+  target: null
+  time: 0.550154447555542
+- name: tests.test_cookiecutter_local_with_input
+  target: null
+  time: 0.3937819004058838
+- name: tests.test_custom_extensions_in_hooks
+  target: null
+  time: 0.969717264175415
+- name: tests.test_default_extensions
+  target: null
+  time: 0.5762112140655518
+- name: tests.test_environment
+  target: null
+  time: 0.3560059070587158
+- name: tests.test_exceptions
+  target: null
+  time: 0.3486645221710205
+- name: tests.test_find
+  target: null
+  time: 0.352125883102417
+- name: tests.test_generate_context
+  target: null
+  time: 0.387296199798584
+- name: tests.test_generate_copy_without_render
+  target: null
+  time: 0.37364888191223145
+- name: tests.test_generate_file
+  target: null
+  time: 0.4184725284576416
+- name: tests.test_generate_files
+  target: null
+  time: 0.8641738891601562
+- name: tests.test_generate_hooks
+  target: null
+  time: 1.5135767459869385
+- name: tests.test_get_config
+  target: null
+  time: 0.36612391471862793
+- name: tests.test_get_user_config
+  target: null
+  time: 0.39128804206848145
+- name: tests.test_hooks
+  target: null
+  time: 0.7061479091644287
+- name: tests.test_log
+  target: null
+  time: 0.36237168312072754
+- name: tests.test_main
+  target: null
+  time: 0.4593203067779541
+- name: tests.test_output_folder
+  target: null
+  time: 0.3795342445373535
+- name: tests.test_preferred_encoding
+  target: null
+  time: 0.3507225513458252
+- name: tests.test_prompt
+  target: null
+  time: 0.5521657466888428
+- name: tests.test_read_repo_password
+  target: null
+  time: 0.3571658134460449
+- name: tests.test_read_user_choice
+  target: null
+  time: 0.39203929901123047
+- name: tests.test_read_user_dict
+  target: null
+  time: 0.37291646003723145
+- name: tests.test_read_user_variable
+  target: null
+  time: 0.42968010902404785
+- name: tests.test_read_user_yes_no
+  target: null
+  time: 0.34977197647094727
+- name: tests.test_repo_not_found
+  target: null
+  time: 0.35144567489624023
+- name: tests.test_specify_output_dir
+  target: null
+  time: 0.400299072265625
+- name: tests.test_utils
+  target: null
+  time: 0.4186973571777344
+time_stats:
+  create_mutant_module: 0.14618492126464844
+  create_target_ast: 0.06241464614868164
+  mutate_module: 204.92032861709595
+  run_tests_with_mutant: 85.90119981765747
+total_time: 222.52378749847412

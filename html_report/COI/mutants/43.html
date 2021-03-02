@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MutPy mutation report - mutation #43</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    
+<link href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPython.js" type="text/javascript"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+    window.setTimeout(function () {
+        
+        $('.line.number54').attr('title', 'COI');
+        
+    }, 0);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        
+<div class="page-header">
+    <h1>Mutation #43</h1>
+</div>
+<h3>Details</h3>
+<ul>
+    <li>module - <code><module 'cookiecutter.prompt' from '/usr/baki/python_projects/cookiecutter/cookiecutter/prompt.py'></code></li>
+    <li><span class="label label-success">killed</span> by <code>tests/test_read_user_choice.py::test_raise_if_options_is_not_a_non_empty_list</code></li>
+    
+    <li>duration - 0.959 s</li>
+    
+    
+    <li>tests run - -71</li>
+    
+</ul>
+
+<h3>Exception traceback</h3>
+<pre>def test_raise_if_options_is_not_a_non_empty_list():
+        """Test function called by cookiecutter raise expected errors.
+    
+        Test for choice type invocation.
+        """
+        with pytest.raises(TypeError):
+>           read_user_choice('foo', 'NOT A LIST')
+
+tests/test_read_user_choice.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cookiecutter.prompt:75: in read_user_choice
+    ???
+/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:147: in prompt
+    value = prompt_func(prompt)
+/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:129: in prompt_func
+    return f("")
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <_pytest.capture.DontReadFromInput object at 0x7fc91e62db50>, args = ()
+
+    def read(self, *args):
+>       raise OSError(
+            "pytest: reading from stdin while output is captured!  Consider using `-s`."
+        )
+E       OSError: pytest: reading from stdin while output is captured!  Consider using `-s`.
+
+/usr/local/lib/python3.8/dist-packages/_pytest/capture.py:217: OSError</pre>
+
+<h3>Mutations</h3>
+<ul>
+    
+    <li>COI - line 54</li>
+    
+</ul>
+<h3>Mutant</h3>
+<pre class="brush: python; first-line: 1; highlight: [54]; toolbar: false;">'''Functions for prompting the user for project info.'''
+import json
+from collections import OrderedDict
+
+import click
+from jinja2.exceptions import UndefinedError
+
+from cookiecutter.environment import StrictEnvironment
+from cookiecutter.exceptions import UndefinedVariableInTemplate
+
+
+def read_user_variable(var_name, default_value):
+    '''Prompt user for variable and return the entered value or given default.
+
+    :param str var_name: Variable of the context to query the user
+    :param default_value: Value that will be returned if no input happens
+    '''
+    
+    return click.prompt(var_name, default=default_value)
+
+
+def read_user_yes_no(question, default_value):
+    """Prompt the user to reply with 'yes' or 'no' (or equivalent values).
+
+    Note:
+      Possible choices are 'true', '1', 'yes', 'y' or 'false', '0', 'no', 'n'
+
+    :param str question: Question to the user
+    :param default_value: Value that will be returned if no input happens
+    """
+    
+    return click.prompt(question, default=default_value, type=click.BOOL)
+
+
+def read_repo_password(question):
+    '''Prompt the user to enter a password.
+
+    :param str question: Question to the user
+    '''
+    
+    return click.prompt(question, hide_input=True)
+
+
+def read_user_choice(var_name, options):
+    '''Prompt the user to choose from several options for the given variable.
+
+    The first item will be returned if no input happens.
+
+    :param str var_name: Variable as specified in the context
+    :param list options: Sequence of options that are available to select from
+    :return: Exactly one item of ``options`` that has been chosen by the user
+    '''
+    
+    if not ((not (isinstance(options, list)))):
+        raise TypeError
+    
+    if not options:
+        raise ValueError
+    
+    choice_map = OrderedDict((\
+        ('{}'.format(i), value) for (i, value) in enumerate(options, 1)))
+    
+    choices = choice_map.keys()
+    default = '1'
+    
+    choice_lines = ['{} - {}'.format(*c) for c in choice_map.items()]
+    prompt = '\n'.join(
+        (\
+        'Select {}:'.format(var_name), \
+        '\n'.join(choice_lines), \
+        'Choose from {}'.format(', '.join(choices))))
+    
+    
+    
+    user_choice = click.prompt(
+        prompt, type=click.Choice(choices), default=default, show_choices=False)
+    
+    return choice_map[user_choice]
+
+
+def process_json(user_value):
+    '''Load user-supplied value as a JSON dict.
+
+    :param str user_value: User-supplied value to load as a JSON dict
+    '''
+    try:
+        user_dict = json.loads(user_value, object_pairs_hook=OrderedDict)
+    except Exception:
+        
+        raise click.UsageError('Unable to decode to JSON.')
+    
+    if not (isinstance(user_dict, dict)):
+        
+        raise click.UsageError('Requires JSON dict.')
+    
+    return user_dict
+
+
+def read_user_dict(var_name, default_value):
+    '''Prompt the user to provide a dictionary of data.
+
+    :param str var_name: Variable as specified in the context
+    :param default_value: Value that will be returned if no input is provided
+    :return: A Python dictionary to use in the context.
+    '''
+    
+    if not (isinstance(default_value, dict)):
+        raise TypeError
+    
+    default_display = 'default'
+    
+    user_value = click.prompt(
+        var_name, default=default_display, type=click.STRING, value_proc=process_json)
+    
+    
+    if user_value == default_display:
+        
+        return default_value
+    return user_value
+
+
+def render_variable(env, raw, cookiecutter_dict):
+    '''Render the next variable to be displayed in the user prompt.
+
+    Inside the prompting taken from the cookiecutter.json file, this renders
+    the next variable. For example, if a project_name is "Peanut Butter
+    Cookie", the repo_name could be be rendered with:
+
+        `{{ cookiecutter.project_name.replace(" ", "_") }}`.
+
+    This is then presented to the user as the default.
+
+    :param Environment env: A Jinja2 Environment object.
+    :param raw: The next value to be prompted for by the user.
+    :param dict cookiecutter_dict: The current context as it\'s gradually
+        being populated with variables.
+    :return: The rendered value for the default variable.
+    '''
+    if raw is None:
+        return None
+    elif isinstance(raw, dict):
+        return {\
+            render_variable(env, k, cookiecutter_dict): render_variable(
+            env, v, cookiecutter_dict) for \
+            \
+            (k, v) in raw.items()}
+    
+    elif isinstance(raw, list):
+        return [render_variable(env, v, cookiecutter_dict) for v in raw]
+    elif not (isinstance(raw, str)):
+        raw = str(raw)
+    
+    template = env.from_string(raw)
+    
+    rendered_template = template.render(cookiecutter=cookiecutter_dict)
+    return rendered_template
+
+
+def prompt_choice_for_config(cookiecutter_dict, env, key, options, no_input):
+    '''Prompt user with a set of options to choose from.
+
+    Each of the possible choices is rendered beforehand.
+    '''
+    rendered_options = [render_variable(env, raw, cookiecutter_dict) for raw in options]
+    
+    if no_input:
+        return rendered_options[0]
+    return read_user_choice(key, rendered_options)
+
+
+def prompt_for_config(context, no_input=False):
+    '''Prompt user to enter a new config.
+
+    :param dict context: Source for field names and sample values.
+    :param no_input: Prompt the user at command line for manual configuration?
+    '''
+    cookiecutter_dict = OrderedDict([])
+    env = StrictEnvironment(context=context)
+    
+    
+    
+    
+    for (key, raw) in context['cookiecutter'].items():
+        if (key.startswith('_') and not (key.startswith('__'))):
+            cookiecutter_dict[key] = raw
+            continue
+        elif key.startswith('__'):
+            cookiecutter_dict[key] = render_variable(env, raw, cookiecutter_dict)
+            continue
+        
+        try:
+            if isinstance(raw, list):
+                
+                val = prompt_choice_for_config(
+                    cookiecutter_dict, env, key, raw, no_input)
+                
+                cookiecutter_dict[key] = val
+            elif not (isinstance(raw, dict)):
+                
+                val = render_variable(env, raw, cookiecutter_dict)
+                
+                if not no_input:
+                    val = read_user_variable(key, val)
+                
+                cookiecutter_dict[key] = val
+        except UndefinedError as err:
+            msg = "Unable to render variable '{}'".format(key)
+            raise UndefinedVariableInTemplate(msg, err, context)
+    
+    
+    for (key, raw) in context['cookiecutter'].items():
+        
+        if (key.startswith('_') and not (key.startswith('__'))):
+            continue
+        
+        try:
+            if isinstance(raw, dict):
+                
+                val = render_variable(env, raw, cookiecutter_dict)
+                
+                if not no_input:
+                    val = read_user_dict(key, val)
+                
+                cookiecutter_dict[key] = val
+        except UndefinedError as err:
+            msg = "Unable to render variable '{}'".format(key)
+            raise UndefinedVariableInTemplate(msg, err, context)
+    
+    return cookiecutter_dict</pre>
+
+    </div>
+</body>
+</html>

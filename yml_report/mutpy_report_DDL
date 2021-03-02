@@ -1,0 +1,185 @@
+coverage:
+  all_nodes: 6759
+  covered_nodes: 5205
+mutation_score: 100.0
+mutations:
+- exception_traceback: "self = <click.testing.CliRunner object at 0x7ff844a6a3a0>,\
+    \ cli = <function main at 0x7ff8442bf790>, args = ('-V',)\ninput = None, env =\
+    \ None, catch_exceptions = True, color = False, extra = {}, exc_info = None\n\
+    outstreams = (<_io.BytesIO object at 0x7ff844a743b0>, False), exception = None,\
+    \ exit_code = 0\n\n    def invoke(\n        self,\n        cli,\n        args=None,\n\
+    \        input=None,\n        env=None,\n        catch_exceptions=True,\n    \
+    \    color=False,\n        **extra\n    ):\n        \"\"\"Invokes a command in\
+    \ an isolated environment.  The arguments are\n        forwarded directly to the\
+    \ command line script, the `extra` keyword\n        arguments are passed to the\
+    \ :meth:`~clickpkg.Command.main` function of\n        the command.\n    \n   \
+    \     This returns a :class:`Result` object.\n    \n        .. versionadded::\
+    \ 3.0\n           The ``catch_exceptions`` parameter was added.\n    \n      \
+    \  .. versionchanged:: 3.0\n           The result object now has an `exc_info`\
+    \ attribute with the\n           traceback if available.\n    \n        .. versionadded::\
+    \ 4.0\n           The ``color`` parameter was added.\n    \n        :param cli:\
+    \ the command to invoke\n        :param args: the arguments to invoke. It may\
+    \ be given as an iterable\n                     or a string. When given as string\
+    \ it will be interpreted\n                     as a Unix shell command. More details\
+    \ at\n                     :func:`shlex.split`.\n        :param input: the input\
+    \ data for `sys.stdin`.\n        :param env: the environment overrides.\n    \
+    \    :param catch_exceptions: Whether to catch any other exceptions than\n   \
+    \                              ``SystemExit``.\n        :param extra: the keyword\
+    \ arguments to pass to :meth:`main`.\n        :param color: whether the output\
+    \ should contain color codes. The\n                      application can still\
+    \ override this explicitly.\n        \"\"\"\n        exc_info = None\n       \
+    \ with self.isolation(input=input, env=env, color=color) as outstreams:\n    \
+    \        exception = None\n            exit_code = 0\n    \n            if isinstance(args,\
+    \ string_types):\n                args = shlex.split(args)\n    \n           \
+    \ try:\n>               prog_name = extra.pop(\"prog_name\")\nE              \
+    \ KeyError: 'prog_name'\n\n/home/ubuntu/.local/lib/python3.8/site-packages/click/testing.py:324:\
+    \ KeyError\n\nDuring handling of the above exception, another exception occurred:\n\
+    \ncli_runner = <function cli_runner.<locals>.cli_main at 0x7ff844912160>, version_cli_flag\
+    \ = '-V'\n\n    def test_cli_version(cli_runner, version_cli_flag):\n        \"\
+    \"\"Verify correct version output by `cookiecutter` on cli invocation.\"\"\"\n\
+    >       result = cli_runner(version_cli_flag)\n\ntests/test_cli.py:52: \n_ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ntests/test_cli.py:22: in cli_main\n  \
+    \  return runner.invoke(main, cli_args, **cli_kwargs)\n/home/ubuntu/.local/lib/python3.8/site-packages/click/testing.py:326:\
+    \ in invoke\n    prog_name = self.get_default_prog_name(cli)\n_ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <click.testing.CliRunner object at 0x7ff844a6a3a0>,\
+    \ cli = <function main at 0x7ff8442bf790>\n\n    def get_default_prog_name(self,\
+    \ cli):\n        \"\"\"Given a command object it will return the default program\
+    \ name\n        for it.  The default is the `name` attribute or ``\"root\"`` if\
+    \ not\n        set.\n        \"\"\"\n>       return cli.name or \"root\"\nE  \
+    \     AttributeError: 'function' object has no attribute 'name'\n\n/home/ubuntu/.local/lib/python3.8/site-packages/click/testing.py:150:\
+    \ AttributeError"
+  killer: tests/test_cli.py::test_cli_version[-V]
+  module: !!python/module:cookiecutter.cli ''
+  mutations:
+  - lineno: 144
+    operator: DDL
+  number: 1
+  status: killed
+  tests_run: 109
+  time: 4.288954496383667
+- exception_traceback: "invalid_dirname = ''\n\n    @pytest.mark.parametrize('invalid_dirname',\
+    \ ['', '{foo}', '{{foo', 'bar}}'])\n    def test_ensure_dir_is_templated_raises(invalid_dirname):\n\
+    \        \"\"\"Verify `ensure_dir_is_templated` raises on wrong directories names\
+    \ input.\"\"\"\n        with pytest.raises(exceptions.NonTemplatedInputDirException):\n\
+    >           generate.ensure_dir_is_templated(invalid_dirname)\n\ntests/test_generate_files.py:19:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ndirname = ''\n\n>   ???\nE \
+    \  cookiecutter.exceptions.NonTemplatedInputDirException\n\ncookiecutter.generate:226:\
+    \ NonTemplatedInputDirException"
+  killer: tests/test_generate_files.py::test_ensure_dir_is_templated_raises[]
+  module: !!python/module:cookiecutter.utils ''
+  mutations:
+  - lineno: 49
+    operator: DDL
+  number: 2
+  status: killed
+  tests_run: 8
+  time: 0.812523603439331
+number_of_tests: 204
+targets:
+- cookiecutter/
+tests:
+- name: tests.conftest
+  target: null
+  time: 1.1589486598968506
+- name: tests.test_abort_generate_on_hook_error
+  target: null
+  time: 0.8145899772644043
+- name: tests.test_cli
+  target: null
+  time: 0.7856771945953369
+- name: tests.test_cookiecutter_invocation
+  target: null
+  time: 0.9361276626586914
+- name: tests.test_cookiecutter_local_no_input
+  target: null
+  time: 0.5491888523101807
+- name: tests.test_cookiecutter_local_with_input
+  target: null
+  time: 0.3840639591217041
+- name: tests.test_custom_extensions_in_hooks
+  target: null
+  time: 1.0339696407318115
+- name: tests.test_default_extensions
+  target: null
+  time: 0.575031042098999
+- name: tests.test_environment
+  target: null
+  time: 0.3492271900177002
+- name: tests.test_exceptions
+  target: null
+  time: 0.34657883644104004
+- name: tests.test_find
+  target: null
+  time: 0.3466529846191406
+- name: tests.test_generate_context
+  target: null
+  time: 0.3850858211517334
+- name: tests.test_generate_copy_without_render
+  target: null
+  time: 0.37541675567626953
+- name: tests.test_generate_file
+  target: null
+  time: 0.41477060317993164
+- name: tests.test_generate_files
+  target: null
+  time: 0.8785252571105957
+- name: tests.test_generate_hooks
+  target: null
+  time: 1.5042402744293213
+- name: tests.test_get_config
+  target: null
+  time: 0.35613036155700684
+- name: tests.test_get_user_config
+  target: null
+  time: 0.38443899154663086
+- name: tests.test_hooks
+  target: null
+  time: 0.7223119735717773
+- name: tests.test_log
+  target: null
+  time: 0.36258959770202637
+- name: tests.test_main
+  target: null
+  time: 0.4621715545654297
+- name: tests.test_output_folder
+  target: null
+  time: 0.3740720748901367
+- name: tests.test_preferred_encoding
+  target: null
+  time: 0.34574341773986816
+- name: tests.test_prompt
+  target: null
+  time: 0.5506470203399658
+- name: tests.test_read_repo_password
+  target: null
+  time: 0.34833860397338867
+- name: tests.test_read_user_choice
+  target: null
+  time: 0.38809704780578613
+- name: tests.test_read_user_dict
+  target: null
+  time: 0.3739442825317383
+- name: tests.test_read_user_variable
+  target: null
+  time: 0.41608595848083496
+- name: tests.test_read_user_yes_no
+  target: null
+  time: 0.3498246669769287
+- name: tests.test_repo_not_found
+  target: null
+  time: 0.3467130661010742
+- name: tests.test_specify_output_dir
+  target: null
+  time: 0.39302897453308105
+- name: tests.test_utils
+  target: null
+  time: 0.4158141613006592
+time_stats:
+  create_mutant_module: 0.0012063980102539062
+  create_target_ast: 0.06107187271118164
+  mutate_module: 160.19666457176208
+  run_tests_with_mutant: 6.124476432800293
+total_time: 177.80693674087524

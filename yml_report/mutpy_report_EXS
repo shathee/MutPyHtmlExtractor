@@ -1,0 +1,355 @@
+coverage:
+  all_nodes: 6759
+  covered_nodes: 5205
+mutation_score: 100.0
+mutations:
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7f1671befa60>\n\
+    \n    @pytest.mark.usefixtures('make_fake_project_dir', 'remove_fake_project_dir')\n\
+    \    def test_cli_error_on_existing_output_directory(cli_runner):\n        \"\"\
+    \"Test cli invocation without `overwrite-if-exists` fail if dir exist.\"\"\"\n\
+    \        result = cli_runner('tests/fake-repo-pre/', '--no-input')\n>       assert\
+    \ result.exit_code != 0\nE       AssertionError\n\ntests/test_cli.py:61: AssertionError"
+  killer: tests/test_cli.py::test_cli_error_on_existing_output_directory
+  module: &id001 !!python/module:cookiecutter.cli ''
+  mutations:
+  - lineno: 206
+    operator: EXS
+  number: 1
+  status: killed
+  tests_run: -31
+  time: 0.61940598487854
+- exception_traceback: "tmpdir = local('/tmp/pytest-of-ubuntu/pytest-507/test_echo_undefined_variable_e0')\n\
+    cli_runner = <function cli_runner.<locals>.cli_main at 0x7f16714978b0>\n\n   \
+    \ @pytest.mark.skipif(\n        sys.version_info[0] == 3 and sys.version_info[1]\
+    \ == 6 and sys.version_info[2] == 1,\n        reason=\"Outdated pypy3 version\
+    \ on Travis CI/CD with wrong OrderedDict syntax.\",\n    )\n    def test_echo_undefined_variable_error(tmpdir,\
+    \ cli_runner):\n        \"\"\"Cli invocation return error if variable undefined\
+    \ in template.\"\"\"\n        output_dir = str(tmpdir.mkdir('output'))\n     \
+    \   template_path = 'tests/undefined-variable/file-name/'\n    \n        result\
+    \ = cli_runner(\n            '--no-input', '--default-config', '--output-dir',\
+    \ output_dir, template_path,\n        )\n    \n>       assert result.exit_code\
+    \ == 1\nE       AssertionError\n\ntests/test_cli.py:381: AssertionError"
+  killer: tests/test_cli.py::test_echo_undefined_variable_error
+  module: *id001
+  mutations:
+  - lineno: 217
+    operator: EXS
+  number: 2
+  status: killed
+  tests_run: -51
+  time: 0.635507345199585
+- exception_traceback: "user_config_path = '/home/ubuntu/.cookiecutterrc'\ncustom_config\
+    \ = {'abbreviations': {'bb': 'https://bitbucket.org/{0}', 'gh': 'https://github.com/{0}.git',\
+    \ 'gl': 'https://gitlab.com/{0...ll_name': 'Firstname Lastname', 'github_username':\
+    \ 'example'}, 'replay_dir': '/home/example/some-path-to-replay-files'}\n\n   \
+    \ @pytest.mark.usefixtures('back_up_rc')\n    def test_get_user_config_valid(user_config_path,\
+    \ custom_config):\n        \"\"\"Validate user config correctly parsed if exist\
+    \ and correctly formatted.\"\"\"\n        shutil.copy('tests/test-config/valid-config.yaml',\
+    \ user_config_path)\n        conf = config.get_user_config()\n    \n>       assert\
+    \ conf == custom_config\nE       AssertionError\n\ntests/test_get_user_config.py:67:\
+    \ AssertionError"
+  killer: tests/test_get_user_config.py::test_get_user_config_valid
+  module: !!python/module:cookiecutter.config ''
+  mutations:
+  - lineno: 111
+    operator: EXS
+  number: 3
+  status: killed
+  tests_run: -189
+  time: 0.7767996788024902
+- exception_traceback: "tmpdir = local('/tmp/pytest-of-ubuntu/pytest-514/test_hooks_raises_errors_post_0'),\
+    \ abort_pre_gen = 'no'\nabort_post_gen = 'yes'\n\n    @pytest.mark.parametrize(\n\
+    \        (\"abort_pre_gen\", \"abort_post_gen\"),\n        ((\"yes\", \"no\"),\
+    \ (\"no\", \"yes\")),\n        ids=(\"pre_gen_hook_raises_error\", \"post_gen_hook_raises_error\"\
+    ),\n    )\n    @pytest.mark.usefixtures(\"clean_system\")\n    def test_hooks_raises_errors(tmpdir,\
+    \ abort_pre_gen, abort_post_gen):\n        \"\"\"Verify pre- and pos-gen errors\
+    \ raises correct error code from script.\n    \n        This allows developers\
+    \ to make different error codes in their code,\n        for different errors.\n\
+    \        \"\"\"\n        context = {\n            \"cookiecutter\": {\n      \
+    \          \"repo_dir\": \"foobar\",\n                \"abort_pre_gen\": abort_pre_gen,\n\
+    \                \"abort_post_gen\": abort_post_gen,\n            }\n        }\n\
+    \    \n        with pytest.raises(exceptions.FailedHookException) as error:\n\
+    >           generate.generate_files(\n                repo_dir=\"tests/hooks-abort-render\"\
+    , context=context, output_dir=str(tmpdir)\n            )\n\ntests/test_abort_generate_on_hook_error.py:34:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.generate:374: in\
+    \ generate_files\n    ???\ncookiecutter.generate:243: in _run_hook_from_repo_dir\n\
+    \    ???\ncookiecutter/hooks.py:131: in run_hook\n    run_script_with_context(script,\
+    \ project_dir, context)\ncookiecutter/hooks.py:114: in run_script_with_context\n\
+    \    run_script(temp.name, cwd)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n\
+    script_path = '/tmp/tmpkzerdmf5.py', cwd = '/tmp/pytest-of-ubuntu/pytest-514/test_hooks_raises_errors_post_0/foobar'\n\
+    \n    def run_script(script_path, cwd='.'):\n        \"\"\"Execute a script from\
+    \ a working directory.\n    \n        :param script_path: Absolute path to the\
+    \ script to run.\n        :param cwd: The directory to run the script from.\n\
+    \        \"\"\"\n        run_thru_shell = sys.platform.startswith('win')\n   \
+    \     if script_path.endswith('.py'):\n            script_command = [sys.executable,\
+    \ script_path]\n        else:\n            script_command = [script_path]\n  \
+    \  \n        utils.make_executable(script_path)\n    \n        try:\n        \
+    \    proc = subprocess.Popen(script_command, shell=run_thru_shell, cwd=cwd)\n\
+    \            exit_status = proc.wait()\n            if exit_status != EXIT_SUCCESS:\n\
+    >               raise FailedHookException(\n                    'Hook script failed\
+    \ (exit status: {})'.format(exit_status)\n                )\nE               cookiecutter.exceptions.FailedHookException:\
+    \ Hook script failed (exit status: 5)\n\ncookiecutter/hooks.py:85: FailedHookException"
+  killer: tests/test_abort_generate_on_hook_error.py::test_hooks_raises_errors[post_gen_hook_raises_error]
+  module: &id002 !!python/module:cookiecutter.generate ''
+  mutations:
+  - lineno: 42
+    operator: EXS
+  number: 4
+  status: killed
+  tests_run: 0
+  time: 1.0625221729278564
+- exception_traceback: "@pytest.mark.usefixtures('clean_system')\n    def test_generate_context_with_json_decoding_error():\n\
+    \        \"\"\"Verify malformed JSON file generates expected error output.\"\"\
+    \"\n        with pytest.raises(ContextDecodingException) as excinfo:\n>      \
+    \     generate.generate_context('tests/test-generate-context/invalid-syntax.json')\n\
+    \ntests/test_generate_context.py:64: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \n\ncontext_file = 'tests/test-generate-context/invalid-syntax.json', default_context\
+    \ = None, extra_context = None\n\n>   ???\nE   UnboundLocalError: local variable\
+    \ 'obj' referenced before assignment\n\ncookiecutter.generate:101: UnboundLocalError"
+  killer: tests/test_generate_context.py::test_generate_context_with_json_decoding_error
+  module: *id002
+  mutations:
+  - lineno: 87
+    operator: EXS
+  number: 5
+  status: killed
+  tests_run: -130
+  time: 0.7206599712371826
+- exception_traceback: "env = <cookiecutter.environment.StrictEnvironment object at\
+    \ 0x7f1671746880>\nexpected_msg = 'Missing end of comment tag\\n  File \"./tests/files/syntax_error.txt\"\
+    , line 1\\n    I eat {{ syntax_error }} {# this comment is not closed}'\n\n  \
+    \  def test_generate_file_verbose_template_syntax_error(env, expected_msg):\n\
+    \        \"\"\"Verify correct exception raised on syntax error in file before\
+    \ generation.\"\"\"\n        with pytest.raises(TemplateSyntaxError) as exception:\n\
+    >           generate.generate_file(\n                project_dir=\".\",\n    \
+    \            infile='tests/files/syntax_error.txt',\n                context={'syntax_error':\
+    \ 'syntax_error'},\n                env=env,\n            )\n\ntests/test_generate_file.py:130:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nproject_dir = '.', infile =\
+    \ 'tests/files/syntax_error.txt', context = {'syntax_error': 'syntax_error'}\n\
+    env = <cookiecutter.environment.StrictEnvironment object at 0x7f1671746880>, skip_if_file_exists\
+    \ = False\n\n>   ???\nE   UnboundLocalError: local variable 'tmpl' referenced\
+    \ before assignment\n\ncookiecutter.generate:170: UnboundLocalError"
+  killer: tests/test_generate_file.py::test_generate_file_verbose_template_syntax_error
+  module: *id002
+  mutations:
+  - lineno: 165
+    operator: EXS
+  number: 6
+  status: killed
+  tests_run: -88
+  time: 0.6736435890197754
+- exception_traceback: "tmp_path = PosixPath('/tmp/pytest-of-ubuntu/pytest-515/test_raise_undefined_variable_0')\n\
+    \n    def test_raise_undefined_variable_project_dir(tmp_path):\n        \"\"\"\
+    Verify correct error raised when directory name cannot be rendered.\"\"\"\n  \
+    \      with pytest.raises(exceptions.UndefinedVariableInTemplate) as err:\n> \
+    \          generate.generate_files(\n                repo_dir='tests/undefined-variable/dir-name/',\n\
+    \                output_dir=tmp_path,\n                context={},\n         \
+    \   )\n\ntests/test_generate_files.py:426: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ \n\nrepo_dir = 'tests/undefined-variable/dir-name/', context = OrderedDict()\n\
+    output_dir = PosixPath('/tmp/pytest-of-ubuntu/pytest-515/test_raise_undefined_variable_0')\n\
+    overwrite_if_exists = False, skip_if_file_exists = False, accept_hooks = True\n\
+    \n>   ???\nE   UnboundLocalError: local variable 'project_dir' referenced before\
+    \ assignment\n\ncookiecutter.generate:296: UnboundLocalError"
+  killer: tests/test_generate_files.py::test_raise_undefined_variable_project_dir
+  module: *id002
+  mutations:
+  - lineno: 285
+    operator: EXS
+  number: 7
+  status: killed
+  tests_run: -26
+  time: 0.6928918361663818
+- exception_traceback: "def test_process_json_invalid_json():\n        \"\"\"Test\
+    \ `process_json` for correct error on malformed input.\"\"\"\n        with pytest.raises(click.UsageError)\
+    \ as exc_info:\n>           process_json('nope]')\n\ntests/test_read_user_dict.py:14:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nuser_value = 'nope]'\n\n>  \
+    \ ???\nE   UnboundLocalError: local variable 'user_dict' referenced before assignment\n\
+    \ncookiecutter.prompt:92: UnboundLocalError"
+  killer: tests/test_read_user_dict.py::test_process_json_invalid_json
+  module: &id003 !!python/module:cookiecutter.prompt ''
+  mutations:
+  - lineno: 88
+    operator: EXS
+  number: 8
+  status: killed
+  tests_run: -137
+  time: 0.8229982852935791
+- exception_traceback: "context = {'cookiecutter': {'foo': '{{cookiecutter.nope}}'}}\n\
+    \n    @pytest.mark.parametrize(\n        'context',\n        (\n            {'cookiecutter':\
+    \ {'foo': '{{cookiecutter.nope}}'}},\n            {'cookiecutter': {'foo': ['123',\
+    \ '{{cookiecutter.nope}}', '456']}},\n            {'cookiecutter': {'foo': {'{{cookiecutter.nope}}':\
+    \ 'value'}}},\n            {'cookiecutter': {'foo': {'key': '{{cookiecutter.nope}}'}}},\n\
+    \        ),\n        ids=[\n            'Undefined variable in cookiecutter dict',\n\
+    \            'Undefined variable in cookiecutter dict with choices',\n       \
+    \     'Undefined variable in cookiecutter dict with dict_key',\n            'Undefined\
+    \ variable in cookiecutter dict with key_value',\n        ],\n    )\n    def test_undefined_variable(context):\n\
+    \        \"\"\"Verify `prompt.prompt_for_config` raises correct error.\"\"\"\n\
+    \        with pytest.raises(exceptions.UndefinedVariableInTemplate) as err:\n\
+    >           prompt.prompt_for_config(context, no_input=True)\nE           Failed:\
+    \ DID NOT RAISE <class 'cookiecutter.exceptions.UndefinedVariableInTemplate'>\n\
+    \ntests/test_prompt.py:400: Failed"
+  killer: tests/test_prompt.py::test_undefined_variable[Undefined variable in cookiecutter
+    dict]
+  module: *id003
+  mutations:
+  - lineno: 206
+    operator: EXS
+  number: 9
+  status: killed
+  tests_run: -185
+  time: 1.362245798110962
+- exception_traceback: "context = {'cookiecutter': {'foo': {'{{cookiecutter.nope}}':\
+    \ 'value'}}}\n\n    @pytest.mark.parametrize(\n        'context',\n        (\n\
+    \            {'cookiecutter': {'foo': '{{cookiecutter.nope}}'}},\n           \
+    \ {'cookiecutter': {'foo': ['123', '{{cookiecutter.nope}}', '456']}},\n      \
+    \      {'cookiecutter': {'foo': {'{{cookiecutter.nope}}': 'value'}}},\n      \
+    \      {'cookiecutter': {'foo': {'key': '{{cookiecutter.nope}}'}}},\n        ),\n\
+    \        ids=[\n            'Undefined variable in cookiecutter dict',\n     \
+    \       'Undefined variable in cookiecutter dict with choices',\n            'Undefined\
+    \ variable in cookiecutter dict with dict_key',\n            'Undefined variable\
+    \ in cookiecutter dict with key_value',\n        ],\n    )\n    def test_undefined_variable(context):\n\
+    \        \"\"\"Verify `prompt.prompt_for_config` raises correct error.\"\"\"\n\
+    \        with pytest.raises(exceptions.UndefinedVariableInTemplate) as err:\n\
+    >           prompt.prompt_for_config(context, no_input=True)\nE           Failed:\
+    \ DID NOT RAISE <class 'cookiecutter.exceptions.UndefinedVariableInTemplate'>\n\
+    \ntests/test_prompt.py:400: Failed"
+  killer: tests/test_prompt.py::test_undefined_variable[Undefined variable in cookiecutter
+    dict with dict_key]
+  module: *id003
+  mutations:
+  - lineno: 225
+    operator: EXS
+  number: 10
+  status: killed
+  tests_run: -187
+  time: 1.0178444385528564
+- exception_traceback: "mocker = <pytest_mock.plugin.MockFixture object at 0x7f16721907f0>\n\
+    \n    def test_make_sure_path_exists_correctly_handle_os_error(mocker):\n    \
+    \    \"\"\"Verify correct True/False response from `utils.make_sure_path_exists`.\n\
+    \    \n        Should return True if directory exist or created.\n        Should\
+    \ return False if impossible to create directory (for example protected)\n   \
+    \     \"\"\"\n    \n        def raiser(*args, **kwargs):\n            raise OSError()\n\
+    \    \n        mocker.patch(\"os.makedirs\", raiser)\n        uncreatable_directory\
+    \ = Path('protected_path')\n    \n>       assert not utils.make_sure_path_exists(uncreatable_directory)\n\
+    E       AssertionError\n\ntests/test_utils.py:68: AssertionError"
+  killer: tests/test_utils.py::test_make_sure_path_exists_correctly_handle_os_error
+  module: !!python/module:cookiecutter.utils ''
+  mutations:
+  - lineno: 42
+    operator: EXS
+  number: 11
+  status: killed
+  tests_run: -150
+  time: 0.8738822937011719
+number_of_tests: 204
+targets:
+- cookiecutter/
+tests:
+- name: tests.conftest
+  target: null
+  time: 1.1542985439300537
+- name: tests.test_abort_generate_on_hook_error
+  target: null
+  time: 0.8185491561889648
+- name: tests.test_cli
+  target: null
+  time: 0.7838952541351318
+- name: tests.test_cookiecutter_invocation
+  target: null
+  time: 0.9068865776062012
+- name: tests.test_cookiecutter_local_no_input
+  target: null
+  time: 0.5396575927734375
+- name: tests.test_cookiecutter_local_with_input
+  target: null
+  time: 0.3852419853210449
+- name: tests.test_custom_extensions_in_hooks
+  target: null
+  time: 0.9582955837249756
+- name: tests.test_default_extensions
+  target: null
+  time: 0.5710630416870117
+- name: tests.test_environment
+  target: null
+  time: 0.3547046184539795
+- name: tests.test_exceptions
+  target: null
+  time: 0.34471607208251953
+- name: tests.test_find
+  target: null
+  time: 0.3498671054840088
+- name: tests.test_generate_context
+  target: null
+  time: 0.38712000846862793
+- name: tests.test_generate_copy_without_render
+  target: null
+  time: 0.3693258762359619
+- name: tests.test_generate_file
+  target: null
+  time: 0.4141075611114502
+- name: tests.test_generate_files
+  target: null
+  time: 0.8693950176239014
+- name: tests.test_generate_hooks
+  target: null
+  time: 1.5028841495513916
+- name: tests.test_get_config
+  target: null
+  time: 0.36181640625
+- name: tests.test_get_user_config
+  target: null
+  time: 0.3867020606994629
+- name: tests.test_hooks
+  target: null
+  time: 0.7015101909637451
+- name: tests.test_log
+  target: null
+  time: 0.35704660415649414
+- name: tests.test_main
+  target: null
+  time: 0.46065258979797363
+- name: tests.test_output_folder
+  target: null
+  time: 0.37839818000793457
+- name: tests.test_preferred_encoding
+  target: null
+  time: 0.35195183753967285
+- name: tests.test_prompt
+  target: null
+  time: 0.5592443943023682
+- name: tests.test_read_repo_password
+  target: null
+  time: 0.35046839714050293
+- name: tests.test_read_user_choice
+  target: null
+  time: 0.39240384101867676
+- name: tests.test_read_user_dict
+  target: null
+  time: 0.3741436004638672
+- name: tests.test_read_user_variable
+  target: null
+  time: 0.4212327003479004
+- name: tests.test_read_user_yes_no
+  target: null
+  time: 0.35357117652893066
+- name: tests.test_repo_not_found
+  target: null
+  time: 0.34621334075927734
+- name: tests.test_specify_output_dir
+  target: null
+  time: 0.39586329460144043
+- name: tests.test_utils
+  target: null
+  time: 0.41903185844421387
+time_stats:
+  create_mutant_module: 0.013942480087280273
+  create_target_ast: 0.06211113929748535
+  mutate_module: 150.06042098999023
+  run_tests_with_mutant: 15.984970092773438
+total_time: 167.5738022327423

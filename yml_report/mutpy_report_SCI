@@ -1,0 +1,247 @@
+coverage:
+  all_nodes: 6759
+  covered_nodes: 5205
+mutation_score: 100.0
+mutations:
+- exception_traceback: "config_file = None, default_config = False\n\n>   ???\n\n\
+    cookiecutter.config:110: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself =\
+    \ environ({'SHELL': '/bin/bash', 'PWD': '/usr/baki/python_projects/cookiecutter',\
+    \ 'LOGNAME': 'ubuntu', 'XDG_SESSION_TYPE.../cookiecutter/.coverage', 'PYTEST_CURRENT_TEST':\
+    \ 'tests/test_get_user_config.py::test_get_user_config_invalid (call)'})\nkey\
+    \ = 'COOKIECUTTER_CONFIG'\n\n    def __getitem__(self, key):\n        try:\n \
+    \           value = self._data[self.encodekey(key)]\n        except KeyError:\n\
+    \            # raise KeyError with the original key value\n>           raise KeyError(key)\
+    \ from None\nE           KeyError: 'COOKIECUTTER_CONFIG'\n\n/usr/lib/python3.8/os.py:675:\
+    \ KeyError\n\nDuring handling of the above exception, another exception occurred:\n\
+    \nconfig_path = '/home/ubuntu/.cookiecutterrc'\n\n>   ???\n\ncookiecutter.config:65:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstring = 'default_context\\\
+    n    full_name:\\n    email: \"firstname.lastname@gmail.com\"\\n    github_username:\
+    \ \"example\"\\ncookiecutters_dir: \"/home/example/some-path-to-templates\"\\\
+    n'\n\n    def parse_string(string):\n        parser = _Parser(string)\n>     \
+    \  return parser()\n\n/usr/local/lib/python3.8/dist-packages/poyo-0.5.0-py3.8.egg/poyo/parser.py:280:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <poyo.parser._Parser\
+    \ object at 0x7f27c3ea4730>\n\n    def __call__(self):\n        \"\"\"Parse the\
+    \ given string data and sequentually update the current\n        cursor position\
+    \ until the end is reached.\n    \n        Return the Root object if successful.\n\
+    \        \"\"\"\n        while self.pos < self.max_pos:\n>           match = self.find_match()\n\
+    \n/usr/local/lib/python3.8/dist-packages/poyo-0.5.0-py3.8.egg/poyo/parser.py:273:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <poyo.parser._Parser\
+    \ object at 0x7f27c3ea4730>\n\n    def find_match(self):\n        \"\"\"Try to\
+    \ find a pattern that matches the source and calll a parser\n        method to\
+    \ create Python objects.\n    \n        A callback that raises an IgnoredMatchException\
+    \ indicates that the\n        given string data is ignored by the parser and no\
+    \ objects are created.\n    \n        If none of the pattern match a NoMatchException\
+    \ is raised.\n        \"\"\"\n        for pattern, callback in self.rules:\n \
+    \           match = pattern.match(self.source, pos=self.pos)\n    \n         \
+    \   if not match:\n                continue\n    \n            try:\n        \
+    \        node = callback(match)\n            except IgnoredMatchException:\n \
+    \               pass\n            else:\n                self.seen.append(node)\n\
+    \    \n            return match\n    \n>       raise NoMatchException(\n     \
+    \       \"None of the known patterns match for {}\" \"\".format(self.source[self.pos\
+    \ :])\n        )\nE       poyo.exceptions.NoMatchException: None of the known\
+    \ patterns match for default_context\nE           full_name:\nE           email:\
+    \ \"firstname.lastname@gmail.com\"\nE           github_username: \"example\"\n\
+    E       cookiecutters_dir: \"/home/example/some-path-to-templates\"\n\n/usr/local/lib/python3.8/dist-packages/poyo-0.5.0-py3.8.egg/poyo/parser.py:262:\
+    \ NoMatchException\n\nDuring handling of the above exception, another exception\
+    \ occurred:\n\nuser_config_path = '/home/ubuntu/.cookiecutterrc'\n\n    @pytest.mark.usefixtures('back_up_rc')\n\
+    \    def test_get_user_config_invalid(user_config_path):\n        \"\"\"Validate\
+    \ `InvalidConfiguration` raised when provided user config malformed.\"\"\"\n \
+    \       shutil.copy('tests/test-config/invalid-config.yaml', user_config_path)\n\
+    \        with pytest.raises(InvalidConfiguration):\n>           config.get_user_config()\n\
+    \ntests/test_get_user_config.py:75: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \ncookiecutter.config:116: in get_user_config\n    ???\n_ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ \n\nconfig_path = '/home/ubuntu/.cookiecutterrc'\n\n\
+    >   ???\nE   cookiecutter.exceptions.InvalidConfiguration: Unable to parse YAML\
+    \ file /home/ubuntu/.cookiecutterrc. Error: None of the known patterns match for\
+    \ default_context\nE       full_name:\nE       email: \"firstname.lastname@gmail.com\"\
+    \nE       github_username: \"example\"\nE   cookiecutters_dir: \"/home/example/some-path-to-templates\"\
+    \n\ncookiecutter.config:67: InvalidConfiguration"
+  killer: tests/test_get_user_config.py::test_get_user_config_invalid
+  module: &id001 !!python/module:cookiecutter.exceptions ''
+  mutations:
+  - lineno: 118
+    operator: SCI
+  number: 1
+  status: killed
+  tests_run: 2
+  time: 0.6384377479553223
+- exception_traceback: "config_file = None, default_config = False\n\n>   ???\n\n\
+    cookiecutter.config:110: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself =\
+    \ environ({'SHELL': '/bin/bash', 'PWD': '/usr/baki/python_projects/cookiecutter',\
+    \ 'LOGNAME': 'ubuntu', 'XDG_SESSION_TYPE.../cookiecutter/.coverage', 'PYTEST_CURRENT_TEST':\
+    \ 'tests/test_get_user_config.py::test_get_user_config_invalid (call)'})\nkey\
+    \ = 'COOKIECUTTER_CONFIG'\n\n    def __getitem__(self, key):\n        try:\n \
+    \           value = self._data[self.encodekey(key)]\n        except KeyError:\n\
+    \            # raise KeyError with the original key value\n>           raise KeyError(key)\
+    \ from None\nE           KeyError: 'COOKIECUTTER_CONFIG'\n\n/usr/lib/python3.8/os.py:675:\
+    \ KeyError\n\nDuring handling of the above exception, another exception occurred:\n\
+    \nconfig_path = '/home/ubuntu/.cookiecutterrc'\n\n>   ???\n\ncookiecutter.config:65:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstring = 'default_context\\\
+    n    full_name:\\n    email: \"firstname.lastname@gmail.com\"\\n    github_username:\
+    \ \"example\"\\ncookiecutters_dir: \"/home/example/some-path-to-templates\"\\\
+    n'\n\n    def parse_string(string):\n        parser = _Parser(string)\n>     \
+    \  return parser()\n\n/usr/local/lib/python3.8/dist-packages/poyo-0.5.0-py3.8.egg/poyo/parser.py:280:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <poyo.parser._Parser\
+    \ object at 0x7f27c36f9bb0>\n\n    def __call__(self):\n        \"\"\"Parse the\
+    \ given string data and sequentually update the current\n        cursor position\
+    \ until the end is reached.\n    \n        Return the Root object if successful.\n\
+    \        \"\"\"\n        while self.pos < self.max_pos:\n>           match = self.find_match()\n\
+    \n/usr/local/lib/python3.8/dist-packages/poyo-0.5.0-py3.8.egg/poyo/parser.py:273:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <poyo.parser._Parser\
+    \ object at 0x7f27c36f9bb0>\n\n    def find_match(self):\n        \"\"\"Try to\
+    \ find a pattern that matches the source and calll a parser\n        method to\
+    \ create Python objects.\n    \n        A callback that raises an IgnoredMatchException\
+    \ indicates that the\n        given string data is ignored by the parser and no\
+    \ objects are created.\n    \n        If none of the pattern match a NoMatchException\
+    \ is raised.\n        \"\"\"\n        for pattern, callback in self.rules:\n \
+    \           match = pattern.match(self.source, pos=self.pos)\n    \n         \
+    \   if not match:\n                continue\n    \n            try:\n        \
+    \        node = callback(match)\n            except IgnoredMatchException:\n \
+    \               pass\n            else:\n                self.seen.append(node)\n\
+    \    \n            return match\n    \n>       raise NoMatchException(\n     \
+    \       \"None of the known patterns match for {}\" \"\".format(self.source[self.pos\
+    \ :])\n        )\nE       poyo.exceptions.NoMatchException: None of the known\
+    \ patterns match for default_context\nE           full_name:\nE           email:\
+    \ \"firstname.lastname@gmail.com\"\nE           github_username: \"example\"\n\
+    E       cookiecutters_dir: \"/home/example/some-path-to-templates\"\n\n/usr/local/lib/python3.8/dist-packages/poyo-0.5.0-py3.8.egg/poyo/parser.py:262:\
+    \ NoMatchException\n\nDuring handling of the above exception, another exception\
+    \ occurred:\n\nuser_config_path = '/home/ubuntu/.cookiecutterrc'\n\n    @pytest.mark.usefixtures('back_up_rc')\n\
+    \    def test_get_user_config_invalid(user_config_path):\n        \"\"\"Validate\
+    \ `InvalidConfiguration` raised when provided user config malformed.\"\"\"\n \
+    \       shutil.copy('tests/test-config/invalid-config.yaml', user_config_path)\n\
+    \        with pytest.raises(InvalidConfiguration):\n>           config.get_user_config()\n\
+    \ntests/test_get_user_config.py:75: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \ncookiecutter.config:116: in get_user_config\n    ???\n_ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ \n\nconfig_path = '/home/ubuntu/.cookiecutterrc'\n\n\
+    >   ???\nE   cookiecutter.exceptions.InvalidConfiguration: Unable to parse YAML\
+    \ file /home/ubuntu/.cookiecutterrc. Error: None of the known patterns match for\
+    \ default_context\nE       full_name:\nE       email: \"firstname.lastname@gmail.com\"\
+    \nE       github_username: \"example\"\nE   cookiecutters_dir: \"/home/example/some-path-to-templates\"\
+    \n\ncookiecutter.config:67: InvalidConfiguration"
+  killer: tests/test_get_user_config.py::test_get_user_config_invalid
+  module: *id001
+  mutations:
+  - lineno: 124
+    operator: SCI
+  number: 2
+  status: killed
+  tests_run: 2
+  time: 0.8784730434417725
+number_of_tests: 204
+targets:
+- cookiecutter/
+tests:
+- name: tests.conftest
+  target: null
+  time: 1.1542959213256836
+- name: tests.test_abort_generate_on_hook_error
+  target: null
+  time: 0.8238005638122559
+- name: tests.test_cli
+  target: null
+  time: 0.7894687652587891
+- name: tests.test_cookiecutter_invocation
+  target: null
+  time: 0.9088771343231201
+- name: tests.test_cookiecutter_local_no_input
+  target: null
+  time: 0.5479986667633057
+- name: tests.test_cookiecutter_local_with_input
+  target: null
+  time: 0.389768123626709
+- name: tests.test_custom_extensions_in_hooks
+  target: null
+  time: 0.9725399017333984
+- name: tests.test_default_extensions
+  target: null
+  time: 0.5762395858764648
+- name: tests.test_environment
+  target: null
+  time: 0.35846543312072754
+- name: tests.test_exceptions
+  target: null
+  time: 0.3474905490875244
+- name: tests.test_find
+  target: null
+  time: 0.35722875595092773
+- name: tests.test_generate_context
+  target: null
+  time: 0.3949458599090576
+- name: tests.test_generate_copy_without_render
+  target: null
+  time: 0.37551093101501465
+- name: tests.test_generate_file
+  target: null
+  time: 0.4227488040924072
+- name: tests.test_generate_files
+  target: null
+  time: 0.8772070407867432
+- name: tests.test_generate_hooks
+  target: null
+  time: 1.5196361541748047
+- name: tests.test_get_config
+  target: null
+  time: 0.36430907249450684
+- name: tests.test_get_user_config
+  target: null
+  time: 0.39203429222106934
+- name: tests.test_hooks
+  target: null
+  time: 0.706352949142456
+- name: tests.test_log
+  target: null
+  time: 0.3664059638977051
+- name: tests.test_main
+  target: null
+  time: 0.4642646312713623
+- name: tests.test_output_folder
+  target: null
+  time: 0.3861978054046631
+- name: tests.test_preferred_encoding
+  target: null
+  time: 0.350799560546875
+- name: tests.test_prompt
+  target: null
+  time: 0.560964822769165
+- name: tests.test_read_repo_password
+  target: null
+  time: 0.34821009635925293
+- name: tests.test_read_user_choice
+  target: null
+  time: 0.3928406238555908
+- name: tests.test_read_user_dict
+  target: null
+  time: 0.38210105895996094
+- name: tests.test_read_user_variable
+  target: null
+  time: 0.42714571952819824
+- name: tests.test_read_user_yes_no
+  target: null
+  time: 0.35509252548217773
+- name: tests.test_repo_not_found
+  target: null
+  time: 0.3567826747894287
+- name: tests.test_specify_output_dir
+  target: null
+  time: 0.3996586799621582
+- name: tests.test_utils
+  target: null
+  time: 0.430905818939209
+time_stats:
+  create_mutant_module: 0.001425027847290039
+  create_target_ast: 0.06550121307373047
+  mutate_module: 134.2402172088623
+  run_tests_with_mutant: 2.633903980255127
+total_time: 151.91701078414917

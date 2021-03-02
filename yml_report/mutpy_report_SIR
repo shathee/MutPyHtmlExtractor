@@ -1,0 +1,133 @@
+coverage:
+  all_nodes: 6759
+  covered_nodes: 5205
+mutation_score: 100.0
+mutations:
+- exception_traceback: "mocker = <pytest_mock.plugin.MockFixture object at 0x7f96b117c9a0>\n\
+    cli_runner = <function cli_runner.<locals>.cli_main at 0x7f96b1184ca0>\n\n   \
+    \ @pytest.mark.usefixtures('remove_fake_project_dir')\n    def test_cli_replay(mocker,\
+    \ cli_runner):\n        \"\"\"Test cli invocation display log with `verbose` and\
+    \ `replay` flags.\"\"\"\n        mock_cookiecutter = mocker.patch('cookiecutter.cli.cookiecutter')\n\
+    \    \n        template_path = 'tests/fake-repo-pre/'\n        result = cli_runner(template_path,\
+    \ '--replay', '-v')\n    \n        assert result.exit_code == 0\n>       mock_cookiecutter.assert_called_once_with(\n\
+    \            template_path,\n            None,\n            False,\n         \
+    \   replay=True,\n            overwrite_if_exists=False,\n            skip_if_file_exists=False,\n\
+    \            output_dir='.',\n            config_file=None,\n            default_config=False,\n\
+    \            extra_context=None,\n            password=None,\n            directory=None,\n\
+    \            accept_hooks=True,\n        )\nE       AssertionError: Expected 'cookiecutter'\
+    \ to be called once. Called 0 times.\n\ntests/test_cli.py:95: AssertionError"
+  killer: tests/test_cli.py::test_cli_replay
+  module: !!python/module:cookiecutter.cli ''
+  mutations:
+  - lineno: 27
+    operator: SIR
+  number: 1
+  status: killed
+  tests_run: 152
+  time: 5.0490193367004395
+number_of_tests: 204
+targets:
+- cookiecutter/
+tests:
+- name: tests.conftest
+  target: null
+  time: 1.2410097122192383
+- name: tests.test_abort_generate_on_hook_error
+  target: null
+  time: 0.9348950386047363
+- name: tests.test_cli
+  target: null
+  time: 0.8135499954223633
+- name: tests.test_cookiecutter_invocation
+  target: null
+  time: 1.0986135005950928
+- name: tests.test_cookiecutter_local_no_input
+  target: null
+  time: 0.5797398090362549
+- name: tests.test_cookiecutter_local_with_input
+  target: null
+  time: 0.3820464611053467
+- name: tests.test_custom_extensions_in_hooks
+  target: null
+  time: 0.9886069297790527
+- name: tests.test_default_extensions
+  target: null
+  time: 0.5877375602722168
+- name: tests.test_environment
+  target: null
+  time: 0.35493898391723633
+- name: tests.test_exceptions
+  target: null
+  time: 0.35869288444519043
+- name: tests.test_find
+  target: null
+  time: 0.35204172134399414
+- name: tests.test_generate_context
+  target: null
+  time: 0.39188694953918457
+- name: tests.test_generate_copy_without_render
+  target: null
+  time: 0.3727400302886963
+- name: tests.test_generate_file
+  target: null
+  time: 0.42333269119262695
+- name: tests.test_generate_files
+  target: null
+  time: 0.8729796409606934
+- name: tests.test_generate_hooks
+  target: null
+  time: 1.5783352851867676
+- name: tests.test_get_config
+  target: null
+  time: 0.3695254325866699
+- name: tests.test_get_user_config
+  target: null
+  time: 0.3988184928894043
+- name: tests.test_hooks
+  target: null
+  time: 0.7373456954956055
+- name: tests.test_log
+  target: null
+  time: 0.3637673854827881
+- name: tests.test_main
+  target: null
+  time: 0.4635484218597412
+- name: tests.test_output_folder
+  target: null
+  time: 0.38873720169067383
+- name: tests.test_preferred_encoding
+  target: null
+  time: 0.34877634048461914
+- name: tests.test_prompt
+  target: null
+  time: 0.5504107475280762
+- name: tests.test_read_repo_password
+  target: null
+  time: 0.354295015335083
+- name: tests.test_read_user_choice
+  target: null
+  time: 0.3888208866119385
+- name: tests.test_read_user_dict
+  target: null
+  time: 0.37683796882629395
+- name: tests.test_read_user_variable
+  target: null
+  time: 0.4235255718231201
+- name: tests.test_read_user_yes_no
+  target: null
+  time: 0.3506927490234375
+- name: tests.test_repo_not_found
+  target: null
+  time: 0.3523881435394287
+- name: tests.test_specify_output_dir
+  target: null
+  time: 0.40518951416015625
+- name: tests.test_utils
+  target: null
+  time: 0.4208507537841797
+time_stats:
+  create_mutant_module: 0.0014085769653320312
+  create_target_ast: 0.06006789207458496
+  mutate_module: 137.49959874153137
+  run_tests_with_mutant: 5.563534259796143
+total_time: 155.7447168827057

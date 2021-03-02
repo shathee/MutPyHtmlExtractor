@@ -1,0 +1,387 @@
+coverage:
+  all_nodes: 6759
+  covered_nodes: 5205
+mutation_score: 100.0
+mutations:
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7f4b4aa035e0>\n\
+    \n    @pytest.mark.usefixtures('make_fake_project_dir', 'remove_fake_project_dir')\n\
+    \    def test_cli_error_on_existing_output_directory(cli_runner):\n        \"\"\
+    \"Test cli invocation without `overwrite-if-exists` fail if dir exist.\"\"\"\n\
+    \        result = cli_runner('tests/fake-repo-pre/', '--no-input')\n        assert\
+    \ result.exit_code != 0\n        expected_error_msg = 'Error: \"fake-project\"\
+    \ directory already exists\\n'\n>       assert result.output == expected_error_msg\n\
+    E       AssertionError\n\ntests/test_cli.py:63: AssertionError"
+  killer: tests/test_cli.py::test_cli_error_on_existing_output_directory
+  module: &id001 !!python/module:cookiecutter.cli ''
+  mutations:
+  - lineno: 206
+    operator: EHD
+  number: 1
+  status: killed
+  tests_run: -115
+  time: 0.7182426452636719
+- exception_traceback: "tmpdir = local('/tmp/pytest-of-ubuntu/pytest-474/test_echo_undefined_variable_e0')\n\
+    cli_runner = <function cli_runner.<locals>.cli_main at 0x7f4b4abc63a0>\n\n   \
+    \ @pytest.mark.skipif(\n        sys.version_info[0] == 3 and sys.version_info[1]\
+    \ == 6 and sys.version_info[2] == 1,\n        reason=\"Outdated pypy3 version\
+    \ on Travis CI/CD with wrong OrderedDict syntax.\",\n    )\n    def test_echo_undefined_variable_error(tmpdir,\
+    \ cli_runner):\n        \"\"\"Cli invocation return error if variable undefined\
+    \ in template.\"\"\"\n        output_dir = str(tmpdir.mkdir('output'))\n     \
+    \   template_path = 'tests/undefined-variable/file-name/'\n    \n        result\
+    \ = cli_runner(\n            '--no-input', '--default-config', '--output-dir',\
+    \ output_dir, template_path,\n        )\n    \n        assert result.exit_code\
+    \ == 1\n    \n        error = \"Unable to create file '{{cookiecutter.foobar}}'\"\
+    \n>       assert error in result.output\nE       AssertionError\n\ntests/test_cli.py:384:\
+    \ AssertionError"
+  killer: tests/test_cli.py::test_echo_undefined_variable_error
+  module: *id001
+  mutations:
+  - lineno: 217
+    operator: EHD
+  number: 2
+  status: killed
+  tests_run: -135
+  time: 0.9107639789581299
+- exception_traceback: "user_config_path = '/home/ubuntu/.cookiecutterrc'\ncustom_config\
+    \ = {'abbreviations': {'bb': 'https://bitbucket.org/{0}', 'gh': 'https://github.com/{0}.git',\
+    \ 'gl': 'https://gitlab.com/{0...ll_name': 'Firstname Lastname', 'github_username':\
+    \ 'example'}, 'replay_dir': '/home/example/some-path-to-replay-files'}\n\n   \
+    \ @pytest.mark.usefixtures('back_up_rc')\n    def test_get_user_config_valid(user_config_path,\
+    \ custom_config):\n        \"\"\"Validate user config correctly parsed if exist\
+    \ and correctly formatted.\"\"\"\n        shutil.copy('tests/test-config/valid-config.yaml',\
+    \ user_config_path)\n>       conf = config.get_user_config()\n\ntests/test_get_user_config.py:65:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.config:110: in get_user_config\n\
+    \    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = environ({'SHELL':\
+    \ '/bin/bash', 'PWD': '/usr/baki/python_projects/cookiecutter', 'LOGNAME': 'ubuntu',\
+    \ 'XDG_SESSION_TYPE...ts/cookiecutter/.coverage', 'PYTEST_CURRENT_TEST': 'tests/test_get_user_config.py::test_get_user_config_valid\
+    \ (call)'})\nkey = 'COOKIECUTTER_CONFIG'\n\n    def __getitem__(self, key):\n\
+    \        try:\n            value = self._data[self.encodekey(key)]\n        except\
+    \ KeyError:\n            # raise KeyError with the original key value\n>     \
+    \      raise KeyError(key) from None\nE           KeyError: 'COOKIECUTTER_CONFIG'\n\
+    \n/usr/lib/python3.8/os.py:675: KeyError"
+  killer: tests/test_get_user_config.py::test_get_user_config_valid
+  module: !!python/module:cookiecutter.config ''
+  mutations:
+  - lineno: 111
+    operator: EHD
+  number: 3
+  status: killed
+  tests_run: -84
+  time: 0.6962141990661621
+- exception_traceback: "tmp_path = PosixPath('/tmp/pytest-of-ubuntu/pytest-481/test_generate_files0')\n\
+    \n    def test_generate_files(tmp_path):\n        \"\"\"Verify directory name\
+    \ correctly rendered with unicode containing context.\"\"\"\n>       generate.generate_files(\n\
+    \            context={'cookiecutter': {'food': 'pizz\xE4'}},\n            repo_dir='tests/test-generate-files',\n\
+    \            output_dir=tmp_path,\n        )\n\ntests/test_generate_files.py:38:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.generate:353: in\
+    \ generate_files\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\npath =\
+    \ 'simple.txt', context = {'cookiecutter': {'food': 'pizz\xE4'}}\n\n>   ???\n\
+    E   KeyError: '_copy_without_render'\n\ncookiecutter.generate:39: KeyError"
+  killer: tests/test_generate_files.py::test_generate_files
+  module: &id002 !!python/module:cookiecutter.generate ''
+  mutations:
+  - lineno: 42
+    operator: EHD
+  number: 4
+  status: killed
+  tests_run: -18
+  time: 0.6013655662536621
+- exception_traceback: "@pytest.mark.usefixtures('clean_system')\n    def test_generate_context_with_json_decoding_error():\n\
+    \        \"\"\"Verify malformed JSON file generates expected error output.\"\"\
+    \"\n        with pytest.raises(ContextDecodingException) as excinfo:\n>      \
+    \     generate.generate_context('tests/test-generate-context/invalid-syntax.json')\n\
+    \ntests/test_generate_context.py:64: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \ncookiecutter.generate:86: in generate_context\n    ???\n/usr/lib/python3.8/json/__init__.py:293:\
+    \ in load\n    return loads(fp.read(),\n/usr/lib/python3.8/json/__init__.py:370:\
+    \ in loads\n    return cls(**kw).decode(s)\n/usr/lib/python3.8/json/decoder.py:337:\
+    \ in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n_ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <json.decoder.JSONDecoder object\
+    \ at 0x7f4b4a67cc70>, s = '{\"1\": 2, \"some_key\"- \"some_val\"}\\n', idx = 0\n\
+    \n    def raw_decode(self, s, idx=0):\n        \"\"\"Decode a JSON document from\
+    \ ``s`` (a ``str`` beginning with\n        a JSON document) and return a 2-tuple\
+    \ of the Python\n        representation and the index in ``s`` where the document\
+    \ ended.\n    \n        This can be used to decode a JSON document from a string\
+    \ that may\n        have extraneous data at the end.\n    \n        \"\"\"\n \
+    \       try:\n>           obj, end = self.scan_once(s, idx)\nE           json.decoder.JSONDecodeError:\
+    \ Expecting ':' delimiter: line 1 column 20 (char 19)\n\n/usr/lib/python3.8/json/decoder.py:353:\
+    \ JSONDecodeError"
+  killer: tests/test_generate_context.py::test_generate_context_with_json_decoding_error
+  module: *id002
+  mutations:
+  - lineno: 87
+    operator: EHD
+  number: 5
+  status: killed
+  tests_run: -54
+  time: 0.6533749103546143
+- exception_traceback: "env = <cookiecutter.environment.StrictEnvironment object at\
+    \ 0x7f4b4aa16be0>\nexpected_msg = 'Missing end of comment tag\\n  File \"./tests/files/syntax_error.txt\"\
+    , line 1\\n    I eat {{ syntax_error }} {# this comment is not closed}'\n\n  \
+    \  def test_generate_file_verbose_template_syntax_error(env, expected_msg):\n\
+    \        \"\"\"Verify correct exception raised on syntax error in file before\
+    \ generation.\"\"\"\n        with pytest.raises(TemplateSyntaxError) as exception:\n\
+    \            generate.generate_file(\n                project_dir=\".\",\n   \
+    \             infile='tests/files/syntax_error.txt',\n                context={'syntax_error':\
+    \ 'syntax_error'},\n                env=env,\n            )\n>       assert str(exception.value)\
+    \ == expected_msg\nE       AssertionError\n\ntests/test_generate_file.py:136:\
+    \ AssertionError"
+  killer: tests/test_generate_file.py::test_generate_file_verbose_template_syntax_error
+  module: *id002
+  mutations:
+  - lineno: 165
+    operator: EHD
+  number: 6
+  status: killed
+  tests_run: -106
+  time: 1.010615348815918
+- exception_traceback: "tmp_path = PosixPath('/tmp/pytest-of-ubuntu/pytest-482/test_raise_undefined_variable_0')\n\
+    \n    def test_raise_undefined_variable_project_dir(tmp_path):\n        \"\"\"\
+    Verify correct error raised when directory name cannot be rendered.\"\"\"\n  \
+    \      with pytest.raises(exceptions.UndefinedVariableInTemplate) as err:\n> \
+    \          generate.generate_files(\n                repo_dir='tests/undefined-variable/dir-name/',\n\
+    \                output_dir=tmp_path,\n                context={},\n         \
+    \   )\n\ntests/test_generate_files.py:426: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ \ncookiecutter.generate:282: in generate_files\n    ???\ncookiecutter.generate:197:\
+    \ in render_and_create_dir\n    ???\n/home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py:1090:\
+    \ in render\n    self.environment.handle_exception()\n/home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py:832:\
+    \ in handle_exception\n    reraise(*rewrite_traceback_stack(source=source))\n\
+    /home/ubuntu/.local/lib/python3.8/site-packages/jinja2/_compat.py:28: in reraise\n\
+    \    raise value.with_traceback(tb)\n<template>:1: in top-level template code\n\
+    \    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <cookiecutter.environment.StrictEnvironment\
+    \ object at 0x7f4b49f61af0>, obj = Undefined\nattribute = 'project_slug'\n\n \
+    \   def getattr(self, obj, attribute):\n        \"\"\"Get an item or attribute\
+    \ of an object but prefer the attribute.\n        Unlike :meth:`getitem` the attribute\
+    \ *must* be a bytestring.\n        \"\"\"\n        try:\n>           return getattr(obj,\
+    \ attribute)\nE           jinja2.exceptions.UndefinedError: 'cookiecutter' is\
+    \ undefined\n\n/home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py:471:\
+    \ UndefinedError"
+  killer: tests/test_generate_files.py::test_raise_undefined_variable_project_dir
+  module: *id002
+  mutations:
+  - lineno: 285
+    operator: EHD
+  number: 7
+  status: killed
+  tests_run: -36
+  time: 0.7986652851104736
+- exception_traceback: "context = {'cookiecutter': {'foo': '{{cookiecutter.nope}}'}}\n\
+    \n    @pytest.mark.parametrize(\n        'context',\n        (\n            {'cookiecutter':\
+    \ {'foo': '{{cookiecutter.nope}}'}},\n            {'cookiecutter': {'foo': ['123',\
+    \ '{{cookiecutter.nope}}', '456']}},\n            {'cookiecutter': {'foo': {'{{cookiecutter.nope}}':\
+    \ 'value'}}},\n            {'cookiecutter': {'foo': {'key': '{{cookiecutter.nope}}'}}},\n\
+    \        ),\n        ids=[\n            'Undefined variable in cookiecutter dict',\n\
+    \            'Undefined variable in cookiecutter dict with choices',\n       \
+    \     'Undefined variable in cookiecutter dict with dict_key',\n            'Undefined\
+    \ variable in cookiecutter dict with key_value',\n        ],\n    )\n    def test_undefined_variable(context):\n\
+    \        \"\"\"Verify `prompt.prompt_for_config` raises correct error.\"\"\"\n\
+    \        with pytest.raises(exceptions.UndefinedVariableInTemplate) as err:\n\
+    >           prompt.prompt_for_config(context, no_input=True)\n\ntests/test_prompt.py:400:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.prompt:200: in prompt_for_config\n\
+    \    ???\ncookiecutter.prompt:155: in render_variable\n    ???\n/home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py:1090:\
+    \ in render\n    self.environment.handle_exception()\n/home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py:832:\
+    \ in handle_exception\n    reraise(*rewrite_traceback_stack(source=source))\n\
+    /home/ubuntu/.local/lib/python3.8/site-packages/jinja2/_compat.py:28: in reraise\n\
+    \    raise value.with_traceback(tb)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ \n\n>   ???\nE   jinja2.exceptions.UndefinedError: 'collections.OrderedDict\
+    \ object' has no attribute 'nope'\n\n<template>:1: UndefinedError"
+  killer: tests/test_prompt.py::test_undefined_variable[Undefined variable in cookiecutter
+    dict]
+  module: &id003 !!python/module:cookiecutter.prompt ''
+  mutations:
+  - lineno: 206
+    operator: EHD
+  number: 8
+  status: killed
+  tests_run: -192
+  time: 1.039353609085083
+- exception_traceback: "context = {'cookiecutter': {'foo': {'{{cookiecutter.nope}}':\
+    \ 'value'}}}\n\n    @pytest.mark.parametrize(\n        'context',\n        (\n\
+    \            {'cookiecutter': {'foo': '{{cookiecutter.nope}}'}},\n           \
+    \ {'cookiecutter': {'foo': ['123', '{{cookiecutter.nope}}', '456']}},\n      \
+    \      {'cookiecutter': {'foo': {'{{cookiecutter.nope}}': 'value'}}},\n      \
+    \      {'cookiecutter': {'foo': {'key': '{{cookiecutter.nope}}'}}},\n        ),\n\
+    \        ids=[\n            'Undefined variable in cookiecutter dict',\n     \
+    \       'Undefined variable in cookiecutter dict with choices',\n            'Undefined\
+    \ variable in cookiecutter dict with dict_key',\n            'Undefined variable\
+    \ in cookiecutter dict with key_value',\n        ],\n    )\n    def test_undefined_variable(context):\n\
+    \        \"\"\"Verify `prompt.prompt_for_config` raises correct error.\"\"\"\n\
+    \        with pytest.raises(exceptions.UndefinedVariableInTemplate) as err:\n\
+    >           prompt.prompt_for_config(context, no_input=True)\n\ntests/test_prompt.py:400:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.prompt:219: in prompt_for_config\n\
+    \    ???\ncookiecutter.prompt:142: in render_variable\n    ???\ncookiecutter.prompt:143:\
+    \ in <dictcomp>\n    ???\ncookiecutter.prompt:155: in render_variable\n    ???\n\
+    /home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py:1090: in\
+    \ render\n    self.environment.handle_exception()\n/home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py:832:\
+    \ in handle_exception\n    reraise(*rewrite_traceback_stack(source=source))\n\
+    /home/ubuntu/.local/lib/python3.8/site-packages/jinja2/_compat.py:28: in reraise\n\
+    \    raise value.with_traceback(tb)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ \n\n>   ???\nE   jinja2.exceptions.UndefinedError: 'collections.OrderedDict\
+    \ object' has no attribute 'nope'\n\n<template>:1: UndefinedError"
+  killer: tests/test_prompt.py::test_undefined_variable[Undefined variable in cookiecutter
+    dict with dict_key]
+  module: *id003
+  mutations:
+  - lineno: 225
+    operator: EHD
+  number: 9
+  status: killed
+  tests_run: -194
+  time: 1.0331239700317383
+- exception_traceback: "tmp_path = PosixPath('/tmp/pytest-of-ubuntu/pytest-490/test_make_sure_path_exists0')\n\
+    \n    @pytest.mark.skipif(\n        sys.version_info[0] == 3 and sys.version_info[1]\
+    \ == 6 and sys.version_info[2] == 1,\n        reason=\"Outdated pypy3 version\
+    \ on Travis CI/CD\",\n    )\n    def test_make_sure_path_exists(tmp_path):\n \
+    \       \"\"\"Verify correct True/False response from `utils.make_sure_path_exists`.\n\
+    \    \n        Should return True if directory exist or created.\n        Should\
+    \ return False if impossible to create directory (for example protected)\n   \
+    \     \"\"\"\n        existing_directory = tmp_path\n        directory_to_create\
+    \ = Path(tmp_path, \"not_yet_created\")\n    \n>       assert utils.make_sure_path_exists(existing_directory)\n\
+    \ntests/test_utils.py:45: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.utils:40:\
+    \ in make_sure_path_exists\n    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ \n\nname = PosixPath('/tmp/pytest-of-ubuntu/pytest-490/test_make_sure_path_exists0'),\
+    \ mode = 511, exist_ok = False\n\n    def makedirs(name, mode=0o777, exist_ok=False):\n\
+    \        \"\"\"makedirs(name [, mode=0o777][, exist_ok=False])\n    \n       \
+    \ Super-mkdir; create a leaf directory and all intermediate ones.  Works like\n\
+    \        mkdir, except that any intermediate path segment (not just the rightmost)\n\
+    \        will be created if it does not exist. If the target directory already\n\
+    \        exists, raise an OSError if exist_ok is False. Otherwise no exception\
+    \ is\n        raised.  This is recursive.\n    \n        \"\"\"\n        head,\
+    \ tail = path.split(name)\n        if not tail:\n            head, tail = path.split(head)\n\
+    \        if head and tail and not path.exists(head):\n            try:\n     \
+    \           makedirs(head, exist_ok=exist_ok)\n            except FileExistsError:\n\
+    \                # Defeats race condition when another thread created the path\n\
+    \                pass\n            cdir = curdir\n            if isinstance(tail,\
+    \ bytes):\n                cdir = bytes(curdir, 'ASCII')\n            if tail\
+    \ == cdir:           # xxx/newdir/. exists if xxx/newdir exists\n            \
+    \    return\n        try:\n>           mkdir(name, mode)\nE           FileExistsError:\
+    \ [Errno 17] File exists: '/tmp/pytest-of-ubuntu/pytest-490/test_make_sure_path_exists0'\n\
+    \n/usr/lib/python3.8/os.py:223: FileExistsError"
+  killer: tests/test_utils.py::test_make_sure_path_exists
+  module: !!python/module:cookiecutter.utils ''
+  mutations:
+  - lineno: 42
+    operator: EHD
+  number: 10
+  status: killed
+  tests_run: -39
+  time: 0.6385719776153564
+number_of_tests: 204
+targets:
+- cookiecutter/
+tests:
+- name: tests.conftest
+  target: null
+  time: 1.156395435333252
+- name: tests.test_abort_generate_on_hook_error
+  target: null
+  time: 0.824073076248169
+- name: tests.test_cli
+  target: null
+  time: 0.800180196762085
+- name: tests.test_cookiecutter_invocation
+  target: null
+  time: 0.9088246822357178
+- name: tests.test_cookiecutter_local_no_input
+  target: null
+  time: 0.5392856597900391
+- name: tests.test_cookiecutter_local_with_input
+  target: null
+  time: 0.38547396659851074
+- name: tests.test_custom_extensions_in_hooks
+  target: null
+  time: 0.9723165035247803
+- name: tests.test_default_extensions
+  target: null
+  time: 0.5838010311126709
+- name: tests.test_environment
+  target: null
+  time: 0.35069942474365234
+- name: tests.test_exceptions
+  target: null
+  time: 0.35289907455444336
+- name: tests.test_find
+  target: null
+  time: 0.350508451461792
+- name: tests.test_generate_context
+  target: null
+  time: 0.3885002136230469
+- name: tests.test_generate_copy_without_render
+  target: null
+  time: 0.37459707260131836
+- name: tests.test_generate_file
+  target: null
+  time: 0.41113972663879395
+- name: tests.test_generate_files
+  target: null
+  time: 0.8684461116790771
+- name: tests.test_generate_hooks
+  target: null
+  time: 1.4988090991973877
+- name: tests.test_get_config
+  target: null
+  time: 0.35634350776672363
+- name: tests.test_get_user_config
+  target: null
+  time: 0.3887052536010742
+- name: tests.test_hooks
+  target: null
+  time: 0.7009022235870361
+- name: tests.test_log
+  target: null
+  time: 0.3670368194580078
+- name: tests.test_main
+  target: null
+  time: 0.46320462226867676
+- name: tests.test_output_folder
+  target: null
+  time: 0.3748128414154053
+- name: tests.test_preferred_encoding
+  target: null
+  time: 0.35555458068847656
+- name: tests.test_prompt
+  target: null
+  time: 0.553607702255249
+- name: tests.test_read_repo_password
+  target: null
+  time: 0.35239481925964355
+- name: tests.test_read_user_choice
+  target: null
+  time: 0.38834571838378906
+- name: tests.test_read_user_dict
+  target: null
+  time: 0.37700414657592773
+- name: tests.test_read_user_variable
+  target: null
+  time: 0.4189913272857666
+- name: tests.test_read_user_yes_no
+  target: null
+  time: 0.34711432456970215
+- name: tests.test_repo_not_found
+  target: null
+  time: 0.35160207748413086
+- name: tests.test_specify_output_dir
+  target: null
+  time: 0.3971216678619385
+- name: tests.test_utils
+  target: null
+  time: 0.41473913192749023
+time_stats:
+  create_mutant_module: 0.01312255859375
+  create_target_ast: 0.1407604217529297
+  mutate_module: 147.14275193214417
+  run_tests_with_mutant: 13.520112991333008
+total_time: 164.70387721061707

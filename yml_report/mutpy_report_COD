@@ -1,0 +1,692 @@
+coverage:
+  all_nodes: 6759
+  covered_nodes: 5205
+mutation_score: 100.0
+mutations:
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7f8b8ba94d30>\n\
+    \n    @pytest.mark.usefixtures('remove_fake_project_dir')\n    def test_cli_extra_context(cli_runner):\n\
+    \        \"\"\"Cli invocation replace content if called with replacement pairs.\"\
+    \"\"\n        result = cli_runner(\n            'tests/fake-repo-pre/', '--no-input',\
+    \ '-v', 'project_name=Awesomez',\n        )\n>       assert result.exit_code ==\
+    \ 0\nE       AssertionError\n\ntests/test_cli.py:423: AssertionError"
+  killer: tests/test_cli.py::test_cli_extra_context
+  module: &id001 !!python/module:cookiecutter.cli ''
+  mutations:
+  - lineno: 36
+    operator: COD
+  number: 1
+  status: killed
+  tests_run: -180
+  time: 0.7842416763305664
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7f8b8b411b80>\n\
+    debug_file = local('/tmp/pytest-of-ubuntu/pytest-348/test_debug_list_installed_temp0/fake-repo.log')\n\
+    user_config_path = '/tmp/pytest-of-ubuntu/pytest-348/test_debug_list_installed_temp0/tests/config.yaml'\n\
+    \n    @pytest.mark.usefixtures('make_fake_project_dir', 'remove_fake_project_dir')\n\
+    \    def test_debug_list_installed_templates(cli_runner, debug_file, user_config_path):\n\
+    \        \"\"\"Verify --list-installed command correct invocation.\"\"\"\n   \
+    \     fake_template_dir = os.path.dirname(os.path.abspath('fake-project'))\n \
+    \       os.makedirs(os.path.dirname(user_config_path))\n        with open(user_config_path,\
+    \ 'w') as config_file:\n            config_file.write('cookiecutters_dir: \"%s\"\
+    ' % fake_template_dir)\n        open(os.path.join('fake-project', 'cookiecutter.json'),\
+    \ 'w').write('{}')\n    \n        result = cli_runner(\n            '--list-installed',\
+    \ '--config-file', user_config_path, str(debug_file),\n        )\n    \n>    \
+    \   assert \"1 installed templates:\" in result.output\nE       AssertionError\n\
+    \ntests/test_cli.py:509: AssertionError"
+  killer: tests/test_cli.py::test_debug_list_installed_templates
+  module: *id001
+  mutations:
+  - lineno: 51
+    operator: COD
+  number: 2
+  status: killed
+  tests_run: -184
+  time: 0.7925183773040771
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7f8b8b678dc0>\n\
+    \n    @pytest.mark.usefixtures('make_fake_project_dir', 'remove_fake_project_dir')\n\
+    \    def test_cli_error_on_existing_output_directory(cli_runner):\n        \"\"\
+    \"Test cli invocation without `overwrite-if-exists` fail if dir exist.\"\"\"\n\
+    \        result = cli_runner('tests/fake-repo-pre/', '--no-input')\n>       assert\
+    \ result.exit_code != 0\nE       AssertionError\n\ntests/test_cli.py:61: AssertionError"
+  killer: tests/test_cli.py::test_cli_error_on_existing_output_directory
+  module: *id001
+  mutations:
+  - lineno: 174
+    operator: COD
+  number: 3
+  status: killed
+  tests_run: -158
+  time: 0.7537581920623779
+- exception_traceback: "config_file = None, default_config = False\n\n>   ???\n\n\
+    cookiecutter.config:110: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself =\
+    \ environ({'SHELL': '/bin/bash', 'PWD': '/usr/baki/python_projects/cookiecutter',\
+    \ 'LOGNAME': 'ubuntu', 'XDG_SESSION_TYPE...ts/cookiecutter/.coverage', 'PYTEST_CURRENT_TEST':\
+    \ 'tests/test_get_user_config.py::test_get_user_config_valid (call)'})\nkey =\
+    \ 'COOKIECUTTER_CONFIG'\n\n    def __getitem__(self, key):\n        try:\n   \
+    \         value = self._data[self.encodekey(key)]\n        except KeyError:\n\
+    \            # raise KeyError with the original key value\n>           raise KeyError(key)\
+    \ from None\nE           KeyError: 'COOKIECUTTER_CONFIG'\n\n/usr/lib/python3.8/os.py:675:\
+    \ KeyError\n\nDuring handling of the above exception, another exception occurred:\n\
+    \nuser_config_path = '/home/ubuntu/.cookiecutterrc'\ncustom_config = {'abbreviations':\
+    \ {'bb': 'https://bitbucket.org/{0}', 'gh': 'https://github.com/{0}.git', 'gl':\
+    \ 'https://gitlab.com/{0...ll_name': 'Firstname Lastname', 'github_username':\
+    \ 'example'}, 'replay_dir': '/home/example/some-path-to-replay-files'}\n\n   \
+    \ @pytest.mark.usefixtures('back_up_rc')\n    def test_get_user_config_valid(user_config_path,\
+    \ custom_config):\n        \"\"\"Validate user config correctly parsed if exist\
+    \ and correctly formatted.\"\"\"\n        shutil.copy('tests/test-config/valid-config.yaml',\
+    \ user_config_path)\n>       conf = config.get_user_config()\n\ntests/test_get_user_config.py:65:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.config:116: in get_user_config\n\
+    \    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nconfig_path = '/home/ubuntu/.cookiecutterrc'\n\
+    \n>   ???\nE   cookiecutter.exceptions.ConfigDoesNotExistException: Config file\
+    \ /home/ubuntu/.cookiecutterrc does not exist.\n\ncookiecutter.config:58: ConfigDoesNotExistException"
+  killer: tests/test_get_user_config.py::test_get_user_config_valid
+  module: !!python/module:cookiecutter.config ''
+  mutations:
+  - lineno: 57
+    operator: COD
+  number: 4
+  status: killed
+  tests_run: -77
+  time: 0.6962921619415283
+- exception_traceback: "def test_default_context_replacement_in_generate_context():\n\
+    \        \"\"\"Verify default content settings are correctly replaced by template\
+    \ settings.\n    \n        Make sure that the default for list variables of `orientation`\
+    \ is based on\n        the user config (`choices_template.json`) and not changed\
+    \ to a single value\n        from `default_context`.\n        \"\"\"\n       \
+    \ expected_context = {\n            'choices_template': OrderedDict(\n       \
+    \         [\n                    ('full_name', 'Raphael Pierzina'),\n        \
+    \            ('github_username', 'hackebrot'),\n                    ('project_name',\
+    \ 'Kivy Project'),\n                    ('repo_name', '{{cookiecutter.project_name|lower}}'),\n\
+    \                    ('orientation', ['landscape', 'all', 'portrait']),\n    \
+    \            ]\n            )\n        }\n    \n>       generated_context = generate.generate_context(\n\
+    \            context_file='tests/test-generate-context/choices_template.json',\n\
+    \            default_context={\n                'not_in_template': 'foobar',\n\
+    \                'project_name': 'Kivy Project',\n                'orientation':\
+    \ 'landscape',\n            },\n            extra_context={\n                'also_not_in_template':\
+    \ 'foobar2',\n                'github_username': 'hackebrot',\n            },\n\
+    \        )\n\ntests/test_generate_context.py:95: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ \ncookiecutter.generate:106: in generate_context\n    ???\n_ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncontext = OrderedDict([('full_name',\
+    \ 'Raphael Pierzina'), ('github_username', 'hackebrot'), ('project_name', 'Kivy\
+    \ Project'), ('repo_name', '{{cookiecutter.project_name|lower}}'), ('orientation',\
+    \ ['all', 'landscape', 'portrait'])])\noverwrite_context = {'not_in_template':\
+    \ 'foobar', 'orientation': 'landscape', 'project_name': 'Kivy Project'}\n\n> \
+    \  ???\nE   KeyError: 'not_in_template'\n\ncookiecutter.generate:55: KeyError"
+  killer: tests/test_generate_context.py::test_default_context_replacement_in_generate_context
+  module: &id002 !!python/module:cookiecutter.generate ''
+  mutations:
+  - lineno: 51
+    operator: COD
+  number: 5
+  status: killed
+  tests_run: -22
+  time: 0.5864663124084473
+- exception_traceback: "script_path = '/tmp/tmpg7eadus8.sh', cwd = '/usr/baki/python_projects/cookiecutter/inputshellhooks'\n\
+    \n    def run_script(script_path, cwd='.'):\n        \"\"\"Execute a script from\
+    \ a working directory.\n    \n        :param script_path: Absolute path to the\
+    \ script to run.\n        :param cwd: The directory to run the script from.\n\
+    \        \"\"\"\n        run_thru_shell = sys.platform.startswith('win')\n   \
+    \     if script_path.endswith('.py'):\n            script_command = [sys.executable,\
+    \ script_path]\n        else:\n            script_command = [script_path]\n  \
+    \  \n        utils.make_executable(script_path)\n    \n        try:\n>       \
+    \    proc = subprocess.Popen(script_command, shell=run_thru_shell, cwd=cwd)\n\n\
+    cookiecutter/hooks.py:82: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself\
+    \ = <subprocess.Popen object at 0x7f8b8c3319d0>, args = ['/tmp/tmpg7eadus8.sh'],\
+    \ bufsize = -1, executable = None\nstdin = None, stdout = None, stderr = None,\
+    \ preexec_fn = None, close_fds = True, shell = False\ncwd = '/usr/baki/python_projects/cookiecutter/inputshellhooks',\
+    \ env = None, universal_newlines = None\nstartupinfo = None, creationflags = 0,\
+    \ restore_signals = True, start_new_session = False, pass_fds = ()\n\n    def\
+    \ __init__(self, args, bufsize=-1, executable=None,\n                 stdin=None,\
+    \ stdout=None, stderr=None,\n                 preexec_fn=None, close_fds=True,\n\
+    \                 shell=False, cwd=None, env=None, universal_newlines=None,\n\
+    \                 startupinfo=None, creationflags=0,\n                 restore_signals=True,\
+    \ start_new_session=False,\n                 pass_fds=(), *, encoding=None, errors=None,\
+    \ text=None):\n        \"\"\"Create new Popen instance.\"\"\"\n        _cleanup()\n\
+    \        # Held while anything is calling waitpid before returncode has been\n\
+    \        # updated to prevent clobbering returncode if wait() or poll() are\n\
+    \        # called from multiple threads at once.  After acquiring the lock,\n\
+    \        # code must re-check self.returncode to see if another thread just\n\
+    \        # finished a waitpid() call.\n        self._waitpid_lock = threading.Lock()\n\
+    \    \n        self._input = None\n        self._communication_started = False\n\
+    \        if bufsize is None:\n            bufsize = -1  # Restore default\n  \
+    \      if not isinstance(bufsize, int):\n            raise TypeError(\"bufsize\
+    \ must be an integer\")\n    \n        if _mswindows:\n            if preexec_fn\
+    \ is not None:\n                raise ValueError(\"preexec_fn is not supported\
+    \ on Windows \"\n                                 \"platforms\")\n        else:\n\
+    \            # POSIX\n            if pass_fds and not close_fds:\n           \
+    \     warnings.warn(\"pass_fds overriding close_fds.\", RuntimeWarning)\n    \
+    \            close_fds = True\n            if startupinfo is not None:\n     \
+    \           raise ValueError(\"startupinfo is only supported on Windows \"\n \
+    \                                \"platforms\")\n            if creationflags\
+    \ != 0:\n                raise ValueError(\"creationflags is only supported on\
+    \ Windows \"\n                                 \"platforms\")\n    \n        self.args\
+    \ = args\n        self.stdin = None\n        self.stdout = None\n        self.stderr\
+    \ = None\n        self.pid = None\n        self.returncode = None\n        self.encoding\
+    \ = encoding\n        self.errors = errors\n    \n        # Validate the combinations\
+    \ of text and universal_newlines\n        if (text is not None and universal_newlines\
+    \ is not None\n            and bool(universal_newlines) != bool(text)):\n    \
+    \        raise SubprocessError('Cannot disambiguate when both text '\n       \
+    \                           'and universal_newlines are supplied but '\n     \
+    \                             'different. Pass one or the other.')\n    \n   \
+    \     # Input and output objects. The general principle is like\n        # this:\n\
+    \        #\n        # Parent                   Child\n        # ------       \
+    \            -----\n        # p2cwrite   ---stdin--->  p2cread\n        # c2pread\
+    \    <--stdout---  c2pwrite\n        # errread    <--stderr---  errwrite\n   \
+    \     #\n        # On POSIX, the child objects are file descriptors.  On\n   \
+    \     # Windows, these are Windows file handles.  The parent objects\n       \
+    \ # are file descriptors on both platforms.  The parent objects\n        # are\
+    \ -1 when not using PIPEs. The child objects are -1\n        # when not redirecting.\n\
+    \    \n        (p2cread, p2cwrite,\n         c2pread, c2pwrite,\n         errread,\
+    \ errwrite) = self._get_handles(stdin, stdout, stderr)\n    \n        # We wrap\
+    \ OS handles *before* launching the child, otherwise a\n        # quickly terminating\
+    \ child could make our fds unwrappable\n        # (see #8458).\n    \n       \
+    \ if _mswindows:\n            if p2cwrite != -1:\n                p2cwrite = msvcrt.open_osfhandle(p2cwrite.Detach(),\
+    \ 0)\n            if c2pread != -1:\n                c2pread = msvcrt.open_osfhandle(c2pread.Detach(),\
+    \ 0)\n            if errread != -1:\n                errread = msvcrt.open_osfhandle(errread.Detach(),\
+    \ 0)\n    \n        self.text_mode = encoding or errors or text or universal_newlines\n\
+    \    \n        # How long to resume waiting on a child after the first ^C.\n \
+    \       # There is no right value for this.  The purpose is to be polite\n   \
+    \     # yet remain good for interactive users trying to exit a tool.\n       \
+    \ self._sigint_wait_secs = 0.25  # 1/xkcd221.getRandomNumber()\n    \n       \
+    \ self._closed_child_pipe_fds = False\n    \n        if self.text_mode:\n    \
+    \        if bufsize == 1:\n                line_buffering = True\n           \
+    \     # Use the default buffer size for the underlying binary streams\n      \
+    \          # since they don't support line buffering.\n                bufsize\
+    \ = -1\n            else:\n                line_buffering = False\n    \n    \
+    \    try:\n            if p2cwrite != -1:\n                self.stdin = io.open(p2cwrite,\
+    \ 'wb', bufsize)\n                if self.text_mode:\n                    self.stdin\
+    \ = io.TextIOWrapper(self.stdin, write_through=True,\n                       \
+    \     line_buffering=line_buffering,\n                            encoding=encoding,\
+    \ errors=errors)\n            if c2pread != -1:\n                self.stdout =\
+    \ io.open(c2pread, 'rb', bufsize)\n                if self.text_mode:\n      \
+    \              self.stdout = io.TextIOWrapper(self.stdout,\n                 \
+    \           encoding=encoding, errors=errors)\n            if errread != -1:\n\
+    \                self.stderr = io.open(errread, 'rb', bufsize)\n             \
+    \   if self.text_mode:\n                    self.stderr = io.TextIOWrapper(self.stderr,\n\
+    \                            encoding=encoding, errors=errors)\n    \n>      \
+    \     self._execute_child(args, executable, preexec_fn, close_fds,\n         \
+    \                       pass_fds, cwd, env,\n                                startupinfo,\
+    \ creationflags, shell,\n                                p2cread, p2cwrite,\n\
+    \                                c2pread, c2pwrite,\n                        \
+    \        errread, errwrite,\n                                restore_signals,\
+    \ start_new_session)\n\n/usr/lib/python3.8/subprocess.py:854: \n_ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <subprocess.Popen object at 0x7f8b8c3319d0>,\
+    \ args = ['/tmp/tmpg7eadus8.sh']\nexecutable = b'/tmp/tmpg7eadus8.sh', preexec_fn\
+    \ = None, close_fds = True, pass_fds = ()\ncwd = '/usr/baki/python_projects/cookiecutter/inputshellhooks',\
+    \ env = None, startupinfo = None, creationflags = 0\nshell = False, p2cread =\
+    \ -1, p2cwrite = -1, c2pread = -1, c2pwrite = -1, errread = -1, errwrite = -1\n\
+    restore_signals = True, start_new_session = False\n\n    def _execute_child(self,\
+    \ args, executable, preexec_fn, close_fds,\n                       pass_fds, cwd,\
+    \ env,\n                       startupinfo, creationflags, shell,\n          \
+    \             p2cread, p2cwrite,\n                       c2pread, c2pwrite,\n\
+    \                       errread, errwrite,\n                       restore_signals,\
+    \ start_new_session):\n        \"\"\"Execute program (POSIX version)\"\"\"\n \
+    \   \n        if isinstance(args, (str, bytes)):\n            args = [args]\n\
+    \        elif isinstance(args, os.PathLike):\n            if shell:\n        \
+    \        raise TypeError('path-like args is not allowed when '\n             \
+    \                   'shell is true')\n            args = [args]\n        else:\n\
+    \            args = list(args)\n    \n        if shell:\n            # On Android\
+    \ the default shell is at '/system/bin/sh'.\n            unix_shell = ('/system/bin/sh'\
+    \ if\n                      hasattr(sys, 'getandroidapilevel') else '/bin/sh')\n\
+    \            args = [unix_shell, \"-c\"] + args\n            if executable:\n\
+    \                args[0] = executable\n    \n        if executable is None:\n\
+    \            executable = args[0]\n    \n        sys.audit(\"subprocess.Popen\"\
+    , executable, args, cwd, env)\n    \n        if (_USE_POSIX_SPAWN\n          \
+    \      and os.path.dirname(executable)\n                and preexec_fn is None\n\
+    \                and not close_fds\n                and not pass_fds\n       \
+    \         and cwd is None\n                and (p2cread == -1 or p2cread > 2)\n\
+    \                and (c2pwrite == -1 or c2pwrite > 2)\n                and (errwrite\
+    \ == -1 or errwrite > 2)\n                and not start_new_session):\n      \
+    \      self._posix_spawn(args, executable, env, restore_signals,\n           \
+    \                   p2cread, p2cwrite,\n                              c2pread,\
+    \ c2pwrite,\n                              errread, errwrite)\n            return\n\
+    \    \n        orig_executable = executable\n    \n        # For transferring\
+    \ possible exec failure from child to parent.\n        # Data format: \"exception\
+    \ name:hex errno:description\"\n        # Pickle is not used; it is complex and\
+    \ involves memory allocation.\n        errpipe_read, errpipe_write = os.pipe()\n\
+    \        # errpipe_write must not be in the standard io 0, 1, or 2 fd range.\n\
+    \        low_fds_to_close = []\n        while errpipe_write < 3:\n           \
+    \ low_fds_to_close.append(errpipe_write)\n            errpipe_write = os.dup(errpipe_write)\n\
+    \        for low_fd in low_fds_to_close:\n            os.close(low_fd)\n     \
+    \   try:\n            try:\n                # We must avoid complex work that\
+    \ could involve\n                # malloc or free in the child process to avoid\n\
+    \                # potential deadlocks, thus we do all this here.\n          \
+    \      # and pass it to fork_exec()\n    \n                if env is not None:\n\
+    \                    env_list = []\n                    for k, v in env.items():\n\
+    \                        k = os.fsencode(k)\n                        if b'=' in\
+    \ k:\n                            raise ValueError(\"illegal environment variable\
+    \ name\")\n                        env_list.append(k + b'=' + os.fsencode(v))\n\
+    \                else:\n                    env_list = None  # Use execv instead\
+    \ of execve.\n                executable = os.fsencode(executable)\n         \
+    \       if os.path.dirname(executable):\n                    executable_list =\
+    \ (executable,)\n                else:\n                    # This matches the\
+    \ behavior of os._execvpe().\n                    executable_list = tuple(\n \
+    \                       os.path.join(os.fsencode(dir), executable)\n         \
+    \               for dir in os.get_exec_path(env))\n                fds_to_keep\
+    \ = set(pass_fds)\n                fds_to_keep.add(errpipe_write)\n          \
+    \      self.pid = _posixsubprocess.fork_exec(\n                        args, executable_list,\n\
+    \                        close_fds, tuple(sorted(map(int, fds_to_keep))),\n  \
+    \                      cwd, env_list,\n                        p2cread, p2cwrite,\
+    \ c2pread, c2pwrite,\n                        errread, errwrite,\n           \
+    \             errpipe_read, errpipe_write,\n                        restore_signals,\
+    \ start_new_session, preexec_fn)\n                self._child_created = True\n\
+    \            finally:\n                # be sure the FD is closed no matter what\n\
+    \                os.close(errpipe_write)\n    \n            self._close_pipe_fds(p2cread,\
+    \ p2cwrite,\n                                 c2pread, c2pwrite,\n           \
+    \                      errread, errwrite)\n    \n            # Wait for exec to\
+    \ fail or succeed; possibly raising an\n            # exception (limited in size)\n\
+    \            errpipe_data = bytearray()\n            while True:\n           \
+    \     part = os.read(errpipe_read, 50000)\n                errpipe_data += part\n\
+    \                if not part or len(errpipe_data) > 50000:\n                 \
+    \   break\n        finally:\n            # be sure the FD is closed no matter\
+    \ what\n            os.close(errpipe_read)\n    \n        if errpipe_data:\n \
+    \           try:\n                pid, sts = os.waitpid(self.pid, 0)\n       \
+    \         if pid == self.pid:\n                    self._handle_exitstatus(sts)\n\
+    \                else:\n                    self.returncode = sys.maxsize\n  \
+    \          except ChildProcessError:\n                pass\n    \n           \
+    \ try:\n                exception_name, hex_errno, err_msg = (\n             \
+    \           errpipe_data.split(b':', 2))\n                # The encoding here\
+    \ should match the encoding\n                # written in by the subprocess implementations\n\
+    \                # like _posixsubprocess\n                err_msg = err_msg.decode()\n\
+    \            except ValueError:\n                exception_name = b'SubprocessError'\n\
+    \                hex_errno = b'0'\n                err_msg = 'Bad exception data\
+    \ from child: {!r}'.format(\n                              bytes(errpipe_data))\n\
+    \            child_exception_type = getattr(\n                    builtins, exception_name.decode('ascii'),\n\
+    \                    SubprocessError)\n            if issubclass(child_exception_type,\
+    \ OSError) and hex_errno:\n                errno_num = int(hex_errno, 16)\n  \
+    \              child_exec_never_called = (err_msg == \"noexec\")\n           \
+    \     if child_exec_never_called:\n                    err_msg = \"\"\n      \
+    \              # The error must be from chdir(cwd).\n                    err_filename\
+    \ = cwd\n                else:\n                    err_filename = orig_executable\n\
+    \                if errno_num != 0:\n                    err_msg = os.strerror(errno_num)\n\
+    >               raise child_exception_type(errno_num, err_msg, err_filename)\n\
+    E               OSError: [Errno 8] Exec format error: '/tmp/tmpg7eadus8.sh'\n\n\
+    /usr/lib/python3.8/subprocess.py:1702: OSError\n\nDuring handling of the above\
+    \ exception, another exception occurred:\n\n    @pytest.mark.skipif(WINDOWS, reason='OSError.errno=8\
+    \ is not thrown on Windows')\n    @pytest.mark.usefixtures('clean_system', 'remove_additional_folders')\n\
+    \    def test_empty_hooks():\n        \"\"\"Verify error is raised on empty hook\
+    \ script. Ignored on windows.\n    \n        OSError.errno=8 is not thrown on\
+    \ Windows when the script is empty\n        because it always runs through shell\
+    \ instead of needing a shebang.\n        \"\"\"\n        with pytest.raises(FailedHookException)\
+    \ as excinfo:\n>           generate.generate_files(\n                context={'cookiecutter':\
+    \ {'shellhooks': 'shellhooks'}},\n                repo_dir='tests/test-shellhooks-empty/',\n\
+    \                overwrite_if_exists=True,\n            )\n\ntests/test_generate_hooks.py:80:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.generate:304: in\
+    \ generate_files\n    ???\ncookiecutter.generate:243: in _run_hook_from_repo_dir\n\
+    \    ???\ncookiecutter/hooks.py:131: in run_hook\n    run_script_with_context(script,\
+    \ project_dir, context)\ncookiecutter/hooks.py:114: in run_script_with_context\n\
+    \    run_script(temp.name, cwd)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n\
+    script_path = '/tmp/tmpg7eadus8.sh', cwd = '/usr/baki/python_projects/cookiecutter/inputshellhooks'\n\
+    \n    def run_script(script_path, cwd='.'):\n        \"\"\"Execute a script from\
+    \ a working directory.\n    \n        :param script_path: Absolute path to the\
+    \ script to run.\n        :param cwd: The directory to run the script from.\n\
+    \        \"\"\"\n        run_thru_shell = sys.platform.startswith('win')\n   \
+    \     if script_path.endswith('.py'):\n            script_command = [sys.executable,\
+    \ script_path]\n        else:\n            script_command = [script_path]\n  \
+    \  \n        utils.make_executable(script_path)\n    \n        try:\n        \
+    \    proc = subprocess.Popen(script_command, shell=run_thru_shell, cwd=cwd)\n\
+    \            exit_status = proc.wait()\n            if exit_status != EXIT_SUCCESS:\n\
+    \                raise FailedHookException(\n                    'Hook script\
+    \ failed (exit status: {})'.format(exit_status)\n                )\n        except\
+    \ OSError as os_error:\n            if os_error.errno == errno.ENOEXEC:\n>   \
+    \            raise FailedHookException(\n                    'Hook script failed,\
+    \ might be an empty file or missing a shebang'\n                )\nE         \
+    \      cookiecutter.exceptions.FailedHookException: Hook script failed, might\
+    \ be an empty file or missing a shebang\n\ncookiecutter/hooks.py:90: FailedHookException"
+  killer: tests/test_generate_hooks.py::test_empty_hooks
+  module: *id002
+  mutations:
+  - lineno: 218
+    operator: COD
+  number: 6
+  status: killed
+  tests_run: -23
+  time: 3.1277806758880615
+- exception_traceback: null
+  killer: null
+  module: &id003 !!python/module:cookiecutter.hooks ''
+  mutations:
+  - lineno: 36
+    operator: COD
+  number: 7
+  status: incompetent
+  tests_run: -3
+  time: 0.6841270923614502
+- exception_traceback: null
+  killer: null
+  module: *id003
+  mutations:
+  - lineno: 53
+    operator: COD
+  number: 8
+  status: incompetent
+  tests_run: -3
+  time: 0.5602588653564453
+- exception_traceback: "self = <tests.test_hooks.TestExternalHooks object at 0x7f8b8b02bb20>\n\
+    \n    def test_run_hook(self):\n        \"\"\"Execute hook from specified template\
+    \ in specified output \\\n        directory.\"\"\"\n        tests_dir = os.path.join(self.repo_path,\
+    \ 'input{{hooks}}')\n        with utils.work_in(self.repo_path):\n           \
+    \ hooks.run_hook('pre_gen_project', tests_dir, {})\n>           assert os.path.isfile(os.path.join(tests_dir,\
+    \ 'python_pre.txt'))\nE           AssertionError\n\ntests/test_hooks.py:187: AssertionError"
+  killer: tests/test_hooks.py::TestExternalHooks::test_run_hook
+  module: *id003
+  mutations:
+  - lineno: 126
+    operator: COD
+  number: 9
+  status: killed
+  tests_run: -10
+  time: 0.6765987873077393
+- exception_traceback: null
+  killer: null
+  module: &id004 !!python/module:cookiecutter.prompt ''
+  mutations:
+  - lineno: 54
+    operator: COD
+  number: 10
+  status: incompetent
+  tests_run: -57
+  time: 0.775425910949707
+- exception_traceback: "self = <tests.test_prompt.TestReadUserChoice object at 0x7f8b8b4303a0>\n\
+    mocker = <pytest_mock.plugin.MockFixture object at 0x7f8b8b69e130>\n\n    def\
+    \ test_should_invoke_read_user_choice(self, mocker):\n        \"\"\"Verify correct\
+    \ function called for select(list) variables.\"\"\"\n        prompt_choice = mocker.patch(\n\
+    \            'cookiecutter.prompt.prompt_choice_for_config',\n            wraps=prompt.prompt_choice_for_config,\n\
+    \        )\n    \n        read_user_choice = mocker.patch('cookiecutter.prompt.read_user_choice')\n\
+    \        read_user_choice.return_value = 'all'\n    \n        read_user_variable\
+    \ = mocker.patch('cookiecutter.prompt.read_user_variable')\n    \n        choices\
+    \ = ['landscape', 'portrait', 'all']\n        context = {'cookiecutter': {'orientation':\
+    \ choices}}\n    \n>       cookiecutter_dict = prompt.prompt_for_config(context)\n\
+    \ntests/test_prompt.py:272: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.prompt:194:\
+    \ in prompt_for_config\n    ???\ncookiecutter.prompt:168: in prompt_choice_for_config\n\
+    \    ???\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nvar_name = 'orientation',\
+    \ options = ['landscape', 'portrait', 'all']\n\n>   ???\nE   ValueError\n\ncookiecutter.prompt:58:\
+    \ ValueError"
+  killer: tests/test_prompt.py::TestReadUserChoice::test_should_invoke_read_user_choice
+  module: *id004
+  mutations:
+  - lineno: 57
+    operator: COD
+  number: 11
+  status: killed
+  tests_run: -57
+  time: 0.6449315547943115
+- exception_traceback: "def test_process_json_non_dict():\n        \"\"\"Test `process_json`\
+    \ for correct error on non-JSON input.\"\"\"\n        with pytest.raises(click.UsageError)\
+    \ as exc_info:\n>           process_json('[1, 2]')\nE           Failed: DID NOT\
+    \ RAISE <class 'click.exceptions.UsageError'>\n\ntests/test_read_user_dict.py:22:\
+    \ Failed"
+  killer: tests/test_read_user_dict.py::test_process_json_non_dict
+  module: *id004
+  mutations:
+  - lineno: 92
+    operator: COD
+  number: 12
+  status: killed
+  tests_run: -150
+  time: 0.8331034183502197
+- exception_traceback: null
+  killer: null
+  module: *id004
+  mutations:
+  - lineno: 107
+    operator: COD
+  number: 13
+  status: incompetent
+  tests_run: -50
+  time: 0.6249020099639893
+- exception_traceback: null
+  killer: null
+  module: *id004
+  mutations:
+  - lineno: 150
+    operator: COD
+  number: 14
+  status: incompetent
+  tests_run: -40
+  time: 0.755413293838501
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7f8b8bf92370>\n\
+    monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f8b8bf926d0>\ncontext\
+    \ = {'cookiecutter': {'full_name': 'Your Name'}}\n\n    @pytest.mark.parametrize(\n\
+    \        'context',\n        [\n            {'cookiecutter': {'full_name': 'Your\
+    \ Name'}},\n            {'cookiecutter': {'full_name': '\u0158ekni \u010Di napi\u0161\
+    \ sv\xE9 jm\xE9no'}},\n        ],\n        ids=['ASCII default prompt/input',\
+    \ 'Unicode default prompt/input'],\n    )\n    def test_prompt_for_config(self,\
+    \ monkeypatch, context):\n        \"\"\"Verify `prompt_for_config` call `read_user_variable`\
+    \ on text request.\"\"\"\n        monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_variable',\
+    \ lambda var, default: default,\n        )\n    \n>       cookiecutter_dict =\
+    \ prompt.prompt_for_config(context)\n\ntests/test_prompt.py:86: \n_ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.prompt:203: in prompt_for_config\n\
+    \    ???\ncookiecutter.prompt:19: in read_user_variable\n    ???\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:147:\
+    \ in prompt\n    value = prompt_func(prompt)\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:129:\
+    \ in prompt_func\n    return f(\"\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \n\nself = <_pytest.capture.DontReadFromInput object at 0x7f8b8bb8b0a0>, args\
+    \ = ()\n\n    def read(self, *args):\n>       raise OSError(\n            \"pytest:\
+    \ reading from stdin while output is captured!  Consider using `-s`.\"\n     \
+    \   )\nE       OSError: pytest: reading from stdin while output is captured! \
+    \ Consider using `-s`.\n\n/usr/local/lib/python3.8/dist-packages/_pytest/capture.py:217:\
+    \ OSError"
+  killer: tests/test_prompt.py::TestPrompt::test_prompt_for_config[ASCII default prompt/input]
+  module: *id004
+  mutations:
+  - lineno: 184
+    operator: COD
+  number: 15
+  status: killed
+  tests_run: -48
+  time: 0.7994844913482666
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7f8b8b591370>\n\
+    monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f8b8b591400>\ncontext\
+    \ = {'cookiecutter': {'full_name': 'Your Name'}}\n\n    @pytest.mark.parametrize(\n\
+    \        'context',\n        [\n            {'cookiecutter': {'full_name': 'Your\
+    \ Name'}},\n            {'cookiecutter': {'full_name': '\u0158ekni \u010Di napi\u0161\
+    \ sv\xE9 jm\xE9no'}},\n        ],\n        ids=['ASCII default prompt/input',\
+    \ 'Unicode default prompt/input'],\n    )\n    def test_prompt_for_config(self,\
+    \ monkeypatch, context):\n        \"\"\"Verify `prompt_for_config` call `read_user_variable`\
+    \ on text request.\"\"\"\n        monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_variable',\
+    \ lambda var, default: default,\n        )\n    \n        cookiecutter_dict =\
+    \ prompt.prompt_for_config(context)\n>       assert cookiecutter_dict == context['cookiecutter']\n\
+    E       AssertionError\n\ntests/test_prompt.py:87: AssertionError"
+  killer: tests/test_prompt.py::TestPrompt::test_prompt_for_config[ASCII default prompt/input]
+  module: *id004
+  mutations:
+  - lineno: 198
+    operator: COD
+  number: 16
+  status: killed
+  tests_run: -48
+  time: 0.618680477142334
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7f8b8b0949d0>\n\
+    \n    def test_should_render_dict(self):\n        \"\"\"Verify template inside\
+    \ dictionary variable rendered.\"\"\"\n        context = {\n            'cookiecutter':\
+    \ {\n                'project_name': 'Slartibartfast',\n                'details':\
+    \ {\n                    '{{cookiecutter.project_name}}': '{{cookiecutter.project_name}}'\n\
+    \                },\n            }\n        }\n    \n>       cookiecutter_dict\
+    \ = prompt.prompt_for_config(context, no_input=True)\n\ntests/test_prompt.py:111:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.prompt:203: in prompt_for_config\n\
+    \    ???\ncookiecutter.prompt:19: in read_user_variable\n    ???\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:147:\
+    \ in prompt\n    value = prompt_func(prompt)\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:129:\
+    \ in prompt_func\n    return f(\"\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \n\nself = <_pytest.capture.DontReadFromInput object at 0x7f8b8be948e0>, args\
+    \ = ()\n\n    def read(self, *args):\n>       raise OSError(\n            \"pytest:\
+    \ reading from stdin while output is captured!  Consider using `-s`.\"\n     \
+    \   )\nE       OSError: pytest: reading from stdin while output is captured! \
+    \ Consider using `-s`.\n\n/usr/local/lib/python3.8/dist-packages/_pytest/capture.py:217:\
+    \ OSError"
+  killer: tests/test_prompt.py::TestPrompt::test_should_render_dict
+  module: *id004
+  mutations:
+  - lineno: 202
+    operator: COD
+  number: 17
+  status: killed
+  tests_run: -47
+  time: 0.7940027713775635
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7f8b8b5bf040>\n\
+    monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f8b8b5bf310>\n\n \
+    \   def test_prompt_for_config_dict(self, monkeypatch):\n        \"\"\"Verify\
+    \ `prompt_for_config` call `read_user_variable` on dict request.\"\"\"\n     \
+    \   monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_dict',\n\
+    \            lambda var, default: {\"key\": \"value\", \"integer\": 37},\n   \
+    \     )\n        context = {'cookiecutter': {'details': {}}}\n    \n>       cookiecutter_dict\
+    \ = prompt.prompt_for_config(context)\n\ntests/test_prompt.py:97: \n_ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter.prompt:222: in prompt_for_config\n\
+    \    ???\ncookiecutter.prompt:112: in read_user_dict\n    ???\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:147:\
+    \ in prompt\n    value = prompt_func(prompt)\n/home/ubuntu/.local/lib/python3.8/site-packages/click/termui.py:129:\
+    \ in prompt_func\n    return f(\"\")\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ \n\nself = <_pytest.capture.DontReadFromInput object at 0x7f8b8c2c83d0>, args\
+    \ = ()\n\n    def read(self, *args):\n>       raise OSError(\n            \"pytest:\
+    \ reading from stdin while output is captured!  Consider using `-s`.\"\n     \
+    \   )\nE       OSError: pytest: reading from stdin while output is captured! \
+    \ Consider using `-s`.\n\n/usr/local/lib/python3.8/dist-packages/_pytest/capture.py:217:\
+    \ OSError"
+  killer: tests/test_prompt.py::TestPrompt::test_prompt_for_config_dict
+  module: *id004
+  mutations:
+  - lineno: 213
+    operator: COD
+  number: 18
+  status: killed
+  tests_run: -50
+  time: 0.7757132053375244
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7f8b8bbb58e0>\n\
+    monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f8b8bbb5850>\n\n \
+    \   def test_prompt_for_config_dict(self, monkeypatch):\n        \"\"\"Verify\
+    \ `prompt_for_config` call `read_user_variable` on dict request.\"\"\"\n     \
+    \   monkeypatch.setattr(\n            'cookiecutter.prompt.read_user_dict',\n\
+    \            lambda var, default: {\"key\": \"value\", \"integer\": 37},\n   \
+    \     )\n        context = {'cookiecutter': {'details': {}}}\n    \n        cookiecutter_dict\
+    \ = prompt.prompt_for_config(context)\n>       assert cookiecutter_dict == {'details':\
+    \ {'key': 'value', 'integer': 37}}\nE       AssertionError\n\ntests/test_prompt.py:98:\
+    \ AssertionError"
+  killer: tests/test_prompt.py::TestPrompt::test_prompt_for_config_dict
+  module: *id004
+  mutations:
+  - lineno: 221
+    operator: COD
+  number: 19
+  status: killed
+  tests_run: -50
+  time: 0.6270430088043213
+number_of_tests: 204
+targets:
+- cookiecutter/
+tests:
+- name: tests.conftest
+  target: null
+  time: 1.1268126964569092
+- name: tests.test_abort_generate_on_hook_error
+  target: null
+  time: 0.8188128471374512
+- name: tests.test_cli
+  target: null
+  time: 0.7847204208374023
+- name: tests.test_cookiecutter_invocation
+  target: null
+  time: 0.9212205410003662
+- name: tests.test_cookiecutter_local_no_input
+  target: null
+  time: 0.5340147018432617
+- name: tests.test_cookiecutter_local_with_input
+  target: null
+  time: 0.38813352584838867
+- name: tests.test_custom_extensions_in_hooks
+  target: null
+  time: 1.0145151615142822
+- name: tests.test_default_extensions
+  target: null
+  time: 0.578209400177002
+- name: tests.test_environment
+  target: null
+  time: 0.3511924743652344
+- name: tests.test_exceptions
+  target: null
+  time: 0.3438072204589844
+- name: tests.test_find
+  target: null
+  time: 0.3687605857849121
+- name: tests.test_generate_context
+  target: null
+  time: 0.43337512016296387
+- name: tests.test_generate_copy_without_render
+  target: null
+  time: 0.3697173595428467
+- name: tests.test_generate_file
+  target: null
+  time: 0.4121732711791992
+- name: tests.test_generate_files
+  target: null
+  time: 0.8688137531280518
+- name: tests.test_generate_hooks
+  target: null
+  time: 1.509026288986206
+- name: tests.test_get_config
+  target: null
+  time: 0.356447696685791
+- name: tests.test_get_user_config
+  target: null
+  time: 0.38572025299072266
+- name: tests.test_hooks
+  target: null
+  time: 0.6977770328521729
+- name: tests.test_log
+  target: null
+  time: 0.3604564666748047
+- name: tests.test_main
+  target: null
+  time: 0.4564235210418701
+- name: tests.test_output_folder
+  target: null
+  time: 0.37628626823425293
+- name: tests.test_preferred_encoding
+  target: null
+  time: 0.34166455268859863
+- name: tests.test_prompt
+  target: null
+  time: 0.5526957511901855
+- name: tests.test_read_repo_password
+  target: null
+  time: 0.3470878601074219
+- name: tests.test_read_user_choice
+  target: null
+  time: 0.3882126808166504
+- name: tests.test_read_user_dict
+  target: null
+  time: 0.3757615089416504
+- name: tests.test_read_user_variable
+  target: null
+  time: 0.41880154609680176
+- name: tests.test_read_user_yes_no
+  target: null
+  time: 0.3527181148529053
+- name: tests.test_repo_not_found
+  target: null
+  time: 0.34488630294799805
+- name: tests.test_specify_output_dir
+  target: null
+  time: 0.3967294692993164
+- name: tests.test_utils
+  target: null
+  time: 0.4181845188140869
+time_stats:
+  create_mutant_module: 0.02591872215270996
+  create_target_ast: 0.0599520206451416
+  mutate_module: 163.2717170715332
+  run_tests_with_mutant: 26.705498695373535
+total_time: 180.87787771224976

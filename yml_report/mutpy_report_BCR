@@ -1,0 +1,220 @@
+coverage:
+  all_nodes: 6759
+  covered_nodes: 5205
+mutation_score: 60.0
+mutations:
+- exception_traceback: null
+  killer: null
+  module: !!python/module:cookiecutter.find ''
+  mutations:
+  - lineno: 24
+    operator: BCR
+  number: 1
+  status: survived
+  tests_run: -195
+  time: 0.8008522987365723
+- exception_traceback: "def test_default_context_replacement_in_generate_context():\n\
+    \        \"\"\"Verify default content settings are correctly replaced by template\
+    \ settings.\n    \n        Make sure that the default for list variables of `orientation`\
+    \ is based on\n        the user config (`choices_template.json`) and not changed\
+    \ to a single value\n        from `default_context`.\n        \"\"\"\n       \
+    \ expected_context = {\n            'choices_template': OrderedDict(\n       \
+    \         [\n                    ('full_name', 'Raphael Pierzina'),\n        \
+    \            ('github_username', 'hackebrot'),\n                    ('project_name',\
+    \ 'Kivy Project'),\n                    ('repo_name', '{{cookiecutter.project_name|lower}}'),\n\
+    \                    ('orientation', ['landscape', 'all', 'portrait']),\n    \
+    \            ]\n            )\n        }\n    \n        generated_context = generate.generate_context(\n\
+    \            context_file='tests/test-generate-context/choices_template.json',\n\
+    \            default_context={\n                'not_in_template': 'foobar',\n\
+    \                'project_name': 'Kivy Project',\n                'orientation':\
+    \ 'landscape',\n            },\n            extra_context={\n                'also_not_in_template':\
+    \ 'foobar2',\n                'github_username': 'hackebrot',\n            },\n\
+    \        )\n    \n>       assert generated_context == expected_context\nE    \
+    \   AssertionError\n\ntests/test_generate_context.py:108: AssertionError"
+  killer: tests/test_generate_context.py::test_default_context_replacement_in_generate_context
+  module: !!python/module:cookiecutter.generate ''
+  mutations:
+  - lineno: 53
+    operator: BCR
+  number: 2
+  status: killed
+  tests_run: -53
+  time: 0.6141824722290039
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7fd412507bb0>\n\
+    \n    def test_should_render_private_variables_with_two_underscores(self):\n \
+    \       \"\"\"Test rendering of private variables with two underscores.\n    \n\
+    \        There are three cases:\n        1. Variables beginning with a single\
+    \ underscore are private and not rendered.\n        2. Variables beginning with\
+    \ a double underscore are private and are rendered.\n        3. Variables beginning\
+    \ with anything other than underscores are not private and\n           are rendered.\n\
+    \        \"\"\"\n        context = {\n            'cookiecutter': OrderedDict(\n\
+    \                [\n                    ('foo', 'Hello world'),\n            \
+    \        ('bar', 123),\n                    ('rendered_foo', u'{{ cookiecutter.foo|lower\
+    \ }}'),\n                    ('rendered_bar', 123),\n                    ('_hidden_foo',\
+    \ u'{{ cookiecutter.foo|lower }}'),\n                    ('_hidden_bar', 123),\n\
+    \                    ('__rendered_hidden_foo', u'{{ cookiecutter.foo|lower }}'),\n\
+    \                    ('__rendered_hidden_bar', 123),\n                ]\n    \
+    \        )\n        }\n        cookiecutter_dict = prompt.prompt_for_config(context,\
+    \ no_input=True)\n>       assert cookiecutter_dict == OrderedDict(\n         \
+    \   [\n                ('foo', 'Hello world'),\n                ('bar', '123'),\n\
+    \                ('rendered_foo', 'hello world'),\n                ('rendered_bar',\
+    \ '123'),\n                ('_hidden_foo', u'{{ cookiecutter.foo|lower }}'),\n\
+    \                ('_hidden_bar', 123),\n                ('__rendered_hidden_foo',\
+    \ 'hello world'),\n                ('__rendered_hidden_bar', '123'),\n       \
+    \     ]\n        )\nE       AssertionError\n\ntests/test_prompt.py:222: AssertionError"
+  killer: tests/test_prompt.py::TestPrompt::test_should_render_private_variables_with_two_underscores
+  module: &id001 !!python/module:cookiecutter.prompt ''
+  mutations:
+  - lineno: 186
+    operator: BCR
+  number: 3
+  status: killed
+  tests_run: -100
+  time: 0.6921498775482178
+- exception_traceback: "self = <tests.test_prompt.TestPrompt object at 0x7fd410351e50>\n\
+    \n    def test_should_render_private_variables_with_two_underscores(self):\n \
+    \       \"\"\"Test rendering of private variables with two underscores.\n    \n\
+    \        There are three cases:\n        1. Variables beginning with a single\
+    \ underscore are private and not rendered.\n        2. Variables beginning with\
+    \ a double underscore are private and are rendered.\n        3. Variables beginning\
+    \ with anything other than underscores are not private and\n           are rendered.\n\
+    \        \"\"\"\n        context = {\n            'cookiecutter': OrderedDict(\n\
+    \                [\n                    ('foo', 'Hello world'),\n            \
+    \        ('bar', 123),\n                    ('rendered_foo', u'{{ cookiecutter.foo|lower\
+    \ }}'),\n                    ('rendered_bar', 123),\n                    ('_hidden_foo',\
+    \ u'{{ cookiecutter.foo|lower }}'),\n                    ('_hidden_bar', 123),\n\
+    \                    ('__rendered_hidden_foo', u'{{ cookiecutter.foo|lower }}'),\n\
+    \                    ('__rendered_hidden_bar', 123),\n                ]\n    \
+    \        )\n        }\n        cookiecutter_dict = prompt.prompt_for_config(context,\
+    \ no_input=True)\n>       assert cookiecutter_dict == OrderedDict(\n         \
+    \   [\n                ('foo', 'Hello world'),\n                ('bar', '123'),\n\
+    \                ('rendered_foo', 'hello world'),\n                ('rendered_bar',\
+    \ '123'),\n                ('_hidden_foo', u'{{ cookiecutter.foo|lower }}'),\n\
+    \                ('_hidden_bar', 123),\n                ('__rendered_hidden_foo',\
+    \ 'hello world'),\n                ('__rendered_hidden_bar', '123'),\n       \
+    \     ]\n        )\nE       AssertionError\n\ntests/test_prompt.py:222: AssertionError"
+  killer: tests/test_prompt.py::TestPrompt::test_should_render_private_variables_with_two_underscores
+  module: *id001
+  mutations:
+  - lineno: 189
+    operator: BCR
+  number: 4
+  status: killed
+  tests_run: -102
+  time: 0.9663724899291992
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 214
+    operator: BCR
+  number: 5
+  status: survived
+  tests_run: -193
+  time: 0.8026907444000244
+number_of_tests: 204
+targets:
+- cookiecutter/
+tests:
+- name: tests.conftest
+  target: null
+  time: 1.1390724182128906
+- name: tests.test_abort_generate_on_hook_error
+  target: null
+  time: 0.8250675201416016
+- name: tests.test_cli
+  target: null
+  time: 0.790912389755249
+- name: tests.test_cookiecutter_invocation
+  target: null
+  time: 0.9542074203491211
+- name: tests.test_cookiecutter_local_no_input
+  target: null
+  time: 0.5610089302062988
+- name: tests.test_cookiecutter_local_with_input
+  target: null
+  time: 0.38614988327026367
+- name: tests.test_custom_extensions_in_hooks
+  target: null
+  time: 0.9776968955993652
+- name: tests.test_default_extensions
+  target: null
+  time: 0.5806069374084473
+- name: tests.test_environment
+  target: null
+  time: 0.3577876091003418
+- name: tests.test_exceptions
+  target: null
+  time: 0.35213398933410645
+- name: tests.test_find
+  target: null
+  time: 0.3618905544281006
+- name: tests.test_generate_context
+  target: null
+  time: 0.39202046394348145
+- name: tests.test_generate_copy_without_render
+  target: null
+  time: 0.3778102397918701
+- name: tests.test_generate_file
+  target: null
+  time: 0.418318510055542
+- name: tests.test_generate_files
+  target: null
+  time: 0.8691198825836182
+- name: tests.test_generate_hooks
+  target: null
+  time: 1.5067322254180908
+- name: tests.test_get_config
+  target: null
+  time: 0.36288022994995117
+- name: tests.test_get_user_config
+  target: null
+  time: 0.3907279968261719
+- name: tests.test_hooks
+  target: null
+  time: 0.7053549289703369
+- name: tests.test_log
+  target: null
+  time: 0.36458277702331543
+- name: tests.test_main
+  target: null
+  time: 0.4681379795074463
+- name: tests.test_output_folder
+  target: null
+  time: 0.3756108283996582
+- name: tests.test_preferred_encoding
+  target: null
+  time: 0.35459399223327637
+- name: tests.test_prompt
+  target: null
+  time: 0.5514776706695557
+- name: tests.test_read_repo_password
+  target: null
+  time: 0.3553755283355713
+- name: tests.test_read_user_choice
+  target: null
+  time: 0.40021657943725586
+- name: tests.test_read_user_dict
+  target: null
+  time: 0.3822953701019287
+- name: tests.test_read_user_variable
+  target: null
+  time: 0.42235279083251953
+- name: tests.test_read_user_yes_no
+  target: null
+  time: 0.3654162883758545
+- name: tests.test_repo_not_found
+  target: null
+  time: 0.35134005546569824
+- name: tests.test_specify_output_dir
+  target: null
+  time: 0.40621352195739746
+- name: tests.test_utils
+  target: null
+  time: 0.42144227027893066
+time_stats:
+  create_mutant_module: 0.005312681198120117
+  create_target_ast: 0.06085062026977539
+  mutate_module: 137.8907024860382
+  run_tests_with_mutant: 7.005886554718018
+total_time: 155.62459540367126

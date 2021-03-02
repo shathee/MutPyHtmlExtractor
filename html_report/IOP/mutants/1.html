@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MutPy mutation report - mutation #1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    
+<link href="http://alexgorbatchev.com/pub/sh/current/styles/shCore.css" rel="stylesheet" type="text/css" />
+<link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPython.js" type="text/javascript"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+    window.setTimeout(function () {
+        
+        $('.line.number59').attr('title', 'IOP');
+        
+    }, 0);
+</script>
+
+</head>
+<body>
+    <div class="container">
+        
+<div class="page-header">
+    <h1>Mutation #1</h1>
+</div>
+<h3>Details</h3>
+<ul>
+    <li>module - <code><module 'cookiecutter.environment' from '/usr/baki/python_projects/cookiecutter/cookiecutter/environment.py'></code></li>
+    <li><span class="label label-success">killed</span> by <code>tests/test_cli.py::test_cli_replay</code></li>
+    
+    <li>duration - 2.32 s</li>
+    
+    
+    <li>tests run - 47</li>
+    
+</ul>
+
+<h3>Exception traceback</h3>
+<pre>mocker = <pytest_mock.plugin.MockFixture object at 0x7facec626cd0>
+cli_runner = <function cli_runner.<locals>.cli_main at 0x7facec384dc0>
+
+    @pytest.mark.usefixtures('remove_fake_project_dir')
+    def test_cli_replay(mocker, cli_runner):
+        """Test cli invocation display log with `verbose` and `replay` flags."""
+        mock_cookiecutter = mocker.patch('cookiecutter.cli.cookiecutter')
+    
+        template_path = 'tests/fake-repo-pre/'
+        result = cli_runner(template_path, '--replay', '-v')
+    
+        assert result.exit_code == 0
+>       mock_cookiecutter.assert_called_once_with(
+            template_path,
+            None,
+            False,
+            replay=True,
+            overwrite_if_exists=False,
+            skip_if_file_exists=False,
+            output_dir='.',
+            config_file=None,
+            default_config=False,
+            extra_context=None,
+            password=None,
+            directory=None,
+            accept_hooks=True,
+        )
+E       AssertionError: Expected 'cookiecutter' to be called once. Called 0 times.
+
+tests/test_cli.py:95: AssertionError</pre>
+
+<h3>Mutations</h3>
+<ul>
+    
+    <li>IOP - line 59</li>
+    
+</ul>
+<h3>Mutant</h3>
+<pre class="brush: python; first-line: 1; highlight: [59]; toolbar: false;">'''Jinja2 environment and extensions loading.'''
+from jinja2 import Environment, StrictUndefined
+
+from cookiecutter.exceptions import UnknownExtension
+
+
+class ExtensionLoaderMixin(object):
+    '''Mixin providing sane loading of extensions specified in a given context.
+
+    The context is being extracted from the keyword arguments before calling
+    the next parent class in line of the child.
+    '''
+    
+    def __init__(self, **kwargs):
+        '''Initialize the Jinja2 Environment object while loading extensions.
+
+        Does the following:
+
+        1. Establishes default_extensions (currently just a Time feature)
+        2. Reads extensions set in the cookiecutter.json _extensions key.
+        3. Attempts to load the extensions. Provides useful error if fails.
+        '''
+        context = kwargs.pop('context', {})
+        
+        default_extensions = [\
+            'cookiecutter.extensions.JsonifyExtension', \
+            'cookiecutter.extensions.RandomStringExtension', \
+            'cookiecutter.extensions.SlugifyExtension', \
+            'jinja2_time.TimeExtension']
+        
+        extensions = default_extensions + self._read_extensions(context)
+        
+        try:
+            super(ExtensionLoaderMixin, self).__init__(extensions=extensions, **kwargs)
+        except ImportError as err:
+            raise UnknownExtension('Unable to load extension: {}'.format(err))
+    
+    def _read_extensions(self, context):
+        '''Return list of extensions as str to be passed on to the Jinja2 env.
+
+        If context does not contain the relevant info, return an empty
+        list instead.
+        '''
+        try:
+            extensions = context['cookiecutter']['_extensions']
+        except KeyError:
+            return []
+        else:
+            return [str(ext) for ext in extensions]
+
+
+class StrictEnvironment(ExtensionLoaderMixin, Environment):
+    '''Create strict Jinja2 environment.
+
+    Jinja2 environment will raise error on undefined variable in template-
+    rendering context.
+    '''
+    
+    def __init__(self, **kwargs):
+        super(StrictEnvironment, self).__init__(undefined=StrictUndefined, **kwargs)
+        """Set the standard Cookiecutter StrictEnvironment.
+
+        Also loading extensions defined in cookiecutter.json's _extensions key.
+        """</pre>
+
+    </div>
+</body>
+</html>

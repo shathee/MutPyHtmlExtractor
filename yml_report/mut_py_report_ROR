@@ -1,0 +1,265 @@
+coverage:
+  all_nodes: 6759
+  covered_nodes: 5205
+mutation_score: 100.0
+mutations:
+- exception_traceback: null
+  killer: null
+  module: !!python/module:cookiecutter.__main__ ''
+  mutations:
+  - lineno: 5
+    operator: ROR
+  number: 1
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7f2d79338e50>\n\
+    \n    @pytest.mark.usefixtures('make_fake_project_dir', 'remove_fake_project_dir')\n\
+    \    def test_cli_error_on_existing_output_directory(cli_runner):\n        \"\"\
+    \"Test cli invocation without `overwrite-if-exists` fail if dir exist.\"\"\"\n\
+    \        result = cli_runner('tests/fake-repo-pre/', '--no-input')\n>       assert\
+    \ result.exit_code != 0\nE       AssertionError\n\ntests/test_cli.py:61: AssertionError"
+  killer: tests/test_cli.py::test_cli_error_on_existing_output_directory
+  module: &id001 !!python/module:cookiecutter.cli ''
+  mutations:
+  - lineno: 174
+    operator: ROR
+  number: 2
+  status: killed
+  tests_run: -2
+  time: 0.566784143447876
+- exception_traceback: "cli_runner = <function cli_runner.<locals>.cli_main at 0x7f2d793dba60>\n\
+    \n    @pytest.mark.usefixtures('make_fake_project_dir', 'remove_fake_project_dir')\n\
+    \    def test_cli_error_on_existing_output_directory(cli_runner):\n        \"\"\
+    \"Test cli invocation without `overwrite-if-exists` fail if dir exist.\"\"\"\n\
+    \        result = cli_runner('tests/fake-repo-pre/', '--no-input')\n        assert\
+    \ result.exit_code != 0\n        expected_error_msg = 'Error: \"fake-project\"\
+    \ directory already exists\\n'\n>       assert result.output == expected_error_msg\n\
+    E       AssertionError\n\ntests/test_cli.py:63: AssertionError"
+  killer: tests/test_cli.py::test_cli_error_on_existing_output_directory
+  module: *id001
+  mutations:
+  - lineno: 182
+    operator: ROR
+  number: 3
+  status: killed
+  tests_run: -2
+  time: 0.7771291732788086
+- exception_traceback: "mocker = <pytest_mock.plugin.MockFixture object at 0x7f2d78f41760>\n\
+    cli_runner = <function cli_runner.<locals>.cli_main at 0x7f2d78c47430>\n\n   \
+    \ @pytest.mark.usefixtures('remove_fake_project_dir')\n    def test_cli_replay(mocker,\
+    \ cli_runner):\n        \"\"\"Test cli invocation display log with `verbose` and\
+    \ `replay` flags.\"\"\"\n        mock_cookiecutter = mocker.patch('cookiecutter.cli.cookiecutter')\n\
+    \    \n        template_path = 'tests/fake-repo-pre/'\n        result = cli_runner(template_path,\
+    \ '--replay', '-v')\n    \n        assert result.exit_code == 0\n>       mock_cookiecutter.assert_called_once_with(\n\
+    \            template_path,\n            None,\n            False,\n         \
+    \   replay=True,\n            overwrite_if_exists=False,\n            skip_if_file_exists=False,\n\
+    \            output_dir='.',\n            config_file=None,\n            default_config=False,\n\
+    \            extra_context=None,\n            password=None,\n            directory=None,\n\
+    \            accept_hooks=True,\n        )\nE       AssertionError: Expected 'cookiecutter'\
+    \ to be called once. Called 0 times.\n\ntests/test_cli.py:95: AssertionError"
+  killer: tests/test_cli.py::test_cli_replay
+  module: *id001
+  mutations:
+  - lineno: 185
+    operator: ROR
+  number: 4
+  status: killed
+  tests_run: 1
+  time: 0.6254832744598389
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 226
+    operator: ROR
+  number: 5
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: "self = <tests.test_hooks.TestFindHooks object at 0x7f2d793d0eb0>\n\
+    \n    def test_find_hook(self):\n        \"\"\"Finds the specified hook.\"\"\"\
+    \n        with utils.work_in(self.repo_path):\n            expected_pre = os.path.abspath('hooks/pre_gen_project.py')\n\
+    \            actual_hook_path = hooks.find_hook('pre_gen_project')\n>        \
+    \   assert expected_pre == actual_hook_path[0]\nE           AssertionError\n\n\
+    tests/test_hooks.py:91: AssertionError"
+  killer: tests/test_hooks.py::TestFindHooks::test_find_hook
+  module: &id002 !!python/module:cookiecutter.hooks ''
+  mutations:
+  - lineno: 32
+    operator: ROR
+  number: 6
+  status: killed
+  tests_run: -172
+  time: 0.7815680503845215
+- exception_traceback: null
+  killer: null
+  module: *id002
+  mutations:
+  - lineno: 62
+    operator: ROR
+  number: 7
+  status: incompetent
+  tests_run: -172
+  time: 0.8971710205078125
+- exception_traceback: "self = <tests.test_hooks.TestExternalHooks object at 0x7f2d7899a310>\n\
+    \n    def test_run_script(self):\n        \"\"\"Execute a hook script, independently\
+    \ of project generation.\"\"\"\n>       hooks.run_script(os.path.join(self.hooks_path,\
+    \ self.post_hook))\n\ntests/test_hooks.py:144: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ \n\nscript_path = '/usr/baki/python_projects/cookiecutter/tests/test-hooks/hooks/post_gen_project.sh',\
+    \ cwd = '.'\n\n>   ???\nE   cookiecutter.exceptions.FailedHookException: Hook\
+    \ script failed (exit status: 0)\n\ncookiecutter.hooks:85: FailedHookException"
+  killer: tests/test_hooks.py::TestExternalHooks::test_run_script
+  module: *id002
+  mutations:
+  - lineno: 84
+    operator: ROR
+  number: 8
+  status: killed
+  tests_run: -176
+  time: 0.8097155094146729
+- exception_traceback: "mocker = <pytest_mock.plugin.MockFixture object at 0x7f2d79aabd00>\n\
+    \n    def test_read_user_dict_default_value(mocker):\n        \"\"\"Make sure\
+    \ that `read_user_dict` returns the default value.\n    \n        Verify return\
+    \ of a dict variable rather than the display value.\n        \"\"\"\n        mock_prompt\
+    \ = mocker.patch(\n            'cookiecutter.prompt.click.prompt', autospec=True,\
+    \ return_value='default',\n        )\n    \n        val = read_user_dict('name',\
+    \ {'project_slug': 'pytest-plugin'})\n    \n        assert mock_prompt.call_args\
+    \ == mocker.call(\n            'name', type=click.STRING, default='default', value_proc=process_json,\n\
+    \        )\n    \n>       assert val == {'project_slug': 'pytest-plugin'}\nE \
+    \      AssertionError\n\ntests/test_read_user_dict.py:115: AssertionError"
+  killer: tests/test_read_user_dict.py::test_read_user_dict_default_value
+  module: !!python/module:cookiecutter.prompt ''
+  mutations:
+  - lineno: 116
+    operator: ROR
+  number: 9
+  status: killed
+  tests_run: -189
+  time: 0.8964800834655762
+- exception_traceback: "tmp_path = PosixPath('/tmp/pytest-of-ubuntu/pytest-211/test_make_sure_path_exists0')\n\
+    \n    @pytest.mark.skipif(\n        sys.version_info[0] == 3 and sys.version_info[1]\
+    \ == 6 and sys.version_info[2] == 1,\n        reason=\"Outdated pypy3 version\
+    \ on Travis CI/CD\",\n    )\n    def test_make_sure_path_exists(tmp_path):\n \
+    \       \"\"\"Verify correct True/False response from `utils.make_sure_path_exists`.\n\
+    \    \n        Should return True if directory exist or created.\n        Should\
+    \ return False if impossible to create directory (for example protected)\n   \
+    \     \"\"\"\n        existing_directory = tmp_path\n        directory_to_create\
+    \ = Path(tmp_path, \"not_yet_created\")\n    \n>       assert utils.make_sure_path_exists(existing_directory)\n\
+    E       AssertionError\n\ntests/test_utils.py:45: AssertionError"
+  killer: tests/test_utils.py::test_make_sure_path_exists
+  module: !!python/module:cookiecutter.utils ''
+  mutations:
+  - lineno: 43
+    operator: ROR
+  number: 10
+  status: killed
+  tests_run: -145
+  time: 0.7480916976928711
+number_of_tests: 204
+targets:
+- cookiecutter/
+tests:
+- name: tests.conftest
+  target: null
+  time: 1.1362926959991455
+- name: tests.test_abort_generate_on_hook_error
+  target: null
+  time: 0.859168291091919
+- name: tests.test_cli
+  target: null
+  time: 0.7867038249969482
+- name: tests.test_cookiecutter_invocation
+  target: null
+  time: 0.9217691421508789
+- name: tests.test_cookiecutter_local_no_input
+  target: null
+  time: 0.5366933345794678
+- name: tests.test_cookiecutter_local_with_input
+  target: null
+  time: 0.3796546459197998
+- name: tests.test_custom_extensions_in_hooks
+  target: null
+  time: 1.027087926864624
+- name: tests.test_default_extensions
+  target: null
+  time: 0.5781195163726807
+- name: tests.test_environment
+  target: null
+  time: 0.35030555725097656
+- name: tests.test_exceptions
+  target: null
+  time: 0.3439974784851074
+- name: tests.test_find
+  target: null
+  time: 0.3504958152770996
+- name: tests.test_generate_context
+  target: null
+  time: 0.38062119483947754
+- name: tests.test_generate_copy_without_render
+  target: null
+  time: 0.37139439582824707
+- name: tests.test_generate_file
+  target: null
+  time: 0.41164612770080566
+- name: tests.test_generate_files
+  target: null
+  time: 0.8645980358123779
+- name: tests.test_generate_hooks
+  target: null
+  time: 1.5018894672393799
+- name: tests.test_get_config
+  target: null
+  time: 0.36132383346557617
+- name: tests.test_get_user_config
+  target: null
+  time: 0.38366270065307617
+- name: tests.test_hooks
+  target: null
+  time: 0.6958777904510498
+- name: tests.test_log
+  target: null
+  time: 0.3599214553833008
+- name: tests.test_main
+  target: null
+  time: 0.45945191383361816
+- name: tests.test_output_folder
+  target: null
+  time: 0.3681643009185791
+- name: tests.test_preferred_encoding
+  target: null
+  time: 0.34551310539245605
+- name: tests.test_prompt
+  target: null
+  time: 0.5566637516021729
+- name: tests.test_read_repo_password
+  target: null
+  time: 0.3476991653442383
+- name: tests.test_read_user_choice
+  target: null
+  time: 0.38469982147216797
+- name: tests.test_read_user_dict
+  target: null
+  time: 0.3708775043487549
+- name: tests.test_read_user_variable
+  target: null
+  time: 0.4172515869140625
+- name: tests.test_read_user_yes_no
+  target: null
+  time: 0.35328245162963867
+- name: tests.test_repo_not_found
+  target: null
+  time: 0.3448338508605957
+- name: tests.test_specify_output_dir
+  target: null
+  time: 0.3925328254699707
+- name: tests.test_utils
+  target: null
+  time: 0.41275668144226074
+time_stats:
+  create_mutant_module: 0.07493448257446289
+  create_target_ast: 0.06028175354003906
+  mutate_module: 140.56923365592957
+  run_tests_with_mutant: 10.558146953582764
+total_time: 158.14620876312256

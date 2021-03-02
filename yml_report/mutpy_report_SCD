@@ -1,0 +1,265 @@
+coverage:
+  all_nodes: 6759
+  covered_nodes: 5140
+mutation_score: 100.0
+mutations:
+- exception_traceback: "mocker = <pytest_mock.plugin.MockFixture object at 0x7f937068c730>\n\
+    cli_runner = <function cli_runner.<locals>.cli_main at 0x7f937026e1f0>\n\n   \
+    \ @pytest.mark.usefixtures('remove_fake_project_dir')\n    def test_cli_replay(mocker,\
+    \ cli_runner):\n        \"\"\"Test cli invocation display log with `verbose` and\
+    \ `replay` flags.\"\"\"\n        mock_cookiecutter = mocker.patch('cookiecutter.cli.cookiecutter')\n\
+    \    \n        template_path = 'tests/fake-repo-pre/'\n        result = cli_runner(template_path,\
+    \ '--replay', '-v')\n    \n        assert result.exit_code == 0\n>       mock_cookiecutter.assert_called_once_with(\n\
+    \            template_path,\n            None,\n            False,\n         \
+    \   replay=True,\n            overwrite_if_exists=False,\n            skip_if_file_exists=False,\n\
+    \            output_dir='.',\n            config_file=None,\n            default_config=False,\n\
+    \            extra_context=None,\n            password=None,\n            directory=None,\n\
+    \            accept_hooks=True,\n        )\nE       AssertionError: Expected 'cookiecutter'\
+    \ to be called once. Called 0 times.\n\ntests/test_cli.py:95: AssertionError"
+  killer: tests/test_cli.py::test_cli_replay
+  module: !!python/module:cookiecutter.environment ''
+  mutations:
+  - lineno: 59
+    operator: SCD
+  number: 1
+  status: killed
+  tests_run: 46
+  time: 2.7283644676208496
+- exception_traceback: "tmpdir = local('/tmp/pytest-of-ubuntu/pytest-703/test_hooks_raises_errors_pre_g0'),\
+    \ abort_pre_gen = 'yes'\nabort_post_gen = 'no'\n\n    @pytest.mark.parametrize(\n\
+    \        (\"abort_pre_gen\", \"abort_post_gen\"),\n        ((\"yes\", \"no\"),\
+    \ (\"no\", \"yes\")),\n        ids=(\"pre_gen_hook_raises_error\", \"post_gen_hook_raises_error\"\
+    ),\n    )\n    @pytest.mark.usefixtures(\"clean_system\")\n    def test_hooks_raises_errors(tmpdir,\
+    \ abort_pre_gen, abort_post_gen):\n        \"\"\"Verify pre- and pos-gen errors\
+    \ raises correct error code from script.\n    \n        This allows developers\
+    \ to make different error codes in their code,\n        for different errors.\n\
+    \        \"\"\"\n        context = {\n            \"cookiecutter\": {\n      \
+    \          \"repo_dir\": \"foobar\",\n                \"abort_pre_gen\": abort_pre_gen,\n\
+    \                \"abort_post_gen\": abort_post_gen,\n            }\n        }\n\
+    \    \n        with pytest.raises(exceptions.FailedHookException) as error:\n\
+    >           generate.generate_files(\n                repo_dir=\"tests/hooks-abort-render\"\
+    , context=context, output_dir=str(tmpdir)\n            )\n\ntests/test_abort_generate_on_hook_error.py:34:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter/generate.py:304:\
+    \ in generate_files\n    _run_hook_from_repo_dir(\ncookiecutter/generate.py:243:\
+    \ in _run_hook_from_repo_dir\n    run_hook(hook_name, project_dir, context)\n\
+    cookiecutter/hooks.py:131: in run_hook\n    run_script_with_context(script, project_dir,\
+    \ context)\ncookiecutter/hooks.py:114: in run_script_with_context\n    run_script(temp.name,\
+    \ cwd)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nscript_path = '/tmp/tmpyjhlt1_v.py',\
+    \ cwd = '/tmp/pytest-of-ubuntu/pytest-703/test_hooks_raises_errors_pre_g0/foobar'\n\
+    \n    def run_script(script_path, cwd='.'):\n        \"\"\"Execute a script from\
+    \ a working directory.\n    \n        :param script_path: Absolute path to the\
+    \ script to run.\n        :param cwd: The directory to run the script from.\n\
+    \        \"\"\"\n        run_thru_shell = sys.platform.startswith('win')\n   \
+    \     if script_path.endswith('.py'):\n            script_command = [sys.executable,\
+    \ script_path]\n        else:\n            script_command = [script_path]\n  \
+    \  \n        utils.make_executable(script_path)\n    \n        try:\n        \
+    \    proc = subprocess.Popen(script_command, shell=run_thru_shell, cwd=cwd)\n\
+    \            exit_status = proc.wait()\n            if exit_status != EXIT_SUCCESS:\n\
+    >               raise FailedHookException(\n                    'Hook script failed\
+    \ (exit status: {})'.format(exit_status)\n                )\nE               cookiecutter.exceptions.FailedHookException:\
+    \ Hook script failed (exit status: 5)\n\ncookiecutter/hooks.py:85: FailedHookException"
+  killer: tests/test_abort_generate_on_hook_error.py::test_hooks_raises_errors[pre_gen_hook_raises_error]
+  module: &id001 !!python/module:cookiecutter.extensions ''
+  mutations:
+  - lineno: 13
+    operator: SCD
+  number: 2
+  status: killed
+  tests_run: 14
+  time: 1.2723383903503418
+- exception_traceback: "tmpdir = local('/tmp/pytest-of-ubuntu/pytest-704/test_hooks_raises_errors_pre_g0'),\
+    \ abort_pre_gen = 'yes'\nabort_post_gen = 'no'\n\n    @pytest.mark.parametrize(\n\
+    \        (\"abort_pre_gen\", \"abort_post_gen\"),\n        ((\"yes\", \"no\"),\
+    \ (\"no\", \"yes\")),\n        ids=(\"pre_gen_hook_raises_error\", \"post_gen_hook_raises_error\"\
+    ),\n    )\n    @pytest.mark.usefixtures(\"clean_system\")\n    def test_hooks_raises_errors(tmpdir,\
+    \ abort_pre_gen, abort_post_gen):\n        \"\"\"Verify pre- and pos-gen errors\
+    \ raises correct error code from script.\n    \n        This allows developers\
+    \ to make different error codes in their code,\n        for different errors.\n\
+    \        \"\"\"\n        context = {\n            \"cookiecutter\": {\n      \
+    \          \"repo_dir\": \"foobar\",\n                \"abort_pre_gen\": abort_pre_gen,\n\
+    \                \"abort_post_gen\": abort_post_gen,\n            }\n        }\n\
+    \    \n        with pytest.raises(exceptions.FailedHookException) as error:\n\
+    >           generate.generate_files(\n                repo_dir=\"tests/hooks-abort-render\"\
+    , context=context, output_dir=str(tmpdir)\n            )\n\ntests/test_abort_generate_on_hook_error.py:34:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter/generate.py:304:\
+    \ in generate_files\n    _run_hook_from_repo_dir(\ncookiecutter/generate.py:243:\
+    \ in _run_hook_from_repo_dir\n    run_hook(hook_name, project_dir, context)\n\
+    cookiecutter/hooks.py:131: in run_hook\n    run_script_with_context(script, project_dir,\
+    \ context)\ncookiecutter/hooks.py:114: in run_script_with_context\n    run_script(temp.name,\
+    \ cwd)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nscript_path = '/tmp/tmps6chwqtj.py',\
+    \ cwd = '/tmp/pytest-of-ubuntu/pytest-704/test_hooks_raises_errors_pre_g0/foobar'\n\
+    \n    def run_script(script_path, cwd='.'):\n        \"\"\"Execute a script from\
+    \ a working directory.\n    \n        :param script_path: Absolute path to the\
+    \ script to run.\n        :param cwd: The directory to run the script from.\n\
+    \        \"\"\"\n        run_thru_shell = sys.platform.startswith('win')\n   \
+    \     if script_path.endswith('.py'):\n            script_command = [sys.executable,\
+    \ script_path]\n        else:\n            script_command = [script_path]\n  \
+    \  \n        utils.make_executable(script_path)\n    \n        try:\n        \
+    \    proc = subprocess.Popen(script_command, shell=run_thru_shell, cwd=cwd)\n\
+    \            exit_status = proc.wait()\n            if exit_status != EXIT_SUCCESS:\n\
+    >               raise FailedHookException(\n                    'Hook script failed\
+    \ (exit status: {})'.format(exit_status)\n                )\nE               cookiecutter.exceptions.FailedHookException:\
+    \ Hook script failed (exit status: 5)\n\ncookiecutter/hooks.py:85: FailedHookException"
+  killer: tests/test_abort_generate_on_hook_error.py::test_hooks_raises_errors[pre_gen_hook_raises_error]
+  module: *id001
+  mutations:
+  - lineno: 26
+    operator: SCD
+  number: 3
+  status: killed
+  tests_run: 14
+  time: 1.0700135231018066
+- exception_traceback: "tmpdir = local('/tmp/pytest-of-ubuntu/pytest-705/test_hooks_raises_errors_pre_g0'),\
+    \ abort_pre_gen = 'yes'\nabort_post_gen = 'no'\n\n    @pytest.mark.parametrize(\n\
+    \        (\"abort_pre_gen\", \"abort_post_gen\"),\n        ((\"yes\", \"no\"),\
+    \ (\"no\", \"yes\")),\n        ids=(\"pre_gen_hook_raises_error\", \"post_gen_hook_raises_error\"\
+    ),\n    )\n    @pytest.mark.usefixtures(\"clean_system\")\n    def test_hooks_raises_errors(tmpdir,\
+    \ abort_pre_gen, abort_post_gen):\n        \"\"\"Verify pre- and pos-gen errors\
+    \ raises correct error code from script.\n    \n        This allows developers\
+    \ to make different error codes in their code,\n        for different errors.\n\
+    \        \"\"\"\n        context = {\n            \"cookiecutter\": {\n      \
+    \          \"repo_dir\": \"foobar\",\n                \"abort_pre_gen\": abort_pre_gen,\n\
+    \                \"abort_post_gen\": abort_post_gen,\n            }\n        }\n\
+    \    \n        with pytest.raises(exceptions.FailedHookException) as error:\n\
+    >           generate.generate_files(\n                repo_dir=\"tests/hooks-abort-render\"\
+    , context=context, output_dir=str(tmpdir)\n            )\n\ntests/test_abort_generate_on_hook_error.py:34:\
+    \ \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \ncookiecutter/generate.py:304:\
+    \ in generate_files\n    _run_hook_from_repo_dir(\ncookiecutter/generate.py:243:\
+    \ in _run_hook_from_repo_dir\n    run_hook(hook_name, project_dir, context)\n\
+    cookiecutter/hooks.py:131: in run_hook\n    run_script_with_context(script, project_dir,\
+    \ context)\ncookiecutter/hooks.py:114: in run_script_with_context\n    run_script(temp.name,\
+    \ cwd)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\
+    \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nscript_path = '/tmp/tmpj87kmdkr.py',\
+    \ cwd = '/tmp/pytest-of-ubuntu/pytest-705/test_hooks_raises_errors_pre_g0/foobar'\n\
+    \n    def run_script(script_path, cwd='.'):\n        \"\"\"Execute a script from\
+    \ a working directory.\n    \n        :param script_path: Absolute path to the\
+    \ script to run.\n        :param cwd: The directory to run the script from.\n\
+    \        \"\"\"\n        run_thru_shell = sys.platform.startswith('win')\n   \
+    \     if script_path.endswith('.py'):\n            script_command = [sys.executable,\
+    \ script_path]\n        else:\n            script_command = [script_path]\n  \
+    \  \n        utils.make_executable(script_path)\n    \n        try:\n        \
+    \    proc = subprocess.Popen(script_command, shell=run_thru_shell, cwd=cwd)\n\
+    \            exit_status = proc.wait()\n            if exit_status != EXIT_SUCCESS:\n\
+    >               raise FailedHookException(\n                    'Hook script failed\
+    \ (exit status: {})'.format(exit_status)\n                )\nE               cookiecutter.exceptions.FailedHookException:\
+    \ Hook script failed (exit status: 5)\n\ncookiecutter/hooks.py:85: FailedHookException"
+  killer: tests/test_abort_generate_on_hook_error.py::test_hooks_raises_errors[pre_gen_hook_raises_error]
+  module: *id001
+  mutations:
+  - lineno: 43
+    operator: SCD
+  number: 4
+  status: killed
+  tests_run: 14
+  time: 1.072584867477417
+number_of_tests: 204
+targets:
+- cookiecutter/
+tests:
+- name: tests.conftest
+  target: null
+  time: 1.1823503971099854
+- name: tests.test_abort_generate_on_hook_error
+  target: null
+  time: 0.823622465133667
+- name: tests.test_cli
+  target: null
+  time: 0.7889702320098877
+- name: tests.test_cookiecutter_invocation
+  target: null
+  time: 0.9074079990386963
+- name: tests.test_cookiecutter_local_no_input
+  target: null
+  time: 0.547917366027832
+- name: tests.test_cookiecutter_local_with_input
+  target: null
+  time: 0.38826990127563477
+- name: tests.test_custom_extensions_in_hooks
+  target: null
+  time: 0.9851562976837158
+- name: tests.test_default_extensions
+  target: null
+  time: 0.5767102241516113
+- name: tests.test_environment
+  target: null
+  time: 0.3560018539428711
+- name: tests.test_exceptions
+  target: null
+  time: 0.3445780277252197
+- name: tests.test_find
+  target: null
+  time: 0.354935884475708
+- name: tests.test_generate_context
+  target: null
+  time: 0.3882725238800049
+- name: tests.test_generate_copy_without_render
+  target: null
+  time: 0.3709402084350586
+- name: tests.test_generate_file
+  target: null
+  time: 0.41779613494873047
+- name: tests.test_generate_files
+  target: null
+  time: 0.8624019622802734
+- name: tests.test_generate_hooks
+  target: null
+  time: 1.4989104270935059
+- name: tests.test_get_config
+  target: null
+  time: 0.3634645938873291
+- name: tests.test_get_user_config
+  target: null
+  time: 0.3863377571105957
+- name: tests.test_hooks
+  target: null
+  time: 0.709291934967041
+- name: tests.test_log
+  target: null
+  time: 0.3579978942871094
+- name: tests.test_main
+  target: null
+  time: 0.46560025215148926
+- name: tests.test_output_folder
+  target: null
+  time: 0.3873584270477295
+- name: tests.test_preferred_encoding
+  target: null
+  time: 0.35168886184692383
+- name: tests.test_prompt
+  target: null
+  time: 0.5603063106536865
+- name: tests.test_read_repo_password
+  target: null
+  time: 0.35673093795776367
+- name: tests.test_read_user_choice
+  target: null
+  time: 0.3873162269592285
+- name: tests.test_read_user_dict
+  target: null
+  time: 0.37916135787963867
+- name: tests.test_read_user_variable
+  target: null
+  time: 0.4204747676849365
+- name: tests.test_read_user_yes_no
+  target: null
+  time: 0.3534712791442871
+- name: tests.test_repo_not_found
+  target: null
+  time: 0.3484976291656494
+- name: tests.test_specify_output_dir
+  target: null
+  time: 0.39482688903808594
+- name: tests.test_utils
+  target: null
+  time: 0.42326879501342773
+time_stats:
+  create_mutant_module: 0.002293109893798828
+  create_target_ast: 0.059276580810546875
+  mutate_module: 149.8277313709259
+  run_tests_with_mutant: 8.311323404312134
+total_time: 167.4773247241974
