@@ -1,0 +1,121 @@
+coverage:
+  all_nodes: 16947
+  covered_nodes: 2553
+mutation_score: 0.0
+mutations:
+- exception_traceback: null
+  killer: null
+  module: !!python/module:requests.certs ''
+  mutations:
+  - lineno: 17
+    operator: ROR
+  number: 1
+  status: survived
+  tests_run: 0
+  time: 0.0041599273681640625
+- exception_traceback: null
+  killer: null
+  module: &id001 !!python/module:requests.compat ''
+  mutations:
+  - lineno: 23
+    operator: ROR
+  number: 2
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 26
+    operator: ROR
+  number: 3
+  status: survived
+  tests_run: 0
+  time: 0.004320383071899414
+- exception_traceback: null
+  killer: null
+  module: !!python/module:requests.help ''
+  mutations:
+  - lineno: 117
+    operator: ROR
+  number: 4
+  status: survived
+  tests_run: 0
+  time: 0.0043642520904541016
+- exception_traceback: null
+  killer: null
+  module: !!python/module:requests.packages ''
+  mutations:
+  - lineno: 11
+    operator: ROR
+  number: 5
+  status: survived
+  tests_run: 0
+  time: 0.00483393669128418
+- exception_traceback: null
+  killer: null
+  module: !!python/module:requests.sessions ''
+  mutations:
+  - lineno: 41
+    operator: ROR
+  number: 6
+  status: survived
+  tests_run: 0
+  time: 0.004673004150390625
+- exception_traceback: null
+  killer: null
+  module: !!python/module:requests.utils ''
+  mutations:
+  - lineno: 45
+    operator: ROR
+  number: 7
+  status: survived
+  tests_run: 0
+  time: 0.00557255744934082
+number_of_tests: 0
+targets:
+- requests/
+tests:
+- name: tests.compat
+  target: null
+  time: 5.1975250244140625e-05
+- name: tests.conftest
+  target: null
+  time: 1.5974044799804688e-05
+- name: tests.test_help
+  target: null
+  time: 1.3589859008789062e-05
+- name: tests.test_hooks
+  target: null
+  time: 1.4781951904296875e-05
+- name: tests.test_lowlevel
+  target: null
+  time: 1.33514404296875e-05
+- name: tests.test_packages
+  target: null
+  time: 1.1920928955078125e-05
+- name: tests.test_requests
+  target: null
+  time: 1.2636184692382812e-05
+- name: tests.test_structures
+  target: null
+  time: 1.1444091796875e-05
+- name: tests.test_testserver
+  target: null
+  time: 1.1444091796875e-05
+- name: tests.test_utils
+  target: null
+  time: 1.2636184692382812e-05
+- name: tests.testserver.server
+  target: null
+  time: 1.1682510375976562e-05
+- name: tests.utils
+  target: null
+  time: 1.0967254638671875e-05
+time_stats:
+  create_mutant_module: 0.018304109573364258
+  create_target_ast: 0.21394681930541992
+  mutate_module: 4.76849627494812
+  run_tests_with_mutant: 0.03799247741699219
+total_time: 4.969403505325317

@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import csv
 import yaml
 
-
+from collections import OrderedDict
 '''
 finds all html files in the folder and subfolders 
 '''
@@ -66,14 +66,34 @@ def parse_operator_html(pathToDirectory):
 			data['status'] = d['status']
 			data_all.append(data)
 			
-	f = csv.writer(open("data.csv", "a", newline='',  encoding="Latin-1"))
+	f = csv.writer(open("data2.csv", "a", newline='',  encoding="Latin-1"))
 	# f.writerow(['operator','status','killer','line'])
 	for d in data_all:
 		f.writerow([d['operator'],d['status'],d['killer'],d['lineno']])
 
+def num_operator_vs_tc(pathToDirectory):
+	
+	data_all = []
+	with open(pathToDirectory) as file:
+		data_list = yaml.load(file, Loader=yaml.BaseLoader)
+		
+		for key, value in data_list.items():
+			if(type(data_list['mutations']) != "null"):
+				new_data = data_list['mutations']
+		for d in new_data:
+			data = {}
+			data['killer'] = d['killer']
+			data['lineno'] = d['mutations'][0]['lineno']
+			data['operator'] = d['mutations'][0]['operator']
+			data['status'] = d['status']
+			data_all.append(data)
+			
+	print(data_all)
 
 
-file_list = collect_files_from_directory('yml_report')
+
+
+file_list = collect_files_from_directory('my_files')
 
 # print(file_list)
 for f in file_list:
@@ -83,5 +103,10 @@ for f in file_list:
 	# elif(re.search(r"([0-9])(\.html)$",f)):
 	# 	parse_operator_html(f)
 	# else:
-	# 	print("no Html file found")
+# 	# 	print("no Html file found")
 
+# with open('data.csv', newline='') as csvfile:
+# 	spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+# 	for row in spamreader:
+# 		r = row[0].split(',')
+# 		print(r[1],r[2])

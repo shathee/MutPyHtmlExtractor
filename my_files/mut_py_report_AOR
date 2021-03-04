@@ -1,0 +1,191 @@
+coverage:
+  all_nodes: 16922
+  covered_nodes: 2528
+mutation_score: 0.0
+mutations:
+- exception_traceback: null
+  killer: null
+  module: &id001 !!python/module:requests.models ''
+  mutations:
+  - lineno: 56
+    operator: AOR
+  number: 1
+  status: survived
+  tests_run: 0
+  time: 0.015197038650512695
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 56
+    operator: AOR
+  number: 2
+  status: survived
+  tests_run: 0
+  time: 0.012007713317871094
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 56
+    operator: AOR
+  number: 3
+  status: survived
+  tests_run: 0
+  time: 0.005021810531616211
+- exception_traceback: null
+  killer: null
+  module: &id002 !!python/module:requests.packages ''
+  mutations:
+  - lineno: 11
+    operator: AOR
+  number: 4
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: null
+  killer: null
+  module: *id002
+  mutations:
+  - lineno: 12
+    operator: AOR
+  number: 5
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: null
+  killer: null
+  module: &id003 !!python/module:requests.status_codes ''
+  mutations:
+  - lineno: 119
+    operator: AOR
+  number: 6
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: null
+  killer: null
+  module: *id003
+  mutations:
+  - lineno: 119
+    operator: AOR
+  number: 7
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: null
+  killer: null
+  module: &id004 !!python/module:requests.utils ''
+  mutations:
+  - lineno: 577
+    operator: AOR
+  number: 8
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: null
+  killer: null
+  module: *id004
+  mutations:
+  - lineno: 868
+    operator: AOR
+  number: 9
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: null
+  killer: null
+  module: *id004
+  mutations:
+  - lineno: 868
+    operator: AOR
+  number: 10
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: null
+  killer: null
+  module: *id004
+  mutations:
+  - lineno: 868
+    operator: AOR
+  number: 11
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: null
+  killer: null
+  module: *id004
+  mutations:
+  - lineno: 869
+    operator: AOR
+  number: 12
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: null
+  killer: null
+  module: *id004
+  mutations:
+  - lineno: 869
+    operator: AOR
+  number: 13
+  status: incompetent
+  tests_run: 0
+  time: 0
+- exception_traceback: null
+  killer: null
+  module: *id004
+  mutations:
+  - lineno: 869
+    operator: AOR
+  number: 14
+  status: incompetent
+  tests_run: 0
+  time: 0
+number_of_tests: 0
+targets:
+- requests/
+tests:
+- name: tests.compat
+  target: null
+  time: 5.364418029785156e-05
+- name: tests.conftest
+  target: null
+  time: 1.5020370483398438e-05
+- name: tests.test_help
+  target: null
+  time: 1.33514404296875e-05
+- name: tests.test_hooks
+  target: null
+  time: 1.2159347534179688e-05
+- name: tests.test_lowlevel
+  target: null
+  time: 1.1920928955078125e-05
+- name: tests.test_packages
+  target: null
+  time: 1.1205673217773438e-05
+- name: tests.test_requests
+  target: null
+  time: 1.3828277587890625e-05
+- name: tests.test_structures
+  target: null
+  time: 1.1920928955078125e-05
+- name: tests.test_testserver
+  target: null
+  time: 1.1205673217773438e-05
+- name: tests.test_utils
+  target: null
+  time: 1.1682510375976562e-05
+- name: tests.testserver.server
+  target: null
+  time: 1.0967254638671875e-05
+- name: tests.utils
+  target: null
+  time: 1.0967254638671875e-05
+time_stats:
+  create_mutant_module: 2.9886205196380615
+  create_target_ast: 0.26133179664611816
+  mutate_module: 17.695217847824097
+  run_tests_with_mutant: 0.037290334701538086
+total_time: 17.896528244018555

@@ -1,0 +1,61 @@
+coverage:
+  all_nodes: 16947
+  covered_nodes: 2553
+mutation_score: 0.0
+mutations:
+- exception_traceback: null
+  killer: null
+  module: !!python/module:requests.status_codes ''
+  mutations:
+  - lineno: 111
+    operator: COD
+  number: 1
+  status: survived
+  tests_run: 0
+  time: 0.004441261291503906
+number_of_tests: 0
+targets:
+- requests/
+tests:
+- name: tests.compat
+  target: null
+  time: 5.435943603515625e-05
+- name: tests.conftest
+  target: null
+  time: 1.4543533325195312e-05
+- name: tests.test_help
+  target: null
+  time: 1.3113021850585938e-05
+- name: tests.test_hooks
+  target: null
+  time: 1.2159347534179688e-05
+- name: tests.test_lowlevel
+  target: null
+  time: 1.1444091796875e-05
+- name: tests.test_packages
+  target: null
+  time: 1.1205673217773438e-05
+- name: tests.test_requests
+  target: null
+  time: 1.4781951904296875e-05
+- name: tests.test_structures
+  target: null
+  time: 1.3589859008789062e-05
+- name: tests.test_testserver
+  target: null
+  time: 1.1920928955078125e-05
+- name: tests.test_utils
+  target: null
+  time: 1.239776611328125e-05
+- name: tests.testserver.server
+  target: null
+  time: 1.1920928955078125e-05
+- name: tests.utils
+  target: null
+  time: 1.0728836059570312e-05
+time_stats:
+  create_mutant_module: 0.0009021759033203125
+  create_target_ast: 0.16492319107055664
+  mutate_module: 1.742241621017456
+  run_tests_with_mutant: 0.0060176849365234375
+total_time: 1.9457509517669678

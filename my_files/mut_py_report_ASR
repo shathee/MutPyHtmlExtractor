@@ -1,0 +1,49 @@
+coverage:
+  all_nodes: 16947
+  covered_nodes: 2553
+mutation_score: 0
+mutations: []
+number_of_tests: 0
+targets:
+- requests/
+tests:
+- name: tests.compat
+  target: null
+  time: 5.14984130859375e-05
+- name: tests.conftest
+  target: null
+  time: 1.4543533325195312e-05
+- name: tests.test_help
+  target: null
+  time: 1.4066696166992188e-05
+- name: tests.test_hooks
+  target: null
+  time: 1.2159347534179688e-05
+- name: tests.test_lowlevel
+  target: null
+  time: 1.3828277587890625e-05
+- name: tests.test_packages
+  target: null
+  time: 1.1682510375976562e-05
+- name: tests.test_requests
+  target: null
+  time: 1.2636184692382812e-05
+- name: tests.test_structures
+  target: null
+  time: 1.1205673217773438e-05
+- name: tests.test_testserver
+  target: null
+  time: 1.0728836059570312e-05
+- name: tests.test_utils
+  target: null
+  time: 1.1920928955078125e-05
+- name: tests.testserver.server
+  target: null
+  time: 1.1444091796875e-05
+- name: tests.utils
+  target: null
+  time: 1.0728836059570312e-05
+time_stats:
+  create_target_ast: 0.1597888469696045
+  mutate_module: 1.561694860458374
+total_time: 1.765096664428711
