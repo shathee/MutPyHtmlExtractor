@@ -127,11 +127,11 @@ def generate_tom_run_vs_tc():
 
 
 
-def generate_tom_run_vs_tc_2():
+def generate_tom_run_vs_tc_2(inputFileName):
 	row_collection = []
 	mutators_list = []
 	number_of_run_list = []
-	with open('PITcsv/new_output.csv', mode='r') as infile:
+	with open(inputFileName, mode='r') as infile:
 		reader = csv.reader(infile)
 		for line in csv.reader(infile):
 			row_dict = {}
@@ -166,18 +166,18 @@ def generate_tom_run_vs_tc_2():
 		header_list.append(ur)
 	
 
-	f = csv.writer(open("tom_run_vs_tc_1.csv", "a", newline='',  encoding="Latin-1"))
+	f = csv.writer(open(inputFileName+'_tom_1.csv', "a", newline='',  encoding="Latin-1"))
 	f.writerow(header_list)
 	for d in csv_data_to_write:
 		f.writerow(d)
-	f = csv.writer(open("tom_run_vs_tc_2.csv", "a", newline='',  encoding="Latin-1"))
+	f = csv.writer(open(inputFileName+'_tom_2.csv', "a", newline='',  encoding="Latin-1"))
 	for t in test_list:
 		f.writerow(t)
 
 
-files = collect_csv_files_from_directory("PITcsv")
+# files = collect_csv_files_from_directory("PITcsv")
 
 # for f in files:
 	# pit_csv_cleaner(f)
 
-generate_tom_run_vs_tc_2()
+# generate_tom_run_vs_tc_2()
