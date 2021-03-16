@@ -60,16 +60,15 @@ def parse_operator_html(pathToDirectory):
 				new_data = data_list['mutations']
 		for d in new_data:
 			data = {}
-			data['killer'] = d['killer']
+			data['killer'] = 'none' if (d['killer'] == 'null') else re.match(r"^.+:(.+)$",d['killer']).group(1)
 			data['lineno'] = d['mutations'][0]['lineno']
 			data['operator'] = d['mutations'][0]['operator']
 			data['status'] = d['status']
 			data_all.append(data)
 			
 	f = csv.writer(open("data2.csv", "a", newline='',  encoding="Latin-1"))
-	# f.writerow(['operator','status','killer','line'])
 	for d in data_all:
-		f.writerow([d['operator'],d['status'],d['killer'],d['lineno']])
+		f.writerow([d['killer'],d['operator'],d['lineno'],d['status']])
 
 def num_operator_vs_tc(pathToDirectory):
 	
@@ -93,7 +92,7 @@ def num_operator_vs_tc(pathToDirectory):
 
 
 
-file_list = collect_files_from_directory('my_files')
+file_list = collect_files_from_directory('yml_report')
 
 # print(file_list)
 for f in file_list:
