@@ -74,8 +74,6 @@ def generate_tom_mutators_vs_tc():
 		f.writerow(d)
 
 
-
-
 def generate_tom_run_vs_tc():
 	row_collection = []
 	mutators_list = []
@@ -93,9 +91,6 @@ def generate_tom_run_vs_tc():
 			row_collection.append(row_dict)
 			mutators_list.append(row_dict['mutator'])
 			number_of_run_list.append(row_dict['line-no'])
-
-	# mutators_list.sort()
-	# unique_mutators = list(set(mutators_list))
 
 	number_of_run_list.sort()
 	unique_run_list = list(set(number_of_run_list))
@@ -130,9 +125,59 @@ def generate_tom_run_vs_tc():
 		f.writerow(d)
 
 
+
+
+def generate_tom_run_vs_tc_2():
+	row_collection = []
+	mutators_list = []
+	number_of_run_list = []
+	with open('PITcsv/new_output.csv', mode='r') as infile:
+		reader = csv.reader(infile)
+		for line in csv.reader(infile):
+			row_dict = {}
+			row_dict['testCase'] = line[0]
+			row_dict['mutator'] = line[1]
+			row_dict['line-no'] = line[2]
+			row_dict['status'] = line[3]
+			row_collection.append(row_dict)
+			mutators_list.append(row_dict['mutator'])
+			number_of_run_list.append(row_dict['line-no'])
+
+	number_of_run_list.sort()
+	unique_run_list = list(set(number_of_run_list))
+	
+	csv_data_to_write = []
+	test_list = []
+	for da in row_collection:
+		i=0
+		tmpdict = []
+		tmpdict.append(da['testCase'])
+		for un in unique_run_list:
+			if da['line-no'].strip() == un.strip() and da['testCase'] != 'none':
+				tmpdict.append(1)
+			else:
+				tmpdict.append(0)
+		test_list.append([da['line-no'], da['mutator']])
+		csv_data_to_write.append(tmpdict)
+
+
+	header_list = ['']
+	for ur in unique_run_list:
+		header_list.append(ur)
+	
+
+	f = csv.writer(open("tom_run_vs_tc_1.csv", "a", newline='',  encoding="Latin-1"))
+	f.writerow(header_list)
+	for d in csv_data_to_write:
+		f.writerow(d)
+	f = csv.writer(open("tom_run_vs_tc_2.csv", "a", newline='',  encoding="Latin-1"))
+	for t in test_list:
+		f.writerow(t)
+
+
 files = collect_csv_files_from_directory("PITcsv")
 
 # for f in files:
 	# pit_csv_cleaner(f)
 
-generate_tom_run_vs_tc()
+generate_tom_run_vs_tc_2()
