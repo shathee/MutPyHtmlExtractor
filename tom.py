@@ -1,5 +1,6 @@
 import sys, getopt
 from csv_reader import generate_tom_run_vs_tc_2
+from csv_reader import generate_tom_run_vs_tc
 from csv_reader import collect_csv_files_from_directory
 
 
@@ -30,9 +31,11 @@ def main(argv):
 	if(directory):
 		files = collect_csv_files_from_directory(inputdir)
 		for f in files:
-			generate_tom_run_vs_tc_2(f)
+			generate_tom_run_vs_tc(f)
+			# generate_tom_run_vs_tc_2(f)
 	else:
-		generate_tom_run_vs_tc_2(inputfile)
+		generate_tom_run_vs_tc(inputfile)
+		# generate_tom_run_vs_tc_2(inputfile)
 
 
 

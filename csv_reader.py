@@ -74,11 +74,11 @@ def generate_tom_mutators_vs_tc():
 		f.writerow(d)
 
 
-def generate_tom_run_vs_tc():
+def generate_tom_run_vs_tc(inputFileName):
 	row_collection = []
 	mutators_list = []
 	number_of_run_list = []
-	with open('PITcsv/new_output.csv', mode='r') as infile:
+	with open('inputFileName', mode='r') as infile:
 	# with open('PITcsv/new_jcsv_output.csv', mode='r') as infile:
 		reader = csv.reader(infile)
 		for line in csv.reader(infile):
