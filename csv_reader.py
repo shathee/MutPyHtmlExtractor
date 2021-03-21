@@ -145,10 +145,11 @@ def generate_tom_run_vs_tc_2(inputFileName):
 
 	number_of_run_list.sort()
 	unique_run_list = list(set(number_of_run_list))
+	new_row_collection = [i for n, i in enumerate(row_collection) if i not in row_collection[n + 1:]]
 	
 	csv_data_to_write = []
 	test_list = []
-	for da in row_collection:
+	for da in new_row_collection:
 		i=0
 		tmpdict = []
 		tmpdict.append(da['testCase'])
@@ -193,10 +194,12 @@ def generate_tom_run_tc_op(inputFileName):
 			mutators_list.append(row_dict['mutator'])
 			number_of_run_list.append(row_dict['line-no'])
 
+	new_row_collection = [i for n, i in enumerate(row_collection) if i not in row_collection[n + 1:]]
 	
+
 	csv_data_to_write = []
 	res = {}
-	for d in row_collection:
+	for d in new_row_collection:
 		tmpdict = {}
 		tmpdict['testCase'] = d['testCase']
 		tmpdict['mutator'] = d['mutator']
@@ -204,31 +207,32 @@ def generate_tom_run_tc_op(inputFileName):
 		
 		res.setdefault(d['line-no'], []).append(tmpdict)
 		
-
-	k_arr = ['']
-	m_arr = ['']
-	data_arr = []
-	for k,v in res.items():
-		td = []
-		for vv in v:
-			k_arr.append(k)
-			m_arr.append(vv['mutator'])
+	print(res)
+	# k_arr = ['']
+	# m_arr = ['']
+	# data_arr = []
+	# for k,v in res.items():
+	# 	td = []
+	# 	for vv in v:
+	# 		k_arr.append(k)
+	# 		m_arr.append(vv['mutator'])
 			
-	for da in row_collection:
-		tmpdict = []
-		tmpdict.append(da['testCase'])
-		for f, b in zip(k_arr, m_arr):
-			if da['line-no'].strip() == f and da['testCase'] != 'none' and da['status']=='killed':
-				tmpdict.append(1)
-			else:
-				tmpdict.append(0)
-		csv_data_to_write.append(tmpdict)
+	# for da in new_row_collection:
+	# 	tmpdict = []
+	# 	tmpdict.append(da['testCase'])
+	# 	for f, b in zip(k_arr, m_arr):
+	# 		if da['line-no'].strip() == f and da['testCase'] != 'none' and da['status']=='killed':
+	# 			tmpdict.append(1)
+	# 		else:
+	# 			tmpdict.append(0)
+	# 	csv_data_to_write.append(tmpdict)
 	
-	f = csv.writer(open('new_tom_withOp_'+inputFileName, "a", newline='',  encoding="Latin-1"))
-	f.writerow(k_arr)
-	f.writerow(m_arr)
-	for c in csv_data_to_write:
-		f.writerow(c)
+
+	# f = csv.writer(open('new_tom_withOp_'+inputFileName, "a", newline='',  encoding="Latin-1"))
+	# f.writerow(k_arr)
+	# f.writerow(m_arr)
+	# for c in csv_data_to_write:
+	# 	f.writerow(c)
 	
 
 
@@ -244,4 +248,4 @@ def generate_tom_run_tc_op(inputFileName):
 
 #generate_tom_mutators_vs_tc()
 
-generate_tom_run_tc_op('data2.csv')
+# generate_tom_run_tc_op('data2.csv')
