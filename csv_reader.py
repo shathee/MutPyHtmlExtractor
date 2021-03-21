@@ -25,7 +25,7 @@ def pit_csv_cleaner(pathToFile):
 		
 		testCase = r[0].split('.')[-1]
 		status = r[2]
-		with open(file_split[0]+'\\new_'+ file_split[1], 'a+', newline='', encoding="Latin-1") as myfile:
+		with open(file_split[0]+'\\cleaned_'+ file_split[1], 'a+', newline='', encoding="Latin-1") as myfile:
 			wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
 			wr.writerow([testCase, mutator, mutator_number, status])
 
@@ -34,7 +34,7 @@ def generate_tom_mutators_vs_tc():
 	row_collection = []
 	mutators_list = []
 	# with open('PITcsv/new_output.csv', mode='r') as infile:
-	with open('PITcsv/new_jcsv_output.csv', mode='r') as infile:
+	with open('data2.csv', mode='r') as infile:
 		reader = csv.reader(infile)
 		
 		for line in csv.reader(infile):
@@ -68,7 +68,7 @@ def generate_tom_mutators_vs_tc():
 	header_list = ['']
 	for u in unique_mutators:
 		header_list.append(u)
-	f = csv.writer(open("tom.csv", "a", newline='',  encoding="Latin-1"))
+	f = csv.writer(open("tom_data2.csv", "a", newline='',  encoding="Latin-1"))
 	f.writerow(header_list)
 	for d in csv_data_to_write:
 		f.writerow(d)
@@ -78,7 +78,7 @@ def generate_tom_run_vs_tc(inputFileName):
 	row_collection = []
 	mutators_list = []
 	number_of_run_list = []
-	with open('inputFileName', mode='r') as infile:
+	with open(inputFileName, mode='r') as infile:
 	# with open('PITcsv/new_jcsv_output.csv', mode='r') as infile:
 		reader = csv.reader(infile)
 		for line in csv.reader(infile):
@@ -103,9 +103,9 @@ def generate_tom_run_vs_tc(inputFileName):
 		tmpdict.append(da['testCase'])
 		for un in unique_run_list:
 			if da['line-no'].strip() == un.strip() and da['testCase'] != 'none':
-				tmpdict.append(1)
+				tmpdict.append("+1")
 			else:
-				tmpdict.append(0)
+				tmpdict.append("-1")
 		test_list.append(da['mutator'])
 		csv_data_to_write.append(tmpdict)
 
@@ -175,9 +175,73 @@ def generate_tom_run_vs_tc_2(inputFileName):
 		f.writerow(t)
 
 
+
+
+def generate_tom_run_tc_op(inputFileName):
+	row_collection = []
+	mutators_list = []
+	number_of_run_list = []
+	with open(inputFileName, mode='r') as infile:
+		reader = csv.reader(infile)
+		for line in csv.reader(infile):
+			row_dict = {}
+			row_dict['testCase'] = line[0]
+			row_dict['mutator'] = line[1]
+			row_dict['line-no'] = line[2]
+			row_dict['status'] = line[3]
+			row_collection.append(row_dict)
+			mutators_list.append(row_dict['mutator'])
+			number_of_run_list.append(row_dict['line-no'])
+
+	
+	csv_data_to_write = []
+	res = {}
+	for d in row_collection:
+		tmpdict = {}
+		tmpdict['testCase'] = d['testCase']
+		tmpdict['mutator'] = d['mutator']
+		tmpdict['status'] = d['status']
+		
+		res.setdefault(d['line-no'], []).append(tmpdict)
+		
+
+	k_arr = ['']
+	m_arr = ['']
+	data_arr = []
+	for k,v in res.items():
+		td = []
+		for vv in v:
+			k_arr.append(k)
+			m_arr.append(vv['mutator'])
+			
+	for da in row_collection:
+		tmpdict = []
+		tmpdict.append(da['testCase'])
+		for f, b in zip(k_arr, m_arr):
+			if da['line-no'].strip() == f and da['testCase'] != 'none' and da['status']=='killed':
+				tmpdict.append(1)
+			else:
+				tmpdict.append(0)
+		csv_data_to_write.append(tmpdict)
+	
+	f = csv.writer(open('new_tom_withOp_'+inputFileName, "a", newline='',  encoding="Latin-1"))
+	f.writerow(k_arr)
+	f.writerow(m_arr)
+	for c in csv_data_to_write:
+		f.writerow(c)
+	
+
+
+## calling functions
+
+
 # files = collect_csv_files_from_directory("PITcsv")
 
 # for f in files:
-	# pit_csv_cleaner(f)
+# 	pit_csv_cleaner(f)
 
 # generate_tom_run_vs_tc_2()
+
+#generate_tom_mutators_vs_tc()
+
+generate_tom_run_tc_op('data2.csv')
