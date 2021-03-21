@@ -49,7 +49,7 @@ def parse_index_html(pathToDirectory):
 	f.writerow([no_of_tests[0],mutation_score[0],successful_mutants[0],survived_mutants[0],incompetent_mutants[0],timeout_mutants[0]])
 
 
-def parse_operator_html(pathToDirectory):
+def parse_mutpy_yaml(pathToDirectory):
 	
 	data_all = []
 	with open(pathToDirectory) as file:
@@ -60,12 +60,16 @@ def parse_operator_html(pathToDirectory):
 				new_data = data_list['mutations']
 		for d in new_data:
 			data = {}
-			data['killer'] = 'none' if (d['killer'] == 'null') else re.match(r"^.+:(.+)$",d['killer']).group(1)
+
+			# data['killer'] = 'none' if (d['killer'] == 'null') else re.match(r"^.+:(.+)$",d['killer'])
+			data['killer'] = 'none' if (d['killer'] == 'null') else d['killer']
+
 			data['lineno'] = d['mutations'][0]['lineno']
 			data['operator'] = d['mutations'][0]['operator']
 			data['status'] = d['status']
 			data_all.append(data)
 			
+	# print(data_all)
 	f = csv.writer(open("data2.csv", "a", newline='',  encoding="Latin-1"))
 	for d in data_all:
 		f.writerow([d['killer'],d['operator'],d['lineno'],d['status']])
@@ -92,20 +96,9 @@ def num_operator_vs_tc(pathToDirectory):
 
 
 
-file_list = collect_files_from_directory('yml_report')
+# file_list = collect_files_from_directory('yml_report')
+# for f in file_list:
+# 	parse_operator_html(f)
 
-# print(file_list)
-for f in file_list:
-	parse_operator_html(f)
-	# if(re.search(r"(index)(\.html)$",f)):
-	# 	parse_index_html(f)
-	# elif(re.search(r"([0-9])(\.html)$",f)):
-	# 	parse_operator_html(f)
-	# else:
-# 	# 	print("no Html file found")
 
-# with open('data.csv', newline='') as csvfile:
-# 	spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-# 	for row in spamreader:
-# 		r = row[0].split(',')
-# 		print(r[1],r[2])
+parse_mutpy_yaml('yml_report/forex_py_full')
