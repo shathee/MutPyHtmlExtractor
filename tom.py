@@ -34,7 +34,7 @@ def main(argv):
 			# generate_tom_run_vs_tc(f)
 			generate_tom_run_vs_tc_2(f)
 	else:
-		# generate_tom_run_vs_tc(inputfile)
+		# generate_tom_run_vs_tc(inputfile)	
 		generate_tom_run_vs_tc_2(inputfile)
 
 

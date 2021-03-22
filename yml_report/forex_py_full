@@ -1,0 +1,2648 @@
+coverage:
+  all_nodes: 1705
+  covered_nodes: 1459
+mutation_score: 88.95027624309392
+mutations:
+- exception_traceback: null
+  killer: null
+  module: &id001 !!python/module:forex_python.bitcoin ''
+  mutations:
+  - lineno: 93
+    operator: AOR
+  number: 1
+  status: survived
+  tests_run: 65
+  time: 10.585693359375
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 93
+    operator: AOR
+  number: 2
+  status: survived
+  tests_run: 65
+  time: 10.355425834655762
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 117
+    operator: AOR
+  number: 3
+  status: survived
+  tests_run: 65
+  time: 10.35973048210144
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 117
+    operator: AOR
+  number: 4
+  status: survived
+  tests_run: 65
+  time: 10.403786182403564
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 160, in test_convert_btc_to_cur_valid_currency\n    amount = self.b.convert_btc_to_cur(2,\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 117, in convert_btc_to_cur\nOverflowError:\
+    \ (34, 'Numerical result out of range')\n"
+  killer: test_convert_btc_to_cur_valid_currency (tests.test_bitcoin.TestBitCoinWithoutForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 117
+    operator: AOR
+  number: 5
+  status: killed
+  tests_run: 41
+  time: 5.477112531661987
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 148
+    operator: AOR
+  number: 6
+  status: survived
+  tests_run: 65
+  time: 10.292055130004883
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 148
+    operator: AOR
+  number: 7
+  status: survived
+  tests_run: 65
+  time: 9.981436252593994
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 179
+    operator: AOR
+  number: 8
+  status: survived
+  tests_run: 65
+  time: 10.185001373291016
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 179
+    operator: AOR
+  number: 9
+  status: survived
+  tests_run: 65
+  time: 19.626391410827637
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 177, in test_convert_to_btc_on_with_valid_currency\n    amount = self.b.convert_btc_to_cur_on(3,\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 179, in convert_btc_to_cur_on\n\
+    OverflowError: (34, 'Numerical result out of range')\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestBitCoinWithoutForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 179
+    operator: AOR
+  number: 10
+  status: killed
+  tests_run: 43
+  time: 5.973080635070801
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 15
+    operator: COI
+  number: 11
+  status: survived
+  tests_run: 65
+  time: 10.473868608474731
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 195, in test_latest_price_invalid_currency\n    price = self.b.get_latest_price('XYZ')\n\
+    \  File \"forex_python.bitcoin\", line 28, in get_latest_price\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 808, in json\n    return complexjson.loads(self.text, **kwargs)\n  File\
+    \ \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 525, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_latest_price_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 27
+    operator: COI
+  number: 12
+  status: killed
+  tests_run: 33
+  time: 7.876986026763916
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 192, in test_latest_price_valid_currency\n    self.assertEqual(type(price),\
+    \ Decimal)\nAssertionError: <class 'float'> != <class 'decimal.Decimal'>\n"
+  killer: test_latest_price_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 30
+    operator: COI
+  number: 13
+  status: killed
+  tests_run: 34
+  time: 4.370294094085693
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 205, in test_previous_price_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.get_previous_price, 'XYZ', date_obj)\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 49, in get_previous_price\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 808, in json\n\
+    \    return complexjson.loads(self.text, **kwargs)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 525, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_previous_price_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 48
+    operator: COI
+  number: 14
+  status: killed
+  tests_run: 35
+  time: 4.470849514007568
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 201, in test_previous_price_valid_currency\n    self.assertEqual(type(price),\
+    \ Decimal)\nAssertionError: <class 'float'> != <class 'decimal.Decimal'>\n"
+  killer: test_previous_price_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 51
+    operator: COI
+  number: 15
+  status: killed
+  tests_run: 38
+  time: 4.923164367675781
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 217, in test_previous_price_list_with_invalid_currency\n    price_list\
+    \ = self.b.get_previous_price_list('XYZ', start_date, end_date)\n  File \"forex_python.bitcoin\"\
+    , line 70, in get_previous_price_list\n  File \"forex_python.bitcoin\", line 16,\
+    \ in _decode_rates\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 542, in loads\n    return cls(encoding=encoding, **kw).decode(s)\n  File\
+    \ \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_previous_price_list_with_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 69
+    operator: COI
+  number: 16
+  status: killed
+  tests_run: 36
+  time: 4.625528812408447
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 154, in test_convet_to_btc_with_valid_currency\n    self.assertEqual(type(coins),\
+    \ float)\nAssertionError: <class 'decimal.Decimal'> != <class 'float'>\n"
+  killer: test_convet_to_btc_with_valid_currency (tests.test_bitcoin.TestBitCoinWithoutForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 79
+    operator: COI
+  number: 17
+  status: killed
+  tests_run: 45
+  time: 6.269249200820923
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 226, in test_convet_to_btc_with_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.convert_to_btc, Decimal('250'), 'XYZ')\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 87, in convert_to_btc\n  File\
+    \ \"/usr/lib/python3/dist-packages/requests/models.py\", line 808, in json\n \
+    \   return complexjson.loads(self.text, **kwargs)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 525, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_convet_to_btc_with_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 86
+    operator: COI
+  number: 18
+  status: killed
+  tests_run: 31
+  time: 4.220362901687622
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 222, in test_convet_to_btc_with_valid_currency\n    coins = self.b.convert_to_btc(Decimal('250'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 97, in convert_to_btc\nforex_python.converter.RatesNotAvailableError:\
+    \ BitCoin Rates Source Not Ready For Given date\n"
+  killer: test_convet_to_btc_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 89
+    operator: COI
+  number: 19
+  status: killed
+  tests_run: 32
+  time: 3.603332996368408
+- exception_traceback: "Traceback (most recent call last):\n  File \"forex_python.bitcoin\"\
+    , line 93, in convert_to_btc\nTypeError: unsupported operand type(s) for /: 'decimal.Decimal'\
+    \ and 'float'\n\nDuring handling of the above exception, another exception occurred:\n\
+    \nTraceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 222, in test_convet_to_btc_with_valid_currency\n    coins = self.b.convert_to_btc(Decimal('250'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 96, in convert_to_btc\nforex_python.converter.DecimalFloatMismatchError:\
+    \ convert_to_btc requires amount parameter is of type Decimal when force_decimal=True\n"
+  killer: test_convet_to_btc_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 90
+    operator: COI
+  number: 20
+  status: killed
+  tests_run: 32
+  time: 3.664287805557251
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 161, in test_convert_btc_to_cur_valid_currency\n    self.assertEqual(type(amount),\
+    \ float)\nAssertionError: <class 'decimal.Decimal'> != <class 'float'>\n"
+  killer: test_convert_btc_to_cur_valid_currency (tests.test_bitcoin.TestBitCoinWithoutForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 103
+    operator: COI
+  number: 21
+  status: killed
+  tests_run: 41
+  time: 5.3520050048828125
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 233, in test_convert_btc_to_cur_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.convert_btc_to_cur, Decimal('250'), 'XYZ')\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 111, in convert_btc_to_cur\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 808, in json\n\
+    \    return complexjson.loads(self.text, **kwargs)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 525, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_convert_btc_to_cur_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 110
+    operator: COI
+  number: 22
+  status: killed
+  tests_run: 27
+  time: 2.9698097705841064
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 229, in test_convert_btc_to_cur_valid_currency\n    amount = self.b.convert_btc_to_cur(Decimal('2'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 121, in convert_btc_to_cur\nforex_python.converter.RatesNotAvailableError:\
+    \ BitCoin Rates Source Not Ready For Given date\n"
+  killer: test_convert_btc_to_cur_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 113
+    operator: COI
+  number: 23
+  status: killed
+  tests_run: 28
+  time: 2.9300482273101807
+- exception_traceback: "Traceback (most recent call last):\n  File \"forex_python.bitcoin\"\
+    , line 117, in convert_btc_to_cur\nTypeError: unsupported operand type(s) for\
+    \ *: 'decimal.Decimal' and 'float'\n\nDuring handling of the above exception,\
+    \ another exception occurred:\n\nTraceback (most recent call last):\n  File \"\
+    /home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\", line 229,\
+    \ in test_convert_btc_to_cur_valid_currency\n    amount = self.b.convert_btc_to_cur(Decimal('2'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 120, in convert_btc_to_cur\nforex_python.converter.DecimalFloatMismatchError:\
+    \ convert_btc_to_cur requires coins parameter is of type Decimal when force_decimal=True\n"
+  killer: test_convert_btc_to_cur_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 114
+    operator: COI
+  number: 24
+  status: killed
+  tests_run: 28
+  time: 4.341310739517212
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 87, in test_convert_to_btc_on_with_valid_currency\n    self.assertEqual(type(coins),\
+    \ float)\nAssertionError: <class 'decimal.Decimal'> != <class 'float'>\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 127
+    operator: COI
+  number: 25
+  status: killed
+  tests_run: 59
+  time: 8.685474157333374
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 91, in test_convert_to_btc_on_with_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ convert_to_btc_on, 300, 'XYZ', date_obj)\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 142, in convert_to_btc_on\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 808, in json\n\
+    \    return complexjson.loads(self.text, **kwargs)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 525, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_convert_to_btc_on_with_invalid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 141
+    operator: COI
+  number: 26
+  status: killed
+  tests_run: 58
+  time: 9.039146423339844
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 86, in test_convert_to_btc_on_with_valid_currency\n    coins = convert_to_btc_on(300,\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 152, in convert_to_btc_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 144
+    operator: COI
+  number: 27
+  status: killed
+  tests_run: 59
+  time: 19.89599919319153
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 87, in test_convert_to_btc_on_with_valid_currency\n    self.assertEqual(type(coins),\
+    \ float)\nAssertionError: <class 'decimal.Decimal'> != <class 'float'>\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 145
+    operator: COI
+  number: 28
+  status: killed
+  tests_run: 59
+  time: 9.256335735321045
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 178, in test_convert_to_btc_on_with_valid_currency\n    self.assertEqual(type(amount),\
+    \ float)\nAssertionError: <class 'decimal.Decimal'> != <class 'float'>\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestBitCoinWithoutForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 158
+    operator: COI
+  number: 29
+  status: killed
+  tests_run: 43
+  time: 6.051856756210327
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 251, in test_convert_to_btc_on_with_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.convert_btc_to_cur_on, Decimal('3'), 'XYZ', date_obj)\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 173, in convert_btc_to_cur_on\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 808, in json\n\
+    \    return complexjson.loads(self.text, **kwargs)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 525, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_convert_to_btc_on_with_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 172
+    operator: COI
+  number: 30
+  status: killed
+  tests_run: 29
+  time: 3.5042247772216797
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 246, in test_convert_to_btc_on_with_valid_currency\n    amount = self.b.convert_btc_to_cur_on(Decimal('250'),\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 183, in convert_btc_to_cur_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 175
+    operator: COI
+  number: 31
+  status: killed
+  tests_run: 30
+  time: 3.141677141189575
+- exception_traceback: "Traceback (most recent call last):\n  File \"forex_python.bitcoin\"\
+    , line 179, in convert_btc_to_cur_on\nTypeError: unsupported operand type(s) for\
+    \ *: 'decimal.Decimal' and 'float'\n\nDuring handling of the above exception,\
+    \ another exception occurred:\n\nTraceback (most recent call last):\n  File \"\
+    /home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\", line 246,\
+    \ in test_convert_to_btc_on_with_valid_currency\n    amount = self.b.convert_btc_to_cur_on(Decimal('250'),\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 182, in convert_btc_to_cur_on\n\
+    forex_python.converter.DecimalFloatMismatchError: convert_btc_to_cur_on requires\
+    \ amount parameter is of type Decimal when force_decimal=True\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 176
+    operator: COI
+  number: 32
+  status: killed
+  tests_run: 30
+  time: 3.3488028049468994
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 195, in test_latest_price_invalid_currency\n    price = self.b.get_latest_price('XYZ')\n\
+    \  File \"forex_python.bitcoin\", line 26, in get_latest_price\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 67, in get\n    return request('get', url, params=params, **kwargs)\n \
+    \ File \"/usr/lib/python3/dist-packages/requests/api.py\", line 53, in request\n\
+    \    return session.request(method=method, url=url, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 466, in request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL 'mutpy': No schema supplied. Perhaps you meant http://mutpy?\n"
+  killer: test_latest_price_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 25
+    operator: CRP
+  number: 33
+  status: killed
+  tests_run: 33
+  time: 4.040337085723877
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 195, in test_latest_price_invalid_currency\n    price = self.b.get_latest_price('XYZ')\n\
+    \  File \"forex_python.bitcoin\", line 26, in get_latest_price\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 67, in get\n    return request('get', url, params=params, **kwargs)\n \
+    \ File \"/usr/lib/python3/dist-packages/requests/api.py\", line 53, in request\n\
+    \    return session.request(method=method, url=url, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 466, in request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL '': No schema supplied. Perhaps you meant http://?\n"
+  killer: test_latest_price_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 25
+    operator: CRP
+  number: 34
+  status: killed
+  tests_run: 33
+  time: 5.682766437530518
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 192, in test_latest_price_valid_currency\n    self.assertEqual(type(price),\
+    \ Decimal)\nAssertionError: <class 'NoneType'> != <class 'decimal.Decimal'>\n"
+  killer: test_latest_price_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 27
+    operator: CRP
+  number: 35
+  status: killed
+  tests_run: 34
+  time: 5.445800304412842
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 191, in test_latest_price_valid_currency\n    price = self.b.get_latest_price('USD')\n\
+    \  File \"forex_python.bitcoin\", line 29, in get_latest_price\nAttributeError:\
+    \ 'NoneType' object has no attribute 'get'\n"
+  killer: test_latest_price_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 29
+    operator: CRP
+  number: 36
+  status: killed
+  tests_run: 34
+  time: 4.205566883087158
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 191, in test_latest_price_valid_currency\n    price = self.b.get_latest_price('USD')\n\
+    \  File \"forex_python.bitcoin\", line 29, in get_latest_price\nAttributeError:\
+    \ 'NoneType' object has no attribute 'get'\n"
+  killer: test_latest_price_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 29
+    operator: CRP
+  number: 37
+  status: killed
+  tests_run: 34
+  time: 3.8623838424682617
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 29
+    operator: CRP
+  number: 38
+  status: timeout
+  tests_run: null
+  time: 71.266521692276
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 29
+    operator: CRP
+  number: 39
+  status: timeout
+  tests_run: null
+  time: 71.26631307601929
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 200, in test_previous_price_valid_currency\n    price = self.b.get_previous_price('USD',\
+    \ date_obj)\n  File \"forex_python.bitcoin\", line 54, in get_previous_price\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given date\n"
+  killer: test_previous_price_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 39
+    operator: CRP
+  number: 40
+  status: killed
+  tests_run: 38
+  time: 8.093451023101807
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 200, in test_previous_price_valid_currency\n    price = self.b.get_previous_price('USD',\
+    \ date_obj)\n  File \"forex_python.bitcoin\", line 54, in get_previous_price\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given date\n"
+  killer: test_previous_price_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 39
+    operator: CRP
+  number: 41
+  status: killed
+  tests_run: 38
+  time: 6.550886392593384
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 200, in test_previous_price_valid_currency\n    price = self.b.get_previous_price('USD',\
+    \ date_obj)\n  File \"forex_python.bitcoin\", line 54, in get_previous_price\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given date\n"
+  killer: test_previous_price_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 40
+    operator: CRP
+  number: 42
+  status: killed
+  tests_run: 38
+  time: 5.736157417297363
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 200, in test_previous_price_valid_currency\n    price = self.b.get_previous_price('USD',\
+    \ date_obj)\n  File \"forex_python.bitcoin\", line 54, in get_previous_price\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given date\n"
+  killer: test_previous_price_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 40
+    operator: CRP
+  number: 43
+  status: killed
+  tests_run: 38
+  time: 17.286707639694214
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 205, in test_previous_price_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.get_previous_price, 'XYZ', date_obj)\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 47, in get_previous_price\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/api.py\", line 67, in get\n\
+    \    return request('get', url, params=params, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 53, in request\n    return session.request(method=method, url=url, **kwargs)\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 466, in\
+    \ request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL 'mutpy': No schema supplied. Perhaps you meant http://mutpy?\n"
+  killer: test_previous_price_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 42
+    operator: CRP
+  number: 44
+  status: killed
+  tests_run: 35
+  time: 5.583967208862305
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 205, in test_previous_price_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.get_previous_price, 'XYZ', date_obj)\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 47, in get_previous_price\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/api.py\", line 67, in get\n\
+    \    return request('get', url, params=params, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 53, in request\n    return session.request(method=method, url=url, **kwargs)\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 466, in\
+    \ request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL '': No schema supplied. Perhaps you meant http://?\n"
+  killer: test_previous_price_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 42
+    operator: CRP
+  number: 45
+  status: killed
+  tests_run: 35
+  time: 4.066478252410889
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 200, in test_previous_price_valid_currency\n    price = self.b.get_previous_price('USD',\
+    \ date_obj)\n  File \"forex_python.bitcoin\", line 54, in get_previous_price\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given date\n"
+  killer: test_previous_price_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 48
+    operator: CRP
+  number: 46
+  status: killed
+  tests_run: 38
+  time: 5.076685667037964
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 50
+    operator: CRP
+  number: 47
+  status: timeout
+  tests_run: null
+  time: 71.26634764671326
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 50
+    operator: CRP
+  number: 48
+  status: timeout
+  tests_run: null
+  time: 71.23953747749329
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 54
+    operator: CRP
+  number: 49
+  status: survived
+  tests_run: 65
+  time: 9.528904914855957
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 54
+    operator: CRP
+  number: 50
+  status: survived
+  tests_run: 65
+  time: 11.049521207809448
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 211, in test_previous_price_list_with_valid_currency\n    self.assertTrue(price_list)\n\
+    AssertionError: {} is not true\n"
+  killer: test_previous_price_list_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 60
+    operator: CRP
+  number: 51
+  status: killed
+  tests_run: 37
+  time: 4.800718307495117
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 211, in test_previous_price_list_with_valid_currency\n    self.assertTrue(price_list)\n\
+    AssertionError: {} is not true\n"
+  killer: test_previous_price_list_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 60
+    operator: CRP
+  number: 52
+  status: killed
+  tests_run: 37
+  time: 5.2421064376831055
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 211, in test_previous_price_list_with_valid_currency\n    self.assertTrue(price_list)\n\
+    AssertionError: {} is not true\n"
+  killer: test_previous_price_list_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 61
+    operator: CRP
+  number: 53
+  status: killed
+  tests_run: 37
+  time: 4.9710681438446045
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 211, in test_previous_price_list_with_valid_currency\n    self.assertTrue(price_list)\n\
+    AssertionError: {} is not true\n"
+  killer: test_previous_price_list_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 61
+    operator: CRP
+  number: 54
+  status: killed
+  tests_run: 37
+  time: 5.074456214904785
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 217, in test_previous_price_list_with_invalid_currency\n    price_list\
+    \ = self.b.get_previous_price_list('XYZ', start_date, end_date)\n  File \"forex_python.bitcoin\"\
+    , line 68, in get_previous_price_list\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 67, in get\n    return request('get', url, params=params, **kwargs)\n \
+    \ File \"/usr/lib/python3/dist-packages/requests/api.py\", line 53, in request\n\
+    \    return session.request(method=method, url=url, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 466, in request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL 'mutpy': No schema supplied. Perhaps you meant http://mutpy?\n"
+  killer: test_previous_price_list_with_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 63
+    operator: CRP
+  number: 55
+  status: killed
+  tests_run: 36
+  time: 5.3338329792022705
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 217, in test_previous_price_list_with_invalid_currency\n    price_list\
+    \ = self.b.get_previous_price_list('XYZ', start_date, end_date)\n  File \"forex_python.bitcoin\"\
+    , line 68, in get_previous_price_list\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 67, in get\n    return request('get', url, params=params, **kwargs)\n \
+    \ File \"/usr/lib/python3/dist-packages/requests/api.py\", line 53, in request\n\
+    \    return session.request(method=method, url=url, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 466, in request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL '': No schema supplied. Perhaps you meant http://?\n"
+  killer: test_previous_price_list_with_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 63
+    operator: CRP
+  number: 56
+  status: killed
+  tests_run: 36
+  time: 4.776999235153198
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 211, in test_previous_price_list_with_valid_currency\n    self.assertTrue(price_list)\n\
+    AssertionError: {} is not true\n"
+  killer: test_previous_price_list_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 69
+    operator: CRP
+  number: 57
+  status: killed
+  tests_run: 37
+  time: 5.896421670913696
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 211, in test_previous_price_list_with_valid_currency\n    self.assertTrue(price_list)\n\
+    AssertionError: {} is not true\n"
+  killer: test_previous_price_list_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 71
+    operator: CRP
+  number: 58
+  status: killed
+  tests_run: 37
+  time: 4.836364269256592
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 211, in test_previous_price_list_with_valid_currency\n    self.assertTrue(price_list)\n\
+    AssertionError: {} is not true\n"
+  killer: test_previous_price_list_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 71
+    operator: CRP
+  number: 59
+  status: killed
+  tests_run: 37
+  time: 15.75269365310669
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 226, in test_convet_to_btc_with_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.convert_to_btc, Decimal('250'), 'XYZ')\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 85, in convert_to_btc\n  File\
+    \ \"/usr/lib/python3/dist-packages/requests/api.py\", line 67, in get\n    return\
+    \ request('get', url, params=params, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 53, in request\n    return session.request(method=method, url=url, **kwargs)\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 466, in\
+    \ request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL 'mutpy': No schema supplied. Perhaps you meant http://mutpy?\n"
+  killer: test_convet_to_btc_with_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 84
+    operator: CRP
+  number: 60
+  status: killed
+  tests_run: 31
+  time: 3.4714484214782715
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 226, in test_convet_to_btc_with_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.convert_to_btc, Decimal('250'), 'XYZ')\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 85, in convert_to_btc\n  File\
+    \ \"/usr/lib/python3/dist-packages/requests/api.py\", line 67, in get\n    return\
+    \ request('get', url, params=params, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 53, in request\n    return session.request(method=method, url=url, **kwargs)\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 466, in\
+    \ request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL '': No schema supplied. Perhaps you meant http://?\n"
+  killer: test_convet_to_btc_with_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 84
+    operator: CRP
+  number: 61
+  status: killed
+  tests_run: 31
+  time: 3.5700817108154297
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 222, in test_convet_to_btc_with_valid_currency\n    coins = self.b.convert_to_btc(Decimal('250'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 97, in convert_to_btc\nforex_python.converter.RatesNotAvailableError:\
+    \ BitCoin Rates Source Not Ready For Given date\n"
+  killer: test_convet_to_btc_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 86
+    operator: CRP
+  number: 62
+  status: killed
+  tests_run: 32
+  time: 4.835111618041992
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 222, in test_convet_to_btc_with_valid_currency\n    coins = self.b.convert_to_btc(Decimal('250'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 88, in convert_to_btc\nAttributeError:\
+    \ 'NoneType' object has no attribute 'get'\n"
+  killer: test_convet_to_btc_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 88
+    operator: CRP
+  number: 63
+  status: killed
+  tests_run: 32
+  time: 5.864230632781982
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 222, in test_convet_to_btc_with_valid_currency\n    coins = self.b.convert_to_btc(Decimal('250'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 88, in convert_to_btc\nAttributeError:\
+    \ 'NoneType' object has no attribute 'get'\n"
+  killer: test_convet_to_btc_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 88
+    operator: CRP
+  number: 64
+  status: killed
+  tests_run: 32
+  time: 4.056537866592407
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 222, in test_convet_to_btc_with_valid_currency\n    coins = self.b.convert_to_btc(Decimal('250'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 97, in convert_to_btc\nforex_python.converter.RatesNotAvailableError:\
+    \ BitCoin Rates Source Not Ready For Given date\n"
+  killer: test_convet_to_btc_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 88
+    operator: CRP
+  number: 65
+  status: killed
+  tests_run: 32
+  time: 4.079231262207031
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 222, in test_convet_to_btc_with_valid_currency\n    coins = self.b.convert_to_btc(Decimal('250'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 97, in convert_to_btc\nforex_python.converter.RatesNotAvailableError:\
+    \ BitCoin Rates Source Not Ready For Given date\n"
+  killer: test_convet_to_btc_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 88
+    operator: CRP
+  number: 66
+  status: killed
+  tests_run: 32
+  time: 4.453141927719116
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 97
+    operator: CRP
+  number: 67
+  status: survived
+  tests_run: 65
+  time: 9.411476373672485
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 97
+    operator: CRP
+  number: 68
+  status: survived
+  tests_run: 65
+  time: 9.856855869293213
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 233, in test_convert_btc_to_cur_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.convert_btc_to_cur, Decimal('250'), 'XYZ')\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 109, in convert_btc_to_cur\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/api.py\", line 67, in get\n\
+    \    return request('get', url, params=params, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 53, in request\n    return session.request(method=method, url=url, **kwargs)\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 466, in\
+    \ request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL 'mutpy': No schema supplied. Perhaps you meant http://mutpy?\n"
+  killer: test_convert_btc_to_cur_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 108
+    operator: CRP
+  number: 69
+  status: killed
+  tests_run: 27
+  time: 2.5144691467285156
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 233, in test_convert_btc_to_cur_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.convert_btc_to_cur, Decimal('250'), 'XYZ')\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 109, in convert_btc_to_cur\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/api.py\", line 67, in get\n\
+    \    return request('get', url, params=params, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 53, in request\n    return session.request(method=method, url=url, **kwargs)\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 466, in\
+    \ request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL '': No schema supplied. Perhaps you meant http://?\n"
+  killer: test_convert_btc_to_cur_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 108
+    operator: CRP
+  number: 70
+  status: killed
+  tests_run: 27
+  time: 3.8988239765167236
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 229, in test_convert_btc_to_cur_valid_currency\n    amount = self.b.convert_btc_to_cur(Decimal('2'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 121, in convert_btc_to_cur\nforex_python.converter.RatesNotAvailableError:\
+    \ BitCoin Rates Source Not Ready For Given date\n"
+  killer: test_convert_btc_to_cur_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 110
+    operator: CRP
+  number: 71
+  status: killed
+  tests_run: 28
+  time: 3.155910015106201
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 229, in test_convert_btc_to_cur_valid_currency\n    amount = self.b.convert_btc_to_cur(Decimal('2'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 112, in convert_btc_to_cur\nAttributeError:\
+    \ 'NoneType' object has no attribute 'get'\n"
+  killer: test_convert_btc_to_cur_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 112
+    operator: CRP
+  number: 72
+  status: killed
+  tests_run: 28
+  time: 3.133713483810425
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 229, in test_convert_btc_to_cur_valid_currency\n    amount = self.b.convert_btc_to_cur(Decimal('2'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 112, in convert_btc_to_cur\nAttributeError:\
+    \ 'NoneType' object has no attribute 'get'\n"
+  killer: test_convert_btc_to_cur_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 112
+    operator: CRP
+  number: 73
+  status: killed
+  tests_run: 28
+  time: 3.4074034690856934
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 229, in test_convert_btc_to_cur_valid_currency\n    amount = self.b.convert_btc_to_cur(Decimal('2'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 121, in convert_btc_to_cur\nforex_python.converter.RatesNotAvailableError:\
+    \ BitCoin Rates Source Not Ready For Given date\n"
+  killer: test_convert_btc_to_cur_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 112
+    operator: CRP
+  number: 74
+  status: killed
+  tests_run: 28
+  time: 3.366767406463623
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 229, in test_convert_btc_to_cur_valid_currency\n    amount = self.b.convert_btc_to_cur(Decimal('2'),\
+    \ 'USD')\n  File \"forex_python.bitcoin\", line 121, in convert_btc_to_cur\nforex_python.converter.RatesNotAvailableError:\
+    \ BitCoin Rates Source Not Ready For Given date\n"
+  killer: test_convert_btc_to_cur_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 112
+    operator: CRP
+  number: 75
+  status: killed
+  tests_run: 28
+  time: 3.087571144104004
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 121
+    operator: CRP
+  number: 76
+  status: survived
+  tests_run: 65
+  time: 10.078293800354004
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 121
+    operator: CRP
+  number: 77
+  status: survived
+  tests_run: 65
+  time: 9.774878740310669
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 86, in test_convert_to_btc_on_with_valid_currency\n    coins = convert_to_btc_on(300,\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 152, in convert_to_btc_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 132
+    operator: CRP
+  number: 78
+  status: killed
+  tests_run: 59
+  time: 20.026902198791504
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 86, in test_convert_to_btc_on_with_valid_currency\n    coins = convert_to_btc_on(300,\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 152, in convert_to_btc_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 132
+    operator: CRP
+  number: 79
+  status: killed
+  tests_run: 59
+  time: 9.06016206741333
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 86, in test_convert_to_btc_on_with_valid_currency\n    coins = convert_to_btc_on(300,\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 152, in convert_to_btc_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 133
+    operator: CRP
+  number: 80
+  status: killed
+  tests_run: 59
+  time: 9.395653009414673
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 86, in test_convert_to_btc_on_with_valid_currency\n    coins = convert_to_btc_on(300,\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 152, in convert_to_btc_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 133
+    operator: CRP
+  number: 81
+  status: killed
+  tests_run: 59
+  time: 15.034851551055908
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 91, in test_convert_to_btc_on_with_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ convert_to_btc_on, 300, 'XYZ', date_obj)\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 140, in convert_to_btc_on\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/api.py\", line 67, in get\n\
+    \    return request('get', url, params=params, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 53, in request\n    return session.request(method=method, url=url, **kwargs)\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 466, in\
+    \ request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL 'mutpy': No schema supplied. Perhaps you meant http://mutpy?\n"
+  killer: test_convert_to_btc_on_with_invalid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 135
+    operator: CRP
+  number: 82
+  status: killed
+  tests_run: 58
+  time: 8.226376295089722
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 91, in test_convert_to_btc_on_with_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ convert_to_btc_on, 300, 'XYZ', date_obj)\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 140, in convert_to_btc_on\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/api.py\", line 67, in get\n\
+    \    return request('get', url, params=params, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 53, in request\n    return session.request(method=method, url=url, **kwargs)\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 466, in\
+    \ request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL '': No schema supplied. Perhaps you meant http://?\n"
+  killer: test_convert_to_btc_on_with_invalid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 135
+    operator: CRP
+  number: 83
+  status: killed
+  tests_run: 58
+  time: 8.242508172988892
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 86, in test_convert_to_btc_on_with_valid_currency\n    coins = convert_to_btc_on(300,\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 152, in convert_to_btc_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 141
+    operator: CRP
+  number: 84
+  status: killed
+  tests_run: 59
+  time: 8.801676988601685
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 86, in test_convert_to_btc_on_with_valid_currency\n    coins = convert_to_btc_on(300,\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 152, in convert_to_btc_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 143
+    operator: CRP
+  number: 85
+  status: killed
+  tests_run: 59
+  time: 9.151288270950317
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 86, in test_convert_to_btc_on_with_valid_currency\n    coins = convert_to_btc_on(300,\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 152, in convert_to_btc_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 143
+    operator: CRP
+  number: 86
+  status: killed
+  tests_run: 59
+  time: 10.265995502471924
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 152
+    operator: CRP
+  number: 87
+  status: survived
+  tests_run: 65
+  time: 9.932376623153687
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 152
+    operator: CRP
+  number: 88
+  status: survived
+  tests_run: 65
+  time: 10.044860363006592
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 246, in test_convert_to_btc_on_with_valid_currency\n    amount = self.b.convert_btc_to_cur_on(Decimal('250'),\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 183, in convert_btc_to_cur_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 163
+    operator: CRP
+  number: 89
+  status: killed
+  tests_run: 30
+  time: 14.357571125030518
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 246, in test_convert_to_btc_on_with_valid_currency\n    amount = self.b.convert_btc_to_cur_on(Decimal('250'),\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 183, in convert_btc_to_cur_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 163
+    operator: CRP
+  number: 90
+  status: killed
+  tests_run: 30
+  time: 3.804919958114624
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 246, in test_convert_to_btc_on_with_valid_currency\n    amount = self.b.convert_btc_to_cur_on(Decimal('250'),\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 183, in convert_btc_to_cur_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 164
+    operator: CRP
+  number: 91
+  status: killed
+  tests_run: 30
+  time: 3.441660165786743
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 246, in test_convert_to_btc_on_with_valid_currency\n    amount = self.b.convert_btc_to_cur_on(Decimal('250'),\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 183, in convert_btc_to_cur_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 164
+    operator: CRP
+  number: 92
+  status: killed
+  tests_run: 30
+  time: 3.8669309616088867
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 251, in test_convert_to_btc_on_with_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.convert_btc_to_cur_on, Decimal('3'), 'XYZ', date_obj)\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 171, in convert_btc_to_cur_on\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/api.py\", line 67, in get\n\
+    \    return request('get', url, params=params, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 53, in request\n    return session.request(method=method, url=url, **kwargs)\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 466, in\
+    \ request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL 'mutpy': No schema supplied. Perhaps you meant http://mutpy?\n"
+  killer: test_convert_to_btc_on_with_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 166
+    operator: CRP
+  number: 93
+  status: killed
+  tests_run: 29
+  time: 3.0423941612243652
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 251, in test_convert_to_btc_on_with_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.convert_btc_to_cur_on, Decimal('3'), 'XYZ', date_obj)\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 171, in convert_btc_to_cur_on\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/api.py\", line 67, in get\n\
+    \    return request('get', url, params=params, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 53, in request\n    return session.request(method=method, url=url, **kwargs)\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 466, in\
+    \ request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL '': No schema supplied. Perhaps you meant http://?\n"
+  killer: test_convert_to_btc_on_with_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 166
+    operator: CRP
+  number: 94
+  status: killed
+  tests_run: 29
+  time: 2.758091926574707
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 246, in test_convert_to_btc_on_with_valid_currency\n    amount = self.b.convert_btc_to_cur_on(Decimal('250'),\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 183, in convert_btc_to_cur_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 172
+    operator: CRP
+  number: 95
+  status: killed
+  tests_run: 30
+  time: 4.094703435897827
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 246, in test_convert_to_btc_on_with_valid_currency\n    amount = self.b.convert_btc_to_cur_on(Decimal('250'),\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 183, in convert_btc_to_cur_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 174
+    operator: CRP
+  number: 96
+  status: killed
+  tests_run: 30
+  time: 3.3430862426757812
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 246, in test_convert_to_btc_on_with_valid_currency\n    amount = self.b.convert_btc_to_cur_on(Decimal('250'),\
+    \ 'USD', date_obj)\n  File \"forex_python.bitcoin\", line 183, in convert_btc_to_cur_on\n\
+    forex_python.converter.RatesNotAvailableError: BitCoin Rates Source Not Ready\
+    \ For Given Date\n"
+  killer: test_convert_to_btc_on_with_valid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 174
+    operator: CRP
+  number: 97
+  status: killed
+  tests_run: 30
+  time: 3.581561803817749
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 183
+    operator: CRP
+  number: 98
+  status: survived
+  tests_run: 65
+  time: 10.160215616226196
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 183
+    operator: CRP
+  number: 99
+  status: survived
+  tests_run: 65
+  time: 9.782167196273804
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 113, in test_bitcoin_symbol\n    self.assertEqual(get_btc_symbol(), \"\\\
+    u0E3F\")\nAssertionError: 'mutpy' != '\u0E3F'\n- mutpy\n+ \u0E3F\n\n"
+  killer: test_bitcoin_symbol (tests.test_bitcoin.TestBitCoinSymbol)
+  module: *id001
+  mutations:
+  - lineno: 189
+    operator: CRP
+  number: 100
+  status: killed
+  tests_run: 39
+  time: 4.817453861236572
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 113, in test_bitcoin_symbol\n    self.assertEqual(get_btc_symbol(), \"\\\
+    u0E3F\")\nAssertionError: '' != '\u0E3F'\n+ \u0E3F\n"
+  killer: test_bitcoin_symbol (tests.test_bitcoin.TestBitCoinSymbol)
+  module: *id001
+  mutations:
+  - lineno: 189
+    operator: CRP
+  number: 101
+  status: killed
+  tests_run: 39
+  time: 5.804502964019775
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 15
+    operator: LCR
+  number: 102
+  status: survived
+  tests_run: 65
+  time: 10.40314531326294
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 195, in test_latest_price_invalid_currency\n    price = self.b.get_latest_price('XYZ')\n\
+    \  File \"forex_python.bitcoin\", line 28, in get_latest_price\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 808, in json\n    return complexjson.loads(self.text, **kwargs)\n  File\
+    \ \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 525, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_latest_price_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 27
+    operator: ROR
+  number: 103
+  status: killed
+  tests_run: 33
+  time: 3.912388563156128
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 205, in test_previous_price_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.get_previous_price, 'XYZ', date_obj)\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 49, in get_previous_price\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 808, in json\n\
+    \    return complexjson.loads(self.text, **kwargs)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 525, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_previous_price_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 48
+    operator: ROR
+  number: 104
+  status: killed
+  tests_run: 35
+  time: 5.1381518840789795
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 217, in test_previous_price_list_with_invalid_currency\n    price_list\
+    \ = self.b.get_previous_price_list('XYZ', start_date, end_date)\n  File \"forex_python.bitcoin\"\
+    , line 70, in get_previous_price_list\n  File \"forex_python.bitcoin\", line 16,\
+    \ in _decode_rates\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 542, in loads\n    return cls(encoding=encoding, **kw).decode(s)\n  File\
+    \ \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_previous_price_list_with_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 69
+    operator: ROR
+  number: 105
+  status: killed
+  tests_run: 36
+  time: 4.8691487312316895
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 226, in test_convet_to_btc_with_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.convert_to_btc, Decimal('250'), 'XYZ')\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 87, in convert_to_btc\n  File\
+    \ \"/usr/lib/python3/dist-packages/requests/models.py\", line 808, in json\n \
+    \   return complexjson.loads(self.text, **kwargs)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 525, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_convet_to_btc_with_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 86
+    operator: ROR
+  number: 106
+  status: killed
+  tests_run: 31
+  time: 3.58107590675354
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 233, in test_convert_btc_to_cur_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.convert_btc_to_cur, Decimal('250'), 'XYZ')\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 111, in convert_btc_to_cur\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 808, in json\n\
+    \    return complexjson.loads(self.text, **kwargs)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 525, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_convert_btc_to_cur_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 110
+    operator: ROR
+  number: 107
+  status: killed
+  tests_run: 27
+  time: 2.764336585998535
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 91, in test_convert_to_btc_on_with_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ convert_to_btc_on, 300, 'XYZ', date_obj)\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 142, in convert_to_btc_on\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 808, in json\n\
+    \    return complexjson.loads(self.text, **kwargs)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 525, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_convert_to_btc_on_with_invalid_currency (tests.test_bitcoin.TestConvertToBtcOn)
+  module: *id001
+  mutations:
+  - lineno: 141
+    operator: ROR
+  number: 108
+  status: killed
+  tests_run: 58
+  time: 8.653138399124146
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test_bitcoin.py\"\
+    , line 251, in test_convert_to_btc_on_with_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ self.b.convert_btc_to_cur_on, Decimal('3'), 'XYZ', date_obj)\n  File \"/usr/lib/python3.5/unittest/case.py\"\
+    , line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.bitcoin\", line 173, in convert_btc_to_cur_on\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 808, in json\n\
+    \    return complexjson.loads(self.text, **kwargs)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/__init__.py\"\
+    , line 525, in loads\n    return _default_decoder.decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 370, in decode\n    obj, end = self.raw_decode(s)\n  File \"/usr/local/lib/python3.5/dist-packages/simplejson-3.17.2-py3.5-linux-x86_64.egg/simplejson/decoder.py\"\
+    , line 400, in raw_decode\n    return self.scan_once(s, idx=_w(s, idx).end())\n\
+    simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n"
+  killer: test_convert_to_btc_on_with_invalid_currency (tests.test_bitcoin.TestBitCoinForceDecimal)
+  module: *id001
+  mutations:
+  - lineno: 172
+    operator: ROR
+  number: 109
+  status: killed
+  tests_run: 29
+  time: 12.605477333068848
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: &id002 !!python/module:forex_python.converter ''
+  mutations:
+  - lineno: 51
+    operator: AOR
+  number: 110
+  status: killed
+  tests_run: 5
+  time: 0.5649468898773193
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 65
+    operator: AOR
+  number: 111
+  status: killed
+  tests_run: 5
+  time: 0.4836394786834717
+- exception_traceback: null
+  killer: null
+  module: *id002
+  mutations:
+  - lineno: 88
+    operator: AOR
+  number: 112
+  status: timeout
+  tests_run: null
+  time: 71.2662935256958
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 96
+    operator: AOR
+  number: 113
+  status: killed
+  tests_run: 5
+  time: 0.5034301280975342
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 96
+    operator: AOR
+  number: 114
+  status: killed
+  tests_run: 5
+  time: 0.47150611877441406
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 96
+    operator: AOR
+  number: 115
+  status: killed
+  tests_run: 5
+  time: 0.6947638988494873
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 69
+    operator: COD
+  number: 116
+  status: killed
+  tests_run: 5
+  time: 0.5227146148681641
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 89, in test_amount_convert_date\n    amount = convert('USD', 'INR', 10,\
+    \ date_obj)\n  File \"forex_python.converter\", line 94, in convert\nforex_python.converter.RatesNotAvailableError:\
+    \ Currency https://api.ratesapi.io/api/2010-05-10 => INR rate not available for\
+    \ Date 2010-05-10.\n"
+  killer: test_amount_convert_date (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 92
+    operator: COD
+  number: 117
+  status: killed
+  tests_run: 1
+  time: 0.1654980182647705
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 96, in test_amount_convert_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ convert, 'ABC', 'XYZ', 10)\n  File \"/usr/lib/python3.5/unittest/case.py\",\
+    \ line 727, in assertRaises\n    return context.handle('assertRaises', args, kwargs)\n\
+    \  File \"/usr/lib/python3.5/unittest/case.py\", line 176, in handle\n    callable_obj(*args,\
+    \ **kwargs)\n  File \"forex_python.converter\", line 86, in convert\n  File \"\
+    forex_python.converter\", line 32, in _get_date_string\nAttributeError: 'NoneType'\
+    \ object has no attribute 'strftime'\n"
+  killer: test_amount_convert_invalid_currency (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 30
+    operator: COI
+  number: 118
+  status: killed
+  tests_run: 2
+  time: 0.14101767539978027
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 92, in test_amount_convert_date\n    self.assertTrue(isinstance(amount,\
+    \ float))\nAssertionError: False is not true\n"
+  killer: test_amount_convert_date (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 36
+    operator: COI
+  number: 119
+  status: killed
+  tests_run: 1
+  time: 0.13370275497436523
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 53
+    operator: COI
+  number: 120
+  status: killed
+  tests_run: 5
+  time: 0.47203969955444336
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 59
+    operator: COI
+  number: 121
+  status: killed
+  tests_run: 5
+  time: 0.4680135250091553
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 60
+    operator: COI
+  number: 122
+  status: killed
+  tests_run: 5
+  time: 0.4737827777862549
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 67
+    operator: COI
+  number: 123
+  status: killed
+  tests_run: 5
+  time: 1.5692214965820312
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 69
+    operator: COI
+  number: 124
+  status: killed
+  tests_run: 5
+  time: 0.4509866237640381
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 92, in test_amount_convert_date\n    self.assertTrue(isinstance(amount,\
+    \ float))\nAssertionError: False is not true\n"
+  killer: test_amount_convert_date (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 76
+    operator: COI
+  number: 125
+  status: killed
+  tests_run: 1
+  time: 0.16448307037353516
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 96, in test_amount_convert_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ convert, 'ABC', 'XYZ', 10)\nAssertionError: RatesNotAvailableError not raised\
+    \ by convert\n"
+  killer: test_amount_convert_invalid_currency (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 81
+    operator: COI
+  number: 126
+  status: killed
+  tests_run: 2
+  time: 0.025185585021972656
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 82
+    operator: COI
+  number: 127
+  status: killed
+  tests_run: 5
+  time: 0.5001325607299805
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 89, in test_amount_convert_date\n    amount = convert('USD', 'INR', 10,\
+    \ date_obj)\n  File \"forex_python.converter\", line 100, in convert\nforex_python.converter.RatesNotAvailableError:\
+    \ Currency Rates Source Not Ready\n"
+  killer: test_amount_convert_date (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 90
+    operator: COI
+  number: 128
+  status: killed
+  tests_run: 1
+  time: 0.1490030288696289
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 89, in test_amount_convert_date\n    amount = convert('USD', 'INR', 10,\
+    \ date_obj)\n  File \"forex_python.converter\", line 94, in convert\nforex_python.converter.RatesNotAvailableError:\
+    \ Currency https://api.ratesapi.io/api/2010-05-10 => INR rate not available for\
+    \ Date 2010-05-10.\n"
+  killer: test_amount_convert_date (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 92
+    operator: COI
+  number: 129
+  status: killed
+  tests_run: 1
+  time: 0.16680479049682617
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 89, in test_amount_convert_date\n    amount = convert('USD', 'INR', 10,\
+    \ date_obj)\n  File \"forex_python.converter\", line 89, in convert\n  File \"\
+    /usr/lib/python3/dist-packages/requests/api.py\", line 67, in get\n    return\
+    \ request('get', url, params=params, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 53, in request\n    return session.request(method=method, url=url, **kwargs)\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 466, in\
+    \ request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL 'mutpy2010-05-10': No schema supplied. Perhaps you meant http://mutpy2010-05-10?\n"
+  killer: test_amount_convert_date (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 27
+    operator: CRP
+  number: 130
+  status: killed
+  tests_run: 1
+  time: 0.030455350875854492
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 89, in test_amount_convert_date\n    amount = convert('USD', 'INR', 10,\
+    \ date_obj)\n  File \"forex_python.converter\", line 89, in convert\n  File \"\
+    /usr/lib/python3/dist-packages/requests/api.py\", line 67, in get\n    return\
+    \ request('get', url, params=params, **kwargs)\n  File \"/usr/lib/python3/dist-packages/requests/api.py\"\
+    , line 53, in request\n    return session.request(method=method, url=url, **kwargs)\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/sessions.py\", line 466, in\
+    \ request\n    prep = self.prepare_request(req)\n  File \"/usr/lib/python3/dist-packages/requests/sessions.py\"\
+    , line 400, in prepare_request\n    hooks=merge_hooks(request.hooks, self.hooks),\n\
+    \  File \"/usr/lib/python3/dist-packages/requests/models.py\", line 293, in prepare\n\
+    \    self.prepare_url(url, params)\n  File \"/usr/lib/python3/dist-packages/requests/models.py\"\
+    , line 353, in prepare_url\n    raise MissingSchema(error)\nrequests.exceptions.MissingSchema:\
+    \ Invalid URL '2010-05-10': No schema supplied. Perhaps you meant http://2010-05-10?\n"
+  killer: test_amount_convert_date (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 27
+    operator: CRP
+  number: 131
+  status: killed
+  tests_run: 1
+  time: 0.03409290313720703
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 77, in test_amount_convert_valid_currency\n    amount = convert('USD',\
+    \ 'INR', 10)\n  File \"forex_python.converter\", line 100, in convert\nforex_python.converter.RatesNotAvailableError:\
+    \ Currency Rates Source Not Ready\n"
+  killer: test_amount_convert_valid_currency (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 31
+    operator: CRP
+  number: 132
+  status: killed
+  tests_run: 3
+  time: 0.5367646217346191
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 77, in test_amount_convert_valid_currency\n    amount = convert('USD',\
+    \ 'INR', 10)\n  File \"forex_python.converter\", line 100, in convert\nforex_python.converter.RatesNotAvailableError:\
+    \ Currency Rates Source Not Ready\n"
+  killer: test_amount_convert_valid_currency (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 31
+    operator: CRP
+  number: 133
+  status: killed
+  tests_run: 3
+  time: 0.5292675495147705
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 89, in test_amount_convert_date\n    amount = convert('USD', 'INR', 10,\
+    \ date_obj)\n  File \"forex_python.converter\", line 100, in convert\nforex_python.converter.RatesNotAvailableError:\
+    \ Currency Rates Source Not Ready\n"
+  killer: test_amount_convert_date (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 32
+    operator: CRP
+  number: 134
+  status: killed
+  tests_run: 1
+  time: 0.24599146842956543
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 89, in test_amount_convert_date\n    amount = convert('USD', 'INR', 10,\
+    \ date_obj)\n  File \"forex_python.converter\", line 100, in convert\nforex_python.converter.RatesNotAvailableError:\
+    \ Currency Rates Source Not Ready\n"
+  killer: test_amount_convert_date (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 32
+    operator: CRP
+  number: 135
+  status: killed
+  tests_run: 1
+  time: 0.25035667419433594
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 37
+    operator: CRP
+  number: 136
+  status: killed
+  tests_run: 5
+  time: 0.4773378372192383
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 37
+    operator: CRP
+  number: 137
+  status: killed
+  tests_run: 5
+  time: 0.4693121910095215
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 89, in test_amount_convert_date\n    amount = convert('USD', 'INR', 10,\
+    \ date_obj)\n  File \"forex_python.converter\", line 94, in convert\nforex_python.converter.RatesNotAvailableError:\
+    \ Currency https://api.ratesapi.io/api/2010-05-10 => INR rate not available for\
+    \ Date 2010-05-10.\n"
+  killer: test_amount_convert_date (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 39
+    operator: CRP
+  number: 138
+  status: killed
+  tests_run: 1
+  time: 0.5558888912200928
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 89, in test_amount_convert_date\n    amount = convert('USD', 'INR', 10,\
+    \ date_obj)\n  File \"forex_python.converter\", line 94, in convert\nforex_python.converter.RatesNotAvailableError:\
+    \ Currency https://api.ratesapi.io/api/2010-05-10 => INR rate not available for\
+    \ Date 2010-05-10.\n"
+  killer: test_amount_convert_date (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 39
+    operator: CRP
+  number: 139
+  status: killed
+  tests_run: 1
+  time: 0.2443070411682129
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 50
+    operator: CRP
+  number: 140
+  status: killed
+  tests_run: 5
+  time: 0.7789056301116943
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 50
+    operator: CRP
+  number: 141
+  status: killed
+  tests_run: 5
+  time: 7.4258716106414795
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 50
+    operator: CRP
+  number: 142
+  status: killed
+  tests_run: 5
+  time: 0.4728579521179199
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 50
+    operator: CRP
+  number: 143
+  status: killed
+  tests_run: 5
+  time: 0.47821807861328125
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 50
+    operator: CRP
+  number: 144
+  status: killed
+  tests_run: 5
+  time: 0.4474761486053467
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 50
+    operator: CRP
+  number: 145
+  status: killed
+  tests_run: 5
+  time: 0.5452358722686768
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 53
+    operator: CRP
+  number: 146
+  status: killed
+  tests_run: 5
+  time: 0.779726505279541
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 56
+    operator: CRP
+  number: 147
+  status: killed
+  tests_run: 5
+  time: 0.4316737651824951
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 56
+    operator: CRP
+  number: 148
+  status: killed
+  tests_run: 5
+  time: 0.5767307281494141
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 61
+    operator: CRP
+  number: 149
+  status: killed
+  tests_run: 5
+  time: 0.4676039218902588
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 62
+    operator: CRP
+  number: 150
+  status: killed
+  tests_run: 5
+  time: 0.43674588203430176
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 64
+    operator: CRP
+  number: 151
+  status: killed
+  tests_run: 5
+  time: 0.4752497673034668
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 64
+    operator: CRP
+  number: 152
+  status: killed
+  tests_run: 5
+  time: 0.45657920837402344
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 64
+    operator: CRP
+  number: 153
+  status: killed
+  tests_run: 5
+  time: 0.6777489185333252
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 64
+    operator: CRP
+  number: 154
+  status: killed
+  tests_run: 5
+  time: 2.1075937747955322
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 64
+    operator: CRP
+  number: 155
+  status: killed
+  tests_run: 5
+  time: 0.4805471897125244
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 64
+    operator: CRP
+  number: 156
+  status: killed
+  tests_run: 5
+  time: 0.4970831871032715
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 64
+    operator: CRP
+  number: 157
+  status: killed
+  tests_run: 5
+  time: 0.4595644474029541
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 64
+    operator: CRP
+  number: 158
+  status: killed
+  tests_run: 5
+  time: 0.47154879570007324
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 67
+    operator: CRP
+  number: 159
+  status: killed
+  tests_run: 5
+  time: 0.44458794593811035
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 73
+    operator: CRP
+  number: 160
+  status: killed
+  tests_run: 5
+  time: 1.9992141723632812
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 73
+    operator: CRP
+  number: 161
+  status: killed
+  tests_run: 5
+  time: 0.6747822761535645
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 87
+    operator: CRP
+  number: 162
+  status: killed
+  tests_run: 5
+  time: 0.67142653465271
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 87
+    operator: CRP
+  number: 163
+  status: killed
+  tests_run: 5
+  time: 0.6511180400848389
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 87
+    operator: CRP
+  number: 164
+  status: killed
+  tests_run: 5
+  time: 0.6393439769744873
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 87
+    operator: CRP
+  number: 165
+  status: killed
+  tests_run: 5
+  time: 0.6589004993438721
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 87
+    operator: CRP
+  number: 166
+  status: killed
+  tests_run: 5
+  time: 0.6797566413879395
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 87
+    operator: CRP
+  number: 167
+  status: killed
+  tests_run: 5
+  time: 0.7486302852630615
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 87
+    operator: CRP
+  number: 168
+  status: killed
+  tests_run: 5
+  time: 0.6902823448181152
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 87
+    operator: CRP
+  number: 169
+  status: killed
+  tests_run: 5
+  time: 0.6475310325622559
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 89, in test_amount_convert_date\n    amount = convert('USD', 'INR', 10,\
+    \ date_obj)\n  File \"forex_python.converter\", line 100, in convert\nforex_python.converter.RatesNotAvailableError:\
+    \ Currency Rates Source Not Ready\n"
+  killer: test_amount_convert_date (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 90
+    operator: CRP
+  number: 170
+  status: killed
+  tests_run: 1
+  time: 0.17107295989990234
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 99
+    operator: CRP
+  number: 171
+  status: killed
+  tests_run: 5
+  time: 0.5325417518615723
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 99
+    operator: CRP
+  number: 172
+  status: killed
+  tests_run: 5
+  time: 0.48800182342529297
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 100
+    operator: CRP
+  number: 173
+  status: killed
+  tests_run: 5
+  time: 0.4350714683532715
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 100
+    operator: CRP
+  number: 174
+  status: killed
+  tests_run: 5
+  time: 0.5081520080566406
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 98
+    operator: EXS
+  number: 175
+  status: killed
+  tests_run: 5
+  time: 0.5243115425109863
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 36
+    operator: LCR
+  number: 176
+  status: killed
+  tests_run: 5
+  time: 0.4438011646270752
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 53
+    operator: ROR
+  number: 177
+  status: killed
+  tests_run: 5
+  time: 0.45757031440734863
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 59
+    operator: ROR
+  number: 178
+  status: killed
+  tests_run: 5
+  time: 0.4748671054840088
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 189, in test_with_invalid_currency_code\n    self.assertFalse(get_currency_name('XYZ'))\n\
+    \  File \"forex_python.converter\", line 136, in get_currency_name\n  File \"\
+    forex_python.converter\", line 116, in _get_data\nNameError: name '__file__' is\
+    \ not defined\n"
+  killer: test_with_invalid_currency_code (tests.test.TestCurrencyName)
+  module: *id002
+  mutations:
+  - lineno: 67
+    operator: ROR
+  number: 179
+  status: killed
+  tests_run: 5
+  time: 0.4660217761993408
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 96, in test_amount_convert_invalid_currency\n    self.assertRaises(RatesNotAvailableError,\
+    \ convert, 'ABC', 'XYZ', 10)\nAssertionError: RatesNotAvailableError not raised\
+    \ by convert\n"
+  killer: test_amount_convert_invalid_currency (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 81
+    operator: ROR
+  number: 180
+  status: killed
+  tests_run: 2
+  time: 0.025688886642456055
+- exception_traceback: "Traceback (most recent call last):\n  File \"/home/baki/BakiPythonProjects/forex-python/tests/test.py\"\
+    , line 89, in test_amount_convert_date\n    amount = convert('USD', 'INR', 10,\
+    \ date_obj)\n  File \"forex_python.converter\", line 100, in convert\nforex_python.converter.RatesNotAvailableError:\
+    \ Currency Rates Source Not Ready\n"
+  killer: test_amount_convert_date (tests.test.TestAmountConvert)
+  module: *id002
+  mutations:
+  - lineno: 90
+    operator: ROR
+  number: 181
+  status: killed
+  tests_run: 1
+  time: 0.1486985683441162
+number_of_tests: 65
+targets:
+- forex_python/
+tests:
+- name: tests.test
+  target: null
+  time: 7.162330865859985
+- name: tests.test_bitcoin
+  target: null
+  time: 7.075434923171997
+time_stats:
+  create_mutant_module: 0.5450356006622314
+  create_target_ast: 0.060091495513916016
+  mutate_module: 1233.7250294685364
+  run_tests_with_mutant: 1124.818366765976
+total_time: 1248.1839346885681
