@@ -1,6 +1,8 @@
 import csv, re, glob
 # import dataframe
-
+import calendar
+import time
+import itertools
 
 def collect_csv_files_from_directory(pathToDirectory):
     return glob.glob(pathToDirectory +r"/**/*.csv", recursive=True)
@@ -197,8 +199,8 @@ def generate_tom_run_tc_op(inputFileName):
 
 	new_row_collection = [i for n, i in enumerate(row_collection) if i not in row_collection[n + 1:]]
 	
-	# for r in new_row_collection:
-	# 	print(r)
+	new_row_collection = sorted(new_row_collection, key = lambda i: (i['testCase'], i['mutator']))
+	
 	csv_data_to_write = []
 	res = {}
 	for d in new_row_collection:
@@ -235,16 +237,58 @@ def generate_tom_run_tc_op(inputFileName):
 	    if elem not in new_k:
 	        new_k.append(elem)
 	csv_data_to_write = new_k
-	print (csv_data_to_write)
 	
-	f = csv.writer(open('new_tom_withOp_2.csv', "a", newline='',  encoding="Latin-1"))
+	ts = calendar.timegm(time.gmtime())
+	f = csv.writer(open(str(ts)+'_tom.csv', "a", newline='',  encoding="Latin-1"))
 	f.writerow(k_arr)
 	f.writerow(m_arr)
 	for c in csv_data_to_write:
 		f.writerow(c)
 	
+def clean_tom_run_tc_op(inputFileName):
+	csv_data_to_write = []
+	lines_arr = []
+	mutators_arr = []
+	d_lst = []
+	csv_data_to_write = []
+	with open(inputFileName, mode='r') as infile:
+	    r = csv.reader(infile)
+	    lines_arr = next(r)
+	    mutators_arr = next(r)
+	    for line in csv.reader(infile):
+	    	d_lst.append(line)
+	
+	temp_tc_arr = []
+	temp_csv_arr = []
+	temp_dict = {}
+	f_dict = {}
 
 
+	for d in d_lst:
+		if(d[0] not in temp_tc_arr):
+			f_dict[d[0]] = d[1:]
+			temp_dict[d[0]] = d[1:]
+			temp_tc_arr.append(d[0])
+		else:
+			dd = d[1:]
+			ind = f_dict[d[0]]
+			i = 0
+			for i in range(len(dd)):
+				if dd[i] == '1' or ind[i] == '1':
+					temp_dict[d[0]][i] = '1'
+					
+	for k, v in temp_dict.items():
+		v.insert(0, k)
+		temp_csv_arr.append(v)
+
+	f = csv.writer(open('cleaned_'+inputFileName, "a", newline='',  encoding="Latin-1"))
+	f.writerow(lines_arr)
+	f.writerow(mutators_arr)
+	for c in temp_csv_arr:
+		f.writerow(c)
+			
+	
+	
 ## calling functions
 
 
@@ -257,4 +301,6 @@ def generate_tom_run_tc_op(inputFileName):
 
 #generate_tom_mutators_vs_tc()
 
-generate_tom_run_tc_op('data2.csv')
+# generate_tom_run_tc_op('PITcsv/cleaned_csv_output.csv')
+
+clean_tom_run_tc_op('1617187551_tom.csv')
