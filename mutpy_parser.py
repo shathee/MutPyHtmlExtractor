@@ -61,8 +61,8 @@ def parse_mutpy_yaml(pathToDirectory):
 		for d in new_data:
 			data = {}
 
-			data['killer'] = 'none' if (d['killer'] == 'null') else re.match(r"^.*\ ",d['killer']).group(0)
-			# data['killer'] = 'none' if (d['killer'] == 'null') else d['killer']
+			# data['killer'] = 'none' if (d['killer'] == 'null') else re.match(r"^.*\ ",d['killer']).group(0)
+			data['killer'] = 'none' if (d['killer'] == 'null') else d['killer']
 
 			data['lineno'] = d['mutations'][0]['lineno']
 			data['operator'] = d['mutations'][0]['operator']

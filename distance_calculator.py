@@ -8,7 +8,7 @@ y_pred = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 
 
 empty_dict = {}
-with open("input_for_distance/NegateConditionalsMutator-cli.csv", mode='r') as infile:
+with open("input_for_distance/VoidMethodCallMutator-cli.csv", mode='r') as infile:
   files = csv.reader(infile)
   next(files)
   next(files)
@@ -37,7 +37,7 @@ for ur in tc1_list:
 
 
 
-f = csv.writer(open('NegateConditionalsMutator_cli.csv', "a", newline='',  encoding="Latin-1"))
+f = csv.writer(open('VoidMethodCallMutator_cli_dis.csv', "a", newline='',  encoding="Latin-1"))
 f.writerow(new_tc1)
 for d in dist_list:
     f.writerow(d)
