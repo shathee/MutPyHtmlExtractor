@@ -27,7 +27,7 @@ def pit_csv_cleaner(pathToFile):
 		
 		testCase = r[0].split('.')[-1]
 		status = r[2]
-		with open(file_split[0]+'\\cleaned_'+ file_split[1], 'a+', newline='', encoding="Latin-1") as myfile:
+		with open('cleaned_'+ file_split[-1], 'a+', newline='', encoding="Latin-1") as myfile:
 			wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
 			wr.writerow([testCase, mutator, mutator_number, status])
 
@@ -303,4 +303,4 @@ def clean_tom_run_tc_op(inputFileName):
 
 # generate_tom_run_tc_op('PITcsv/cleaned_csv_output.csv')
 
-clean_tom_run_tc_op('1617187551_tom.csv')
+# clean_tom_run_tc_op('1617187551_tom.csv')
