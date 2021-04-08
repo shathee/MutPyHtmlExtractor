@@ -29,3 +29,8 @@ clean the generated TOM with
 
 `python tom.py -k filename` 
 
+
+
+### Distance Calculation (MCC)
+
+`python distance.py -f filename` 
