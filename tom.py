@@ -37,7 +37,7 @@ def main(argv):
 		elif opt in ("-c", "--cleanPIT"):
 			pit_csv_cleaner(arg)
 		elif opt in ("-k", "--cleanTOM"):
-			pit_csv_cleaner(arg)
+			clean_tom_run_tc_op(arg)
 			
 
 

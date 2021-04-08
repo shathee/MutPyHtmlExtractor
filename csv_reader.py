@@ -197,10 +197,13 @@ def generate_tom_run_tc_op(inputFileName):
 			mutators_list.append(row_dict['mutator'])
 			number_of_run_list.append(row_dict['line-no'])
 
-	new_row_collection = [i for n, i in enumerate(row_collection) if i not in row_collection[n + 1:]]
+
+	# new_row_collection = [i for n, i in enumerate(row_collection) if i not in row_collection[n + 1:]]
 	
-	new_row_collection = sorted(new_row_collection, key = lambda i: (i['testCase'], i['mutator']))
-	
+	#sorting by test caes and mutation operator
+	# new_row_collection = sorted(row_collection, key = lambda i: (i['testCase'], i['mutator']))
+	new_row_collection = row_collection
+
 	csv_data_to_write = []
 	res = {}
 	for d in new_row_collection:
@@ -226,7 +229,7 @@ def generate_tom_run_tc_op(inputFileName):
 		if da['testCase'] != 'none':
 			tmpdict.append(da['testCase'])
 			for f, b in zip(k_arr, m_arr):
-				if da['line-no'].strip() == f and da['status'].lower() =='killed':
+				if da['line-no'].strip() == f.strip() and da['status'].lower() =='killed':
 					tmpdict.append(1)
 				else:
 					tmpdict.append(0)
@@ -237,7 +240,7 @@ def generate_tom_run_tc_op(inputFileName):
 	    if elem not in new_k:
 	        new_k.append(elem)
 	csv_data_to_write = new_k
-	
+
 	ts = calendar.timegm(time.gmtime())
 	f = csv.writer(open(str(ts)+'_tom.csv', "a", newline='',  encoding="Latin-1"))
 	f.writerow(k_arr)
@@ -245,6 +248,7 @@ def generate_tom_run_tc_op(inputFileName):
 	for c in csv_data_to_write:
 		f.writerow(c)
 	
+
 def clean_tom_run_tc_op(inputFileName):
 	csv_data_to_write = []
 	lines_arr = []
