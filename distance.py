@@ -1,6 +1,6 @@
 import sys, getopt
 
-# from csv_reader import collect_csv_files_from_directory
+from distance_calculator import calculate_distances
 
 
 def main(argv):
@@ -20,7 +20,7 @@ def main(argv):
 			print ('distance.py -f <file>')
 			sys.exit()
 		elif opt in ("-f"):
-			print('infile')
+			calculate_distances(arg)
 			
 
 
