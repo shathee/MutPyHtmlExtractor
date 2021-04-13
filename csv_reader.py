@@ -179,6 +179,70 @@ def pit_csv_cleaner(pathToFile):
 # 		f.writerow(t)
 
 
+# def generate_tom_run_tc_op(inputFileName):
+# 	row_collection = []
+# 	mutators_list = []
+# 	number_of_run_list = []
+# 	with open(inputFileName, mode='r') as infile:
+# 		reader = csv.reader(infile)
+# 		for line in csv.reader(infile):
+# 			row_dict = {}
+# 			row_dict['testCase'] = line[0]
+# 			row_dict['mutator'] = line[1]
+# 			row_dict['line-no'] = line[2]
+# 			row_dict['status'] = line[3]
+# 			row_collection.append(row_dict)
+# 			mutators_list.append(row_dict['mutator'])
+# 			number_of_run_list.append(row_dict['line-no'])
+
+# 	csv_data_to_write = []
+# 	res = {}
+# 	for d in row_collection:
+# 		tmpdict = {}
+# 		tmpdict['testCase'] = d['testCase']
+# 		tmpdict['mutator'] = d['mutator']
+# 		tmpdict['status'] = d['status']
+		
+# 		res.setdefault(d['line-no'], []).append(tmpdict)
+		
+	
+# 	k_arr = []
+# 	m_arr = []
+# 	data_arr = []
+# 	for k,v in res.items():
+# 		td = []
+# 		for vv in v:
+# 			k_arr.append(k)
+# 			m_arr.append(vv['mutator'])
+		
+# 	for da in row_collection:
+# 		tmpdict = []
+# 		print(da['testCase'], '----')
+# 		if da['testCase'] != 'none':
+# 			tmpdict.append(da['testCase'])
+# 			for f, b in zip(k_arr, m_arr):
+# 				if da['line-no'].strip() == f.strip() and da['mutator'] == b and da['status'].lower() =='killed' and da['testCase'] != 'none':
+# 					tmpdict.append(1)
+# 				else:
+# 					tmpdict.append(0)
+# 			csv_data_to_write.append(tmpdict)
+
+		
+# 	new_k = []
+# 	for elem in csv_data_to_write:
+# 	    if elem not in new_k:
+# 	        new_k.append(elem)
+# 	csv_data_to_write = new_k
+
+# 	k_arr.insert(0, '')
+# 	m_arr.insert(0, '')
+
+# 	ts = calendar.timegm(time.gmtime())
+# 	f = csv.writer(open(str(ts)+'_tom.csv', "a", newline='',  encoding="Latin-1"))
+# 	f.writerow(k_arr)
+# 	f.writerow(m_arr)
+# 	for c in csv_data_to_write:
+# 		f.writerow(c)
 
 def generate_tom_run_tc_op(inputFileName):
 	row_collection = []
@@ -186,15 +250,18 @@ def generate_tom_run_tc_op(inputFileName):
 	number_of_run_list = []
 	with open(inputFileName, mode='r') as infile:
 		reader = csv.reader(infile)
+		i = 1
 		for line in csv.reader(infile):
 			row_dict = {}
 			row_dict['testCase'] = line[0]
 			row_dict['mutator'] = line[1]
 			row_dict['line-no'] = line[2]
 			row_dict['status'] = line[3]
+			row_dict['item-no'] = i 
 			row_collection.append(row_dict)
 			mutators_list.append(row_dict['mutator'])
 			number_of_run_list.append(row_dict['line-no'])
+			i +=1
 
 	csv_data_to_write = []
 	res = {}
@@ -203,25 +270,29 @@ def generate_tom_run_tc_op(inputFileName):
 		tmpdict['testCase'] = d['testCase']
 		tmpdict['mutator'] = d['mutator']
 		tmpdict['status'] = d['status']
+		tmpdict['item-no'] = d['item-no']
 		
 		res.setdefault(d['line-no'], []).append(tmpdict)
 		
 	
+	# print(res)
 	k_arr = []
 	m_arr = []
-	data_arr = []
+	item_arr = []
 	for k,v in res.items():
-		td = []
 		for vv in v:
 			k_arr.append(k)
 			m_arr.append(vv['mutator'])
-		
+			item_arr.append(vv['item-no'])
+
+
 	for da in row_collection:
 		tmpdict = []
+		
 		if da['testCase'] != 'none':
 			tmpdict.append(da['testCase'])
-			for f, b in zip(k_arr, m_arr):
-				if da['line-no'].strip() == f.strip() and da['mutator'] == b and da['status'].lower() =='killed':
+			for f, b, it in zip(k_arr, m_arr, item_arr):
+				if da['line-no'].strip() == f.strip() and da['mutator'] == b and da['status'].lower() =='killed' and da['item-no'] == it:
 					tmpdict.append(1)
 				else:
 					tmpdict.append(0)

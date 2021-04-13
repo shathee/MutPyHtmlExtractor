@@ -1,6 +1,6 @@
 import sys, getopt
-from csv_reader import generate_tom_run_vs_tc_2
-from csv_reader import generate_tom_run_vs_tc
+# from csv_reader import generate_tom_run_vs_tc_2
+# from csv_reader import generate_tom_run_vs_tc
 from csv_reader import generate_tom_run_tc_op
 from csv_reader import collect_csv_files_from_directory
 from csv_reader import pit_csv_cleaner
