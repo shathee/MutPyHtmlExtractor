@@ -17,7 +17,8 @@ def pit_csv_cleaner(pathToFile):
 		refactored_list = []
 		for row in spamreader:
 			x = row[0].split(',')
-			if 'KILLED' in x or 'SURVIVED' in x:
+			# if 'KILLED' in x or 'SURVIVED' in x:
+			if 'KILLED' in x:
 				refactored_list.append(x)
 				
 				
@@ -283,21 +284,20 @@ def generate_tom_run_tc_op(inputFileName):
 		for vv in v:
 			k_arr.append(k)
 			m_arr.append(vv['mutator'])
-			item_arr.append(vv['item-no'])
+			# item_arr.append(vv['item-no'])
 
 
 	for da in row_collection:
 		tmpdict = []
-		
-		if da['testCase'] != 'none':
-			tmpdict.append(da['testCase'])
-			for f, b, it in zip(k_arr, m_arr, item_arr):
-				if da['line-no'].strip() == f.strip() and da['mutator'] == b and da['status'].lower() =='killed' and da['item-no'] == it:
-					tmpdict.append(1)
-				else:
-					tmpdict.append(0)
-			csv_data_to_write.append(tmpdict)
 	
+		tmpdict.append(da['testCase'])
+		for f, b in zip(k_arr, m_arr):
+			if da['line-no'].strip() == f.strip() and da['mutator'] == b:
+				tmpdict.append(1)
+			else:
+				tmpdict.append(0)
+		csv_data_to_write.append(tmpdict)
+	# print(csv_data_to_write)
 	new_k = []
 	for elem in csv_data_to_write:
 	    if elem not in new_k:
@@ -306,9 +306,10 @@ def generate_tom_run_tc_op(inputFileName):
 
 	k_arr.insert(0, '')
 	m_arr.insert(0, '')
-
+	file_split = inputFileName.split('\\')[-1].split('.')[-2]
+	# print(file_split[-2])
 	ts = calendar.timegm(time.gmtime())
-	f = csv.writer(open(str(ts)+'_tom.csv', "a", newline='',  encoding="Latin-1"))
+	f = csv.writer(open(str(ts)+'_'+file_split+'_tom.csv', "a", newline='',  encoding="Latin-1"))
 	f.writerow(k_arr)
 	f.writerow(m_arr)
 	for c in csv_data_to_write:
@@ -368,7 +369,7 @@ def clean_tom_run_tc_op(inputFileName):
 	for k, v in temp_dict.items():
 		v.insert(0, k)
 		temp_csv_arr.append(v)
-	f = csv.writer(open('cleaned_'+inputFileName, "a", newline='',  encoding="Latin-1"))
+	f = csv.writer(open('final_'+inputFileName, "a", newline='',  encoding="Latin-1"))
 	f.writerow(lines_arr)
 	f.writerow(mutators_arr)
 	for c in temp_csv_arr:
