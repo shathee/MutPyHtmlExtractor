@@ -60,14 +60,16 @@ def parse_mutpy_yaml(pathToDirectory):
 				new_data = data_list['mutations']
 		for d in new_data:
 			data = {}
-
-			# data['killer'] = 'none' if (d['killer'] == 'null') else re.match(r"^.*\ ",d['killer']).group(0)
-			data['killer'] = 'none' if (d['killer'] == 'null') else d['killer']
-
-			data['lineno'] = d['mutations'][0]['lineno']
-			data['operator'] = d['mutations'][0]['operator']
-			data['status'] = d['status']
-			data_all.append(data)
+			# data['killer'] = 'none' if (d['killer'] == 'null') else d['killer']
+			# data['lineno'] = d['mutations'][0]['lineno']
+			# data['operator'] = d['mutations'][0]['operator']
+			# data['status'] = d['status']
+			if d['killer'] != 'null' :
+				data['killer'] = d['killer']
+				data['lineno'] = d['mutations'][0]['lineno']
+				data['operator'] = d['mutations'][0]['operator']
+				data['status'] = d['status']
+				data_all.append(data)
 			
 	# print(data_all)
 	f = csv.writer(open("data2.csv", "a", newline='',  encoding="Latin-1"))
@@ -91,7 +93,7 @@ def num_operator_vs_tc(pathToDirectory):
 			data['status'] = d['status']
 			data_all.append(data)
 			
-	print(data_all)
+	# print(data_all)
 
 
 
