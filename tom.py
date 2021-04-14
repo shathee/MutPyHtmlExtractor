@@ -1,6 +1,6 @@
 import sys, getopt
-# from csv_reader import generate_tom_run_vs_tc_2
-# from csv_reader import generate_tom_run_vs_tc
+from csv_reader import generate_tom_run_vs_tc
+from csv_reader import generate_tom_mutators_vs_run
 from csv_reader import generate_tom_run_tc_op
 from csv_reader import collect_csv_files_from_directory
 from csv_reader import pit_csv_cleaner
@@ -16,7 +16,7 @@ def main(argv):
 	if len(argv) <=0:
 		print("please provide valude arguments")
 	try:
-		opts, args = getopt.getopt(argv,"hf:d:c:k:",["file=","dir=","cleanPIT=","cleanTOM="])
+		opts, args = getopt.getopt(argv,"hf:d:c:k:m:r:",["file=","dir=","cleanPIT=","cleanTOM=","tomMutator=","tomRun="])
 	except getopt.GetoptError:
 		print ('please put right aruguments, try tom.py -h for details')
 		sys.exit(2)
@@ -38,6 +38,10 @@ def main(argv):
 			pit_csv_cleaner(arg)
 		elif opt in ("-k", "--cleanTOM"):
 			clean_tom_run_tc_op(arg)
+		elif opt in ("-m"):
+			generate_tom_mutators_vs_run(arg)
+		elif opt in ("-r"):
+			generate_tom_run_vs_tc(arg)
 			
 
 

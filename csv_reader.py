@@ -33,100 +33,77 @@ def pit_csv_cleaner(pathToFile):
 			wr.writerow([testCase, mutator, mutator_number, status])
 
 
-# def generate_tom_mutators_vs_tc():
-# 	row_collection = []
-# 	mutators_list = []
-# 	# with open('PITcsv/new_output.csv', mode='r') as infile:
-# 	with open('data2.csv', mode='r') as infile:
-# 		reader = csv.reader(infile)
+def generate_tom_mutators_vs_run(inputFileName):
+	row_collection = []
+	mutators_list = []
+	with open(inputFileName, mode='r') as infile:
+		reader = csv.reader(infile)
 		
-# 		for line in csv.reader(infile):
-# 			row_dict = {}
-# 			row_dict['testCase'] = line[0]
-# 			row_dict['mutator'] = line[1]
-# 			row_dict['line-no'] = line[2]
-# 			row_dict['status'] = line[3]
-# 			# print (line)
-# 			row_collection.append(row_dict)
-# 			mutators_list.append(row_dict['mutator'])
+		for line in csv.reader(infile):
+			row_dict = {}
+			row_dict['testCase'] = line[0]
+			row_dict['mutator'] = line[1]
+			row_dict['line-no'] = line[2]
+			row_dict['status'] = line[3]
+			row_collection.append(row_dict)
+			mutators_list.append(row_dict['mutator'])
 
-# 	mutators_list.sort()
-# 	unique_mutators = list(set(mutators_list))
+	csv_data_to_write = []
+
+	for row in row_collection:
+		tmp_arr = []
+		tmp_arr.append(row['mutator'])
+		tmp_arr.append(row['line-no'])
+		csv_data_to_write.append(tmp_arr)
+
 	
-# 	csv_data_to_write = []
 	
-# 	for da in row_collection:
-# 		i=0
-# 		tmpdict = []
-# 		tmpdict.append(da['testCase'])
-# 		for un in unique_mutators:
-# 			if da['mutator'].strip() == un.strip() and da['testCase'] != 'none' and da['status'].lower()=='killed':
-# 				tmpdict.append(1)
-# 				# tmpdict.append(da['status'])
-# 			else:
-# 				tmpdict.append(0)
-# 		csv_data_to_write.append(tmpdict)
+	f = csv.writer(open("mutators_vs_run_"+inputFileName, "a", newline='',  encoding="Latin-1"))
+	for d in csv_data_to_write:
+		f.writerow(d)
 
 
-# 	header_list = ['']
-# 	for u in unique_mutators:
-# 		header_list.append(u)
-# 	f = csv.writer(open("tom_data2.csv", "a", newline='',  encoding="Latin-1"))
-# 	f.writerow(header_list)
-# 	for d in csv_data_to_write:
-# 		f.writerow(d)
+def generate_tom_run_vs_tc(inputFileName):
+	row_collection = []
+	mutators_list = []
+	number_of_run_list = []
+	with open(inputFileName, mode='r') as infile:
+		reader = csv.reader(infile)
+		for line in csv.reader(infile):
+			row_dict = {}
+			row_dict['testCase'] = line[0]
+			row_dict['mutator'] = line[1]
+			row_dict['line-no'] = line[2]
+			row_dict['status'] = line[3]
+			row_collection.append(row_dict)
+			mutators_list.append(row_dict['mutator'])
+			number_of_run_list.append(row_dict['line-no'])
 
-
-# def generate_tom_run_vs_tc(inputFileName):
-# 	row_collection = []
-# 	mutators_list = []
-# 	number_of_run_list = []
-# 	with open(inputFileName, mode='r') as infile:
-# 		reader = csv.reader(infile)
-# 		for line in csv.reader(infile):
-# 			row_dict = {}
-# 			row_dict['testCase'] = line[0]
-# 			row_dict['mutator'] = line[1]
-# 			row_dict['line-no'] = line[2]
-# 			row_dict['status'] = line[3]
-# 			# print (line)
-# 			row_collection.append(row_dict)
-# 			mutators_list.append(row_dict['mutator'])
-# 			number_of_run_list.append(row_dict['line-no'])
-
-# 	new_row_collection = [i for n, i in enumerate(row_collection) if i not in row_collection[n + 1:]]
-
-# 	number_of_run_list.sort()
-# 	unique_run_list = list(set(number_of_run_list))
 	
-# 	csv_data_to_write = []
-# 	test_list = []
-# 	for da in new_row_collection:
-# 		if da['testCase'] != 'none':
-# 			tmpdict = []
-# 			tmpdict.append(da['testCase'])
-# 			for un in unique_run_list:
-# 				if da['line-no'].strip() == un.strip() and da['status'].lower()=='killed':
-# 					tmpdict.append("1")
-# 				else:
-# 					tmpdict.append("0")
-# 			test_list.append(da['mutator'])
-# 			csv_data_to_write.append(tmpdict)
+	csv_data_to_write = []
+	test_list = []
+	distinct_runs = list(set(number_of_run_list))
+
+	for row in row_collection:
+		tmp_arr = []
+		tmp_arr.append(row['testCase'])
+		for ur in distinct_runs:
+			if row['line-no'] == ur:
+				tmp_arr.append(1)
+			else:
+				tmp_arr.append(0)
+		csv_data_to_write.append(tmp_arr)
 
 
-# 	header_list = ['']
+	header_list = ['']
 # 	header_2_list = ['']
-# 	for ur in unique_run_list:
-# 		header_list.append(ur)
-# 	for tl in test_list:
-# 		header_2_list.append(tl)
-
-# 	f = csv.writer(open("tom_run_vs_tc.csv", "a", newline='',  encoding="Latin-1"))
-# 	f.writerow(header_list)
-# 	f = csv.writer(open("tom_run_vs_tc.csv", "a", newline='',  encoding="Latin-1"))
-# 	f.writerow(header_2_list)
-# 	for d in csv_data_to_write:
-# 		f.writerow(d)
+	for ur in distinct_runs:
+		header_list.append(ur)
+# 	
+	f = csv.writer(open("tom_run_vs_tc_"+inputFileName, "a", newline='',  encoding="Latin-1"))
+	f.writerow(header_list)
+	for d in csv_data_to_write:
+		f.writerow(d)
 
 
 
