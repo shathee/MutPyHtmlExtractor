@@ -67,6 +67,7 @@ def generate_tom_run_vs_tc(inputFileName):
 	row_collection = []
 	mutators_list = []
 	number_of_run_list = []
+	testcase_list = []
 	with open(inputFileName, mode='r') as infile:
 		reader = csv.reader(infile)
 		for line in csv.reader(infile):
@@ -78,28 +79,31 @@ def generate_tom_run_vs_tc(inputFileName):
 			row_collection.append(row_dict)
 			mutators_list.append(row_dict['mutator'])
 			number_of_run_list.append(row_dict['line-no'])
+			testcase_list.append(row_dict['testCase'])
 
 	
 	csv_data_to_write = []
-	test_list = []
-	distinct_runs = list(set(number_of_run_list))
+	
+	# distinct_runs = list(set(number_of_run_list))
+	# print(number_of_run_list)
 
-	for row in row_collection:
-		tmp_arr = []
-		tmp_arr.append(row['testCase'])
-		for ur in distinct_runs:
-			if row['line-no'] == ur:
-				tmp_arr.append(1)
+	for tc in list(set(testcase_list)):
+		test_list = []
+		test_list.append(tc)
+		for row in row_collection:
+			if tc == row['testCase']:
+				test_list.append(1)
 			else:
-				tmp_arr.append(0)
-		csv_data_to_write.append(tmp_arr)
+				test_list.append(0)
+		# print(test_list)
+		csv_data_to_write.append(test_list)
 
+	# print(csv_data_to_write)
 
-	header_list = ['']
-# 	header_2_list = ['']
-	for ur in distinct_runs:
-		header_list.append(ur)
-# 	
+	header_list = number_of_run_list
+	header_list.insert(0, ' ')
+	# print(header_list)
+
 	f = csv.writer(open("tom_run_vs_tc_"+inputFileName, "a", newline='',  encoding="Latin-1"))
 	f.writerow(header_list)
 	for d in csv_data_to_write:
