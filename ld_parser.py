@@ -16,6 +16,17 @@ def collect_files_from_directory(pathToDirectory):
 parse the file given as parameter and saves the information in csv format
 '''
 
+def parse_ld_file():
+	files = collect_files_from_directory('LDFiles')
+	for f in files:
+		dir_name = f.split("\\")[0]
+		file_name = f.split("\\")[-1]
+		file_ext = file_name.split(".")
+		if(file_ext[-1] == 'txt'):
+			print(file_ext[0])
+			print(get_mutant_operator(dir_name+'\\'+file_ext[0]+'.java'))
+			# get_mutant_operator()
+
 
 def get_mutant_operator(path):
 	with open(path) as f:
