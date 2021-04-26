@@ -297,6 +297,58 @@ def generate_tom_run_tc_op(inputFileName):
 		f.writerow(c)
 
 
+
+
+
+def generate_tom_run_tc_op_ld(inputFileName):
+	row_collection = []
+	mutators_dict = {}
+	mutation_nodes_list = []
+	with open(inputFileName, mode='r') as infile:
+		reader = csv.reader(infile)
+		i = 1
+		for line in csv.reader(infile):
+			row_dict = {}
+			row_dict['testCase'] = line[0]
+			row_dict['mutator'] = line[1]
+			row_dict['line-no'] = line[2]
+			row_dict['status'] = line[3]
+			row_dict['item-no'] = i 
+			row_collection.append(row_dict)
+			mutators_dict[row_dict['line-no']] = row_dict['mutator'] 
+			mutation_nodes_list.append(row_dict['line-no'])
+			i +=1
+
+	csv_data_to_write = []
+	
+	k_arr = []
+	m_arr = []
+	for key, value in mutators_dict.items():
+		k_arr.append(key)
+		m_arr.append(value)
+	
+	for da in row_collection:
+		tmpdict = []
+		tmpdict.append(da['testCase'])
+		for f in k_arr:
+			if da['line-no'].strip() == f.strip() and da['status'] == 'killed':
+				tmpdict.append(1)
+			else:
+				tmpdict.append(0)
+		csv_data_to_write.append(tmpdict)
+	
+	
+	k_arr.insert(0, '')
+	m_arr.insert(0, '')
+	file_split = inputFileName.split('\\')[-1].split('.')[-2]
+	
+	ts = calendar.timegm(time.gmtime())
+	f = csv.writer(open(str(ts)+'_'+file_split+'_tom.csv', "a", newline='',  encoding="Latin-1"))
+	f.writerow(k_arr)
+	f.writerow(m_arr)
+	for c in csv_data_to_write:
+		f.writerow(c)
+
 def clean_tom_run_tc_op(inputFileName):
 	csv_data_to_write = []
 	lines_arr = []
