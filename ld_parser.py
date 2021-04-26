@@ -12,19 +12,19 @@ def collect_files_from_directory(pathToDirectory):
     # return glob.glob(pathToDirectory +r"/**/*.html", recursive=True)
     return glob.glob(pathToDirectory +r"/**/*", recursive=True)
 
+def collect_all_text_files(pathToDirectory):
+    return glob.glob(pathToDirectory +r"/**/*.txt", recursive=True)
 
 
 def parse_ld_file():
-	all_files = collect_files_from_directory('LDFiles')
-	files, dirs = get_files_to_parse(all_files)
-	directory = '\\'.join(dirs)
-	# print(directory)
+	files = collect_all_text_files('LDFiles')
+	
 	mutation_data_list = []
 	for f in files:
 		mutation_entity = {}
-		mutation_entity['operator'] = get_mutant_operator(directory+'\\'+f +'.java')
-		mutation_entity['mutation_node'] = get_mutantion_node(directory+'\\'+f +'.java')
-		mutation_entity['mutation_no_in_file'] = f
+		directory = '\\'.join(f.split('\\')[0:-1])
+		mutation_entity['operator'] = get_mutant_operator(directory+'\\'+f.split('\\')[-1].split('.')[0] +'.java')
+		mutation_entity['mutation_node'] = get_mutantion_node(directory+'\\'+f.split('\\')[-1].split('.')[0] +'.java')
 		mutation_data_list.append(mutation_entity)
 	print(mutation_data_list)
 
@@ -51,12 +51,6 @@ def get_failed_test(file):
 				ft = line.split(' ')[-1]
 	return ft.strip()
 
-def get_files_to_parse(files):
-	test = []
-	for f in files:
-		r = f.split('\\')
-		test.append(r[-1].split('.')[0])
-	return list(set(i for i in test if test.count(i) > 1)), r[0:-1]
 	
 
 
