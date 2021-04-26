@@ -15,31 +15,37 @@ def collect_files_from_directory(pathToDirectory):
 
 
 def parse_ld_file():
-	files = collect_files_from_directory('LDFiles')
+	all_files = collect_files_from_directory('LDFiles')
+	files, dirs = get_files_to_parse(all_files)
+	directory = '\\'.join(dirs)
+	# print(directory)
 	mutation_data_list = []
 	for f in files:
 		mutation_entity = {}
-		dir_name = f.split("\\")[0:-2]
-		file_name = f.split("\\")[-1]
-		print(dir_name, file_name)
-		file_ext = file_name.split(".")
-		if(file_ext[-1] == 'txt'):
-			mutation_entity['operator'] = get_mutant_operator(dir_name+'\\'+file_ext[0]+'.java')
-			mutation_entity['mutation_no'] = file_ext[0]
+		mutation_entity['operator'] = get_mutant_operator(directory+'\\'+f +'.java')
+		mutation_entity['mutation_node'] = get_mutantion_node(directory+'\\'+f +'.java')
+		mutation_entity['mutation_no_in_file'] = f
 		mutation_data_list.append(mutation_entity)
-	# print(mutation_data_list)
+	print(mutation_data_list)
 
 
-def get_mutant_operator(path):
-	with open(path) as f:
+def get_mutant_operator(file):
+	with open(file) as f:
 		for line in f:
 			if line.startswith("mutant type:"):
 				mo = line.split(' ')[-1]
 	return mo.strip()
 
+def get_mutantion_node(file):
+	with open(file) as f:
+		for line in f:
+			if line.startswith("----> mutated node:"):
+				mn = line.split(' ')[-1]
+	return mn.strip()
 
-def get_failed_test(path):
-	with open(path) as f:
+
+def get_failed_test(file):
+	with open(file) as f:
 		for line in f:
 			if line.startswith("Failed tests:"):
 				ft = line.split(' ')[-1]
@@ -47,9 +53,11 @@ def get_failed_test(path):
 
 def get_files_to_parse(files):
 	test = []
-	for d in f:
-		s = d.split('\\')
-		test.append(s[-1].split('.')[0])
-
-	return list(set(i for i in test if test.count(i) > 1))
+	for f in files:
+		r = f.split('\\')
+		test.append(r[-1].split('.')[0])
+	return list(set(i for i in test if test.count(i) > 1)), r[0:-1]
 	
+
+
+parse_ld_file()
