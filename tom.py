@@ -6,6 +6,8 @@ from csv_reader import generate_tom_run_tc_op_ld
 from csv_reader import collect_csv_files_from_directory
 from csv_reader import pit_csv_cleaner
 from csv_reader import clean_tom_run_tc_op
+import time
+from datetime import timedelta
 
 
 
@@ -60,5 +62,7 @@ def main(argv):
 
 
 if __name__ == "__main__":
+	start_time = time.time()
 	main(sys.argv[1:])
-	
+	# print(time.time() - start_time)
+	print(str(timedelta(seconds=time.time() - start_time)))
