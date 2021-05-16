@@ -2,7 +2,8 @@ import os, glob, sys, re, fileinput, argparse
 import csv
 import yaml
 import xml.etree.ElementTree as ET
-
+import time
+from datetime import timedelta
 from collections import Counter
 '''
 finds all html files in the folder and subfolders 
@@ -25,23 +26,7 @@ def get_all_test_case_names(path_to_directory):
 
 	print('total tests', len(all_tests))
 	return all_tests
-			# all_tests = []
-	# for f in files:
-	# 	print(f)
-	# 	textfile = open(f, 'r', encoding="utf8")
-	# 	fr = textfile.read()
-	# 	r1 = re.search(r"(?s)(?<=@Test).*?(?=\(\))", fr)
-	# 	if r1 != None:
-	# 		all_tests.append(re.search(r"(?<=public void).*", r1.group(0)).group(0))
-
-	# 	# with open(f) as of:
-	# 	# 	for line in of:
-	# 	# 		if "@Test" in line:
-	# 	# 			nl = next(of, '').strip()
-	# 	# 			print(nl)
-	# 	# 			all_tests.append(re.search(r'test[a-zA-Z_0-9]+', nl).group(0))
-	# print('total tests', len(all_tests))
-	# # return all_tests
+	
 
 def parse_ld_file():
 	files = collect_all_files_from_directory_by_ext('LDFiles\\java','.txt')
@@ -81,44 +66,80 @@ def get_mutantion_node(file):
 				mn = line.split(' ')[-1]
 	return mn.strip()
 
+def get_line_no(file):
+	with open(file) as f:
+		for line in f:
+			if line.startswith("----> line number in original file:"):
+				ln = line.split(' ')[-1]
+	return ln.strip()
+
 
 def get_failed_status(file, tc):
 	flist = open(file, encoding='utf8').readlines()
 	parsing = False
 	data = []
 	for line in flist:
-		if line.startswith("[INFO] Results:") or line.startswith("Results:"):
+		if line.startswith("[INFO] Results:") or line.startswith("Results :"):
 			parsing = True
 		if parsing:
 			data.append(line)
 		if line.startswith("\t**** [ERROR] Tests run:") or line.startswith("\t**** [ERROR] Tests run:"):
 			parsing = False
 	status = 'survived'
+	# print(data)
 	for d in data:
 		if tc in d:
 			status = 'killed'
 			break;
 		else:
 			status = 'survived'
-	# textfile = open(file, 'r', encoding="utf8")
-	# f = textfile.read()
-	# r1 = re.search(r"(?s)(?<=Results :).*?(?=Tests run:)", f)
-	# r1 = re.search(r"(?s)(?<=Results :).*?(?=Tests run:)", f)
-	# if r1 != None:
-	# 	if tc in r1.group(0):
-	# 		status = 'killed'
-	# 	else:
-	# 		status = 'survived'
-	# else:
-	# 	status = 'survived'
 	return status
 	# print(data)
 
 def write_to_csv(list_of_dict):
 	for d in list_of_dict:
-		with open('data.csv', 'a+', newline='', encoding="Latin-1") as myfile:
+		with open('gson_data.csv', 'a+', newline='', encoding="Latin-1") as myfile:
 			wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
 			wr.writerow([d['test_case'],d['operator'],d['mutation_node'],d['status']])
 
+def get_all_nodes_with_source_file(pathToDirectory, ext):
+	files = collect_all_files_from_directory_by_ext(pathToDirectory, ext)
+	data_list = []
+	
+	for f in files:
+		mutation_entity = {}
+		directory = '\\'.join(f.split('\\')[0:-1])
+		mutation_entity['source_file'] = directory+'\\'+f.split('\\')[-1].split('.')[0] +'.java'
+		mutation_entity['mutation_node'] = get_mutantion_node(directory+'\\'+f.split('\\')[-1].split('.')[0] +'.java')
+		mutation_entity['line_no'] = get_line_no(directory+'\\'+f.split('\\')[-1].split('.')[0] +'.java')
+		data_list.append(mutation_entity)
 
-parse_ld_file()
+	for d in data_list:
+		with open('node_file_source_data1.csv', 'a+', newline='', encoding="Latin-1") as myfile:
+			wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+			wr.writerow([d['mutation_node'],d['source_file'],d['line_no']])
+
+
+def write_all_test_case_names_csv(path_to_directory):
+	files = collect_all_files_from_directory_by_ext(path_to_directory, '.xml')
+	all_tests = []
+	tmp_name = ''
+	for f in files:
+		tree = ET.parse(f)
+		root = tree.getroot()
+		tmp_name = root.attrib['name']
+		for x in root.iter('testcase'):
+			all_tests.append(x.attrib['name'])
+
+
+	print('total tests', len(all_tests))
+	for t in all_tests:
+		with open(tmp_name.split('.')[2]+'_test_cases.csv', 'a+', newline='', encoding="Latin-1") as myfile:
+			wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+			wr.writerow([t])
+
+start_time = time.time()
+# parse_ld_file()
+get_all_nodes_with_source_file('LDFiles\\java', '.txt')
+# write_all_test_case_names_csv('LDFiles\\surefire-reports')
+print(str(timedelta(seconds=time.time() - start_time)))

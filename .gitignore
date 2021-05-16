@@ -1,3 +1,4 @@
+distance_data/*
 venv/*
 *.csv
 *.xlsx

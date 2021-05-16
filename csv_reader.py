@@ -3,6 +3,8 @@ import csv, re, glob
 import calendar
 import time
 import itertools
+from datetime import timedelta
+
 
 def collect_csv_files_from_directory(pathToDirectory):
     return glob.glob(pathToDirectory +r"/**/*.csv", recursive=True)
@@ -349,6 +351,9 @@ def generate_tom_run_tc_op_ld(inputFileName):
 	for c in csv_data_to_write:
 		f.writerow(c)
 
+"""
+cleaning tom to get onlk one test case  per row
+"""
 def clean_tom_run_tc_op(inputFileName):
 	csv_data_to_write = []
 	lines_arr = []
@@ -409,6 +414,60 @@ def clean_tom_run_tc_op(inputFileName):
 		f.writerow(c)
 			
 	
+
+
+
+"""
+cleaning tom to get onlk one test case  per row
+"""
+def clean_tom_run_tc_op_tc(inputFileName, testCaseFile):
+	csv_data_to_write = []
+	lines_arr = []
+	mutators_arr = []
+	d_lst = []
+	csv_data_to_write = []
+	with open(inputFileName, mode='r') as infile:
+	    r = csv.reader(infile)
+	    lines_arr = next(r)
+	    mutators_arr = next(r)
+	    for line in csv.reader(infile):
+	    	d_lst.append(line)
+	
+	temp_tc_arr = []
+	temp_csv_arr = []
+	temp_dict = {}
+	f_dict = {}
+
+
+	with open(testCaseFile, mode='r') as infile:
+		r = csv.reader(infile)
+		for line in csv.reader(infile):
+			temp_tc_arr.append(line[0])
+
+	for tc in temp_tc_arr:
+		for d in d_lst:
+			if tc == d[0] and d[0] not in f_dict:
+				f_dict[tc]= d[1:]
+			elif tc == d[0] and d[0] in f_dict:
+				arr1 = f_dict[tc]
+				arr2 = d[1:]
+				x = list(zip(arr1, arr2))
+				for i in range(len(x)):
+					if x[i][0] == '1' or x[i][1] == '1':
+						f_dict[tc][i] = '1'
+					
+	temp_dict = f_dict			
+
+	for k, v in temp_dict.items():
+		v.insert(0, k)
+		temp_csv_arr.append(v)
+	f = csv.writer(open('final_'+inputFileName, "a", newline='',  encoding="Latin-1"))
+	f.writerow(lines_arr)
+	f.writerow(mutators_arr)
+	for c in temp_csv_arr:
+		f.writerow(c)
+			
+	
 	
 ## calling functions
 
@@ -425,3 +484,9 @@ def clean_tom_run_tc_op(inputFileName):
 # generate_tom_run_tc_op('PITcsv/cleaned_csv_output.csv')
 
 # clean_tom_run_tc_op('1617187551_tom.csv')
+
+start_time = time.time()
+# clean_tom_run_tc_op_tc('1619727140_gson_data_tom.csv','gson_test_cases.csv')
+test('final_1619727140_gson_data_tom.csv','gson_test_cases.csv')
+print(str(timedelta(seconds=time.time() - start_time)))
+

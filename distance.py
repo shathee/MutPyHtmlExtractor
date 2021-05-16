@@ -1,6 +1,6 @@
 import sys, getopt
 
-from distance_calculator import calculate_distances
+from distance_calculator import calculate_distances, calculate_distances_manual
 
 
 def main(argv):
@@ -11,7 +11,7 @@ def main(argv):
 	if len(argv) <=0:
 		print("please provide valude arguments")
 	try:
-		opts, args = getopt.getopt(argv,"hf:",["file="])
+		opts, args = getopt.getopt(argv,"hf:m:",["file="])
 	except getopt.GetoptError:
 		print ('distance.py -f <file>')
 		sys.exit(2)
@@ -21,6 +21,8 @@ def main(argv):
 			sys.exit()
 		elif opt in ("-f"):
 			calculate_distances(arg)
+		elif opt in ("-m"):
+			calculate_distances_manual(arg)
 			
 
 
